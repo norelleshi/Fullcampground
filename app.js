@@ -2,84 +2,52 @@ var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
+    flash       = require("connect-flash"),
+    passport    = require("passport"),
+    LocalStrategy = require("passport-local"),
+    methodOverride = require("method-override"),
     Campground  = require("./models/campground"),
+    Comment     = require("./models/comment"),
+    User        = require("./models/user"),
     seedDB      = require("./seeds")
 
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v3', { useNewUrlParser: true });
+// requiring routes
+var commentRoutes       = require("./routes/comments"),
+    campgroundRoutes    = require("./routes/campgrounds"),
+    indexRoutes         = require("./routes/index")
+
+mongoose.connect('mongodb://localhost:27017/yelp_camp_v12', { useNewUrlParser: true });
+// mongoose.connect("mongodb+srv://Norelle:Rusty-6639@cluster0-i0tnj.mongodb.net/test?retryWrites=true");
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-seedDB();
+app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+app.use(flash());
+// seedDB(); //seed the database
 
+// PASSPORT CONFIGURATION
+app.use(require("express-session")({
+    secret: "Once again Rusty wins cutest dog!",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
-
-// Campground.create(
-//     {
-//         name: "Granite Hill", 
-//         image: "https://pixabay.com/get/e834b5062cf4033ed1584d05fb1d4e97e07ee3d21cac104490f0c379aeeeb5ba_340.jpg",
-//         description: "This is a huge granite hill, no bathrooms. No water. Beautiful granite!"
-//     }, function(err, campground){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             console.log("NEWLY CREATED CAMPGROUND: ");
-//             console.log(campground);
-//         }
-//     });
-
-
-
-app.get("/", function(req, res){
-   res.render("landing"); 
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   res.locals.error = req.flash("error");
+   res.locals.success = req.flash("success");
+   next();
 });
 
-//INDEX - show all campgrounds
-app.get("/campgrounds", function(req, res){
-    //Get all campgrounds from DB
-    Campground.find({}, function(err, allCampgrounds){
-       if(err){
-           console.log(err);
-       } else {
-           res.render("index", {campgrounds : allCampgrounds});
-       }
-    });
-});
-
-//CREATE - add new campground to DB
-app.post("/campgrounds", function(req, res){
-   //get data from form and add to campgrounds array
-   var name = req.body.name;
-   var image = req.body.image;
-   var desc = req.body.description;
-   var newCampground = {name: name, image: image, description: desc};
-   //Create a new campground and save to DB
-   Campground.create(newCampground, function(err, newlyCreated){
-      if(err){
-          console.log(err);
-      } else {
-            //redirect back to campgrounds page
-            res.redirect("/campgrounds");
-      }
-   });
-});
-
-//NEW - show form to create new campground
-app.get("/campgrounds/new", function(req, res){
-   res.render("new.ejs"); 
-});
-
-//SHOW - shows more info about one campground
-app.get("/campgrounds/:id", function(req, res){
-    //find the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
-       if(err){
-           console.log(err);
-       } else {
-           console.log(foundCampground);
-            //render show template with that campground
-            res.render("show", {campground: foundCampground});
-       }
-    });
-});
+app.use("/", indexRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The YelpCamp server has started!"); 
