@@ -17,7 +17,7 @@ var commentRoutes       = require("./routes/comments"),
     indexRoutes         = require("./routes/index")
 
 //mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
-mongoose.connect("mongodb+srv://Norelle:Rusty-6639@cluster0-i0tnj.mongodb.net/test?retryWrites=true", { useNewUrlParser: true });
+mongoose.connect("mongodb+srv://Norelle:6639@cluster0-i0tnj.mongodb.net/test?retryWrites=true", { useNewUrlParser: true });
 
 
 app.use(bodyParser.urlencoded({extended: true}));
