@@ -64,11 +64,14 @@ main {
 
 .collapse-comment-style {
   border-left: 5px solid #00C851;
+  margin-top: 5px;
+  padding-bottom: 0px;
 }
 
 .collapse-edit-style {
   border-left: 5px solid #ffbb33;
-  margin-top: 15px;
+  margin-top: 5px;
+  padding-bottom: 0px;
 }
 
 .noComment {

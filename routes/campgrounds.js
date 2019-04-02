@@ -72,6 +72,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
        if(err){
            res.redirect("/campgrounds");
        } else {
+           req.flash("success", "Successfully edited the campground!");
            //redirect somewhere(show page)
            res.redirect("/campgrounds/" + req.params.id);
        }
@@ -84,7 +85,7 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
        if(err){
            res.redirect("/campgrounds");
        } else {
-            req.flash("success", "A Campground deleted!");
+            req.flash("success", "Successfully deleted the campground!");
             res.redirect("/campgrounds");
        }
    }); 

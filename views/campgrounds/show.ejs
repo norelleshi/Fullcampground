@@ -17,14 +17,39 @@
                     </p>
                     <hr>
                     <p class="card-text"><%= campground.description %></p>
-                    <div class="float-right">
-                        <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
-                            <a class="btn btn-sm btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
+                    <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+                        <div class="text-right">
+                            <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= campground._id %>" aria-expanded="false" aria-controls="collapse<%= campground._id %>">
+                                Edit
+                            </a>
+                            <!--Delete comment button-->
                             <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </form>
-                        <% } %>
-                    </div>    
+                        </div> 
+                        <div class="collapse" id="collapseEdit<%= campground._id %>">
+                            <div class="card-body collapse-edit-style">
+                                <h5>Edit your campground <i class="fas fa-edit"></i></h5>
+                                <form id="edit-comment-form<%= campground._id %>" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="campground[name]" form="edit-comment-form<%= campground._id %>" value="<%= campground.name %>">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="number" name="campground[price]" form="edit-comment-form<%= campground._id %>" value="<%= campground.price %>" min="0.01" step="0.01">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" name="campground[image]" form="edit-comment-form<%= campground._id %>" value="<%= campground.image %>">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" name="campground[description]" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="14" cols="70"><%= campground.description %></textarea>
+                                    </div>
+                                    <div class="form-group text-right">
+                                        <button class="btn btn-warning btn-sm">Finished Editing</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         
@@ -34,7 +59,6 @@
                     <!--Setting up the add new comment button that is used for collapsing-->
                     <a class="float-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
                         <i class="fas fa-plus"></i> 
-                        <!--Add new comment-->
                     </a>
                     <!--Comment section title-->
                     <h5 class="card-title float-left">Comments <i class="fas fa-comment-alt"></i></h5>
@@ -56,8 +80,8 @@
                                 <div class="form-group">
                                     <textarea class="form-control" name="comment[text]" placeholder="Write a new comment..." form="add-comment-form" rows="5" cols="70"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <button class="btn btn-success btn-sm">Comment <i class="fas fa-comment-alt"></i></button>
+                                <div class="form-group text-right">
+                                    <button class="btn btn-success btn-sm">Post A Comment</button>
                                 </div>
                             </form>
                         <% } %>
@@ -102,12 +126,12 @@
                                     <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= comment._id %>" aria-expanded="false" aria-controls="collapse<%= comment._id %>">
                                         Edit
                                     </a>
-    
                                     <!--Delete comment button-->
                                     <form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
                                         <button class="btn btn-sm btn-danger">Delete</button>
                                     </form>
-                                </div>    
+                                </div> 
+                                
                                 <!--Edit comment form-->
                                 <div class="collapse" id="collapseEdit<%= comment._id %>">
                                     <div class="card-body collapse-edit-style">
@@ -117,10 +141,10 @@
                                                 <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
                                             </div>
                                             <div class="form-group">
-                                                <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>" rows="5" cols="70"><%= comment.text %></textarea>
+                                                <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>" rows="7" cols="70"><%= comment.text %></textarea>
                                             </div>
-                                            <div class="form-group">
-                                                <button class="btn btn-warning btn-sm">Edit comment <i class="far fa-comment-alt"></i></button>
+                                            <div class="form-group text-right">
+                                                <button class="btn btn-warning btn-sm">Finished Editing</button>
                                             </div>
                                         </form>
                                     </div>
