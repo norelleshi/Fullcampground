@@ -30,16 +30,14 @@
         
             <!--COMMENT SECTION START-->
             <div class="card bg-light mb-2">
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <!--Setting up the add new comment button that is used for collapsing-->
-                    <div class="text-right mb-2">
-                        <a class="btn btn-success float-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
-                            <i class="fas fa-plus"></i> 
-                            Add new comment
-                        </a>
-                        <!--Comment section title-->
-                        <h4 class="float-left"><strong>Comments <i class="fas fa-comment-alt"></i></strong></h4>
-                    </div>
+                    <a class="float-right" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+                        <i class="fas fa-plus"></i> 
+                        <!--Add new comment-->
+                    </a>
+                    <!--Comment section title-->
+                    <h5 class="card-title float-left">Comments <i class="fas fa-comment-alt"></i></h5>
                 </div>    
             
                 <!--Collapse Add a comment form START-->
@@ -50,13 +48,13 @@
                             <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
                         <% } else {%>
                             <!--If the user is logged in, show the new comment form-->
-                            <h4>Write your comment <i class="fas fa-pen"></i></h4>
+                            <h5>Write your comment <i class="fas fa-pen"></i></h5>
                             <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
                                 <div class="form-group">
                                     <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
                                 </div>
                                 <div class="form-group">
-                                    <textarea class="form-control" name="comment[text]" placeholder="Write your comment..." form="add-comment-form" rows="5" cols="70"></textarea>
+                                    <textarea class="form-control" name="comment[text]" placeholder="Write a new comment..." form="add-comment-form" rows="5" cols="70"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <button class="btn btn-success btn-sm">Comment <i class="fas fa-comment-alt"></i></button>
@@ -68,7 +66,7 @@
                 <!--Collapse Add a comment form END-->
                 
                 <!--Comment content start here-->
-                <div class="card-body">
+                <div class="card-body pt-0">
                     <hr>
                     <!--Check if there are comments, if there are none say no comments.-->
                     <% if (campground.comments.length === 0) { %>
@@ -95,7 +93,7 @@
                             <em class="float-right text-muted"><%= moment(comment.createdAt).fromNow() %></em>
 
                             <!--Printing the comment-->
-                            <p><%= comment.text %></p>
+                            <p card-text><%= comment.text %></p>
 
                             <!--If the visitor is logged in and the owner of the comment, show the edit and delete buttons-->
                                 <% if (currentUser && currentUser._id.equals(comment.author.id)) { %>
@@ -113,7 +111,7 @@
                                 <!--Edit comment form-->
                                 <div class="collapse" id="collapseEdit<%= comment._id %>">
                                     <div class="card-body collapse-edit-style">
-                                        <h4>Edit your comment <i class="fas fa-edit"></i></h4>
+                                        <h5>Edit your comment <i class="fas fa-edit"></i></h5>
                                         <form id="edit-comment-form<%= comment._id %>" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=PUT" method="POST">
                                             <div class="form-group">
                                                 <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
