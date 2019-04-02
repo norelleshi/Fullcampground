@@ -67,6 +67,7 @@ router.put("/:comment_id", middleware.checkCommentOwnership, function(req, res){
       if(err){
           res.redirect("back");
       } else {
+          req.flash("success", "Successfully edited comment!");
           res.redirect("/campgrounds/" + req.params.id);
       }
    }); 
@@ -78,7 +79,7 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req, re
        if(err){
            res.redirect("back");
        } else {
-           req.flash("success", "A comment deleted!");
+           req.flash("success", "Successfully  deleted comment!");
            res.redirect("/campgrounds/" + req.params.id);
        }
     });

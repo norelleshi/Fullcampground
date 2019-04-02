@@ -55,9 +55,26 @@ main {
 }
 
 .delete-form {
-    display: inline;
+  display: inline;
 }
 
 .list-group {
-    font-size: small;
+  font-size: small;
+}
+
+.collapse-comment-style {
+  border-left: 5px solid #00C851;
+}
+
+.collapse-edit-style {
+  border-left: 5px solid #ffbb33;
+  margin-top: 15px;
+}
+
+.noComment {
+  color: grey;
+}
+
+.userIcon {
+  color: orange;
 }
