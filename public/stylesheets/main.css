@@ -82,6 +82,8 @@ main {
   color: orange;
 }
 
-/*.fas fa-campground {*/
-/*  color: white;*/
-/*}*/
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}

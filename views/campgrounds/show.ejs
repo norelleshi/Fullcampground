@@ -1,9 +1,13 @@
 <% include ../partials/header %>
 
     <div class="row">
-        
         <div class="col-md-3">
-            <div id="map"></div>
+            <!--<div class="list-group mb-2">-->
+            <!--    <li class="list-group-item active">Info 1</li>-->
+            <!--    <li class="list-group-item">Info 2</li>-->
+            <!--    <li class="list-group-item">Info 3</li>   -->
+            <!--</div>-->
+            <div class="mb-2" id="map"></div>
         </div>
         
         <div class="col-md-9">
@@ -19,14 +23,17 @@
                     <p class="card-text"><%= campground.description %></p>
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <div class="text-right">
+                            <!--Edit campground button-->
                             <a class="btn btn-sm btn-warning" role="button" data-toggle="collapse" href="#collapseEdit<%= campground._id %>" aria-expanded="false" aria-controls="collapse<%= campground._id %>">
                                 Edit
                             </a>
-                            <!--Delete comment button-->
+                            <!--Delete campground button-->
                             <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-danger">Delete</button>
                             </form>
                         </div> 
+                        
+                        <!--Collapse Add a campground form START-->
                         <div class="collapse" id="collapseEdit<%= campground._id %>">
                             <div class="card-body collapse-edit-style">
                                 <h5>Edit your campground <i class="fas fa-edit"></i></h5>
@@ -41,6 +48,10 @@
                                         <input class="form-control" type="text" name="campground[image]" form="edit-comment-form<%= campground._id %>" value="<%= campground.image %>">
                                     </div>
                                     <div class="form-group">
+                                        <!--<label for="location">Location</label>-->
+                                        <input class="form-control" type="text" name="location" id="location" form="edit-comment-form<%= campground._id %>" value="<%= campground.location %>">
+                                    </div>
+                                    <div class="form-group">
                                         <textarea class="form-control" name="campground[description]" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="14" cols="70"><%= campground.description %></textarea>
                                     </div>
                                     <div class="form-group text-right">
@@ -49,6 +60,8 @@
                                 </form>
                             </div>
                         </div>
+                        <!--Collapse Add a campground END-->
+                        
                     <% } %>
                 </div>
             </div>
@@ -159,5 +172,35 @@
             <!--COMMENT SECTION END-->
         </div>
     </div>   
+    
+    <script>
+        function initMap() {
+            var lat = <%= campground.lat %>;
+            var lng = <%= campground.lng %>;
+            var center = {lat: lat, lng: lng };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: center,
+                scrollwheel: false
+            });
+            var contentString = `
+              <strong><%= campground.name %><br />
+              <%= campground.location %></strong>
+              <p><%= campground.description %></p>
+            `
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+            var marker = new google.maps.Marker({
+                position: center,
+                map: map
+            });
+            marker.addListener('click', function() {
+                infowindow.open(map, marker);
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK-J-9L3iNEdjxQ7pVxoe-MKdOxXhlZjo&callback=initMap"></script>
+    
     
 <% include ../partials/footer %>
