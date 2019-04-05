@@ -8,6 +8,11 @@ main {
   padding-bottom: 2.5rem;
 }
 
+.alert{
+  margin-bottom: 0;
+  text-align: center;
+}
+
 .footer {
   /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
   position: absolute;
@@ -86,4 +91,8 @@ main {
 #map {
     height: 400px;
     width: 100%;
+}
+
+.map_top{
+  margin-top: 20px;
 }
