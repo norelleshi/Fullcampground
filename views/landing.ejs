@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/stylesheets/landing.css">
     </head>
@@ -9,7 +10,7 @@
     
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12 text-center">
+            <div class="col-md-12">
                 <% if(error && error.length > 0){ %>
                     <div class="alert alert-danger" role="alert">
                         <%= error %>
@@ -20,10 +21,9 @@
                         <%= success %>
                     </div>
                 <% } %>
-        
                 <div id="landing-header">
              		<h1>Welcome to YelpCamp!</h1>
-            		<a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+            		<a href="/campgrounds" class="btn btn-lg btn-success rounded-pill"><i class="fas fa-tree"></i> View All Campgrounds</a>
                 </div>
             </div>
         </div>

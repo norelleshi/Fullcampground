@@ -11,6 +11,11 @@ body {
 
 #landing-header h1 {
   color: #fff;
+  padding-bottom: 20px;
+}
+
+#landing-header a{
+  width:400px;
 }
 
 .slideshow { 
