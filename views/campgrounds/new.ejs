@@ -7,20 +7,24 @@
         <div class="col-md-12 col-lg-6">
             <form action="/campgrounds" method="POST">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" placeholder="name">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="name">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="number" name="price" placeholder="price" min="0.01" step="0.01">
+                    <label for="price">Price</label>
+                    <input class="form-control" type="number" name="price" id="price" placeholder="price" min="0.01" step="0.01">
                 </div>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="image" placeholder="image url">
+                    <label for="image">Image</label>
+                    <input class="form-control" type="text" name="image" id="image" placeholder="image url">
                 </div>
                 <div class="form-group">
-                    <!--<label for="location">Location</label>-->
+                    <label for="location">Location</label>
                     <input class="form-control" type="text" name="location" id="location" placeholder="Yosemite National Park, CA">
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" type="text" name="description" placeholder="description" rows="14" cols="100"></textarea>
+                    <label for="description">Description</label>
+                    <textarea class="form-control" type="text" name="description" id="description" placeholder="description" rows="14" cols="100"></textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-lg btn-primary btn-block">Submit!</button>
