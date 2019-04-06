@@ -2,6 +2,7 @@ body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
   min-height: 100vh;
+  font-family: 'Noto Serif TC', serif;
 }
 
 main {
@@ -11,6 +12,11 @@ main {
 .alert{
   margin-bottom: 0;
   text-align: center;
+  border-radius:0;
+}
+
+.jumbotron{
+  border-radius:0;
 }
 
 .footer {
@@ -24,6 +30,10 @@ main {
 
 .display-4{
   font-size: 3rem;
+}
+
+.add_new{
+  font-weight: 400;
 }
 
 .form-signin {

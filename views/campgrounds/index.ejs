@@ -3,7 +3,7 @@
     <header class="jumbotron mb-3">
         <div class="container">
             <h1 class="display-4">Welcome To YelpCamp!</h1>
-            <p>View our hand-picked campgrounds from all over the world</p>
+            <p class="text-muted">View our hand-picked campgrounds from all over the world! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries!</p>
             <p>
                 <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground »</a>
             </p>
@@ -17,10 +17,9 @@
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body">
                     <h5 class="card-title"><%= campground.name %></h5>
-                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>    
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info »</a>    
                 </div>
             </div>
-            
         </div>
         <% }); %>
     </div>
