@@ -1,9 +1,11 @@
 <% include ../partials/header %>
 
-    <header class="jumbotron mb-3 pb-4">
+    <header class="jumbotron mb-3 py-4">
         <div class="container">
             <h1 class="display-4">Welcome To YelpCamp!</h1>
-            <p class="text-muted">View our hand-picked campgrounds from all over the world! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries!</p>
+            <p class="lead d-none d-md-block">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries!</p>
+            <hr class="my-4">
+            <p>View our hand-picked campgrounds from all over the world! </p>
             <p>
                 <a class="btn btn-info btn-lg" href="/campgrounds/new">Add New Campground »</a>
             </p>
@@ -16,8 +18,8 @@
             <div class="card">
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body">
-                    <h5 class="card-title"><%= campground.name %></h5>
-                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-outline-secondary">More Info »</a>    
+                    <h5 class="card-title camp_name"><%= campground.name %></h5>
+                    <a href="/campgrounds/<%= campground._id %>" class="btn btn-outline-info">More Info »</a>    
                 </div>
             </div>
         </div>

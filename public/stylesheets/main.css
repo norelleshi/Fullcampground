@@ -2,7 +2,6 @@ body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
   min-height: 100vh;
-  font-family: 'Noto Serif TC', serif;
 }
 
 main {
@@ -29,8 +28,8 @@ footer {
   text-align: center;
 }
 
-.display-4{
-  font-size: 3rem;
+.camp_name{
+  font-family: 'Noto Serif TC', serif;
 }
 
 .add_new{
