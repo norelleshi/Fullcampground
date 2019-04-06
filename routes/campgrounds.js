@@ -87,17 +87,31 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) 
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, function(req, res){
+  var name = req.body.name;
+  var image = req.body.image;
+  var price = req.body.price;
+  var desc = req.body.description;
+  var author = {
+      id: req.user._id,
+      username: req.user.username
+  }
   geocoder.geocode(req.body.location, function (err, data) {
     if (err || !data.length) {
       req.flash('error', 'Invalid address');
       return res.redirect('back');
     }
-    req.body.campground.lat = data[0].latitude;
-    req.body.campground.lng = data[0].longitude;
-    req.body.campground.location = data[0].formattedAddress;
+    
+    var lat = data[0].latitude;
+    var lng = data[0].longitude;
+    var location = data[0].formattedAddress;
+    var UpdateCampground = {name: name, image: image, price: price, description: desc, author:author, location: location, lat: lat, lng: lng};
+
+    // req.body.campground.lat = data[0].latitude;
+    // req.body.campground.lng = data[0].longitude;
+    // req.body.campground.location = data[0].formattedAddress;
     
     //find and update the correct campground
-    Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err, campground){
+    Campground.findByIdAndUpdate(req.params.id, UpdateCampground, function(err, campground){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
