@@ -26,10 +26,10 @@
                     <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
-                                <a href="/login" class="nav-link">Sign In</a>
+                                <a href="/login" class="nav-link">Login</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
-                                <a href="/register" class="nav-link">Sign Up</a>
+                                <a href="/register" class="nav-link">Join</a>
                             </li>
                         <% } else { %>
                             <li class="nav-item">
