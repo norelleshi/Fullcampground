@@ -56,10 +56,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea class="form-control" name="description" id="description" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="14" cols="70"><%= campground.description %></textarea>
+                                        <textarea class="form-control" name="description" id="description" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="6" cols="70"><%= campground.description %></textarea>
                                     </div>
                                     <div class="form-group text-right">
-                                        <button class="btn btn-warning btn-sm">POST</button>
+                                        <button class="btn btn-warning btn-sm">UPDATE</button>
                                     </div>
                                 </form>
                             </div>
@@ -161,7 +161,7 @@
                                                 <textarea class="form-control" name="comment[text]" placeholder="Your comment text..." form="edit-comment-form<%= comment._id %>" rows="7" cols="70"><%= comment.text %></textarea>
                                             </div>
                                             <div class="form-group text-right">
-                                                <button class="btn btn-warning btn-sm">POST</button>
+                                                <button class="btn btn-warning btn-sm">UPDATE</button>
                                             </div>
                                         </form>
                                     </div>
