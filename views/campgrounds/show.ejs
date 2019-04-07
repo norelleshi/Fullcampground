@@ -37,7 +37,7 @@
                         <div class="collapse" id="collapseEdit<%= campground._id %>">
                             <div class="card-body collapse-edit-style">
                                 <h5>Edit your campground <i class="fas fa-edit"></i></h5>
-                                <form id="edit-comment-form<%= campground._id %>" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+                                <form id="edit-comment-form<%= campground._id %>" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input class="form-control" type="text" name="name" id="name" form="edit-comment-form<%= campground._id %>" value="<%= campground.name %>">
@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="image">Image</label>
-                                        <input class="form-control" type="text" name="image" id="image" form="edit-comment-form<%= campground._id %>" value="<%= campground.image %>">
+                                        <input class="form-control" type="file" name="image" id="image" form="edit-comment-form<%= campground._id %>" value="<%= campground.image %>" accept="image/*">
                                     </div>
                                     <div class="form-group">
                                         <label for="location">Location</label>
