@@ -20,7 +20,7 @@ var upload = multer({ storage: storage, fileFilter: imageFilter});
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'norelleshi', 
+  cloud_name: process.env.Cloud_Name, 
   api_key: process.env.CLOUDINARY_API_KEY, 
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
@@ -68,8 +68,6 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
                 id: req.user._id,
                 username: req.user.username
             }
-        
-            
             // Create a new campground and save to DB
             Campground.create(req.body.campground, function(err, newlyCreated){
                 if(err){
@@ -123,38 +121,6 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
             req.flash('error', 'Invalid address');
             return res.redirect('back');
         } 
-        // Campground.findById(req.params.id, function(err, campground) {
-        //     if(err){
-        //         req.flash("error", err.message);
-        //         return res.redirect("back");
-        //     } 
-        //     if (req.file) {
-        //         cloudinary.v2.uploader.destroy(campground.imageId, function(err){
-        //             if(err) {
-        //                 req.flash("error", err.message);
-        //                 return res.redirect("back");
-        //             }
-        //             cloudinary.v2.uploader.upload(req.file.path, function(err, result){
-        //                 if(err){
-        //                     req.flash("error", err.message);
-        //                     return res.redirect("back");
-        //                 }
-        //                 campground.imageId = result.public_id;
-        //                 campground.image = result.secure_url;
-        //             });
-        //         });
-        //     }
-        //     campground.lat = data[0].latitude;
-        //     campground.lng = data[0].longitude;
-        //     campground.location = data[0].formattedAddress;
-        //     campground.name = req.body.name;
-        //     campground.description = req.body.description;
-        //     campground.price = req.body.price;
-        //     campground.save();
-        //     req.flash("success", "Successfully Updated");
-        //     res.redirect("/campgrounds/" + campground._id);
-        // });
-        
         Campground.findById(req.params.id, async function(err, campground){
             if(err){
                 req.flash("error", err.message);
@@ -171,7 +137,6 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                         return res.redirect("back");
                     }
                 }
-            
                 campground.name = req.body.name;
                 campground.description = req.body.description;
                 campground.price = req.body.price;
@@ -188,16 +153,6 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
 
 // DESTROY CAMPGROUND ROUTE
 router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
-//   Campground.findByIdAndRemove(req.params.id, function(err){
-//       if(err){
-//           req.flash("error", err.message);
-//           res.redirect("/campgrounds");
-//       } else {
-//             req.flash("success", "Campground deleted successfully!");
-//             res.redirect("/campgrounds");
-//       }
-//   }); 
-
     Campground.findById(req.params.id, async function(err, campground) {
         if(err) {
           req.flash("error", err.message);
