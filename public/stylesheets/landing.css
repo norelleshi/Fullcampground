@@ -29,6 +29,10 @@ body {
                  0px 18px 23px rgba(0,0,0,0.1);
 }
 
+#landing-header h1 {
+    font-size: 80px;
+}
+
 #landing-header h5{
     font-size: 25px;
 }
