@@ -40,11 +40,11 @@
                                 <form id="edit-comment-form<%= campground._id %>" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input class="form-control" type="text" name="name" id="name" form="edit-comment-form<%= campground._id %>" value="<%= campground.name %>" required>
+                                        <input class="form-control" type="text" name="name" id="name" form="edit-comment-form<%= campground._id %>" value="<%= campground.name %>">
                                     </div>
                                     <div class="form-group">
                                         <label for="price">Price</label>
-                                        <input class="form-control" type="number" name="price" id="price" form="edit-comment-form<%= campground._id %>" value="<%= campground.price %>" min="0.01" step="0.01" required>
+                                        <input class="form-control" type="number" name="price" id="price" form="edit-comment-form<%= campground._id %>" value="<%= campground.price %>" min="0.01" step="0.01">
                                     </div>
                                     <div class="form-group">
                                         <label for="image">Image</label>
@@ -52,11 +52,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="location">Location</label>
-                                        <input class="form-control" type="text" name="location" id="location" form="edit-comment-form<%= campground._id %>" value="<%= campground.location %>" required>
+                                        <input class="form-control" type="text" name="location" id="location" form="edit-comment-form<%= campground._id %>" value="<%= campground.location %>">
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea class="form-control" name="description" id="description" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="6" cols="70"><%= campground.description % required></textarea>
+                                        <textarea class="form-control" name="description" id="description" placeholder="Your campground text..." form="edit-comment-form<%= campground._id %>" rows="6" cols="70"><%= campground.description %></textarea>
                                     </div>
                                     <div class="form-group text-right">
                                         <button class="btn btn-warning btn-sm">UPDATE</button>
