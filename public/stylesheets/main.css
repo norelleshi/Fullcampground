@@ -4,6 +4,10 @@ body {
   min-height: 100vh;
 }
 
+.navbar {
+  border-bottom: 1px solid #e6e6e6;
+}
+
 main {
   padding-bottom: 4rem;
 }
@@ -82,7 +86,7 @@ footer {
 }
 
 .collapse-comment-style {
-  border-left: 2px solid #00C851;
+  border-left: 2px solid #20B2AA;
   margin-top: 5px;
   padding-bottom: 0px;
 }

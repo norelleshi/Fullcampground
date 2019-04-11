@@ -15,7 +15,7 @@
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body">
                     <p class="float-right">$<%= campground.price %>/night</p>
-                    <h5 class="card-title camp_name font-weight-bold"><%= campground.name %></h5>
+                    <h5 class="card-title camp_name font-weight-bold" style="color: #800020"><%= campground.name %></h5>
                     <p class="text-muted">
                         <em>Submitted By <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
                     </p>
@@ -71,54 +71,80 @@
             </div>
             
             <!--Review section-->
-            <div class="thumbnail">
-                <div class="caption-full">
+            <div class="card border-0">
+                <div>
                     <% if (campground.rating === 0) { %>
                     <h5>
                         <em>No reviews yet.</em>
                     </h5>
                     <% } else { %>
-                    <p>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-                        <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-                        <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-                        <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-                        <em>(total reviews: <%= campground.reviews.length %>)</em>
-                    </p>
-                    <p>
-                        Current campground rating: <strong><%= campground.rating.toFixed(2) %></strong>
-                    </p>
-                    <p><h4>Latest reviews for this campground:</h4></p>
+                    <div class="card-body bg-light text-center">
+                        <h5>Review summary</h5>
+                            <h2 class="display-4" style="font-weight: lighter"><strong><%= campground.rating.toFixed(1) %></strong></h2>
+                        <!--<p>-->
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                        <!--</p>-->
+                            <p>(<%= campground.reviews.length %> ratings)</p>
+                    </div>
+                    <div class="pt-4 pb-1">
+                        <a class="float-right" style="color: #20B2AA" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+                            <i class="fas fa-pen"></i>
+                        </a> 
+                        <h4 style="color: #800020">Reviews</h4>
+                    </div>
+                        <!--Collapse Add a review form START-->
+                        <div class="collapse" id="collapseComment">
+                            <div class="card-body collapse-comment-style">
+                                <% if(!currentUser) { %>
+                                <!--If the user is not logged in, direct him to the login page-->
+                                    <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
+                                <% } else {%>
+                                    <!--If the user is logged in, show the new comment form-->
+                                    <h5>Write your comment <i class="fas fa-pen"></i></h5>
+                                    <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" name="comment[text]" placeholder="Write a new comment..." form="add-comment-form" rows="5" cols="70"></textarea>
+                                        </div>
+                                        <div class="form-group text-right">
+                                            <button class="btn btn-info btn-sm">POST</button>
+                                        </div>
+                                    </form>
+                                <% } %>
+                            </div>
+                        </div>
+                        <!--Collapse Add a review form END-->
+                    <!--</div>-->
                     <hr style="margin-top: 0;">
                     <% campground.reviews.slice(0, 5).forEach(function(review){ %>
-                    <div class="row">
-                        <div class="col-md-3">
                             <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-                            <div>Review by: <strong><%= review.author.username %></strong></div>
-                            <span><em><%= review.updatedAt.toDateString() %></em></span>
-                        </div>
-                        <div class="col-md-9">
                             <p style="text-align: justify; word-wrap: break-word;">
                                 <%= review.text %>
                             </p>
+                            <p>
+                            <em class="text-muted"><%= review.author.username %>, <%= moment(review.updatedAt).fromNow()  %></em>
+                            </p>
                             <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                            <a class="btn btn-xs btn-warning"
+                            <a class="btn btn-sm btn-warning"
                                href="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>/edit">Edit</a>
-                            <form id="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
+                            <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Delete">
                             </form>
                             <% } %>
-                        </div>
-                    </div>
                     <hr>
                     <% }); %>
                     <div style="margin-bottom: 10px;">
-                        <h4><a href="/campgrounds/<%= campground._id %>/reviews"><i class="fa fa-search" aria-hidden="true"></i> See all reviews</a></h4>
+                        <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-info"> See more reviews</a>
                     </div>
                     <% } %>
                     <div>
-                        <a class="btn btn-primary btn-lg <% if (currentUser && campground.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/campgrounds/<%= campground._id %>/reviews/new">
+                        <a class="btn btn-outline-info <% if (currentUser && campground.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/campgrounds/<%= campground._id %>/reviews/new">
                             Write a New Review</a>
                     </div>
                 </div>
