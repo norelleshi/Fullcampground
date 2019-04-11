@@ -76,7 +76,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
                     //redirect back to campgrounds page
                     console.log(newlyCreated);
                     req.flash("success", "Campground created successfully!");
-                    res.redirect("/campgrounds");
+                    res.redirect("/campgrounds/" + newlyCreated._id);
                 }
             });
         });

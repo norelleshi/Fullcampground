@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="/stylesheets/main.css">
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <!--<div class="container">-->
                 <a class="navbar-brand" href="/"><i class="fas fa-campground"></i>YelpCamp</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
             <!--</div>-->
         </nav>
         
-        <!--<div class="container">-->
+        <div class="pt-5">
             <% if(error && error.length > 0){ %>
                 <div class="alert alert-danger" role="alert">
                     <%= error %>
@@ -55,5 +55,5 @@
                     <%= success %>
                 </div>  
             <% } %>
-        <!--</div>-->
+        </div>
         <!--<main class="container">-->
