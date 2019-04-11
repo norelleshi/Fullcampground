@@ -106,3 +106,11 @@ footer {
     height: 400px;
     width: 100%;
 }
+
+.fa {
+  color: #DCDCDC;
+}
+
+.checked {
+    color: orange !important;
+}

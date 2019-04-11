@@ -1,6 +1,8 @@
 var express = require("express");
 var router  = express.Router();
 var Campground = require("../models/campground");
+var Review = require("../models/review");
+var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
 var multer = require('multer');
@@ -67,7 +69,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
             req.body.campground.author = {
                 id: req.user._id,
                 username: req.user.username
-            }
+            };
             // Create a new campground and save to DB
             Campground.create(req.body.campground, function(err, newlyCreated){
                 if(err){
@@ -91,7 +93,10 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+    Campground.findById(req.params.id).populate("comments").populate({
+        path: "reviews",
+        options: {sort: {createdAt: -1}}
+    }).exec(function(err, foundCampground){
       if(err || !foundCampground){
           req.flash("error", "Campground not found");
           res.redirect("back");
@@ -116,6 +121,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) 
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), function (req, res) {
+    delete req.body.campground.rating;
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
             req.flash('error', 'Invalid address');
@@ -143,6 +149,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lat = data[0].latitude;
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
+                campground.rating = req.body.rating;
                 campground.save();
                 req.flash("success","Successfully Updated!");
                 res.redirect("/campgrounds/" + campground._id);
@@ -160,6 +167,8 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
         }
         try {
             await cloudinary.v2.uploader.destroy(campground.imageId);
+            await Comment.remove({"_id": {$in: campground.comments}});
+            await Review.remove({"_id": {$in: campground.reviews}});
             campground.remove();
             req.flash('success', 'Campground deleted successfully!');
             res.redirect('/campgrounds');
