@@ -56,8 +56,15 @@ footer {
   text-align: center;
 }
 
-.camp_name{
+.camp_name a{
   font-family: 'Noto Serif TC', serif;
+  color: #555;
+  font-weight: lighter;
+}
+
+.camp_name_show {
+  font-family: 'Noto Serif TC', serif;
+  color: #800020;
 }
 
 .add_new{
@@ -145,10 +152,19 @@ footer {
     color: orange !important;
 }
 
-.more_reviews {
+.btnOutline-main {
       border-radius: 2px;
       border: 1.5px solid #28a745;
       font-weight: 600;
+}
+
+.btnOutline {
+  border-radius: 2px;
+  font-weight: 400;
+  font-family: 'Noto Serif TC', serif;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
 }
 
 .fa-pen {
@@ -161,3 +177,15 @@ footer {
                  0px 8px 13px rgba(0,0,0,0.1),
                  0px 18px 23px rgba(0,0,0,0.1);
 }
+
+.intro_title p{
+  font-size: 50px;
+  color: #800020;
+  font-weight: 300;
+}
+
+.intro_title a {
+  color: #4e5965;
+  font-weight: 200;
+}
+
