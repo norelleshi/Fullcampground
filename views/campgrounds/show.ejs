@@ -80,7 +80,7 @@
                     <% } else { %>
                     <div class="card-body bg-light text-center">
                         <h5>Review summary</h5>
-                            <h2 class="display-4" style="font-weight: lighter"><strong><%= campground.rating.toFixed(1) %></strong></h2>
+                            <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
                         <!--<p>-->
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
@@ -88,38 +88,11 @@
                             <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
                             <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
                         <!--</p>-->
-                            <p>(<%= campground.reviews.length %> ratings)</p>
+                            <span>(<%= campground.reviews.length %> ratings)</span>
                     </div>
                     <div class="pt-4 pb-1">
-                        <a class="float-right" style="color: #20B2AA" role="button" data-toggle="collapse" href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
-                            <i class="fas fa-pen"></i>
-                        </a> 
                         <h4 style="color: #800020">Reviews</h4>
                     </div>
-                        <!--Collapse Add a review form START-->
-                        <div class="collapse" id="collapseComment">
-                            <div class="card-body collapse-comment-style">
-                                <% if(!currentUser) { %>
-                                <!--If the user is not logged in, direct him to the login page-->
-                                    <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
-                                <% } else {%>
-                                    <!--If the user is logged in, show the new comment form-->
-                                    <h5>Write your comment <i class="fas fa-pen"></i></h5>
-                                    <form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">
-                                        <div class="form-group">
-                                            <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
-                                        </div>
-                                        <div class="form-group">
-                                            <textarea class="form-control" name="comment[text]" placeholder="Write a new comment..." form="add-comment-form" rows="5" cols="70"></textarea>
-                                        </div>
-                                        <div class="form-group text-right">
-                                            <button class="btn btn-info btn-sm">POST</button>
-                                        </div>
-                                    </form>
-                                <% } %>
-                            </div>
-                        </div>
-                        <!--Collapse Add a review form END-->
                     <!--</div>-->
                     <hr style="margin-top: 0;">
                     <% campground.reviews.slice(0, 5).forEach(function(review){ %>
@@ -139,16 +112,111 @@
                             <% } %>
                     <hr>
                     <% }); %>
-                    <div style="margin-bottom: 10px;">
-                        <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-info"> See more reviews</a>
-                    </div>
+                    
+                    <div class="text-center">
+                        <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-success write_review"> 
+                            <i class="fas fa-plus"></i>
+                            See more reviews
+                        </a>
+                    <!--</div>-->
                     <% } %>
-                    <div>
-                        <a class="btn btn-outline-info <% if (currentUser && campground.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/campgrounds/<%= campground._id %>/reviews/new">
-                            Write a New Review</a>
+                    <!--<div class="text-center">-->
+                        <a class="btn btn-outline-success write_review 
+                            <% if (currentUser && campground.reviews.some(function (review) {
+                                    return review.author.id.equals(currentUser._id)})) { %>
+                                    disabled 
+                                    <% } %>" 
+                                    role="button" data-toggle="collapse" 
+                                    href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
+                            Write a New Review
+                            <i class="fas fa-pen"></i>
+                        </a>
                     </div>
+                    
+                    <!--Collapse Add a review form START-->
+                        <div class="collapse" id="collapseComment">
+                            <div class="card-body collapse-review-style py-1 my-4">
+                                <% if(!currentUser) { %>
+                                <!--If the user is not logged in, direct him to the login page-->
+                                    <h5>You need to login before you can comment. <a href="/login">Click here</a> to go to the login page.</h5>
+                                <% } else {%>
+                                    <!--If the user is logged in, show the new comment form-->
+                                    
+                                    <!--<form id="add-comment-form" action="/campgrounds/<%= campground._id %>/comments" method="POST">-->
+                                    <!--    <div class="form-group">-->
+                                    <!--        <input class="form-control" type="text" disabled value="<%= currentUser.username %>">-->
+                                    <!--    </div>-->
+                                    <!--    <div class="form-group">-->
+                                    <!--        <textarea class="form-control" name="comment[text]" placeholder="Write a new comment..." form="add-comment-form" rows="5" cols="70"></textarea>-->
+                                    <!--    </div>-->
+                                    <!--    <div class="form-group text-right">-->
+                                    <!--        <button class="btn btn-info btn-sm">POST</button>-->
+                                    <!--    </div>-->
+                                    <!--</form>-->
+                                    
+                                    <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+                                        <div class="form-group">
+                                            <input class="form-control" type="text" disabled value="<%= currentUser.username %>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="rating">Leave a rating:</label>
+                                            <fieldset class="starability-basic form-group" id="rating">
+                                            <div>
+                                            <input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
+                                            <label for="first-rate5" title="5 stars - Amazing">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
+                                            </label>
+                                            </div>
+                                            <div>
+                                            <input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                            <label for="first-rate4" title="4 stars - Very good">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
+                                            </label>
+                                            </div>
+                                            <div>
+                                            <input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                            <label for="first-rate3" title="3 stars - Average">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
+                                            </label>
+                                            </div>
+                                            <div>
+                                            <input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                            <label for="first-rate2" title="2 stars - Not good">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
+                                            </label>
+                                            </div>
+                                            <div>
+                                            <input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                            <label for="first-rate1" title="1 star - Terrible">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
+                                            </label>
+                                        </div>
+                                                
+                                            </fieldset>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" type="text" name="review[text]" placeholder="Write a review for this campground..." form="add-review-form" rows="5"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <!--<button class="btn btn-primary btn-block">Submit a Review</button>-->
+                                            <button class="btn btn-success btn-block write_review">POST</button>
+                                        </div>
+                                    </form>
+                                    
+                                    
+                                    
+                                <% } %>
+                            </div>
+                        </div>
+                        <!--Collapse Add a review form END-->
+                    
+                    
                 </div>
             </div>
+        
+        
+        
+        
         
             <!--COMMENT SECTION START-->
             <div class="card bg-light mb-3">

@@ -21,7 +21,8 @@ header {
   /*border-bottom: 1px solid #e6e6e6;*/
 }
 
-.navbar-brand .fas{
+.navbar-brand .fab{
+  font-size: larger;
   color:  #00cc66 !important;
 }
 
@@ -108,10 +109,8 @@ footer {
   font-size: small;
 }
 
-.collapse-comment-style {
-  border-left: 2px solid #20B2AA;
-  margin-top: 5px;
-  padding-bottom: 0px;
+.collapse-review-style {
+  border-left: 3px solid #28a745;
 }
 
 .collapse-edit-style {
@@ -140,4 +139,10 @@ footer {
 
 .checked {
     color: orange !important;
+}
+
+.write_review {
+      border-radius: 2px;
+      border: 1.5px solid #28a745;
+      font-weight: 600;
 }
