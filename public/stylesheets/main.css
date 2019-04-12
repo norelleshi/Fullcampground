@@ -110,7 +110,11 @@ footer {
 }
 
 .collapse-review-style {
-  border-left: 3px solid #28a745;
+  border-left-color: #28a745 !important;
+  /*border-left: 3px solid #28a745;*/
+  border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem;
 }
 
 .collapse-edit-style {
@@ -141,8 +145,19 @@ footer {
     color: orange !important;
 }
 
-.write_review {
+.more_reviews {
       border-radius: 2px;
       border: 1.5px solid #28a745;
       font-weight: 600;
+}
+
+.fa-pen {
+  color: #28a745; 
+}
+
+.new_camp {
+  border-radius: 0.25rem;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
 }
