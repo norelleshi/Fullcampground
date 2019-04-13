@@ -7,14 +7,14 @@
             <hr class="my-4" style="border-color: white;">
             <p>View our hand-picked campgrounds from all over the world! </p>
             <p>
-                <a class="btn btn-success btn-lg btnOutline" href="/campgrounds/new">Add New Campground »</a>
+                <a class="btn btn-success btn-lg" href="/campgrounds/new">Add New Campground <i class="fas fa-angle-double-right"></i></a>
             </p>
         </div>
     </header>
 <main class="container">   
     <div class="text-center m-5 intro_title">
         <p>Start your advanture today!</p>
-        <a href="">My Campgrounds >></a>
+        <a href="#">My Campgrounds <i class="fas fa-angle-double-right"></i></a>
     </div>
 
 
@@ -25,7 +25,7 @@
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body camp_name">
                     <!--<h5 class="card-title camp_name"><%= campground.name %></h5>-->
-                    <a href="/campgrounds/<%= campground._id %>" class="card-title"><%= campground.name %></a>    
+                    <a href="/campgrounds/<%= campground._id %>" class="card-title"><%= campground.name %><i class="fas fa-hand-point-right pl-2 text-success"></i></a>    
                 </div>
             </div>
         </div>
