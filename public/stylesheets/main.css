@@ -118,16 +118,16 @@ footer {
 
 .collapse-review-style {
   border-left-color: #28a745 !important;
-  /*border-left: 3px solid #28a745;*/
   border: 1px solid #eee;
-    border-left-width: .25rem;
-    border-radius: .25rem;
+  border-left-width: .25rem;
+  border-radius: .25rem;
 }
 
 .collapse-edit-style {
-  border-left: 2px solid #ffbb33;
-  margin-top: 5px;
-  padding-bottom: 0px;
+  border-left-color: #f0ad4e !important;
+  border: 1px solid #eee;
+  border-left-width: .25rem;
+  border-radius: .25rem;
 }
 
 
@@ -160,9 +160,6 @@ footer {
                  0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.fa-pen {
-  color: #28a745; 
-}
 
 .new_camp {
   border-radius: 0.25rem;
