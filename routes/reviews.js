@@ -55,7 +55,7 @@ router.post("/", middleware.isLoggedIn, middleware.checkReviewExistence, functio
             campground.rating = calculateAverage(campground.reviews);
             //save campground
             campground.save();
-            req.flash("success", "Your review has been successfully added.");
+            req.flash("success", "Review added successfully");
             res.redirect('/campgrounds/' + campground._id);
         });
     });
@@ -94,7 +94,7 @@ router.put("/:review_id", middleware.checkReviewOwnership, function (req, res) {
             campground.rating = calculateAverage(campground.reviews);
             //save changes
             campground.save();
-            req.flash("success", "Your review was successfully edited.");
+            req.flash("success", "Review edited successfully");
             res.redirect('/campgrounds/' + campground._id);
         });
     });
@@ -116,7 +116,7 @@ router.delete("/:review_id", middleware.checkReviewOwnership, function (req, res
             campground.rating = calculateAverage(campground.reviews);
             //save changes
             campground.save();
-            req.flash("success", "Your review was deleted successfully.");
+            req.flash("success", "Review deleted successfully");
             res.redirect("/campgrounds/" + req.params.id);
         });
     });
