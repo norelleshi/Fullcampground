@@ -112,6 +112,10 @@ footer {
   display: inline;
 }
 
+.review-date {
+  display: inline;
+}
+
 .list-group {
   font-size: small;
 }
