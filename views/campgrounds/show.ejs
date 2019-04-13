@@ -106,7 +106,7 @@
                         <div><h4 style="color: #800020">Reviews</h4></div>
                         <div>
                             <a 
-                                <% if (currentUser && campground.reviews.some(function (review) {
+                                class="btn btn-light <% if (currentUser && campground.reviews.some(function (review) {
                                         return review.author.id.equals(currentUser._id)})) { %>
                                         disabled 
                                         <% } %>" 

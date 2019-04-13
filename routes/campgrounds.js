@@ -140,6 +140,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                         campground.image = result.secure_url;
                     } catch(err) {
                         req.flash("error", err.message);
+                        console.log(err);
                         return res.redirect("back");
                     }
                 }
