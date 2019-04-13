@@ -72,9 +72,10 @@
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea class="form-control" name="description" id="description" 
-                                        placeholder="Your campground text..." 
-                                        form="edit-campground-form<%= campground._id %>" 
-                                        ="6" cols="70" required><%= campground.description %></textarea>
+                                            placeholder="Your campground text..." 
+                                            form="edit-campground-form<%= campground._id %>" 
+                                            ="6" cols="70" required><%= campground.description %>
+                                        </textarea>
                                     </div>
                                     <div class="form-group text-right">
                                         <button class="btn btn-warning btn-sm">UPDATE</button>
@@ -87,35 +88,31 @@
                 </div>
             </div>
             
-            <!--Review section-->
-            <div class="card border-0">
+            <div class="bg-light text-center py-3">
+                <h5>Review summary</h5>
+                    <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                    <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                    <span>(<%= campground.reviews.length %> ratings)</span>
+            </div>
+                    
+            <div class="row text-center justify-content-between px-3 pt-4">
+                <div><h4 class="wineRed">Reviews</h4></div>
                 <div>
-                    <div class="card-body bg-light text-center">
-                        <h5>Review summary</h5>
-                            <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-                            <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-                            <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-                            <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-                            <span>(<%= campground.reviews.length %> ratings)</span>
-                    </div>
-                    
-                    
-                    <div class="row text-center justify-content-between px-3 pt-4">
-                        <div><h4 style="color: #800020">Reviews</h4></div>
-                        <div>
-                            <a 
-                                class="btn btn-light <% if (currentUser && campground.reviews.some(function (review) {
-                                        return review.author.id.equals(currentUser._id)})) { %>
-                                        disabled 
-                                        <% } %>" 
-                                        role="button" data-toggle="collapse" 
-                                        href="#collapseComment" aria-expanded="false" aria-controls="collapseComment">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                        </div>    
-                    </div>
+                    <a class="btn btn-light <% if (currentUser && campground.reviews.some
+                        (function (review) {
+                        return review.author.id.equals(currentUser._id)})) { %>
+                        disabled <% } %>" 
+                        role="button" data-toggle="collapse" 
+                        href="#collapseComment" aria-expanded="false" 
+                        aria-controls="collapseComment">
+                        <i class="fas fa-pen"></i>
+                    </a>
+                </div>    
+            </div>
                 
                     <!--Collapse Add a review form START-->
                         <div class="collapse" id="collapseComment">
@@ -211,12 +208,7 @@
                     </div>
                     
                 <% } %>
-                        
-                        
-                        
-                    
-                    
-                </div>
+                <!--</div>-->
             </div>
         
         
