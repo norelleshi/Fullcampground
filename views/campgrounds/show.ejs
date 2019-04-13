@@ -44,7 +44,9 @@
                         <div class="collapse" id="collapseEdit">
                             <div class="card-body collapse-edit-style">
                                 <h5>Edit your campground <i class="fas fa-edit"></i></h5>
-                                <form id="edit-campground-form" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                                <form id="edit-campground-form" 
+                                        action="/campgrounds/<%= campground._id %>?_method=PUT" 
+                                        method="POST" enctype="multipart/form-data">
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input class="form-control" type="text" name="name" id="name" 

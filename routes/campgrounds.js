@@ -121,7 +121,7 @@ router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) 
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), function (req, res) {
-    delete req.body.campground.rating;
+    // delete req.body.campground.rating;
     geocoder.geocode(req.body.location, function (err, data) {
         if (err || !data.length) {
             req.flash('error', 'Invalid address');
@@ -150,7 +150,6 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lat = data[0].latitude;
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
-                campground.rating = req.body.rating;
                 campground.save();
                 req.flash("success","Successfully Updated!");
                 res.redirect("/campgrounds/" + campground._id);
