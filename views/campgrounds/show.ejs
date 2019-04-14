@@ -14,16 +14,18 @@
             <div class="card mb-3">
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body p-2">
-                    <div class="row justify-content-between px-2">   
-                        <h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>
-                        <p>$<%= campground.price %>/night</p>
+                    <div>
+                        <div class="row justify-content-between px-2">   
+                            <h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>
+                            <p>$<%= campground.price %>/night</p>
+                        </div>
                     </div>
                     
-                    <p class="text-muted">
+                    <div class="text-muted">
                         <em>Submitted By <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
-                    </p>
+                    </div>
                     <hr>
-                    <p class="card-text"><%= campground.description %></p>
+                    <div class="card-text"><%= campground.description %></div>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <div class="text-right">
@@ -176,21 +178,21 @@
             <% } else {%>
             
                 <% campground.reviews.slice(0, 5).forEach(function(review){ %>
-                    <div class="pt-3 bg-light">
+                    <div class="pt-3 bg-light px-2">
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
                             <%= moment(review.updatedAt).fromNow()  %>
                         </em>
                     </div>
-                    <div class="bg-light">
+                    <div class="bg-light px-2">
                         <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
                         <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
                     </div>
-                    <div class="bg-light py-2"><%= review.text %></div>
+                    <div class="bg-light p-2"><%= review.text %></div>
 
                     <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                        <div class="bg-light">
+                        <div class="bg-light px-2">
                             <a class="btn btn-light text-warning"
                                 role="button"
                                 data-toggle="collapse"

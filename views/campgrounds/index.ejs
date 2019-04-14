@@ -11,29 +11,43 @@
             </p>
         </div>
     </header>
-<main class="container">   
-    <div class="text-right">
-        <input type="text" class="searchBorder border-0">
-        <a href="#"><i class="fas fa-search"></i></a>
-    </div>
-    <div class="text-center m-5 intro_title">
-        <p>Start your advanture today!</p>
-        <a href="#">My Campgrounds <i class="fas fa-angle-double-right"></i></a>
-    </div>
 
-
-    <div class="row text-center pb-4" id="campground-grid">
-        <% campgrounds.forEach(function(campground){ %>
-        <div class="col-6 col-md-4 mb-3 p-1">
-            <div class="card">
-                <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
-                <div class="card-body camp_name">
-                    <!--<h5 class="card-title camp_name"><%= campground.name %></h5>-->
-                    <a href="/campgrounds/<%= campground._id %>" class="card-title"><i class="fas fa-hand-point-right pr-2 text-success"></i><%= campground.name %></a>    
+<main> 
+    <div class="container">
+        <div class="text-right">
+            <input type="text" class="searchBorder border-0">
+            <a href="#"><i class="fas fa-search"></i></a>
+        </div>
+        <div class="text-center m-5 intro_title">
+            <p>Start your advanture today!</p>
+            <a href="#">My Campgrounds <i class="fas fa-angle-double-right"></i></a>
+        </div>
+    </div>
+    
+    <div class="bg-light pt-4">
+        <div class="container">
+            <div class="row text-center pb-4" id="campground-grid">
+                <% campgrounds.forEach(function(campground){ %>
+                <div class="col-6 col-md-4 mb-2 p-1">
+                    <div class="card">
+                        <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
+                        <div class="card-body camp_name">
+                            <!--<h5 class="card-title camp_name"><%= campground.name %></h5>-->
+                            <a href="/campgrounds/<%= campground._id %>" class="card-title"><i class="fas fa-hand-point-right pr-2 text-success"></i><%= campground.name %></a>    
+                        </div>
+                    </div>
                 </div>
+                <% }); %>
             </div>
         </div>
-        <% }); %>
     </div>
+    
+    <div class="bg-success m-0 p-4">
+        <div class="container">
+            <a href="#" class="font-weight-lighter text-white">More from YC News<i class="fas fa-angle-right text-white pl-2"></i></a>
+        </div>    
+    </div>
+    
 </main>
+
 <% include ../partials/footer %>
