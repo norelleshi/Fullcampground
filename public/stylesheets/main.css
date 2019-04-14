@@ -186,7 +186,15 @@ footer {
   font-weight: 200;
 }
 
-.wineRed {
-  color: #800020;
+/*.wineRed {*/
+/*  color: #800020;*/
+/*}*/
+
+.searchBorder {
+  border-bottom: 1px solid gray !important; 
 }
 
+.reviewSummary {
+  background: rgba(128, 0, 0,0.8);
+  color: white;
+}

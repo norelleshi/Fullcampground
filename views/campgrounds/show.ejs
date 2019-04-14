@@ -86,7 +86,7 @@
                 </div>
             </div>
             
-            <div class="bg-light text-center py-3">
+            <div class="reviewSummary text-center py-3">
                 <h5>Review summary</h5>
                     <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
                     <span class="fa fa-star checked"></span>
@@ -97,8 +97,8 @@
                     <span>(<%= campground.reviews.length %> ratings)</span>
             </div>
                     
-            <div class="row text-center justify-content-between px-3 pt-4">
-                <div><h4 class="wineRed">Reviews</h4></div>
+            <div class="row text-center justify-content-between mx-0 mt-3">
+                <div><h4>Reviews</h4></div>
                 <div>
                     <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
                         (function (review) {
@@ -169,27 +169,28 @@
             </div>
             <!--Collapse Add a review form END-->
                     
-            <hr>
+            <hr class="m-0 bg-light">
                     
             <% if (campground.rating === 0) { %>
                 <p><em class="text-muted">No reviews yet.</em></p>
             <% } else {%>
             
                 <% campground.reviews.slice(0, 5).forEach(function(review){ %>
-                    <div>
+                    <div class="pt-3 bg-light">
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
                             <%= moment(review.updatedAt).fromNow()  %>
                         </em>
                     </div>
-                    
-                    <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-                    <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-                    <p><%= review.text %></p>
+                    <div class="bg-light">
+                        <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+                        <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                    </div>
+                    <div class="bg-light py-2"><%= review.text %></div>
 
                     <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                        <div>
+                        <div class="bg-light">
                             <a class="btn btn-light text-warning"
                                 role="button"
                                 data-toggle="collapse"
@@ -266,11 +267,11 @@
                         <!--Collapse edit review form end-->
                         
                     <% } %>
-                    <hr>
+                    <hr class="bg-light m-0">
                 <% }); %>
             <% } %>    
                 
-            <div class="text-center mb-4">
+            <div class="text-center m-3">
                 <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-success btnOutline-main"> 
                     <i class="fas fa-plus"></i>
                     See more reviews
