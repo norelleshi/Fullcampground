@@ -4,7 +4,7 @@
         <div class="container lead">
             <h1 class="display-4">Explore for a day</h1>
             <p class="d-none d-md-block">YelpCamp is a web app that you can share your special story and experience with others. Simply post some stunning pictures and descript it by clicking the add button below. You can also find other amazing spots that people share on our platform! Start your journey here!</p>
-            <hr class="my-4" style="border-color: white;">
+            <hr class="my-4 border-white">
             <p>Share your trip experiense with people from all over the world! </p>
             <p>
                 <a class="btn btn-success btn-lg" href="/campgrounds/new">Add New Campground <i class="fas fa-angle-right text-white"></i></a>
@@ -15,8 +15,8 @@
 <main> 
     <div class="container">
         <div class="text-right">
-            <input type="text" class="searchBorder border-0">
-            <a href="#"><i class="fas fa-search"></i></a>
+            <input type="text" class="searchBorder border-0 font-weight-lighter" placeholder="Search all of YC">
+            <a href="#"><i class="fas fa-search text-dark"></i></a>
         </div>
         <div class="text-center m-5 intro_title">
             <p>Start your advanture today!</p>
@@ -24,7 +24,7 @@
         </div>
     </div>
     
-    <div class="bg-light pt-4">
+    <div class="index-pic-bg pt-4">
         <div class="container">
             <div class="row text-center pb-4" id="campground-grid">
                 <% campgrounds.forEach(function(campground){ %>

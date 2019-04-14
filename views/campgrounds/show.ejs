@@ -99,7 +99,7 @@
                     <span>(<%= campground.reviews.length %> ratings)</span>
             </div>
                     
-            <div class="row text-center justify-content-between mx-0 mt-3">
+            <div class="row text-center justify-content-between mx-0 pt-3 index-pic-bg">
                 <div><h4>Reviews</h4></div>
                 <div>
                     <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
@@ -171,28 +171,28 @@
             </div>
             <!--Collapse Add a review form END-->
                     
-            <hr class="m-0 bg-light">
+            <hr class="m-0 index-pic-bg">
                     
             <% if (campground.rating === 0) { %>
                 <p><em class="text-muted">No reviews yet.</em></p>
             <% } else {%>
             
                 <% campground.reviews.slice(0, 5).forEach(function(review){ %>
-                    <div class="pt-3 bg-light px-2">
+                    <div class="pt-3 index-pic-bg px-2">
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
                             <%= moment(review.updatedAt).fromNow()  %>
                         </em>
                     </div>
-                    <div class="bg-light px-2">
+                    <div class="index-pic-bg px-2">
                         <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
                         <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
                     </div>
-                    <div class="bg-light p-2"><%= review.text %></div>
+                    <div class="index-pic-bg p-2"><%= review.text %></div>
 
                     <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                        <div class="bg-light px-2">
+                        <div class="index-pic-bg px-2">
                             <a class="btn btn-light text-warning"
                                 role="button"
                                 data-toggle="collapse"
@@ -202,7 +202,7 @@
                                 <i class="fas fa-pen"></i>
                             </a>
                             <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                                 <button class="btn btn-light text-secondary"><i class="fas fa-trash-alt"></i></button>
+                                 <button class="btn bg-light text-secondary"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </div>
                         
@@ -269,7 +269,7 @@
                         <!--Collapse edit review form end-->
                         
                     <% } %>
-                    <hr class="bg-light m-0">
+                    <hr class="index-pic-bg m-0">
                 <% }); %>
             <% } %>    
                 
