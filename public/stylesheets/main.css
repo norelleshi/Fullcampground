@@ -67,9 +67,6 @@ footer {
   color: #800020;
 }
 
-.add_new{
-  font-weight: 400;
-}
 
 .form-signin {
   max-width: 330px;
@@ -186,9 +183,9 @@ footer {
   font-weight: 200;
 }
 
-/*.wineRed {*/
-/*  color: #800020;*/
-/*}*/
+.wineRed {
+  color: #800020;
+}
 
 .searchBorder {
   border-bottom: 1px solid gray !important; 
