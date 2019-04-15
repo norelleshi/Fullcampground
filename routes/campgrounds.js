@@ -2,7 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var Campground = require("../models/campground");
 var Review = require("../models/review");
-var Comment = require("../models/comment");
+// var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
 var multer = require('multer');
@@ -93,7 +93,7 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").populate({
+    Campground.findById(req.params.id).populate("reviews").populate({
         path: "reviews",
         options: {sort: {createdAt: -1}}
     }).exec(function(err, foundCampground){
@@ -150,8 +150,9 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lat = data[0].latitude;
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
+                campground.createdAt = req.body.updatedAt;
                 campground.save();
-                req.flash("success","Successfully Updated!");
+                req.flash("success","Campground updated successfully!");
                 res.redirect("/campgrounds/" + campground._id);
             }
         });
@@ -167,7 +168,7 @@ router.delete("/:id", middleware.checkCampgroundOwnership, function(req, res){
         }
         try {
             await cloudinary.v2.uploader.destroy(campground.imageId);
-            await Comment.remove({"_id": {$in: campground.comments}});
+            // await Comment.remove({"_id": {$in: campground.comments}});
             await Review.remove({"_id": {$in: campground.reviews}});
             campground.remove();
             req.flash('success', 'Campground deleted successfully!');
