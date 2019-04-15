@@ -88,7 +88,7 @@
                 </div>
             </div>
             
-            <div class="reviewSummary text-center py-3">
+            <div class="lightGray text-center py-3">
                 <h5>Review summary</h5>
                     <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
                     <span class="fa fa-star checked"></span>
@@ -99,8 +99,8 @@
                     <span>(<%= campground.reviews.length %> ratings)</span>
             </div>
                     
-            <div class="row text-center justify-content-between mx-0 pt-3 index-pic-bg">
-                <div><h4>Reviews</h4></div>
+            <div class="row text-center justify-content-between mx-0 pt-3">
+                <div class="wineRed"><h4>Reviews</h4></div>
                 <div>
                     <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
                         (function (review) {
@@ -116,7 +116,7 @@
                 
             <!--Collapse Add a review form START-->
             <div class="collapse" id="collapseReview">
-                <div class="collapse-review-style p-3">
+                <div class="collapse-review-style lightGray p-3">
                     <% if(!currentUser) { %>
                     <!--If the user is not logged in, direct him to the login page-->
                     <h5>You need to login before you can comment. 
@@ -178,21 +178,21 @@
             <% } else {%>
             
                 <% campground.reviews.slice(0, 5).forEach(function(review){ %>
-                    <div class="pt-3 index-pic-bg px-2">
+                    <div class="pt-3">
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
                             <%= moment(review.updatedAt).fromNow()  %>
                         </em>
                     </div>
-                    <div class="index-pic-bg px-2">
+                    <div>
                         <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
                         <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
                     </div>
-                    <div class="index-pic-bg p-2"><%= review.text %></div>
+                    <div><%= review.text %></div>
 
                     <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                        <div class="index-pic-bg px-2">
+                        <div>
                             <a class="btn btn-light text-warning"
                                 role="button"
                                 data-toggle="collapse"
@@ -208,7 +208,7 @@
                         
                         <!--Collapse edit review form start-->
                         <div class="collapse" id="collapseEdit<%= review._id %>">
-                            <div class="collapse-edit-style p-3 mt-2">
+                            <div class="collapse-edit-style lightGray p-3">
                                 <form id="edit-review-form<%= review._id %>"
                                     action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
                                     method="POST">

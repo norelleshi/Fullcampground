@@ -183,16 +183,11 @@ footer {
   color: #800020;
 }
 
-.index-pic-bg {
+.lightGray {
   background-color: #f5f5f5;
 }
 
 .searchBorder {
   border-bottom: 1px solid gray !important; 
   border-radius: 0 !important;
-}
-
-.reviewSummary {
-  background: rgba(128, 0, 0,0.8);
-  color: white;
 }
