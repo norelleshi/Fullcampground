@@ -11,7 +11,7 @@
         </div>
         
         <div class="col-md-9">
-            <div class="card mb-3">
+            <div class="card">
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body p-2">
                     <div>
@@ -88,6 +88,13 @@
                 </div>
             </div>
             
+            <div class="text-center">
+                <a class="btn btn-outline-success btnOutline-green my-4" href="/campgrounds">
+                    <i class="fas fa-chevron-left"></i> 
+                    Go back
+                </a>
+            </div>
+            
             <div class="lightGray text-center py-3">
                 <h5>Review summary</h5>
                     <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
@@ -99,7 +106,7 @@
                     <span>(<%= campground.reviews.length %> ratings)</span>
             </div>
                     
-            <div class="row text-center justify-content-between mx-0 pt-3">
+            <div class="row text-center justify-content-between mx-0 mt-4">
                 <div class="wineRed"><h4>Reviews</h4></div>
                 <div>
                     <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
@@ -171,14 +178,14 @@
             </div>
             <!--Collapse Add a review form END-->
                     
-            <hr class="m-0 index-pic-bg">
+            <hr class="mt-0">
                     
             <% if (campground.rating === 0) { %>
                 <p><em class="text-muted">No reviews yet.</em></p>
             <% } else {%>
             
                 <% campground.reviews.forEach(function(review){ %>
-                    <div class="pt-3">
+                    <div>
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
@@ -269,7 +276,7 @@
                         <!--Collapse edit review form end-->
                         
                     <% } %>
-                    <hr class="index-pic-bg m-0">
+                    <hr>
                 <% }); %>
             <% } %>    
                 

@@ -31,7 +31,15 @@
                 <div class="col-6 col-md-4 mb-2 p-1">
                     <div class="card">
                         <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
-                        <div class="card-body camp_name">
+                        <div>    
+                            <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                            <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                            <span><%= campground.rating.toFixed(1) %> (<%= campground.reviews.length %>)</span>
+                        </div>
+                        <div class="card-body camp_name p-2">
                             <!--<h5 class="card-title camp_name"><%= campground.name %></h5>-->
                             <a href="/campgrounds/<%= campground._id %>" class="card-title"><i class="fas fa-hand-point-right pr-2 text-success"></i><%= campground.name %></a>    
                         </div>
