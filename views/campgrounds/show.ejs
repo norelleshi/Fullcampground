@@ -177,12 +177,12 @@
                 <p><em class="text-muted">No reviews yet.</em></p>
             <% } else {%>
             
-                <% campground.reviews.slice(0, 5).forEach(function(review){ %>
+                <% campground.reviews.forEach(function(review){ %>
                     <div class="pt-3">
                         <i class="fas fa-user text-dark"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
-                            <%= moment(review.updatedAt).fromNow()  %>
+                            <%= moment(review.updatedAt).fromNow() %>
                         </em>
                     </div>
                     <div>

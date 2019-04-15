@@ -169,7 +169,7 @@ footer {
 }
 
 .intro_title p{
-  font-size: 50px;
+  font-size: 45px;
   color: #800020;
   font-weight: 300;
 }
@@ -190,4 +190,8 @@ footer {
 .searchBorder {
   border-bottom: 1px solid gray !important; 
   border-radius: 0 !important;
+}
+
+.inputTextBlack {
+  color: black !important;
 }
