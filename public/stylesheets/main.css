@@ -169,9 +169,15 @@ footer {
 }
 
 .intro_title p{
-  font-size: 45px;
-  color: #800020;
+  font-size: 43px;
+  color: black;
   font-weight: 300;
+}
+
+.intro_title span {
+  font-size: 43px;
+  color: #800020;
+  font-weight: 500;
 }
 
 .intro_title a {
