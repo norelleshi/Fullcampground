@@ -27,29 +27,6 @@ middlewareObj.checkCampgroundOwnership = function(req, res, next){
     }
 }
 
-middlewareObj.checkCommentOwnership = function(req, res, next){
-    // is user logged in
-    if(req.isAuthenticated()){
-        Comment.findById(req.params.comment_id, function(err, foundComment){
-           if(err || !foundComment){
-               req.flash("error", "Comment not found");
-               res.redirect("back");
-           } else {
-                // does user own the comment?
-                if(foundComment.author.id.equals(req.user._id)){
-                    next();
-                } else {
-                    req.flash("error", "You don't have permission to do that!");
-                    res.redirect("back");
-                }
-           }
-        });        
-    } else {
-        req.flash("error", "You need to be logged in to do that!");
-        res.redirect("back");
-    }
-}
-
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
@@ -58,13 +35,37 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/login");
 }
 
+// middlewareObj.checkCommentOwnership = function(req, res, next){
+//     // is user logged in
+//     if(req.isAuthenticated()){
+//         Comment.findById(req.params.comment_id, function(err, foundComment){
+//           if(err || !foundComment){
+//               req.flash("error", "Comment not found");
+//               res.redirect("back");
+//           } else {
+//                 // does user own the comment?
+//                 if(foundComment.author.id.equals(req.user._id)){
+//                     next();
+//                 } else {
+//                     req.flash("error", "You don't have permission to do that!");
+//                     res.redirect("back");
+//                 }
+//           }
+//         });        
+//     } else {
+//         req.flash("error", "You need to be logged in to do that!");
+//         res.redirect("back");
+//     }
+// }
+
+
 middlewareObj.checkReviewOwnership = function(req, res, next) {
     if(req.isAuthenticated()){
         Review.findById(req.params.review_id, function(err, foundReview){
             if(err || !foundReview){
                 res.redirect("back");
             }  else {
-                // does user own the comment?
+                // does user own the review?
                 if(foundReview.author.id.equals(req.user._id)) {
                     next();
                 } else {
