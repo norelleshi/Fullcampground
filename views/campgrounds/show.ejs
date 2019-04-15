@@ -91,7 +91,7 @@
             <div class="lightGray text-center py-3">
                 <h5>Review summary</h5>
                     <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
-                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
                     <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
                     <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
                     <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
@@ -297,7 +297,6 @@
             var contentString = `
               <strong><%= campground.name %><br />
               <%= campground.location %></strong>
-              <p><%= campground.description %></p>
             `
             var infowindow = new google.maps.InfoWindow({
               content: contentString
