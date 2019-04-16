@@ -12,6 +12,7 @@ header {
   background-size: cover;
   background-position: 50% 50%;
   color: white;
+  -webkit-filter:opacity(.95);
 }
 
 .navbar {
