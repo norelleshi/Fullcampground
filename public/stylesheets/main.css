@@ -157,7 +157,7 @@ footer {
 }
 
 
-.fa-angle-right {
+.intro_title .fa-angle-right {
   color: green;
 }
 
@@ -169,19 +169,21 @@ footer {
 }
 
 .intro_title p{
-  font-size: 43px;
+  font-size: 30px;
   font-weight: 200;
 }
 
 .intro_title span {
-  font-size: 43px;
+  font-size: 33px;
   color: #800020;
   font-weight: 400;
 }
 
 .intro_title a {
-  color: #4e5965;
-  font-weight: 200;
+  color: #555;
+  font-size: 20px;
+  border-bottom: 1px dotted #555;
+  font-weight: 100;
 }
 
 .wineRed {
@@ -193,7 +195,7 @@ footer {
 }
 
 .searchBorder {
-  border-bottom: 1px solid gray !important; 
+  border-bottom: 1px dotted #555 !important; 
   border-radius: 0 !important;
 }
 
