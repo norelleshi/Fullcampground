@@ -35,8 +35,8 @@
                             <div class="card-body px-1 py-2">
                                 <!--<h5 class="card-title camp_name"><%= campground.name %></h5>-->
                                 <div class="card-title text-left m-0"><%= campground.name %></div>    
-                                <div class="text-muted text-left"><%= campground.author.username %></div>    
-                                <div class="text-left py-2">    
+                                <div class="text-muted text-left py-2"><em><%= campground.author.username %></em></div>    
+                                <div class="text-left pb-2">    
                                     <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
                                     <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
                                     <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>

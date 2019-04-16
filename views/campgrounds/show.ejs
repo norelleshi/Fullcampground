@@ -187,7 +187,7 @@
             
                 <% campground.reviews.forEach(function(review){ %>
                     <div>
-                        <i class="fas fa-user text-dark"></i>
+                        <i class="fas fa-user"></i>
                         <%= review.author.username %>
                         <em class="text-muted review-date pl-2">
                             <%= moment(review.updatedAt).fromNow() %>

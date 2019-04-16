@@ -60,6 +60,7 @@ footer {
   font-family: 'Noto Serif TC', serif;
   /*color: #555;*/
   color: #29303B;
+  font-size: large;
   font-weight: lighter;
   display: -webkit-box !important;
   -webkit-line-clamp: 2; 
