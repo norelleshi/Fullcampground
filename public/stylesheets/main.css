@@ -196,7 +196,8 @@ footer {
 
 .intro_title span {
   font-size: 33px;
-  color: #800020;
+  /*color: #800020;*/
+  color: 	#600080;
   font-weight: 400;
 }
 
