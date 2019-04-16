@@ -150,7 +150,6 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lat = data[0].latitude;
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
-                campground.createdAt = req.body.updatedAt;
                 campground.save();
                 req.flash("success","Campground updated successfully!");
                 res.redirect("/campgrounds/" + campground._id);

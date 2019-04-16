@@ -75,8 +75,8 @@ footer {
 .index-camp-card .card:hover {
   /*-webkit-filter:drop-shadow(1px 1px 1px #333);*/
   box-shadow: 
-    0 0 1px 1px rgba(20,23,28,0.1), 
-    0 3px 1px 0 rgba(20,23,28,0.1);
+    0 0 1px 1px rgba(20,23,30,0.1), 
+    0 3px 1px 0 rgba(20,23,30,0.1);
 }
 
 .index-camp-card img:hover {
