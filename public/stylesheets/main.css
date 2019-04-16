@@ -56,10 +56,31 @@ footer {
   text-align: center;
 }
 
-.camp_name a{
+.index-camp-card .card-title{
   font-family: 'Noto Serif TC', serif;
-  color: #555;
+  /*color: #555;*/
+  color: #29303B;
   font-weight: lighter;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.index-camp-card:hover {
+  text-decoration: none;
+} 
+
+.index-camp-card .card:hover {
+  /*-webkit-filter:drop-shadow(1px 1px 1px #333);*/
+  box-shadow: 
+    0 0 1px 1px rgba(20,23,28,0.1), 
+    0 3px 1px 0 rgba(20,23,28,0.1);
+}
+
+.index-camp-card img:hover {
+  -webkit-filter:brightness(0.7);
 }
 
 .camp_name_show {
@@ -170,7 +191,7 @@ footer {
 
 .intro_title p{
   font-size: 30px;
-  font-weight: 200;
+  font-weight: 300;
 }
 
 .intro_title span {
@@ -183,7 +204,7 @@ footer {
   color: #555;
   font-size: 20px;
   border-bottom: 1px dotted #555;
-  font-weight: 100;
+  font-weight: 200;
 }
 
 .wineRed {
