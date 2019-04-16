@@ -15,7 +15,7 @@
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body p-2">
                     <div>
-                        <div class="row justify-content-between px-2">   
+                        <div class="d-flex justify-content-between">   
                             <h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>
                             <p>$<%= campground.price %>/per</p>
                         </div>
@@ -107,7 +107,7 @@
                     <span>(<%= campground.reviews.length %> ratings)</span>
             </div>
                     
-            <div class="row text-center justify-content-between mx-0 mt-4">
+            <div class="d-flex justify-content-between mx-0 mt-4">
                 <div class="wineRed"><h4>Reviews</h4></div>
                 <div>
                     <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
