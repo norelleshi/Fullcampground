@@ -33,12 +33,13 @@
                             <a class="btn btn-link text-warning" 
                                 role="button" data-toggle="collapse" 
                                 href="#collapseEdit" 
-                                aria-expanded="false" aria-controls="collapseEdit">
+                                aria-expanded="false" aria-controls="collapseEdit"
+                                title="Edit">
                                 <i class="fas fa-pen"></i>
                             </a>
                             <!--Delete campground button-->
                             <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-link text-secondary"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-link text-secondary" title="Delete"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </div> 
                         
@@ -92,7 +93,9 @@
     <div class=" row justify-content-end"> 
     <div class="col-md-9">
         <div class="text-center">
-            <a class="btn btn-outline-success btnOutline-green my-4" href="/campgrounds">
+            <a class="btn btn-outline-success btnOutline-green my-4" 
+                href="/campgrounds"
+                title="Go back to home page">
                 <i class="fas fa-chevron-left"></i> 
                 Go back
                 <i class="fas fa-home"></i>
@@ -123,7 +126,8 @@
                     disabled <% } %>" 
                     role="button" data-toggle="collapse" 
                     href="#collapseReview" aria-expanded="false" 
-                    aria-controls="collapseReview">
+                    aria-controls="collapseReview"
+                    title="Write a review">
                     <i class="fas fa-plus"></i>
                 </a>
             </div>    
@@ -195,8 +199,8 @@
             <% campground.reviews.forEach(function(review){ %>
                 <div>
                     <i class="fas fa-user"></i>
-                    <%= review.author.username %>
-                    <em class="text-muted review-date pl-2">
+                    <span class="text-muted"><%= review.author.username %>,</span>
+                    <em class="text-muted review-date pl-1 d-inline">
                         <%= moment(review.updatedAt).fromNow() %>
                     </em>
                 </div>
@@ -213,11 +217,12 @@
                             data-toggle="collapse"
                             href="#collapseEdit<%= review._id %>"
                             aria-expanded="false"
-                            aria-controls="collapseEdit<%= review._id %>">
+                            aria-controls="collapseEdit<%= review._id %>"
+                            title="Edit">
                             <i class="fas fa-pen"></i>
                         </a>
                         <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                             <button class="btn bg-light text-secondary"><i class="fas fa-trash-alt"></i></button>
+                             <button class="btn bg-light text-secondary" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>
                     
