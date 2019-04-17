@@ -14,14 +14,30 @@
 
 <main> 
     <div class="container">
-        <div class="text-right">
-            <input type="text" class="searchBorder border-0 font-weight-lighter" placeholder="Search all of YC">
-            <a href="#"><i class="fas fa-search text-dark d-inline"></i></a>
-        </div>
+        <p>
+        <form action="/campgrounds" method="GET" class="form-inline d-flex justify-content-end">
+            <!--<div class="form group">-->
+            <!--    <input type="text" name="search" class="form-control searchBorder border-0 font-weight-lighter" placeholder="Search all of YC">-->
+                <!--<input type="sumbit" value="search" class="btn btn-success">-->
+            <!--    <button type="sumbit" value="search" class="btn btn-outline-dark btn-sm border-0"><i class="fas fa-search"></i></button>-->
+            <!--</div>-->
+            
+            <div class="input-group input-group-sm searchBorder">
+                <input type="text" name="search" class="form-control border-0 font-weight-lighter" placeholder="Search all of YC" aria-label="Search all of YC" aria-describedby="button-addon">
+                <div class="input-group-append">
+                    <button type="sumbit" class="btn btn-outline-dark btn-sm border-0" type="button" id="button-addon"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+            
+        </form>
+        </p>
+        
+        <p>
         <div class="text-center mt-2 mb-3 intro_title">
             <p>Start your <span>advanture</span> today!</p>
             <a href="#">My campgrounds <i class="fas fa-angle-right"></i></a>
         </div>
+        </p>
     </div>
     
     <div class="lightGray pt-4">

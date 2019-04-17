@@ -38,6 +38,7 @@ var geocoder = NodeGeocoder(options);
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
+    // eval(require('locus'));
     //Get all campgrounds from DB
     Campground.find({}, function(err, allCampgrounds){
       if(err){
