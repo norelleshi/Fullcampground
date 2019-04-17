@@ -13,9 +13,6 @@ header {
   background-position: 50% 50%;
   color: white;
   -webkit-filter:opacity(.95);
-  background-attachment:fixed;
-  background-repeat:no-repeat;
-  z-index: 1;
 }
 
 .navbar {
