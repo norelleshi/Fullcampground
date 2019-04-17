@@ -22,7 +22,7 @@
                     </div>
                     
                     <div class="text-muted">
-                        <em>Submitted By <%= campground.author.username %>, <%= moment(campground.createdAt).fromNow() %></em>
+                        <em>Submitted By <%= campground.author.username %>, <%= moment(campground.updatedAt).fromNow() %></em>
                     </div>
                     <hr>
                     <div class="card-text"><%= campground.description %></div>
