@@ -1,16 +1,16 @@
 <% include ../partials/header %>
 <main class="container">
-    <div class="row pt-4">
-        <div class="col-md-3">
+    <div class="row">
+        <div class="col-md-3 order-2 order-md-1 mt-3">
             <!--<div class="list-group mb-2">-->
             <!--    <li class="list-group-item active">Info 1</li>-->
             <!--    <li class="list-group-item">Info 2</li>-->
             <!--    <li class="list-group-item">Info 3</li>   -->
             <!--</div>-->
-            <div class="mb-3" id="map"></div>
+            <div id="map"></div>
         </div>
         
-        <div class="col-md-9">
+        <div class="col-md-9 order-1 order-md-2 mt-3">
             <div class="card">
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                 <div class="card-body p-2">
@@ -87,207 +87,214 @@
                     <% } %>
                 </div>
             </div>
-            
-            <div class="text-center">
-                <a class="btn btn-outline-success btnOutline-green my-4" href="/campgrounds">
-                    <i class="fas fa-chevron-left"></i> 
-                    Go back
-                    <i class="fas fa-home"></i>
-                </a>
-            </div>
-            
-            <div class="lightGray text-center py-3">
-                <h5>Review summary</h5>
-                    <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
-                    <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-                    <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-                    <span>(<%= campground.reviews.length %> ratings)</span>
-            </div>
-                    
-            <div class="d-flex justify-content-between mx-0 mt-4">
-                <div class="wineRed"><h4>Reviews</h4></div>
-                <div>
-                    <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
-                        (function (review) {
-                        return review.author.id.equals(currentUser._id)})) { %>
-                        disabled <% } %>" 
-                        role="button" data-toggle="collapse" 
-                        href="#collapseReview" aria-expanded="false" 
-                        aria-controls="collapseReview">
-                        <i class="fas fa-plus"></i>
-                    </a>
-                </div>    
-            </div>
+        </div>
+    </div>    
+    <div class=" row justify-content-end"> 
+    <div class="col-md-9">
+        <div class="text-center">
+            <a class="btn btn-outline-success btnOutline-green my-4" href="/campgrounds">
+                <i class="fas fa-chevron-left"></i> 
+                Go back
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </div>
+    </div>    
+        
+    <div class="row justify-content-end"> 
+    <div class="col-md-9">
+        <div class="lightGray text-center py-3">
+            <h5>Review summary</h5>
+                <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
+                <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+                <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+                <span>(<%= campground.reviews.length %> ratings)</span>
+        </div>
                 
-            <!--Collapse Add a review form START-->
-            <div class="collapse" id="collapseReview">
-                <div class="collapse-review-style lightGray p-3">
-                    <% if(!currentUser) { %>
-                    <!--If the user is not logged in, direct him to the login page-->
-                    <h5>You need to login before you can comment. 
-                        <a href="/login">Click here</a> to go to the login page.
-                    </h5>
-                    <% } else {%>
-                        <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
-                            <div class="form-group">
-                                <label for="rating">Rate & Review</label>
-                                <fieldset class="starability-basic form-group" id="rating">
-                                    <div>
-                                        <input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
-                                        <label for="first-rate5" title="5 stars - Amazing">
-                                            <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
-                                        <label for="first-rate4" title="4 stars - Very good">
-                                            <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
-                                        <label for="first-rate3" title="3 stars - Average">
-                                            <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
-                                        <label for="first-rate2" title="2 stars - Not good">
-                                            <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
-                                        </label>
-                                    </div>
-                                    <div>
-                                        <input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
-                                        <label for="first-rate1" title="1 star - Terrible">
-                                            <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
-                                        </label>
-                                    </div>
-                                </fieldset>
-                            </div>
-                            <div class="form-group">
-                                <textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="4"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <button class="btn btn-success btn-block">POST</button>
-                            </div>
-                        </form>
-                    <% } %>
-                </div>
-            </div>
-            <!--Collapse Add a review form END-->
-                    
-            <hr class="mt-0">
-                    
-            <% if (campground.rating === 0) { %>
-                <p><em class="text-muted">No reviews yet.</em></p>
-            <% } else {%>
-            
-                <% campground.reviews.forEach(function(review){ %>
-                    <div>
-                        <i class="fas fa-user"></i>
-                        <%= review.author.username %>
-                        <em class="text-muted review-date pl-2">
-                            <%= moment(review.updatedAt).fromNow() %>
-                        </em>
-                    </div>
-                    <div>
-                        <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-                        <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-                    </div>
-                    <div><%= review.text %></div>
-
-                    <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                        <div>
-                            <a class="btn btn-light text-warning"
-                                role="button"
-                                data-toggle="collapse"
-                                href="#collapseEdit<%= review._id %>"
-                                aria-expanded="false"
-                                aria-controls="collapseEdit<%= review._id %>">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                                 <button class="btn bg-light text-secondary"><i class="fas fa-trash-alt"></i></button>
-                            </form>
-                        </div>
-                        
-                        <!--Collapse edit review form start-->
-                        <div class="collapse" id="collapseEdit<%= review._id %>">
-                            <div class="collapse-edit-style lightGray p-3">
-                                <form id="edit-review-form<%= review._id %>"
-                                    action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
-                                    method="POST">
-                                    <h5>Edit your review</h5>
-                                    <div class="form-group">
-                                        <fieldset class="starability-basic form-group" id="rating">
-                                            <div>
-                                                <input form="edit-review-form<%= review._id %>" 
-                                                        type="radio" id="first-rate5"
-                                                        name="review[rating]" value="5" />
-                                                <label for="first-rate5" title="5 stars - Amazing">
-                                                    <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input form="edit-review-form<%= review._id %>" 
-                                                        type="radio" id="first-rate4"
-                                                        name="review[rating]" value="4" />
-                                                <label for="first-rate4" title="4 stars - Very good">
-                                                    <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
-                                                        name="review[rating]" value="3" />
-                                                <label for="first-rate3" title="3 stars - Average">
-                                                    <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
-                                                        name="review[rating]" value="2" />
-                                                <label for="first-rate2" title="2 stars - Not good">
-                                                    <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
-                                                        name="review[rating]" value="1" />
-                                                <label for="first-rate1" title="1 star - Terrible">
-                                                    <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
-                                                </label>
-                                            </div>
-                                        </fieldset>
-                                    </div>
-    
-                                    
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="review[text]"
-                                                placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="4"><%= review.text %></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <!--Collapse edit review form end-->
-                        
-                    <% } %>
-                    <hr>
-                <% }); %>
-            <% } %>    
-                
-            <div class="text-center m-3">
-                <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-success btnOutline-green disabled"> 
+        <div class="d-flex justify-content-between mx-0 mt-4">
+            <div class="wineRed"><h4>Reviews</h4></div>
+            <div>
+                <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
+                    (function (review) {
+                    return review.author.id.equals(currentUser._id)})) { %>
+                    disabled <% } %>" 
+                    role="button" data-toggle="collapse" 
+                    href="#collapseReview" aria-expanded="false" 
+                    aria-controls="collapseReview">
                     <i class="fas fa-plus"></i>
-                    See more reviews
                 </a>
+            </div>    
+        </div>
+            
+        <!--Collapse Add a review form START-->
+        <div class="collapse" id="collapseReview">
+            <div class="collapse-review-style lightGray p-3">
+                <% if(!currentUser) { %>
+                <!--If the user is not logged in, direct him to the login page-->
+                <h5>You need to login before you can comment. 
+                    <a href="/login">Click here</a> to go to the login page.
+                </h5>
+                <% } else {%>
+                    <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+                        <div class="form-group">
+                            <label for="rating">Rate & Review</label>
+                            <fieldset class="starability-basic form-group" id="rating">
+                                <div>
+                                    <input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
+                                    <label for="first-rate5" title="5 stars - Amazing">
+                                        <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                    <label for="first-rate4" title="4 stars - Very good">
+                                        <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                    <label for="first-rate3" title="3 stars - Average">
+                                        <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                    <label for="first-rate2" title="2 stars - Not good">
+                                        <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                    <label for="first-rate1" title="1 star - Terrible">
+                                        <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="form-group">
+                            <textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">POST</button>
+                        </div>
+                    </form>
+                <% } %>
             </div>
         </div>
+        <!--Collapse Add a review form END-->
+                
+        <hr class="mt-0">
+                
+        <% if (campground.rating === 0) { %>
+            <p><em class="text-muted">No reviews yet.</em></p>
+        <% } else {%>
+        
+            <% campground.reviews.forEach(function(review){ %>
+                <div>
+                    <i class="fas fa-user"></i>
+                    <%= review.author.username %>
+                    <em class="text-muted review-date pl-2">
+                        <%= moment(review.updatedAt).fromNow() %>
+                    </em>
+                </div>
+                <div>
+                    <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+                    <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                </div>
+                <div><%= review.text %></div>
+
+                <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+                    <div>
+                        <a class="btn btn-light text-warning"
+                            role="button"
+                            data-toggle="collapse"
+                            href="#collapseEdit<%= review._id %>"
+                            aria-expanded="false"
+                            aria-controls="collapseEdit<%= review._id %>">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                             <button class="btn bg-light text-secondary"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                    
+                    <!--Collapse edit review form start-->
+                    <div class="collapse" id="collapseEdit<%= review._id %>">
+                        <div class="collapse-edit-style lightGray p-3">
+                            <form id="edit-review-form<%= review._id %>"
+                                action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
+                                method="POST">
+                                <h5>Edit your review</h5>
+                                <div class="form-group">
+                                    <fieldset class="starability-basic form-group" id="rating">
+                                        <div>
+                                            <input form="edit-review-form<%= review._id %>" 
+                                                    type="radio" id="first-rate5"
+                                                    name="review[rating]" value="5" />
+                                            <label for="first-rate5" title="5 stars - Amazing">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input form="edit-review-form<%= review._id %>" 
+                                                    type="radio" id="first-rate4"
+                                                    name="review[rating]" value="4" />
+                                            <label for="first-rate4" title="4 stars - Very good">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
+                                                    name="review[rating]" value="3" />
+                                            <label for="first-rate3" title="3 stars - Average">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
+                                                    name="review[rating]" value="2" />
+                                            <label for="first-rate2" title="2 stars - Not good">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
+                                                    name="review[rating]" value="1" />
+                                            <label for="first-rate1" title="1 star - Terrible">
+                                                <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
+                                            </label>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                
+                                <div class="form-group">
+                                    <textarea class="form-control" name="review[text]"
+                                            placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="4"><%= review.text %></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!--Collapse edit review form end-->
+                    
+                <% } %>
+                <hr>
+            <% }); %>
+        <% } %>    
+            
+        <div class="text-center m-3">
+            <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-success btnOutline-green disabled"> 
+                <i class="fas fa-plus"></i>
+                See more reviews
+            </a>
+        </div>
+    </div>
     </div>
         
    
