@@ -1,10 +1,12 @@
+/*@import 'dist/_include-media.scss';*/
+
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
   min-height: 100vh;
 }
 
-header {
+.jumbotron {
   /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
   background-image: url(http://i.imgur.com/emvhOnb.jpg);
   width: 100%;
@@ -33,7 +35,7 @@ header {
                  0px 3px 5px rgba(0,0,0,0.1);
 }
 
-main {
+#main {
   padding-bottom: 4rem;
 }
 
@@ -55,10 +57,6 @@ footer {
   height: 4rem;            /* Footer height */
   background-color: #f5f5f5;
   text-align: center;
-}
-
-.footerBottom {
-  border-top: 6px solid green;
 }
 
 .index-camp-card .card-title{
@@ -133,14 +131,6 @@ footer {
   display: inline;
 }
 
-/*.review-date {*/
-/*  display: inline;*/
-/*}*/
-
-/*.fa-search {*/
-/*  display: inline;*/
-/*}*/
-
 .list-group {
   font-size: small;
 }
@@ -199,7 +189,6 @@ footer {
 
 .intro_title span {
   font-size: 33px;
-  /*color: #800020;*/
   color: 	#600080;
   font-weight: 400;
 }
@@ -232,6 +221,15 @@ footer {
   background-color: #2e3035;
   opacity: 0.85;
 }
+
+/*.card-columns {*/
+/*  @include media-breakpoint-only(lg) {*/
+/*    column-count: 4;*/
+/*  }*/
+/*  @include media-breakpoint-only(xl) {*/
+/*    column-count: 5;*/
+/*  }*/
+/*}*/
 
 .indexCampName {
     color: white !important;
