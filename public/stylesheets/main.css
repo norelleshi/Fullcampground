@@ -1,12 +1,18 @@
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
+  background-color: #2e3035;
   min-height: 100vh;
+  color: #bfbfbf;
+}
+
+hr {
+  background-color: #bfbfbf;
 }
 
 .jumbotron {
   /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -17,9 +23,14 @@ body {
 }
 
 .navbar {
-  background: #f5f5f5 !important;
-  box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), 
-              0 3px 1px 0 rgba(20,23,28,0.1);
+  background-color: #2e3035 !important;
+  padding-top:0;
+  padding-bottom: 0;
+  box-shadow: 0 0 7px 3px #000;
+  position: fixed;
+  z-index: 50;
+  /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
+  /*            0 3px 1px 0 rgba(20,23,28,0.1);*/
   /*border-bottom: 1px solid #e6e6e6;*/
 }
 
@@ -44,15 +55,61 @@ body {
   border-radius:0;
 }
 
+.alertTop {
+  padding-top: 60px;
+}
+
 footer {
   /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
   position: absolute;
   bottom: 0;               
   width: 100%;
   height: 4rem;            /* Footer height */
-  background-color: #f5f5f5;
+  background-color: #2e3035;
   text-align: center;
 }
+
+.middleArea {
+  background-color: #2e3035;
+}
+
+.searchLine {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+.searchLine input {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+.searchLine  .searchBorder {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+/*.myYC {*/
+/*  display: inline;*/
+/*}*/
+
+
+/*.myYC a {*/
+/*  color: #bfbfbf;*/
+/*  text-decoration: none;*/
+/*}*/
+
+.grayText {
+  color: #bfbfbf;
+}
+
+/*.intro_title {*/
+/*  font-size: 30px;*/
+  /*font-weight: 300;*/
+/*  color: #bfbfbf;*/
+/*}*/
+
+/*.intro_title span {*/
+/*  font-size: 33px;*/
+/*  color: 	#9900cc;*/
+/*  font-weight: bold;*/
+/*}*/
 
 @media (min-width:992px){
   .card-columns{
@@ -120,7 +177,7 @@ footer {
 
 .camp_name_show {
   font-family: 'Noto Serif TC', serif;
-  color: #800020;
+  color: #ac3973;
 }
 
 
@@ -174,6 +231,9 @@ footer {
   border: 1px solid #eee;
   border-left-width: .25rem;
   border-radius: .25rem;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
 }
 
 .collapse-edit-style {
@@ -181,6 +241,9 @@ footer {
   border: 1px solid #eee;
   border-left-width: .25rem;
   border-radius: .25rem;
+  border-top: 0;
+  border-bottom: 0;
+  border-right: 0;
 }
 
 
@@ -216,26 +279,8 @@ footer {
                  0px 18px 23px rgba(0,0,0,0.1);
 }
 
-.intro_title p{
-  font-size: 30px;
-  font-weight: 300;
-}
-
-.intro_title span {
-  font-size: 33px;
-  color: 	#600080;
-  font-weight: 400;
-}
-
-.intro_title a {
-  color: #555;
-  font-size: 20px;
-  border-bottom: 1px dotted #555;
-  font-weight: 200;
-}
-
-.wineRed {
-  color: #800020;
+.pinkText {
+  color: #ac3973;
 }
 
 .lightGray {
@@ -267,4 +312,8 @@ footer {
 
 .inputTextBlack {
   color: black !important;
+}
+
+.darkTransparentBg {
+  background-color: rgba(105, 105, 105, 0.3);
 }

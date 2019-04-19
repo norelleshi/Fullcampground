@@ -11,9 +11,9 @@
         </div>
         
         <div class="col-md-9 order-1 order-md-2 mt-3">
-            <div class="card">
+            <div class="card border-0 darkBg">
                 <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
-                <div class="card-body p-2">
+                <div class="card-body p-2 darkTransparentBg">
                     <div>
                         <div class="d-flex justify-content-between">   
                             <h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>
@@ -30,7 +30,7 @@
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <div class="text-right">
                             <!--Edit campground button-->
-                            <a class="btn btn-link text-warning" 
+                            <a class="btn btn-outline-warning border-0" 
                                 role="button" data-toggle="collapse" 
                                 href="#collapseEdit" 
                                 aria-expanded="false" aria-controls="collapseEdit"
@@ -39,13 +39,13 @@
                             </a>
                             <!--Delete campground button-->
                             <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-link text-secondary" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-outline-secondary border-0" title="Delete"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </div> 
                         
                         <!--Collapse edit a campground form START-->
                         <div class="collapse shadow-lg" id="collapseEdit">
-                            <div class="card-body collapse-edit-style p-2">
+                            <div class="card-body collapse-edit-style darkTransparentBg p-2">
                                 <h5>Edit your campground</h5>
                                 <form id="edit-campground-form" 
                                         action="/campgrounds/<%= campground._id %>?_method=PUT" 
@@ -106,7 +106,7 @@
         
     <div class="row justify-content-end"> 
     <div class="col-md-9">
-        <div class="lightGray text-center py-3">
+        <div class="darkTransparentBg text-center py-3">
             <h5>Review summary</h5>
                 <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
                 <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
@@ -118,9 +118,9 @@
         </div>
                 
         <div class="d-flex justify-content-between mx-0 mt-4">
-            <div class="wineRed"><h4>Reviews</h4></div>
+            <div class="pinkText"><h4>Reviews</h4></div>
             <div>
-                <a class="btn btn-light text-success<% if (currentUser && campground.reviews.some
+                <a class="btn btn-outline-success border-0<% if (currentUser && campground.reviews.some
                     (function (review) {
                     return review.author.id.equals(currentUser._id)})) { %>
                     disabled <% } %>" 
@@ -134,7 +134,7 @@
         </div>
             
         <!--Collapse Add a review form START-->
-        <div class="collapse shadow-lg" id="collapseReview">
+        <div class="collapse shadow-lg rounded-lg darkTransparentBg" id="collapseReview">
             <div class="collapse-review-style p-3">
                 <% if(!currentUser) { %>
                 <!--If the user is not logged in, direct him to the login page-->
@@ -199,7 +199,7 @@
             <% campground.reviews.forEach(function(review){ %>
                 <div>
                     <i class="fas fa-user"></i>
-                    <span class="text-muted"><%= review.author.username %>,</span>
+                    <span><%= review.author.username %>,</span>
                     <em class="text-muted review-date pl-1 d-inline">
                         <%= moment(review.updatedAt).fromNow() %>
                     </em>
@@ -212,7 +212,7 @@
 
                 <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
                     <div>
-                        <a class="btn btn-light text-warning"
+                        <a class="btn btn-outline-warning border-0"
                             role="button"
                             data-toggle="collapse"
                             href="#collapseEdit<%= review._id %>"
@@ -222,13 +222,13 @@
                             <i class="fas fa-pen"></i>
                         </a>
                         <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                             <button class="btn bg-light text-secondary" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                             <button class="btn btn-outline-secondary border-0" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>
                     
                     <!--Collapse edit review form start-->
                     <div class="collapse shadow-lg" id="collapseEdit<%= review._id %>">
-                        <div class="collapse-edit-style p-3">
+                        <div class="collapse-edit-style darkTransparentBg p-3">
                             <form id="edit-review-form<%= review._id %>"
                                 action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
                                 method="POST">
