@@ -44,7 +44,7 @@
                         </div> 
                         
                         <!--Collapse edit a campground form START-->
-                        <div class="collapse" id="collapseEdit">
+                        <div class="collapse shadow-lg" id="collapseEdit">
                             <div class="card-body collapse-edit-style p-2">
                                 <h5>Edit your campground</h5>
                                 <form id="edit-campground-form" 
@@ -134,8 +134,8 @@
         </div>
             
         <!--Collapse Add a review form START-->
-        <div class="collapse" id="collapseReview">
-            <div class="collapse-review-style lightGray p-3">
+        <div class="collapse shadow-lg" id="collapseReview">
+            <div class="collapse-review-style p-3">
                 <% if(!currentUser) { %>
                 <!--If the user is not logged in, direct him to the login page-->
                 <h5>You need to login before you can comment. 
@@ -227,8 +227,8 @@
                     </div>
                     
                     <!--Collapse edit review form start-->
-                    <div class="collapse" id="collapseEdit<%= review._id %>">
-                        <div class="collapse-edit-style lightGray p-3">
+                    <div class="collapse shadow-lg" id="collapseEdit<%= review._id %>">
+                        <div class="collapse-edit-style p-3">
                             <form id="edit-review-form<%= review._id %>"
                                 action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
                                 method="POST">
