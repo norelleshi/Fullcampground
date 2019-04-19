@@ -40,9 +40,10 @@
     
     <div class="darkBg pt-4">
         <div class="container">
-            <div class="row text-center pb-4" id="campground-grid">
+            <div class="card-columns pb-3">
+            <!--<div class="row text-center pb-4" id="campground-grid">-->
                 <% campgrounds.forEach(function(campground){ %>
-                <div class="col-6 col-md-4 col-xl-3 mb-2 p-1">
+                <!--<div class="col-6 col-md-4 col-xl-3 mb-2 p-1">-->
                     <a href="/campgrounds/<%= campground._id %>" class="index-camp-card">
                         <div class="card cardBg">
                             <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
@@ -63,8 +64,9 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                <!--</div>-->
                 <% }); %>
+            <!--</div>-->
             </div>
         </div>
     </div>

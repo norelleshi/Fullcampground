@@ -1,10 +1,31 @@
-/*@import 'dist/_include-media.scss';*/
-
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
   min-height: 100vh;
 }
+
+@media (min-width:992px){
+  .card-columns{
+    column-count: 4;
+    column-gap: 0.6rem;
+  }
+}
+
+/*@media (min-width:768px){*/
+/*  .card-columns{*/
+/*    column-count: 3;*/
+/*  }*/
+/*}*/
+
+@media (max-width:768px){
+  .card-columns{
+    column-count: 2;
+    column-gap: 0.6rem;
+  }
+}
+
+
+
 
 .jumbotron {
   /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
@@ -221,15 +242,6 @@ footer {
   background-color: #2e3035;
   opacity: 0.85;
 }
-
-/*.card-columns {*/
-/*  @include media-breakpoint-only(lg) {*/
-/*    column-count: 4;*/
-/*  }*/
-/*  @include media-breakpoint-only(xl) {*/
-/*    column-count: 5;*/
-/*  }*/
-/*}*/
 
 .indexCampName {
     color: white !important;
