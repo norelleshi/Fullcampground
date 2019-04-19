@@ -113,6 +113,11 @@ footer {
   text-decoration: none;
 }
 
+.index-camp-card .card-body {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
 .camp_name_show {
   font-family: 'Noto Serif TC', serif;
   color: #800020;
