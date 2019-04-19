@@ -24,7 +24,17 @@ body {
   }
 }
 
+@media (min-width:992px){
+  .card-columns .card{
+    display: inline-block;
+  }
+}
 
+@media (max-width:768px){
+  .card-columns .card{
+    display: inline-block;
+  }
+}
 
 
 .jumbotron {
