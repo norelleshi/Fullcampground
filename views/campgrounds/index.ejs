@@ -45,7 +45,7 @@
             <!--<div class="row text-center pb-4" id="campground-grid">-->
                 <% campgrounds.forEach(function(campground){ %>
                 <!--<div class="col-6 col-md-4 col-xl-3 mb-2 p-1">-->
-                    <a href="/campgrounds/<%= campground._id %>" class="index-camp-card">
+                    <a href="/campgrounds/<%= campground._id %>" title="<%= campground.name %>" class="index-camp-card">
                         <div class="card cardBg">
                             <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                             <div class="card-body py-2">

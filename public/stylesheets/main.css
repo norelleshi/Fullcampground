@@ -17,6 +17,7 @@ hr {
   height: 100%;
   background-size: cover;
   background-position: 50% 60%;
+  background-repeat: no-repeat;
   color: white;
   position: relative;
   top: 0;
