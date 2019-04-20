@@ -120,7 +120,7 @@ footer {
 @media (min-width:992px){
   .card-columns{
     column-count: 4;
-    column-gap: 0.6rem;
+    column-gap: 0.5rem;
   }
   .card-columns .card{
     display: inline-block;
@@ -130,7 +130,7 @@ footer {
 @media (max-width:992px) and (min-width:768px) {
   .card-columns{
     column-count: 3;
-    column-gap: 0.6rem;
+    column-gap: 0.5rem;
   }
   .card-columns .card{
     display: inline-block;
@@ -141,7 +141,7 @@ footer {
 @media (max-width:768px){
   .card-columns{
     column-count: 2;
-    column-gap: 0.6rem;
+    column-gap: 0.5rem;
   }
   .card-columns .card{
     display: inline-block;
@@ -260,7 +260,8 @@ footer {
 }
 
 .fa-star {
-  color: #DCDCDC;
+  /*color: #DCDCDC;*/
+  color: #6c757d;
 }
 
 .checked {
@@ -298,7 +299,7 @@ footer {
 
 .cardBg {
   border: 0;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,.4);
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.5);
 }
 
 .cardBg .card-body {
