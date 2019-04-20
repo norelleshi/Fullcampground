@@ -43,7 +43,7 @@ router.get("/", function(req, res){
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         //Get all campgrounds from DB
-        Campground.find({name: regex}, function(err, allCampgrounds){
+        Campground.find({$or:[{name: regex}, {location: regex}, {"author.username":regex}, {description: regex}]}, function(err, allCampgrounds){
           if(err){
               console.log(err);
           } else {
