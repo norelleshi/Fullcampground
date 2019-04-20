@@ -18,18 +18,19 @@ hr {
   background-size: cover;
   background-position: 50% 50%;
   color: white;
-  -webkit-filter:opacity(.95);
+  position: relative;
+  top: 0;
+  left: 0;
+  /*-webkit-filter:opacity(.95);*/
   border-radius:0;
 }
+
 
 .navbar {
   background-color: #2e3035 !important;
   padding-top:0;
   padding-bottom: 0;
   box-shadow: 0 0 7px 3px #000;
-  position: absolute;
-  top: 0;
-  left: 0;
   z-index: 50;
   /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
   /*            0 3px 1px 0 rgba(20,23,28,0.1);*/
@@ -58,7 +59,9 @@ hr {
 }
 
 .alertTop {
-  padding-top: 60px;
+  position:relative;
+  top: 0;
+  left: 0;
 }
 
 footer {
