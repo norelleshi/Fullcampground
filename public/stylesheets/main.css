@@ -83,10 +83,11 @@ footer {
 }
 
 .addNew a {
-  background-color: rgba(51, 153, 51, .8);
+  background-color: rgba(56, 148, 56, .8);
+  padding: 8px;
 }
 .addNew a:hover {
-  background-color: rgb(51, 153, 51);
+  background-color: rgb(61, 143, 61);
 }
 
 .middleArea {
