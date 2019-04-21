@@ -1,6 +1,6 @@
 <% include ../partials/header %>
 
-<header class="jumbotron m-0">
+<header class="jumbotron m-0 rounded-0">
     <div class="container-fluid lead">
         <h1 class="display-4">Explore for a day</h1>
         <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to share their camping experiences with others. Simply click the add button below and post some stunning photos with detailed descriptions. You can also find out others' sharing stories that interest you. Enjoy your journey with our platform!</p>
@@ -34,7 +34,7 @@
             <!--<div class="intro_title">-->
             <!--    Start your <span>advanture</span> today!-->
             <!--</div>-->
-            <button href="#" title="My campground" class="btn btn-outline-success btn-sm darkTransparentBg border-0">My <i class="fas fa-campground"></i></button>
+            <button href="#" title="My campground" class="btn btn-outline-success btn-sm darkTransparentBg border-0 rounded-0">My <i class="fas fa-campground"></i></button>
         </div>
         
     </div>
@@ -44,7 +44,8 @@
         <div class="container px-1">
             <div>
                 <% if(noMatch !== null){ %>
-                    <h5><%= noMatch %></h4>
+                    <h5><%= noMatch %></h5>
+                    <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p>
                 <% } %>
             </div>
             <div class="card-columns">
