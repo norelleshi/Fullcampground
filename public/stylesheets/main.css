@@ -259,6 +259,11 @@ footer {
     width: 100%;
 }
 
+.miniNote {
+  font-size: smaller;
+  margin-bottom: 0;
+}
+
 .fa-star {
   /*color: #DCDCDC;*/
   color: #6c757d;
