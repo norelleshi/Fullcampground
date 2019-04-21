@@ -75,6 +75,20 @@ footer {
   text-align: center;
 }
 
+.addNew {
+  font-family: 'Quicksand', sans-serif;
+  display: inline-block;
+  box-shadow: 0 0 1px 4px rgba(20,23,28,0.2), 
+            0 2px 9px 0 rgba(20,23,28,0.6);
+}
+
+.addNew a {
+  background-color: rgba(51, 153, 51, .8);
+}
+.addNew a:hover {
+  background-color: rgb(51, 153, 51);
+}
+
 .middleArea {
   background-color: #2e3035;
 }

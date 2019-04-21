@@ -6,8 +6,11 @@
         <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to share their camping experiences with others. Click the add button below to post stunning photos with detailed descriptions. You can also find out others' sharing stories that interest you. Enjoy your journey with our platform!</p>
         <hr class="my-4 border-white">
         <p>Share your trip experiense with people from all over the world! </p>
-        <div>
-            <a class="btn btn-success p-2 shadow-lg rounded-sm font-weight-normal btn-lg" href="/campgrounds/new">Add New Campground <i class="fas fa-angle-right text-white"></i></a>
+        <div class="addNew rounded-pill">
+            <a class="btn btn-success p-2 rounded-pill font-weight-normal btn-lg" 
+                href="/campgrounds/new">Add New Campground 
+                <i class="fas fa-angle-right text-white"></i>
+            </a>
         </div>
     </div>
 </header>
@@ -24,9 +27,16 @@
                     <!--</div>-->
                     
                     <div class="input-group input-group-sm searchBorder">
-                        <input type="text" name="search" class="form-control rounded-0 border-0 font-weight-lighter" placeholder="Search campgrounds..." aria-label="Search all of YC" aria-describedby="button-addon">
+                        <input type="text" name="search" 
+                                class="form-control rounded-0 border-0 font-weight-lighter" 
+                                placeholder="Search campgrounds..." 
+                                aria-label="Search campgrounds" 
+                                aria-describedby="button-addon">
                         <div class="input-group-append">
-                            <button type="sumbit" class="btn btn-outline-success btn-sm border-0" type="button" id="button-addon"><i class="fas fa-search"></i></button>
+                            <button type="sumbit" class="btn btn-outline-success btn-sm border-0" 
+                                type="button" id="button-addon">
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </div>
                 </form>
