@@ -16,7 +16,7 @@ header {
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position: 50% 60%;
+  background-position: 50% 70%;
   background-repeat: no-repeat;
   color: white;
   position: relative;
@@ -187,7 +187,7 @@ footer {
   font-size: 1.2rem;
 }
 
-.showPageDescript {
+.contentFontSize {
   font-size: 1.1rem;
 }
 

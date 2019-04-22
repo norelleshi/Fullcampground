@@ -34,7 +34,7 @@
                     <div class="text-muted">
                     </div>
                     <hr class="mt-1">
-                    <div class="card-text showPageDescript"><%= campground.description %></div>
+                    <div class="card-text contentFontSize"><%= campground.description %></div>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <div class="text-right">
@@ -218,7 +218,7 @@
                     <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
                     <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
                 </div>
-                <div><%= review.text %></div>
+                <div class="contentFontSize"><%= review.text %></div>
 
                 <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
                     <div>
