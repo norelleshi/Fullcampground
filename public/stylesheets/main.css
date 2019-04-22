@@ -87,15 +87,7 @@ footer {
   background-color: #2e3035;
 }
 
-.searchLine {
-  background-color: rgba(105, 105, 105, 0.3);
-}
-
-.searchLine input {
-  background-color: rgba(105, 105, 105, 0.3);
-}
-
-.searchLine  .searchBorder {
+.transparentGrayBg {
   background-color: rgba(105, 105, 105, 0.3);
 }
 
@@ -189,9 +181,10 @@ footer {
   padding-right: 4px;
 }
 
-.camp_name_show {
+.showPageCampName {
   font-family: 'Noto Serif TC', serif;
   color: #ac3973;
+  font-size: 25px;
 }
 
 
@@ -268,7 +261,7 @@ footer {
 }
 
 .miniNote {
-  font-size: smaller;
+  font-size: small;
   margin-bottom: 0;
 }
 
