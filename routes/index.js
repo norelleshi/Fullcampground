@@ -16,12 +16,15 @@ router.get("/register", function(req, res) {
 // handle sugn up logic
 router.post("/register", function(req, res) {
     var newUser = new User({username: req.body.username});
+    if(req.body.adminCode === process.env.adminCode_Password){
+        newUser.isAdmin = true;
+    }
    User.register(newUser, req.body.password, function(err, user){
       if(err){
            return res.render("register", {"error": err.message});
       } 
       passport.authenticate("local")(req, res, function(){
-          req.flash("success", "Successfully Signed Up! Nice to meet you, " + user.username); 
+          req.flash("success", "Successfully signed up! Nice to meet you, " + user.username); 
          res.redirect("/campgrounds"); 
       });
    });
@@ -36,6 +39,7 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
+        successFlash: "Welcome to YelpCamp!",
         failureRedirect: "/login",
         failureFlash: true,
     }), function(req, res) {
