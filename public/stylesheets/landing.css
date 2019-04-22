@@ -30,21 +30,21 @@ body {
 }
 
 #landing-header h1 {
-    font-size: 80px;
+    font-size: 2rem;
 }
 
 #landing-header h5{
-    font-size: 25px;
+    font-size: 1.1rem;
 }
 
 hr {
-    width: 420px;
+    width: 450px;
     border-top: 1px solid #f8f8f8;
     border-bottom: 1px solid rgba(0,0,0,0.2);
 }
 
 #landing-header a{
-  font-size: 40px;
+  font-size: 1.6rem;
 }
 
 .slideshow { 

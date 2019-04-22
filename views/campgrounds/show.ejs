@@ -8,7 +8,7 @@
             <!--    <li class="list-group-item">Info 3</li>   -->
             <!--</div>-->
             <div id="map" style="color: black;"></div>
-            <div><p class="miniNote"><i class="fas fa-arrow-circle-up"></i> Click the red marker to see the address.</p></div>
+            <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to see the address.</p></div>
         </div>
         
         <div class="col-md-9 order-1 order-md-2 mt-3">
@@ -34,7 +34,7 @@
                     <div class="text-muted">
                     </div>
                     <hr class="mt-1">
-                    <div class="card-text"><%= campground.description %></div>
+                    <div class="card-text showPageDescript"><%= campground.description %></div>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
                         <div class="text-right">
