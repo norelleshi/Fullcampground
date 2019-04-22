@@ -12,7 +12,7 @@
         </div>
         
         <div class="col-md-9 order-1 order-md-2 mt-3">
-            <div class="darkTransparentBg m-0 p-2 rounded-top"><a href="<%= campground.image %>" class="font-weight-bold showPageCampName"><%= campground.name %></a></div>
+            <div class="darkTransparentBg m-0 px-2 py-1 rounded-top"><a href="<%= campground.image %>" class="font-weight-bold showPageCampName"><%= campground.name %></a></div>
             <div class="d-flex justify-content-center" style="background-color: black;">
                 <div class="col-lg-9 p-0">
                     <div class="card border-0">
@@ -22,18 +22,14 @@
             </div>
             <div class="card border-0 darkBg">
                 <div class="card-body p-2 darkTransparentBg">
-                    <div>
-                        <div class="d-flex justify-content-between text-muted">   
-                            <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
-                            <em>Submitted By <%= campground.author.username %>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
-                            <em></em>
-                            <p>$<%= campground.price %>/per</p>
-                        </div>
+                    <div class="d-flex justify-content-between text-muted pb-1">   
+                        <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
+                        <em>Submitted By <%= campground.author.username %>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
+                        <div>$<%= campground.price %>/per</div>
                     </div>
                     
-                    <div class="text-muted">
-                    </div>
-                    <hr class="mt-1">
+                    <hr class="my-0">
+                    
                     <div class="card-text contentFontSize"><%= campground.description %></div>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser &&  currentUser.isAdmin){ %>

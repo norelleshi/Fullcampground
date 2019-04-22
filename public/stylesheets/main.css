@@ -88,6 +88,10 @@ header {
   border-radius:0;
 }
 
+hr {
+  background-color: gray;
+}
+
 footer {
   /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
   position: absolute;
