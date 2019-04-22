@@ -16,8 +16,8 @@
 </header>
 
 <div id="main"> 
-    <div class="middleArea">
-        <div class="transparentGrayBg d-flex justify-content-between">
+    <div>
+        <div class="darkTransparentBg d-flex justify-content-between">
             <div>
                 <form action="/campgrounds" method="GET" class="form-inline d-inline-flex">
                     <!--<div class="form group">-->
@@ -26,9 +26,9 @@
                     <!--    <button type="sumbit" value="search" class="btn btn-outline-dark btn-sm border-0"><i class="fas fa-search"></i></button>-->
                     <!--</div>-->
                     
-                    <div class="input-group input-group-sm transparentGrayBg">
+                    <div class="input-group input-group-sm darkTransparentBg">
                         <input type="text" name="search" 
-                                class="form-control rounded-0 border-0 font-weight-lighter transparentGrayBg" 
+                                class="form-control rounded-0 border-0 font-weight-lighter darkTransparentBg text-body" 
                                 placeholder="Search campgrounds..." 
                                 aria-label="Search campgrounds" 
                                 aria-describedby="button-addon">
@@ -63,10 +63,10 @@
                 <% campgrounds.forEach(function(campground){ %>
                 <!--<div class="col-6 col-md-4 col-xl-3 mb-2 p-1">-->
                     <a href="/campgrounds/<%= campground._id %>" title="<%= campground.name %>" class="index-camp-card">
-                        <div class="card cardBg mb-2">
+                        <div class="card IndexCardBg mb-2">
                             <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
                             <div class="card-body py-2">
-                                <div class="card-title indexCampName text-left m-0"><%= campground.name %></div>    
+                                <div class="card-title text-white text-left m-0"><%= campground.name %></div>    
                                 <div class="py-2 text-white-50 text-left"><em><%= campground.author.username %></em></div>    
                                 <div class="text-center pb-2 text-white">    
                                     <span class="fa fa-star text-muted <% if (campground.rating > 0.5) { %> checked <% } %>"></span>

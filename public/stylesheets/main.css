@@ -1,3 +1,32 @@
+/************* General setting *****************/
+.darkBg {
+  background-color: #2e3035;
+}
+
+.darkTransparentBg {
+  background-color: rgba(105, 105, 105, 0.3);
+}
+
+.grayText {
+  color: #bfbfbf;
+}
+
+.pinkText {
+  color: #ac3973;
+}
+
+.btnOutline-green {
+    border-radius: 2px;
+    border: 1.5px solid #28a745;
+    font-weight: 600;
+}
+
+.contentFontSize {
+  font-size: 1.1rem;
+}
+
+
+/*********** Primary element*******************/
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
@@ -6,29 +35,7 @@ body {
   color: #bfbfbf;
 }
 
-hr {
-  background-color: #bfbfbf;
-}
-
-header {
-  /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
-  background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: 50% 70%;
-  background-repeat: no-repeat;
-  color: white;
-  position: relative;
-  top: 0;
-  left: 0;
-  /*-webkit-filter:opacity(.95);*/
-  border-radius:0;
-}
-
-
 .navbar {
-  background-color: #2e3035 !important;
   padding-top:0;
   padding-bottom: 0;
   box-shadow: 0 0 7px 3px #000;
@@ -65,6 +72,22 @@ header {
   left: 0;
 }
 
+header {
+  /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
+  background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 70%;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  /*-webkit-filter:opacity(.95);*/
+  border-radius:0;
+}
+
 footer {
   /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
   position: absolute;
@@ -75,47 +98,14 @@ footer {
   text-align: center;
 }
 
+
+/************** Index page setting *********/
 .addNew {
   font-family: 'Quicksand', sans-serif;
   display: inline-block;
   box-shadow: 0 0 1px 3px rgba(20,23,28,0.2), 
             0 2px 9px 0 rgba(20,23,28,0.6);
 }
-
-
-.middleArea {
-  background-color: #2e3035;
-}
-
-.transparentGrayBg {
-  background-color: rgba(105, 105, 105, 0.3);
-}
-
-/*.myYC {*/
-/*  display: inline;*/
-/*}*/
-
-
-/*.myYC a {*/
-/*  color: #bfbfbf;*/
-/*  text-decoration: none;*/
-/*}*/
-
-.grayText {
-  color: #bfbfbf;
-}
-
-/*.intro_title {*/
-/*  font-size: 30px;*/
-  /*font-weight: 300;*/
-/*  color: #bfbfbf;*/
-/*}*/
-
-/*.intro_title span {*/
-/*  font-size: 33px;*/
-/*  color: 	#9900cc;*/
-/*  font-weight: bold;*/
-/*}*/
 
 @media (min-width:992px){
   .card-columns{
@@ -137,7 +127,6 @@ footer {
   }
 }
 
-
 @media (max-width:768px){
   .card-columns{
     column-count: 2;
@@ -150,8 +139,6 @@ footer {
 
 .index-camp-card .card-title{
   font-family: 'Noto Serif TC', serif;
-  /*color: #555;*/
-  color: #29303B;
   font-size: large;
   font-weight: lighter;
   display: -webkit-box !important;
@@ -179,19 +166,17 @@ footer {
 .index-camp-card .card-body {
   padding-left: 4px;
   padding-right: 4px;
+  background-color: #2e3035;
+  opacity: 0.85;
 }
 
-.showPageCampName {
-  font-family: 'Noto Serif TC', serif;
-  color: #ac3973;
-  font-size: 1.2rem;
-}
-
-.contentFontSize {
-  font-size: 1.1rem;
+.IndexCardBg {
+  border: 0;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,.5);
 }
 
 
+/*************** Login & Register setting ***************/
 .form-signin {
   max-width: 330px;
   margin: auto;
@@ -229,12 +214,20 @@ footer {
   border-top-right-radius: 0;
 }
 
-.delete-form {
-  display: inline;
+/******************* Show page setting ****************/
+#map {
+    height: 400px;
+    width: 100%;
 }
 
-.list-group {
-  font-size: small;
+.showPageCampName {
+  font-family: 'Noto Serif TC', serif;
+  color: #ac3973;
+  font-size: 1.2rem;
+}
+
+.delete-form {
+  display: inline;
 }
 
 .collapse-review-style {
@@ -257,20 +250,7 @@ footer {
   border-right: 0;
 }
 
-
-/* Google Maps */
-#map {
-    height: 400px;
-    width: 100%;
-}
-
-/*.miniNote {*/
-/*  font-size: small;*/
-/*  margin-bottom: 0;*/
-/*}*/
-
 .fa-star {
-  /*color: #DCDCDC;*/
   color: #6c757d;
 }
 
@@ -278,58 +258,21 @@ footer {
     color: orange !important;
 }
 
-.btnOutline-green {
-      border-radius: 2px;
-      border: 1.5px solid #28a745;
-      font-weight: 600;
-}
+/*.new_camp {*/
+/*  border-radius: 0.25rem;*/
+/*  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),*/
+/*                 0px 8px 13px rgba(0,0,0,0.1),*/
+/*                 0px 18px 23px rgba(0,0,0,0.1);*/
+/*}*/
 
-.intro_title .fa-angle-right {
-  color: green;
-}
+/*.lightGray {*/
+/*  background-color: #f5f5f5;*/
+/*}*/
 
-.new_camp {
-  border-radius: 0.25rem;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-                 0px 8px 13px rgba(0,0,0,0.1),
-                 0px 18px 23px rgba(0,0,0,0.1);
-}
+/*.searchBorder {*/
+/*  border-bottom: 1px dotted #555 !important; */
+/*  border-radius: 0 !important;*/
+/*}*/
 
-.pinkText {
-  color: #ac3973;
-}
 
-.lightGray {
-  background-color: #f5f5f5;
-}
 
-.darkBg {
-  background-color: #2e3035;
-}
-
-.cardBg {
-  border: 0;
-  box-shadow: 0 4px 5px 0 rgba(0,0,0,.5);
-}
-
-.cardBg .card-body {
-  background-color: #2e3035;
-  opacity: 0.85;
-}
-
-.indexCampName {
-    color: white !important;
-}
-
-.searchBorder {
-  border-bottom: 1px dotted #555 !important; 
-  border-radius: 0 !important;
-}
-
-.inputTextBlack {
-  color: black !important;
-}
-
-.darkTransparentBg {
-  background-color: rgba(105, 105, 105, 0.3);
-}
