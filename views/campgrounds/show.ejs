@@ -24,7 +24,7 @@
                 <div class="card-body p-2 darkTransparentBg">
                     <div class="d-flex justify-content-between text-muted pb-1">   
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
-                        <em>Submitted By <%= campground.author.username %>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
+                        <em>Submitted By <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
                         <div>$<%= campground.price %>/per</div>
                     </div>
                     

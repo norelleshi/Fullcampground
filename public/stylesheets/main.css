@@ -218,7 +218,7 @@ footer {
   border-top-right-radius: 0;
 }
 
-/******************* Show page setting ****************/
+/******************* Campground show page setting ****************/
 #map {
     height: 350px;
     width: 100%;
@@ -278,5 +278,30 @@ footer {
 /*  border-radius: 0 !important;*/
 /*}*/
 
+.avatarCard {
+  max-width: 800px;
+  background-color: rgba(105, 105, 105, 0.3);
+}
 
+@media (max-width: 992px){
+ .avatarCard .col-md-4 {
+    max-width: 70%; 
+ }
+}
 
+.avatarCard img {
+  width: 250px;
+  border-radius: 0.1rem;
+}
+
+.avatarCard a{
+  text-decoration: none;
+}
+
+.avatarCard .card-title{
+  font-size: 1.5rem;
+}
+
+.avatarCard li{
+  font-size: 1.2rem;
+}

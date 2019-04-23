@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
+var Campground = require("../models/campground");
 
 // root route
 router.get("/", function(req, res){
@@ -50,6 +51,23 @@ router.get("/logout", function(req, res) {
    req.logout();
    req.flash("success", "See you later!");
    res.redirect("/campgrounds");
+});
+
+//User profile
+router.get("/users/:id", function(req, res) {
+   User.findById(req.params.id, function(err, foundUser){
+        if(err){
+           req.flash("error", "Something went wrong.");
+           res.redirect("/");
+        }
+        Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
+            if(err){
+                req.flash("error", "Something went wrong.");
+                res.redirect("/");
+            }  
+            res.render("users/show", {user:foundUser, campgrounds: campgrounds});
+        });
+   }) ;
 });
 
 module.exports = router;
