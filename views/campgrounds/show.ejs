@@ -8,15 +8,17 @@
             <!--    <li class="list-group-item">Info 3</li>   -->
             <!--</div>-->
             <div id="map" style="color: black;"></div>
-            <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to see the address.</p></div>
+            <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div>
         </div>
         
         <div class="col-md-9 order-1 order-md-2 mt-3">
             <div class="darkTransparentBg m-0 px-2 py-1 rounded-top"><a href="<%= campground.image %>" class="font-weight-bold showPageCampName"><%= campground.name %></a></div>
             <div class="d-flex justify-content-center" style="background-color: black;">
-                <div class="col-lg-9 p-0">
+                <div class="col-8 col-lg-6 p-0">
                     <div class="card border-0">
-                        <img src="<%= campground.image %>" class="card-img-top rounded-0" alt="<%= campground.name %>">
+                        <a href="<%= campground.image %>">
+                            <img src="<%= campground.image %>" class="card-img-top rounded-0" alt="<%= campground.name %>">
+                        </a>
                     </div>
                 </div>
             </div>
