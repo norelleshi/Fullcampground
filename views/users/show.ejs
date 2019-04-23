@@ -4,8 +4,23 @@
     <div class="card mt-3 avatarCard pb-5">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" 
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" 
                 class="card-img" alt="user profile image">
+            <% if(currentUser && user._id.equals(currentUser._id)){ %>
+                <form>
+                <!--<form action="/campgrounds" method="POST" enctype="multipart/form-data">-->
+                    <div class="form-group">
+                        <label for="image">Edit your avatar:</label>
+                        <input class="form-control-file" type="file" name="image" id="image" accept="image/*">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-warning btn-block">Update</button>
+                    </div>                
+                <!--</form> -->
+                </form>
+            <% } %>
+            
+            
         </div>
         <div class="col-md-8">
           <div class="card-body px-2">

@@ -57,12 +57,12 @@ router.get("/logout", function(req, res) {
 router.get("/users/:id", function(req, res) {
    User.findById(req.params.id, function(err, foundUser){
         if(err || !foundUser){
-           req.flash("error", "Something went wrong.");
+           req.flash("error", "User not found.");
            res.redirect("back");
         } else {
             Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
                 if(err || !campgrounds){
-                    req.flash("error", "Something went wrong.");
+                    req.flash("error", "Campgrounds not found.");
                     res.redirect("back");
                 }  
                 res.render("users/show", {user:foundUser, campgrounds: campgrounds});
