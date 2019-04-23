@@ -56,17 +56,18 @@ router.get("/logout", function(req, res) {
 //User profile
 router.get("/users/:id", function(req, res) {
    User.findById(req.params.id, function(err, foundUser){
-        if(err){
+        if(err || !foundUser){
            req.flash("error", "Something went wrong.");
-           res.redirect("/");
-        }
-        Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
-            if(err){
-                req.flash("error", "Something went wrong.");
-                res.redirect("/");
-            }  
-            res.render("users/show", {user:foundUser, campgrounds: campgrounds});
-        });
+           res.redirect("back");
+        } else {
+            Campground.find().where("author.id").equals(foundUser._id).exec(function(err, campgrounds){
+                if(err || !campgrounds){
+                    req.flash("error", "Something went wrong.");
+                    res.redirect("back");
+                }  
+                res.render("users/show", {user:foundUser, campgrounds: campgrounds});
+            });
+        }    
    }) ;
 });
 

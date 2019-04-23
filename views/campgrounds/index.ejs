@@ -43,7 +43,9 @@
             <!--<div class="intro_title">-->
             <!--    Start your <span>advanture</span> today!-->
             <!--</div>-->
-            <button href="#" title="My campground" class="btn btn-outline-success btn-sm darkTransparentBg border-0 rounded-0">My <i class="fas fa-campground"></i></button>
+            <% if(currentUser){ %>
+                <a href="/users/<%= currentUser._id %>" title="My campground" class="btn btn-outline-success btn-sm darkTransparentBg border-0 rounded-0">My <i class="fas fa-campground"></i></a>
+            <% } %>            
         </div>
         
     </div>
