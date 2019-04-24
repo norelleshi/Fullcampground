@@ -36,24 +36,29 @@ router.get("/register", function(req, res) {
 });
 
 // handle sugn up logic
-router.post("/register", function(req, res) {
-    var newUser = new User({
-            username: req.body.username,
-            email: req.body.email,
-            avatar: req.body.avatar
-        });
+router.post("/register", upload.single('avatar'), function(req, res) {
+    if(req.file){
+        cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'}, function(err, result) {
+            if(err) {
+                req.flash('error', err.message);
+                return res.redirect('back');
+            }
+            req.body.avatar = result.secure_url;
+        });    
+    }        
+
     if(req.body.adminCode === process.env.ADMIN_KEY){
-        newUser.isAdmin = true;
+        req.body.isAdmin = true;
     }
-   User.register(newUser, req.body.password, function(err, user){
-      if(err){
+    User.register(req.body, req.body.password, function(err, user){
+        if(err){
            return res.render("register", {"error": err.message});
-      } 
-      passport.authenticate("local")(req, res, function(){
-          req.flash("success", "Successfully signed up! Nice to meet you, " + user.username); 
-         res.redirect("/campgrounds"); 
-      });
-   });
+        } 
+        passport.authenticate("local")(req, res, function(){
+            req.flash("success", "Successfully signed up! Nice to meet you, " + user.username); 
+            res.redirect("/campgrounds/"); 
+        });
+    });
 });
 
 // Show login form
@@ -95,5 +100,9 @@ router.get("/users/:id", function(req, res) {
         }    
    }) ;
 });
+
+function escapeRegex(text) {
+    return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+};
 
 module.exports = router;
