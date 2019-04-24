@@ -230,6 +230,10 @@ footer {
   font-size: 1.2rem;
 }
 
+.showPageImage {
+  max-width: 430px;
+}
+
 .delete-form {
   display: inline;
 }
