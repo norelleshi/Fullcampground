@@ -3,6 +3,7 @@ var router  = express.Router();
 var passport = require("passport");
 var User = require("../models/user");
 var Campground = require("../models/campground");
+var middleware = require("../middleware");
 var multer = require('multer');
 var storage = multer.diskStorage({
   filename: function(req, file, callback) {
@@ -44,11 +45,13 @@ router.post("/register", upload.single('avatar'), function(req, res) {
                 return res.redirect('back');
             }
             req.body.avatar = result.secure_url;
+            req.body.avatarId = result.secure_url;
             
             var newUser = new User({
                 username: req.body.username,
                 email: req.body.email,
-                avatar: req.body.avatar
+                avatar: req.body.avatar,
+                avatarId: req.body.avatarId
             });
             // eval(require('locus')); 
             if(req.body.adminCode === process.env.ADMIN_KEY){
@@ -123,6 +126,51 @@ router.get("/users/:id", function(req, res) {
 });
 
 //User profile edit route
+router.get("/users/:id/edit", middleware.isLoggedIn, function(req, res) {
+    User.findById(req.params.id, function(err, foundUser){
+        if(err || !foundUser){
+            req.flash("error", "User not found.");
+            console.log(err);
+        } else {
+            res.render("users/edit", {user: foundUser});
+        }    
+    });        
+});
+
+// UPDATE CAMPGROUND ROUTE
+router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), function (req, res) {
+    User.findById(req.params.id, async function(err, user){
+        if(err || !user){
+            req.flash("error", err.message);
+            res.redirect("back");
+        } else {
+            if (req.file) {
+                try {
+                    // eval(require('locus')); 
+                    if(user.avtarId){
+                        try{
+                            await cloudinary.v2.uploader.destroy(user.avatarId);
+                        }  catch(err) {
+                            req.flash("error", err.message);
+                            console.log(err);
+                            return res.redirect("back");
+                        }   
+                    }    
+                    var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
+                    user.avatarId = result.public_id;
+                    user.avatar = result.secure_url;
+                } catch(err) {
+                    req.flash("error", err.message);
+                    console.log(err);
+                    return res.redirect("back");
+                }
+            }
+            user.save();
+            req.flash("success","Campground updated successfully!");
+            res.redirect("/users/" + user._id);
+        }
+    });
+});    
 
 
 function escapeRegex(text) {

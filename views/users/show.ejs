@@ -13,17 +13,35 @@
                 <p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
             <div>
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
-                    <form>
-                    <!--<form action="/campgrounds" method="POST" enctype="multipart/form-data">-->
-                        <div class="form-group">
-                            <!--<label for="image">Edit your avatar:</label>-->
-                            <input class="form-control-file" type="file" name="image" id="image" accept="image/*">
+                    <div class="text-right">
+                        <a class="btn btn-outline-warning border-0 rounded-sm" 
+                            role="button" data-toggle="collapse" 
+                            href="#collapseEdit" 
+                            aria-expanded="false" aria-controls="collapseEdit"
+                            title="Edit">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                    </div>
+                    
+                    <!--Collapse edit user profile form START-->
+                    <div class="collapse shadow-lg" id="collapseEdit">
+                        <div class="card-body collapse-edit-style darkTransparentBg p-2">
+                            <h5>Edit your profile</h5>
+                            <form id="edit-campground-form" 
+                                    action="/users/<%= user._id %>?_method=PUT" 
+                                    method="POST" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="avatar">Avatar:</label>
+                                    <input class="form-control-file" type="file" name="avatar" id="avatar" 
+                                    form="edit-campground-form" 
+                                    value="<%= user.avatar %>" accept="image/*">
+                                </div>
+                                <div class="form-group text-right">
+                                    <button class="btn btn-warning btn-block">UPDATE</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <button class="btn btn-warning btn-block">Update</button>
-                        </div>                
-                    <!--</form> -->
-                    </form>
+                    </div>    
                 <% } %>
             </div>
             <!--<p>Bio</p>-->

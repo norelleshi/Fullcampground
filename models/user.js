@@ -4,8 +4,6 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var UserSchema = new mongoose.Schema({
    username: String,
    password: String,
-   firstName: String,
-   LastName: String,
    email: String,
    avatarId: String,
    avatar: {type:String, default: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"},
