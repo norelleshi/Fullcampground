@@ -37,28 +37,26 @@ router.get("/register", function(req, res) {
 
 // handle sugn up logic
 router.post("/register", upload.single('avatar'), function(req, res) {
-    if(req.file){
-        cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'}, function(err, result) {
-            if(err) {
-                req.flash('error', err.message);
-                return res.redirect('back');
-            }
-            req.body.avatar = result.secure_url;
-        });    
-    }        
-
-    if(req.body.adminCode === process.env.ADMIN_KEY){
-        req.body.isAdmin = true;
-    }
-    User.register(req.body, req.body.password, function(err, user){
-        if(err){
-           return res.render("register", {"error": err.message});
-        } 
-        passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Successfully signed up! Nice to meet you, " + user.username); 
-            res.redirect("/campgrounds/"); 
+    cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'}, function(err, result) {
+        if(err) {
+            req.flash('error', err.message);
+            return res.redirect('back');
+        }
+        req.body.avatar = result.secure_url;
+        
+        if(req.body.adminCode === process.env.ADMIN_KEY){
+            req.body.isAdmin = true;
+        }
+        User.register(req.body, req.body.password, function(err, user){
+            if(err){
+               return res.render("register", {"error": err.message});
+            } 
+            passport.authenticate("local")(req, res, function(){
+                req.flash("success", "Successfully signed up! Nice to meet you, " + user.username); 
+                res.redirect("/campgrounds/"); 
+            });
         });
-    });
+    });    
 });
 
 // Show login form
