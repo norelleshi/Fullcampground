@@ -104,7 +104,7 @@ router.get("/logout", function(req, res) {
    res.redirect("/campgrounds");
 });
 
-//User profile
+//User profile show route
 router.get("/users/:id", function(req, res) {
    User.findById(req.params.id, function(err, foundUser){
         if(err || !foundUser){
@@ -121,6 +121,9 @@ router.get("/users/:id", function(req, res) {
         }    
    }) ;
 });
+
+//User profile edit route
+
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");

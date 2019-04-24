@@ -26,10 +26,14 @@
                     </form>
                 <% } %>
             </div>
+            <!--<p>Bio</p>-->
         </div>
         
-        <div class="col-md-8">
-            <h3><%= user.username %>'s campgrounds:</h3>
+        <div class="col-md-8 p-0">
+            <h3 class="darkTransparentBg pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
+            <% if(campgrounds.length < 1){ %>
+                <p class="pl-2">No campgrounds yet.</p>
+            <% } %>
             <ul class="pb-2">
                 <% campgrounds.forEach(function(campground){ %>
                     <li>
