@@ -5,7 +5,9 @@
         <div class="col-md-4">
             <div class="d-flex justify-content-center">
                 <div class="card">
-                    <img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">
+                    <a href="<%= user.avatar %>">
+                        <img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">
+                    </a>
                 </div>
             </div>
                 <p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
