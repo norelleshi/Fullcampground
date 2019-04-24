@@ -2,7 +2,7 @@
 <div id="main">
 <div class="container">
      <div class="row py-2">
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div class="d-flex justify-content-center">
                 <div class="card darkBg border-0">
                     <a href="<%= user.avatar %>">
@@ -10,7 +10,9 @@
                     </a>
                 </div>
             </div>
-                <p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
+            
+            
+            <div class="text-center"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
             <div>
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
                     <div class="text-right">
@@ -25,7 +27,7 @@
                     
                     <!--Collapse edit user profile form START-->
                     <div class="collapse shadow-lg" id="collapseEdit">
-                        <div class="card-body collapse-edit-style darkTransparentBg p-2">
+                        <div class="collapse-edit-style darkTransparentBg p-2">
                             <h5>Edit your profile</h5>
                             <form id="edit-campground-form" 
                                     action="/users/<%= user._id %>?_method=PUT" 
@@ -47,9 +49,10 @@
             <!--<p>Bio</p>-->
         </div>
         
-        <div class="col-md-8 p-0">
+        <div class="col-md-7 p-0">
+            <!--<hr class="my-0">-->
             <h3 class="pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
-            <hr class="mt-0">
+            <!--<hr class="mt-0">-->
             <% if(campgrounds.length < 1){ %>
                 <p class="pl-2">No campgrounds yet.</p>
             <% } %>

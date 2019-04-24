@@ -166,7 +166,7 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
                 }
             }
             user.save();
-            req.flash("success","Campground updated successfully!");
+            req.flash("success","Profile updated successfully!");
             res.redirect("/users/" + user._id);
         }
     });
