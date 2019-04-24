@@ -278,6 +278,11 @@ footer {
 /*  border-radius: 0 !important;*/
 /*}*/
 
-.avatarCard a{
+/**************Profile show page*******************/
+.avatarCard {
+  max-width: 250px;
+}
+
+.campgroundList a{
   text-decoration: none;
 }

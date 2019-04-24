@@ -1,11 +1,11 @@
 <% include ../partials/header %>
-
+<div id="main">
 <div class="container">
      <div class="row py-2">
         <div class="col-md-4">
             <div class="d-flex justify-content-center">
-                <div class="card avatarCard">
-                    <img src="<%= user.avatar %>" style="max-width: 250px;" class="card-img-top" alt="user profile image">
+                <div class="card">
+                    <img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">
                 </div>
             </div>
             <div>
@@ -26,15 +26,16 @@
         </div>
         
         <div class="col-md-8">
-            <h5 class="card-title"><%= user.username %>'s campgrounds:</h5>
+            <h3><%= user.username %>'s campgrounds:</h3>
             <ul class="pb-2">
                 <% campgrounds.forEach(function(campground){ %>
                     <li>
-                        <a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a>
+                        <h5 class="font-weight-light campgroundList"><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></h5>
                     </li>
                 <% }); %>
             </ul>
         </div>
     </div>
+</div>
 </div>
 <% include ../partials/footer %>
