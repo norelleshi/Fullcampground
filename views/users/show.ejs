@@ -4,9 +4,9 @@
      <div class="row py-2">
         <div class="col-md-4">
             <div class="d-flex justify-content-center">
-                <div class="card">
+                <div class="card darkBg border-0">
                     <a href="<%= user.avatar %>">
-                        <img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">
+                        <img src="<%= user.avatar %>" class="card-img-top avatarCard rounded-circle" alt="user profile image">
                     </a>
                 </div>
             </div>
@@ -31,7 +31,7 @@
         
         <div class="col-md-8 p-0">
             <h3 class="pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
-            <hr>
+            <hr class="mt-0">
             <% if(campgrounds.length < 1){ %>
                 <p class="pl-2">No campgrounds yet.</p>
             <% } %>
