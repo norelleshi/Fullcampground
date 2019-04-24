@@ -30,7 +30,8 @@
         </div>
         
         <div class="col-md-8 p-0">
-            <h3 class="darkTransparentBg pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
+            <h3 class="pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
+            <hr>
             <% if(campgrounds.length < 1){ %>
                 <p class="pl-2">No campgrounds yet.</p>
             <% } %>
