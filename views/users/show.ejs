@@ -4,8 +4,7 @@
     <div class="card mt-3 avatarCard pb-5">
       <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" 
-                class="card-img" alt="user profile image">
+            <img src="<%= user.avatar %>" class="card-img" alt="user profile image">
             <% if(currentUser && user._id.equals(currentUser._id)){ %>
                 <form>
                 <!--<form action="/campgrounds" method="POST" enctype="multipart/form-data">-->
