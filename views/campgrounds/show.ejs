@@ -204,8 +204,9 @@
         <% } else {%>
             <% campground.reviews.forEach(function(review){ %>
                 <div>
-                    <i class="fas fa-user"></i>
-                    <span><%= review.author.username %>,</span>
+                    <!--<i class="fas fa-user"></i>-->
+                    <span><img src="<%= review.author.avatar %>" style="max-width:50px;" alt="user profile image"></span>
+                    <span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
                     <em class="text-muted review-date pl-1 d-inline">
                         <%= moment(review.updatedAt).fromNow() %>
                     </em>
