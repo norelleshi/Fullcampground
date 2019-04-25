@@ -15,7 +15,7 @@
             <div class="text-center"><a href="mailto:<%= user.email %>"><%= user.email %></a></div>
             <div>
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
-                    <div class="text-right">
+                    <div class="text-center">
                         <a class="btn btn-outline-warning border-0 rounded-sm" 
                             role="button" data-toggle="collapse" 
                             href="#collapseEdit" 
@@ -48,7 +48,7 @@
                             </form>
                             <!--Delete avatar button-->
                             <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-outline-danger btn-block rounded-sm" title="Delete">DELETE</button>
+                                <button class="btn btn-outline-danger btn-block rounded-sm" title="Delete">DELETE AVATAR</button>
                             </form>
                         </div>
                     </div>   
