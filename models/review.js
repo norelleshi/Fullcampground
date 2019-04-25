@@ -27,7 +27,6 @@ var reviewSchema = new mongoose.Schema({
             ref: "User"
         },
         username: String,
-        avatar: String
     },
     // campground associated with the review
     campground: {

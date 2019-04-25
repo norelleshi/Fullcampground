@@ -2,7 +2,7 @@
 <div id="main">
 <div class="container">
      <div class="row py-2">
-        <div class="col-md-5">
+        <div class="col-md-6 col-lg-5">
             <div class="d-flex justify-content-center">
                 <div class="card darkBg border-0">
                     <a href="<%= user.avatar %>">
@@ -20,7 +20,7 @@
                             role="button" data-toggle="collapse" 
                             href="#collapseEdit" 
                             aria-expanded="false" aria-controls="collapseEdit"
-                            title="Edit">
+                            title="Edit profile">
                             <i class="fas fa-pen"></i>
                         </a>
                         <!--Delete avatar button-->
@@ -32,15 +32,28 @@
                     <!--Collapse edit user profile form START-->
                     <div class="collapse shadow-lg" id="collapseEdit">
                         <div class="collapse-edit-style darkTransparentBg p-2">
-                            <h5>Edit your avatar:</h5>
+                            <h5 class="mb-3">Edit your profile:</h5>
                             <form id="edit-campground-form" 
                                     action="/users/<%= user._id %>?_method=PUT" 
                                     method="POST" enctype="multipart/form-data">
-                                <div class="form-group">
-                                    <!--<label for="avatar">Avatar:</label>-->
-                                    <input class="form-control-file" type="file" name="avatar" id="avatar" 
-                                    form="edit-campground-form" 
-                                    value="<%= user.avatar %>" accept="image/*">
+                                
+                                <div class="form-group row mb-1">
+                                    <label for="email" class="col-3 col-xl-2">Email:</label>
+                                    <div class="col-9 col-xl-10">
+                                        <input class="form-control" type="email" 
+                                            name="email" id="email" 
+                                            form="edit-campground-form" 
+                                            value="<%= user.email %>">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="avatar" class="col-3 col-xl-2">Avatar:</label>
+                                    <div class="col-9 col-xl-10">
+                                        <input class="form-control-file" type="file" name="avatar" id="avatar" 
+                                        form="edit-campground-form" 
+                                        value="<%= user.avatar %>" accept="image/*">
+                                    </div>
                                 </div>
                                 <div class="form-group text-right">
                                     <button class="btn btn-warning btn-block">UPDATE</button>
@@ -48,7 +61,7 @@
                             </form>
                             <!--Delete avatar button-->
                             <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-outline-danger btn-block rounded-sm" title="Delete">DELETE AVATAR</button>
+                                <button class="btn btn-outline-danger btn-block rounded-sm" title="Delete avatar">DELETE AVATAR</button>
                             </form>
                         </div>
                     </div>   
@@ -58,7 +71,7 @@
             <!--<p>Bio</p>-->
         </div>
         
-        <div class="col-md-7 p-0">
+        <div class="col-md-6 col-lg-7 p-0">
             <!--<hr class="my-0">-->
             <h3 class="pl-2 py-1"><%= user.username %>'s campgrounds:</h3>
             <!--<hr class="mt-0">-->

@@ -165,8 +165,9 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
                     return res.redirect("back");
                 }
             }
+            user.email = req.body.email;
             user.save();
-            req.flash("success","Avatar updated successfully!");
+            req.flash("success","Profile updated successfully!");
             res.redirect("/users/" + user._id);
         }
     });

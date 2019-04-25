@@ -47,7 +47,6 @@ router.post("/", middleware.isLoggedIn, middleware.checkReviewExistence, functio
             //add author username/id and associated campground to the review
             review.author.id = req.user._id;
             review.author.username = req.user.username;
-            review.author.avatar =req.user.avatar;
             review.campground = campground;
             //save review
             review.save();
