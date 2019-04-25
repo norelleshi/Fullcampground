@@ -284,8 +284,8 @@ footer {
 
 /**************Profile show page*******************/
 .avatarCard {
-  max-width: 120px;
-  max-height: 120px;
+  max-width: 100px;
+  /*max-height: 120px;*/
 }
 
 .campgroundList a{
