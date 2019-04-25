@@ -156,6 +156,7 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
                         }   
                     }    
                     var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
+                    // eval(require('locus'));
                     user.avatarId = result.public_id;
                     user.avatar = result.secure_url;
                 } catch(err) {
@@ -165,7 +166,7 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
                 }
             }
             user.save();
-            req.flash("success","Profile updated successfully!");
+            req.flash("success","Avatar updated successfully!");
             res.redirect("/users/" + user._id);
         }
     });
@@ -180,7 +181,7 @@ router.delete("/users/:id", middleware.isLoggedIn, function(req, res){
         }
         try {
             await cloudinary.v2.uploader.destroy(user.avatarId);
-            user.avatarId = "";
+            user.avatarId = null;
             user.avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
             req.flash('success', 'Avatar deleted successfully!');
             res.redirect("/users/" + user._id);
@@ -190,7 +191,6 @@ router.delete("/users/:id", middleware.isLoggedIn, function(req, res){
                 return res.redirect("back");
             }
         }
-            eval(require('locus'));
         user.save();
     });
 });
