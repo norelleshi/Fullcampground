@@ -12,11 +12,13 @@
 * Campgrounds Index Page
   * Mobile-friendly feature: hide elements responsively for small screen size (using boostrap 4 display property)
   * Fuzzy Search 
+  * My campground shortcut button
   * Waterfall layout (different image sizes)
   * Image hover brightness
+  * Display authors, rating results and prices along with the campground images
   
 * Campgrounds New Page
-  * Image Upload
+  * Image Upload feature
   * Form filling out requirement
   
 * Campgrounds Show Page
