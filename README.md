@@ -1,4 +1,4 @@
-# YelpCamp Features Introduction
+# YelpCamp Features
 * CSS3 background animation on landing page
 * Responsive navigation header, the navbar (including HOME link in navigation, LOGIN and SIGN UP, hamburger toggler for mobile device)
 * Mobile-friendly feature: hide elements responsively for small screen size (using boostrap 4 display property)
