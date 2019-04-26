@@ -14,6 +14,6 @@
 * Display time since post (campgrounds and reviews) 
 * Edit & Delete feature (if you are the author of the campground or review)
 * Review summary
-* Ratings and reviews (on the same page: add & edit) (newest post first)
+* Ratings and reviews (on the same page: add & edit) (the newest post first)
 * User profile (as well as avatar and email edit & delete feature) 
 * Error handling (handling the potential issues that may result in security concerns)
