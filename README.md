@@ -12,7 +12,7 @@
 * Campgrounds Index Page
   * Mobile-friendly feature: hide elements responsively for small screen size (using boostrap 4 display property)
   * Fuzzy Search 
-  * Waterfall layout (different image size)
+  * Waterfall layout (different image sizes)
   * Image hover brightness
   
 * Campgrounds New Page
@@ -33,4 +33,4 @@
   
 * User Profile Page
   * Avatar and email (edit & delete on the same page)
-  * The Owner's campgrounds list
+  * The owner's campgrounds list
