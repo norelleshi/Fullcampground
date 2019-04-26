@@ -1,19 +1,36 @@
-# YelpCamp Features
-* CSS3 background animation on landing page
-* Responsive navigation header, the navbar (including HOME link in navigation, LOGIN and SIGN UP, hamburger toggler for mobile device)
-* Mobile-friendly feature: hide elements responsively for small screen size (using boostrap 4 display property)
-* Fuzzy Search 
-* Waterfall layout (different image size)
-* Cards' CSS hover feature
-* Footer
-* Authentication flash messages
-* Image upload
-* Admin role
-* Campground location with Google Maps
-* Campground cost 
-* Display time since post (campgrounds and reviews) 
-* Edit & Delete feature (if you are the author of the campground or review)
-* Review summary
-* Ratings and reviews (on the same page: add & edit) (the newest post first)
-* User profile (as well as avatar and email edit & delete feature) 
-* Error handling (handling the potential issues that may result in security concerns)
+# YelpCamp Feature Introductions
+
+* All Pages
+  * Responsive navigation header, the navbar (hamburger toggler for mobile device)
+  * Footer
+  * Flash messages
+  * Error handling (handling the potential issues that may result in security concerns)
+  
+* Landing Page
+  * CSS3 background animation
+  
+* Campgrounds Index Page
+  * Mobile-friendly feature: hide elements responsively for small screen size (using boostrap 4 display property)
+  * Fuzzy Search 
+  * Waterfall layout (different image size)
+  * Image hover brightness
+  
+* Campgrounds New Page
+  * Image Upload
+  * Form filling out requirement
+  
+* Campgrounds Show Page
+  * Campground location with Google Maps
+  * Pricing feature 
+  * Display time since post (campgrounds and reviews) 
+  * Edit & Delete feature (if you are the author of the specific campground or review)
+  * Review summary
+  * Ratings and reviews (add & edit on the same page) (the newest post first)
+  
+* Register Page  
+  * Avatar upload
+  * Admin role
+  
+* User Profile Page
+  * Avatar and email (edit & delete on the same page)
+  * The Owner's campgrounds list
