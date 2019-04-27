@@ -1,4 +1,4 @@
-# YelpCamp Feature Introductions
+# YelpCamp Features
 
 * All Pages
   * Responsive navigation header, the navbar (hamburger toggler for mobile device)
