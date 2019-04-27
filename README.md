@@ -32,7 +32,7 @@
   * Ratings and reviews (add & edit on the same page) (the newest post first)
   
 * Login Page (to login)
- * With being authenticated, you can create new posts; edit or delete your own posts, reviews and profile
+  * With being authenticated, you can create new posts; edit or delete your own posts, reviews and profile
   
 * Register Page (to sign up) 
   * Avatar upload from local
