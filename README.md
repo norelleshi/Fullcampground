@@ -20,7 +20,7 @@
   * Display authors, rating results and prices along with the campground images
   
 * Campgrounds New Page (to create a new campground)
-  * Image Upload feature
+  * Image Upload from local
   * Form filling out requirement
   
 * Campgrounds Show Page (to show the detailed information of one specific campground)
@@ -35,7 +35,7 @@
  * With being authenticated, you can create new posts; edit or delete your own posts, reviews and profile
   
 * Register Page (to sign up) 
-  * Avatar upload
+  * Avatar upload from local
   * Admin role (admin can manage all posts and reviews)
   
 * User Profile Page
