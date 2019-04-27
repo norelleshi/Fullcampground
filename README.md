@@ -32,7 +32,7 @@
   * Ratings and reviews (add & edit on the same page) (the newest post first)
   
 * Login Page (to login)
-  * With being authenticated, you can create new posts; edit or delete your own posts, reviews and profile
+  * With being authenticated by login, you are allowed to create new posts; edit or delete your own posts, reviews and profile
   
 * Register Page (to sign up) 
   * Avatar upload from local
@@ -73,7 +73,7 @@
  
 ### Deployment
 * Heroku
-* [LIVE DEMO](https://agile-falls-54679.herokuapp.com/) <br>
+* [Click here to view the live demo](https://agile-falls-54679.herokuapp.com/) <br>
   Login username: Guest <br>
   Login password: Guest123
  
