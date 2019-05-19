@@ -26,7 +26,7 @@
 * Campgrounds Show Page (to show the detailed information of one specific campground)
   * Campground location with Google Maps
   * Pricing feature 
-  * Display time since post (campgrounds and reviews) 
+  * Display time since post was created with Moment JS 
   * Edit & Delete feature (if you are the author of the specific campground or review)
   * Review summary
   * Ratings and reviews (add & edit on the same page) (the newest post first)
