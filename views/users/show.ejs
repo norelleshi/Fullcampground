@@ -32,36 +32,36 @@
                     <!--Collapse edit user profile form START-->
                     <div class="collapse shadow-lg" id="collapseEdit">
                         <div class="collapse-edit-style darkTransparentBg p-2">
-                            <h5 class="mb-3">Edit your profile:</h5>
+                            <h5 class="mb-2">Edit your profile:</h5>
                             <form id="edit-campground-form" 
                                     action="/users/<%= user._id %>?_method=PUT" 
                                     method="POST" enctype="multipart/form-data">
                                 
-                                <div class="form-group mb-1">
-                                    <label for="email">Email:</label>
-                                    <div>
-                                        <input class="form-control" type="email" 
-                                            name="email" id="email" 
-                                            form="edit-campground-form" 
-                                            value="<%= user.email %>" autofocus>
-                                    </div>
+                                <div class="form-group mb-0">
+                                    <label for="email" class="m-0">Email:</label>
+									<div class="input-group input-group-sm">
+											<input class="form-control" type="email" 
+												name="email" id="email" 
+												form="edit-campground-form" 
+												value="<%= user.email %>" autofocus>
+									</div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="avatar">Avatar:</label>
+                                <div class="form-group mb-2">
+                                    <label for="avatar" class="m-0">Avatar:</label>
                                     <div>
                                         <input class="form-control-file bg-transparent" type="file" name="avatar" id="avatar" 
                                         form="edit-campground-form" 
                                         value="<%= user.avatar %>" accept="image/*">
                                     </div>
                                 </div>
-                                <div class="form-group text-right">
-                                    <button class="btn btn-warning btn-block">UPDATE</button>
+                                <div class="form-group text-right mb-1">
+                                    <button class="btn btn-sm btn-warning btn-block">UPDATE</button>
                                 </div>
                             </form>
                             <!--Delete avatar button-->
                             <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-outline-danger btn-block rounded-sm" title="Delete avatar">DELETE AVATAR</button>
+                                <button class="btn btn-sm btn-outline-danger btn-block rounded-sm" title="Delete avatar">DELETE AVATAR</button>
                             </form>
                         </div>
                     </div>   

@@ -94,7 +94,7 @@ router.get("/login", function(req, res){
 router.post("/login", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
-        successFlash: "Welcome to YelpCamp!",
+        // successFlash: "Welcome to YelpCamp!",
         failureRedirect: "/login",
         failureFlash: true,
     }), function(req, res) {
