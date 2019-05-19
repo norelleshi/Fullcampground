@@ -62,10 +62,10 @@ app.use("/campgrounds", campgroundRoutes);
 // app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
-// app.listen(process.env.PORT, process.env.IP, function(){
-//    console.log("The YelpCamp server has started!"); 
-// });
-
-app.listen(8080, () => {
-	console.log('sever listening on port 8080');
+app.listen(process.env.PORT, process.env.IP, function(){
+   console.log("The YelpCamp server has started!"); 
 });
+
+// app.listen(8080, () => {
+// 	console.log('sever listening on port 8080');
+// });
