@@ -43,7 +43,7 @@ input, textarea {
 .navbar {
   padding-top:0;
   padding-bottom: 0;
-  box-shadow: 0 0 7px 3px #000;
+  box-shadow: 0 0 2px 1px #000;
   z-index: 50;
   /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
   /*            0 3px 1px 0 rgba(20,23,28,0.1);*/
@@ -123,6 +123,8 @@ footer {
 .searchBarInput {
 	background-color: black !important; 
 	color: white !important;
+	margin-top: -1px;
+	margin-bottom: -1px;
 }
 
 @media (min-width:992px){
