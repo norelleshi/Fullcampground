@@ -26,13 +26,18 @@
 }
 
 
-/*********** Primary element*******************/
+/*********** Primary element *******************/
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
   background-color: #2e3035;
   min-height: 100vh;
   color: #bfbfbf;
+}
+
+input, textarea {
+	background-color:black !important; 
+	color: white !important;	
 }
 
 .navbar {
@@ -72,7 +77,7 @@ body {
   left: 0;
 }
 
-header {
+.indexHeader {
   /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
   background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
   width: 100%;
@@ -109,6 +114,15 @@ footer {
   display: inline-block;
   box-shadow: 0 0 1px 3px rgba(20,23,28,0.2), 
             0 2px 9px 0 rgba(20,23,28,0.6);
+}
+
+.searchBar {
+	background-color: black;
+}
+
+.searchBarInput {
+	background-color: black !important; 
+	color: white !important;
 }
 
 @media (min-width:992px){
@@ -200,23 +214,29 @@ footer {
   z-index: 2;
 }
 
+.form-control:focus {
+	border-color: #00e600;
+	box-shadow: none;	
+}
+
 .form-signin input[type="text"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.form-signin input[type="number"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+.form-signin input[type="email"] {
+  margin-bottom: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
 .form-signin input[type="password"] {
-  margin-bottom: 10px;
+  margin-bottom: -1px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
 
 /******************* Campground show page setting ****************/
 #map {

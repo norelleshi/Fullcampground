@@ -1,6 +1,6 @@
-require('dotenv').config()
+require('dotenv').config();
 
-var express     = require("express"),
+const express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
@@ -11,17 +11,23 @@ var express     = require("express"),
     Campground  = require("./models/campground"),
     // Comment     = require("./models/comment"),
     User        = require("./models/user"),
-    seedDB      = require("./seeds")
+    seedDB      = require("./seeds");
 
 // requiring routes
 // var commentRoutes       = require("./routes/comments"),
-    var reviewRoutes     = require("./routes/reviews");
-    var campgroundRoutes    = require("./routes/campgrounds");
-    var indexRoutes         = require("./routes/index");
+    const reviewRoutes     = require("./routes/reviews");
+    const campgroundRoutes    = require("./routes/campgrounds");
+    const indexRoutes         = require("./routes/index");
 
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/yelp_camp_v12Deployed";
-mongoose.connect(url, { useNewUrlParser: true });
-
+let url = process.env.DATABASEURL || "mongodb://localhost:27017/yc13";
+mongoose.connect(url, { 
+	useNewUrlParser: true,
+	useCreateIndex: true
+}).then(() => {
+	console.log('Connected to DB!');
+}).catch(err => {
+	console.log('ERROR:', err.message);
+});
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
@@ -56,6 +62,10 @@ app.use("/campgrounds", campgroundRoutes);
 // app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 
-app.listen(process.env.PORT, process.env.IP, function(){
-   console.log("The YelpCamp server has started!"); 
+// app.listen(process.env.PORT, process.env.IP, function(){
+//    console.log("The YelpCamp server has started!"); 
+// });
+
+app.listen(8080, () => {
+	console.log('sever listening on port 8080');
 });
