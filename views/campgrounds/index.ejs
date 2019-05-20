@@ -5,11 +5,12 @@
         <h1 class="display-4">Welcome to YelpCamp</h1>
         <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to exchange their campground information. Login to share your campgrounds with people from all over the world!</p>
         <hr class="my-4 border-white d-none d-md-block">
-        <p>View the campgrounds people recommended below!</p>
-		<div>
-			<a href="#search" role="button" class="btn btn-success btn-sm">All campgrounds</a>
-			<a href="/login" role="button" class="btn btn-success btn-sm">Login</a>			
-		</div>
+        <p>View the campgrounds people recommended 
+			<a href="#main" class="badge badge-light text-nowrap">below <i class="fas fa-arrow-circle-down"></i></a>
+		</p>
+		<p>Add new campground 
+			<a href="/login" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>			
+		</p>
 		
         <!-- <div class="addNewCampgroundButton rounded-pill">
             <a class="btn btn-success btn-lg rounded-pill font-weight-bold" 
@@ -25,7 +26,7 @@
     <div>
         <div class="searchBar <% if(currentUser){ %> d-flex justify-content-between <% } %>">
             <div>
-                <form action="/campgrounds" method="GET" class=" <% if(currentUser){ %> form-inline d-inline-flex <% } %>">
+                <form action="/campgrounds#main" method="GET" class=" <% if(currentUser){ %> form-inline d-inline-flex <% } %>">
                     <!--<div class="form group">-->
                     <!--    <input type="text" name="search" class="form-control searchBorder border-0 font-weight-lighter" placeholder="Search all of YC">-->
                         <!--<input type="sumbit" value="search" class="btn btn-success">-->
@@ -37,11 +38,10 @@
                                 class="form-control rounded-0 font-weight-lighter border-secondary searchBarInput" 
                                 placeholder="Search campgrounds..." 
                                 aria-label="Search campgrounds" 
-                                aria-describedby="button-addon"
-							   id="search">
+                                aria-describedby="button-addon">
                         <div class="input-group-append">
                             <button type="sumbit" class="btn btn-outline-success btn-sm rounded-0 border-0" 
-                                type="button" id="button-addon" title="Search campgrounds">
+                            	 id="button-addon" title="Search campgrounds">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -63,11 +63,11 @@
         <div class="container px-1">
             <div>
                 <% if(noMatch !== null){ %>
-                    <h5><%= noMatch %></h5>
-                    <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p>
+                    <h5><%= noMatch %> <a href="/campgrounds#main" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
+                    <!-- <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p> -->
                 <% } %>
 				<% if(matchResult !== null){ %>
-					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em></h5>
+					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em>, <a href="/campgrounds#main" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
 				<% } %>
             </div>
             <div class="card-columns">
