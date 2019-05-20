@@ -40,17 +40,22 @@ var geocoder = NodeGeocoder(options);
 router.get("/", function(req, res){
     // eval(require('locus'));
     var noMatch = null; 
+	var matchResult = null;
+	var searchInput = null;
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         //Get all campgrounds from DB
-        Campground.find({$or:[{name: regex}, {location: regex}, {"author.username":regex}, {description: regex}]}, function(err, allCampgrounds){
+        Campground.find({$or:[{name: regex}, {location: regex}, {"author.username":regex}, {price: regex}, {description: regex}]}, function(err, allCampgrounds){
           if(err){
               console.log(err);
           } else {
                 if(allCampgrounds.length < 1) {
                     noMatch = "No campgrounds match that query, please try again.";
-                }
-                res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch});
+                } else {
+					matchResult = "Found " + allCampgrounds.length + " results for ";
+					searchInput = req.query.search;
+				}
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, searchInput: searchInput});
             }
         });
     } else {
@@ -59,7 +64,7 @@ router.get("/", function(req, res){
           if(err){
               console.log(err);
           } else {
-              res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch});
+              res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult});
           }
         });
     }
@@ -87,6 +92,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
                 id: req.user._id,
                 username: req.user.username
             };
+			
             // Create a new campground and save to DB
             Campground.create(req.body.campground, function(err, newlyCreated){
                 if(err){

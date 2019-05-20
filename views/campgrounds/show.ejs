@@ -26,7 +26,12 @@
                     <div class="d-flex justify-content-between text-muted pb-1">   
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
                         <em>Submitted By <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
-						<div>$<%= campground.price %> USD/night</div>
+                        <% if(campground.price != 0){ %>
+							<div>$<%= campground.price %> USD/night</div>
+						<% } %>
+						<% if(campground.price == 0){ %>
+							<div>free</div>
+						<% } %>
                     </div>
                     
                     <hr class="my-0">
