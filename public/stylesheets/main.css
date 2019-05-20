@@ -25,6 +25,19 @@
   font-size: 1.1rem;
 }
 
+input, textarea {
+	background-color:black !important; 
+	color: white !important;	
+}
+
+.form-control {
+	border-color: gray;
+}
+
+.form-control:focus {
+	border-color: #00e600;
+	box-shadow: none;	
+}
 
 /*********** Primary element *******************/
 body {
@@ -33,11 +46,6 @@ body {
   background-color: #2e3035;
   min-height: 100vh;
   color: #bfbfbf;
-}
-
-input, textarea {
-	background-color:black !important; 
-	color: white !important;	
 }
 
 .navbar {
@@ -127,6 +135,10 @@ footer {
 	margin-bottom: -1px;
 }
 
+.searchBarInput:focus {
+	border-color: #00e600 !important;
+}
+
 @media (min-width:992px){
   .card-columns{
     column-count: 4;
@@ -214,11 +226,6 @@ footer {
 
 .form-signin .form-control:focus {
   z-index: 2;
-}
-
-.form-control:focus {
-	border-color: #00e600;
-	box-shadow: none;	
 }
 
 .form-signin input[type="text"] {

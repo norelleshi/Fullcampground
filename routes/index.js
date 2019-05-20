@@ -176,7 +176,7 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
 // User avatar delete route
 router.delete("/users/:id", middleware.isLoggedIn, function(req, res){
     User.findById(req.params.id, async function(err, user) {
-        if(err) {
+        if(err || !user) {
           req.flash("error", err.message);
           return res.redirect("back");
         }
@@ -188,7 +188,7 @@ router.delete("/users/:id", middleware.isLoggedIn, function(req, res){
             res.redirect("/users/" + user._id);
         } catch(err) {
             if(err) {
-                req.flash("error", err.message);
+                req.flash("error", "Something went wrong");
                 return res.redirect("back");
             }
         }
