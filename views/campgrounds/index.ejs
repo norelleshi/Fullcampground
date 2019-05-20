@@ -6,10 +6,10 @@
         <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to exchange their campground information. Login to share your campgrounds with people from all over the world!</p>
         <hr class="my-4 border-white d-none d-md-block">
         <p>View the campgrounds people recommended 
-			<a href="#main" class="badge badge-light text-nowrap">below <i class="fas fa-arrow-circle-down"></i></a>
+			<a href="#main" class="badge badge-success shadow-lg text-nowrap">below <i class="fas fa-arrow-circle-down"></i></a>
 		</p>
 		<p>Add new campground 
-			<a href="/login" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>			
+			<a href="/login" class="badge badge-success shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>			
 		</p>
 		
         <!-- <div class="addNewCampgroundButton rounded-pill">
@@ -63,11 +63,11 @@
         <div class="container px-1">
             <div>
                 <% if(noMatch !== null){ %>
-                    <h5><%= noMatch %> <a href="/campgrounds#main" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
+                    <h5><%= noMatch %> <a href="/campgrounds#main" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
                     <!-- <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p> -->
                 <% } %>
 				<% if(matchResult !== null){ %>
-					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em>, <a href="/campgrounds#main" class="badge badge-light text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
+					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em>, <a href="/campgrounds#main" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
 				<% } %>
             </div>
             <div class="card-columns">
