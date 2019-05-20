@@ -3,9 +3,14 @@
 <div class="indexHeader jumbotron m-0 p-3 rounded-0">
     <div class="container-fluid lead">
         <h1 class="display-4">Welcome to YelpCamp</h1>
-        <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to exchange their campground information. Login to share your campground with people from all over the world!</p>
+        <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to exchange their campground information. Login to share your campgrounds with people from all over the world!</p>
         <hr class="my-4 border-white d-none d-md-block">
-        <p>View the campgrounds people recommend below!</p>
+        <p>View the campgrounds people recommended below!</p>
+		<div>
+			<a href="#search" role="button" class="btn btn-success btn-sm">All campgrounds</a>
+			<a href="/login" role="button" class="btn btn-success btn-sm">Login</a>			
+		</div>
+		
         <!-- <div class="addNewCampgroundButton rounded-pill">
             <a class="btn btn-success btn-lg rounded-pill font-weight-bold" 
                 href="/campgrounds/new">Add New Campground 
@@ -32,10 +37,11 @@
                                 class="form-control rounded-0 font-weight-lighter border-secondary searchBarInput" 
                                 placeholder="Search campgrounds..." 
                                 aria-label="Search campgrounds" 
-                                aria-describedby="button-addon">
+                                aria-describedby="button-addon"
+							   id="search">
                         <div class="input-group-append">
                             <button type="sumbit" class="btn btn-outline-success btn-sm rounded-0 border-0" 
-                                type="button" id="button-addon">
+                                type="button" id="button-addon" title="Search campgrounds">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
