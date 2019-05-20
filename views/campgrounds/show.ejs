@@ -55,7 +55,7 @@
                         </div> 
                         
                         <!--Collapse edit a campground form START-->
-                        <div class="collapse shadow-lg" id="collapseEdit">
+                        <div class="collapse shadow-lg border border-left-0 border-secondary rounded-sm" id="collapseEdit">
                             <div class="card-body collapse-edit-style darkTransparentBg p-2">
                                 <h5>Edit your campground</h5>
                                 <form id="edit-campground-form" 
@@ -96,7 +96,7 @@
                                         <label for="description" class="m-0">Description</label>
                                         <textarea class="form-control m-0" name="description" id="description" placeholder="Your campground text..." form="edit-campground-form" rows="4" required><%= campground.description %></textarea>
                                     <!-- </div> -->
-                                    <div class="form-group text-right mt-2">
+                                    <div class="form-group text-right my-1">
                                         <button class="btn btn-warning btn-block">UPDATE</button>
                                     </div>
                                 </form>
@@ -153,18 +153,18 @@
         </div>
             
         <!--Collapse Add a review form START-->
-        <div class="collapse shadow-lg rounded-lg darkTransparentBg" id="collapseReview">
-            <div class="collapse-review-style p-3">
+        <div class="collapse shadow-lg rounded-lg darkTransparentBg border border-left-0 border-secondary" id="collapseReview">
+            <div class="collapse-review-style px-3 py-1">
                 <% if(!currentUser) { %>
                 <!--If the user is not logged in, direct him to the login page-->
-                <h5>You need to login before you can comment. 
-                    <a href="/login">Click here</a> to go to the login page.
+                <h5>You need to login before you can review. 
+                    <a href="/login" class="badge badge-success shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>
                 </h5>
                 <% } else {%>
                     <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
-                        <div class="form-group">
+                        <div class="form-group my-1">
                             <label for="rating">Rate & Review</label>
-                            <fieldset class="starability-basic form-group" id="rating">
+                            <fieldset class="starability-basic form-group mb-0" id="rating">
                                 <div>
                                     <input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
                                     <label for="first-rate5" title="5 stars - Amazing">
@@ -197,10 +197,10 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-1">
                             <textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="4"></textarea>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group my-1">
                             <button class="btn btn-success btn-block">POST</button>
                         </div>
                     </form>
@@ -248,14 +248,14 @@
                     </div>
                     
                     <!--Collapse edit review form start-->
-                    <div class="collapse shadow-lg" id="collapseEdit<%= review._id %>">
-                        <div class="collapse-edit-style darkTransparentBg p-3">
+                    <div class="collapse shadow-lg border border-left-0 border-secondary rounded-sm" id="collapseEdit<%= review._id %>">
+                        <div class="collapse-edit-style darkTransparentBg px-3 py-1">
                             <form id="edit-review-form<%= review._id %>"
                                 action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
                                 method="POST">
                                 <h5>Edit your review</h5>
-                                <div class="form-group">
-                                    <fieldset class="starability-basic form-group" id="rating">
+                                <div class="form-group my-1">
+                                    <fieldset class="starability-basic form-group mb-0" id="rating">
                                         <div>
                                             <input form="edit-review-form<%= review._id %>" 
                                                     type="radio" id="first-rate5"
@@ -296,12 +296,11 @@
                                     </fieldset>
                                 </div>
 
-                                
-                                <div class="form-group">
+                                <div class="form-group my-1">
                                     <textarea class="form-control inputTextBlack" name="review[text]"
                                             placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="4"><%= review.text %></textarea>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group my-1">
                                     <button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
                                 </div>
                             </form>
