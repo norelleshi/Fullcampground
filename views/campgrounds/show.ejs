@@ -25,7 +25,7 @@
                 <div class="card-body p-2 darkTransparentBg">
                     <div class="d-flex justify-content-between text-muted pb-1">   
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
-                        <em>Submitted By <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
+                        <em>Submitted By <a href="/users/<%= campground.author.id %>" class="text-light"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
                         <% if(campground.price != 0){ %>
 							<div>$<%= campground.price %> USD/night</div>
 						<% } %>
@@ -216,11 +216,11 @@
         <% } else {%>
             <% campground.reviews.forEach(function(review){ %>
                 <div>
-                    <i class="fas fa-user"></i>
+                    <!-- <i class="fas fa-user"></i> -->
                     <!--<div class="card darkBg border-0">-->
                     <!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
                     <!--</div>-->
-                    <span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
+                    <span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
                     <em class="text-muted review-date pl-1 d-inline">
                         <%= moment(review.updatedAt).fromNow() %>
                     </em>
