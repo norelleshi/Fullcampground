@@ -9,25 +9,25 @@
                         <img src="<%= user.avatar %>" class="card-img-top avatarCard rounded-sm" alt="user profile image">
                     </a>
                 </div>
-            </div>
-            
-            
-            <div class="text-center"><a href="mailto:<%= user.email %>" class="text-light"><%= user.email %></a></div>
+            </div>      
             <div>
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
-                    <div class="text-center">
-                        <a class="btn btn-outline-warning border-0 rounded-sm" 
-                            role="button" data-toggle="collapse" 
-                            href="#collapseEdit" 
-                            aria-expanded="false" aria-controls="collapseEdit"
-                            title="Edit profile">
-                            <i class="fas fa-pen"></i>
-                        </a>
-                        <!--Delete avatar button-->
-                        <!--<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">-->
-                        <!--    <button class="btn btn-outline-secondary border-0 rounded-sm" title="Delete"><i class="fas fa-trash-alt"></i></button>-->
-                        <!--</form>-->
-                    </div>
+					<div class="text-center">									
+						<a href="mailto:<%= user.email %>" class="text-light"><%= user.email %></a>
+						<span>
+							<a class="btn btn-outline-warning border-0 rounded-sm" 
+								role="button" data-toggle="collapse" 
+								href="#collapseEdit" 
+								aria-expanded="false" aria-controls="collapseEdit"
+								title="Edit profile">
+								<i class="fas fa-pen"></i>
+							</a>
+							<!--Delete avatar button-->
+							<!--<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">-->
+							<!--    <button class="btn btn-outline-secondary border-0 rounded-sm" title="Delete"><i class="fas fa-trash-alt"></i></button>-->
+							<!--</form>-->
+						</span>
+					</div>	
                     
                     <!--Collapse edit user profile form START-->
                     <div class="collapse shadow-lg border border-left-0 border-secondary rounded-sm" id="collapseEdit">
@@ -72,7 +72,7 @@
         </div>
         
         <div class="col-md-6 col-lg-7 p-0">
-            <!--<hr class="my-0">-->
+            <hr class="d-block d-md-none my-1">
             <h3 class="pl-2 py-1 text-success"><%= user.username %>'s campgrounds:</h3>
             <!--<hr class="mt-0">-->
             <% if(campgrounds.length < 1){ %>
