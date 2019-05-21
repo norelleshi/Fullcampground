@@ -8,7 +8,7 @@
         <p>View the campgrounds people recommended 
 			<a href="#main" class="badge badge-success shadow-lg text-nowrap">below <i class="fas fa-arrow-circle-down"></i></a>
 		</p>
-		<p>Add new campground 
+		<p>Create new campgrounds 
 			<a href="/login" class="badge badge-success shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>			
 		</p>
 		
@@ -23,40 +23,23 @@
 <% } %>
 
 <div id="main"> 
-    <div>
-        <div class="searchBar <% if(currentUser){ %> d-flex justify-content-between <% } %>">
-            <div>
-                <form action="/campgrounds#main" method="GET" class=" <% if(currentUser){ %> form-inline d-inline-flex <% } %>">
-                    <!--<div class="form group">-->
-                    <!--    <input type="text" name="search" class="form-control searchBorder border-0 font-weight-lighter" placeholder="Search all of YC">-->
-                        <!--<input type="sumbit" value="search" class="btn btn-success">-->
-                    <!--    <button type="sumbit" value="search" class="btn btn-outline-dark btn-sm border-0"><i class="fas fa-search"></i></button>-->
-                    <!--</div>-->
-                    
-                    <div class="input-group input-group-sm">
-                        <input type="text" name="search"  
-                                class="form-control rounded-0 font-weight-lighter border-secondary searchBarInput" 
-                                placeholder="Search campgrounds..." 
-                                aria-label="Search campgrounds" 
-                                aria-describedby="button-addon">
-                        <div class="input-group-append">
-                            <button type="sumbit" class="btn btn-outline-success btn-sm rounded-0 border-0" 
-                            	 id="button-addon" title="Search campgrounds">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!--<div class="intro_title">-->
-            <!--    Start your <span>advanture</span> today!-->
-            <!--</div>-->
-            <% if(currentUser){ %>
-                <a href="/campgrounds/new" title="Add new campground" class="btn btn-outline-success btn-sm border-0 rounded-0">Add<i class="fas fa-campground"></i></a>
-                <a href="/users/<%= currentUser._id %>" title="My campground" class="btn btn-outline-success btn-sm border-0 rounded-0">My<i class="fas fa-campground"></i></a>
-            <% } %>            
-        </div>       
-    </div>
+	<div class="searchBar d-block">
+		<form action="/campgrounds#main" method="GET">                   
+			<div class="input-group input-group-sm">
+				<input type="text" name="search"  
+						class="form-control rounded-0 font-weight-lighter border-secondary searchBarInput" 
+						placeholder="Names, locations, prices, authors, descriptions..." 
+						aria-label="Search campgrounds" 
+						aria-describedby="button-addon">
+				<div class="input-group-append">
+					<button type="sumbit" class="btn btn-outline-success btn-sm rounded-0 border-0" 
+						 id="button-addon" title="Search campgrounds">
+						<i class="fas fa-search"></i>
+					</button>
+				</div>
+			</div>
+		</form>          
+	</div>       
     
     
     <div class="darkBg pt-3">
@@ -105,11 +88,11 @@
         </div>
     </div>
     
-    <div class="bg-success m-0 p-4">
+    <!-- <div class="bg-success m-0 p-4">
         <div class="container-fluid">
             <a href="#" class="font-weight-lighter text-white">More from YC News<i class="fas fa-angle-right text-white pl-2"></i></a>
         </div>    
-    </div>
+    </div> -->
     
 </div>
 

@@ -23,6 +23,11 @@
                         <!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                             <a href="#" class="nav-link">About</a>
                         </li> -->
+						<% if(currentUser){ %>
+							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+								<a href="/campgrounds/new" class="nav-link" title="Add new campground">Create</a>
+							</li>
+						<% } %>
                     </ul>
                     <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
@@ -33,10 +38,10 @@
                                 <a href="/register" class="nav-link" title="Sign up">Join</a>
                             </li>
                         <% } else { %>
-                            <li class="nav-item">
-                                <a href="/users/<%= currentUser._id %>" class="nav-link">Signed In As <%= currentUser.username %></a>
+							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                                <a href="/users/<%= currentUser._id %>" class="nav-link" title="Profile">Signed In As <%= currentUser.username %></a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <a href="/logout" class="nav-link">Logout</a>
                             </li>   
                             <% } %>

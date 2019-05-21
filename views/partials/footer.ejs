@@ -1,7 +1,17 @@
         <!--</main><!-- /.container -->
         
         <footer class="footer">
-            <div class="text-muted mb-0 pt-1">&copy; YelpCamp 2019 | <a href="/campgrounds">Home</a> | <a href="/campgrounds/new">New Campground</a></div>
+            <div class="text-muted mb-0 pt-1">&copy; YelpCamp 2019 | 
+				<a href="/campgrounds#main">Home</a> |  
+				<% if(!currentUser){ %>
+					<a href="/login">Login</a> | 
+					<a href="/register">Join</a>
+				<% } else {%>
+					<a href="/campgrounds/new">Create</a> |
+					<a href="/users/<%= currentUser._id %>">Profile</a> | 
+					<a href="/logout">Logout</a>
+				<% } %>
+			</div>
             <div class="text-muted">Built by Norelle | Test Version</div>
         </footer>
          <!-- Bootstrap and its dependencies -->
