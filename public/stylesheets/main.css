@@ -1,6 +1,7 @@
 /************* General setting *****************/
 .darkBg {
   background-color: #2e3035;
+	padding-top: 76px;
 }
 
 .darkTransparentBg {
@@ -138,8 +139,7 @@ footer {
 .searchBarInput {
 	background-color: black !important; 
 	color: white !important;
-	margin-top: -1px;
-	margin-bottom: -1px;
+	margin: -1px;
 }
 
 .searchBarInput:focus {

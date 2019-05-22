@@ -14,7 +14,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="/campgrounds"><i class="fab fa-yandex-international"></i>elpCamp</a>
+                <a class="navbar-brand" href="/campgrounds#main"><i class="fab fa-yandex-international"></i>elpCamp</a>
                 <a class="navbar-toggler border-0" role="button" data-toggle="collapse" href="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </a>
@@ -23,13 +23,26 @@
                         <!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                             <a href="#" class="nav-link">About</a>
                         </li> -->
-						<% if(currentUser){ %>
-							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-								<a href="/campgrounds/new" class="nav-link" title="Add new campground">Create</a>
-							</li>
-						<% } %>
                     </ul>
                     <ul class="navbar-nav navbar-right">
+						
+						<li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
+							<form action="/campgrounds#main" method="GET" class="nav-link">                   
+								<div class="input-group input-group-sm">
+									<input type="text" name="search"  
+											class="form-control rounded-0 font-weight-lighter border-secondary" 
+											placeholder="Search campgrounds..." 
+											aria-label="Search campgrounds" 
+											aria-describedby="button-addon">
+									<div class="input-group-append">
+										<button type="sumbit" class="btn btn-success btn-sm rounded-right-sm border-0" 
+											 id="button-addon" title="Search campgrounds">
+											<i class="fas fa-search"></i>
+										</button>
+									</div>
+								</div>
+							</form>          
+						</li>
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
                                 <a href="/login" class="nav-link">Login</a>
@@ -38,6 +51,9 @@
                                 <a href="/register" class="nav-link" title="Sign up">Join</a>
                             </li>
                         <% } else { %>
+							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+								<a href="/campgrounds/new" class="nav-link" title="Add new campground">Create</a>
+							</li>
 							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <a href="/users/<%= currentUser._id %>" class="nav-link" title="Profile">Signed In As <%= currentUser.username %></a>
                             </li>
