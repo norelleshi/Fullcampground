@@ -23,14 +23,11 @@
                         <!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                             <a href="#" class="nav-link">About</a>
                         </li> -->
-                    </ul>
-                    <ul class="navbar-nav navbar-right">
-						
 						<li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
 							<form action="/campgrounds#divide" method="GET" class="nav-link">                   
 								<div class="input-group input-group-sm">
 									<input type="text" name="search"  
-											class="form-control rounded-0 font-weight-lighter border-secondary" 
+											class="form-control rounded-left-sm font-weight-lighter border-secondary" 
 											placeholder="Search campgrounds..." 
 											aria-label="Search campgrounds" 
 											aria-describedby="button-addon">
@@ -43,6 +40,8 @@
 								</div>
 							</form>          
 						</li>
+                    </ul>
+                    <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
                                 <a href="/login" class="nav-link">Login</a>
@@ -55,7 +54,7 @@
 								<a href="/campgrounds/new" class="nav-link" title="Add new campground">Create</a>
 							</li>
 							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-                                <a href="/users/<%= currentUser._id %>" class="nav-link" title="Profile">Signed In As <%= currentUser.username %></a>
+                                <a href="/users/<%= currentUser._id %>" class="nav-link" title="Profile">Profile</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <a href="/logout" class="nav-link">Logout</a>
