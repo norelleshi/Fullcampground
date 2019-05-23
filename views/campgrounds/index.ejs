@@ -45,11 +45,11 @@
         <div class="container px-1">
             <div>
                 <% if(noMatch !== null){ %>
-                    <h5><%= noMatch %> <a href="/campgrounds#divide" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
+                    <h5><%= noMatch %> <a href="/campgrounds" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
                     <!-- <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p> -->
                 <% } %>
 				<% if(matchResult !== null){ %>
-					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em>, <a href="/campgrounds#divide" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
+					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em>, <a href="/campgrounds" class="badge badge-success text-nowrap shadow-lg"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></h5>
 				<% } %>
             </div>
             <div class="card-columns">

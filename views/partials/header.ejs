@@ -15,7 +15,7 @@
         <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/campgrounds"><i class="fab fa-yandex-international"></i>elpCamp</a>
-				<a href="/campgrounds/new" class="mr-auto btn btn-outline-success rounded-sm" title="Add new campground">Create</a>
+				<a href="/campgrounds/new" class="mr-auto btn btn-outline-success rounded-sm" title="Creat a new campground">Create</a>
                 <a class="navbar-toggler border-0" role="button" data-toggle="collapse" href="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </a>
@@ -26,7 +26,7 @@
                             <a href="#" class="nav-link">About</a>
                         </li> -->
 						<li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">	
-							<form action="/campgrounds#divide" method="GET" class="nav-link">                   
+							<form action="/campgrounds" method="GET" class="nav-link">                   
 								<div class="input-group input-group-sm">
 									<input type="text" name="search"  
 											class="form-control rounded-left-sm font-weight-lighter border-secondary" 
@@ -49,19 +49,23 @@
                                 <a href="/login" class="nav-link">Login</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
-                                <a href="/register" class="nav-link" title="Sign up">Join</a>
+                                <a href="/register" class="btn btn-outline-success rounded-sm" title="Sign up">Join</a>
                             </li>
                         <% } else { %>
 							<!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
 								<a href="/campgrounds/new" class="btn btn-outline-success rounded-sm" title="Add new campground">Create</a>
 							</li> -->
 							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-                                <a href="/users/<%= currentUser._id %>" class="nav-link" title="Profile">Profile</a>
+                                <a href="/users/<%= currentUser._id %>" class="nav-link">Profile</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <a href="/logout" class="nav-link">Logout</a>
                             </li>   
                             <% } %>
+							
+							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+								<a href="/" class="nav-link">About</a>
+							</li>
                     </ul>
                 </div>
             </div>
