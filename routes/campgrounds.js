@@ -41,6 +41,7 @@ router.get("/", function(req, res){
     // eval(require('locus'));
     var noMatch = null; 
 	var matchResult = null;
+	var oneMatch = null;
 	var searchInput = null;
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
@@ -50,12 +51,16 @@ router.get("/", function(req, res){
               console.log(err);
           } else {
                 if(allCampgrounds.length < 1) {
-                    noMatch = "No campgrounds match that query.";
+                    noMatch = "Found 0 result for ";
                 } else {
-					matchResult = "Found " + allCampgrounds.length + " results for ";
-					searchInput = req.query.search;
+					if(allCampgrounds.length == 1) {
+                    	oneMatch = "Found 1 result for ";
+					} else {
+						matchResult = "Found " + allCampgrounds.length + " results for ";
+					}
 				}
-                res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, searchInput: searchInput});
+					searchInput = req.query.search;
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, searchInput: searchInput, oneMatch: oneMatch});
             }
         });
     } else {
@@ -64,7 +69,7 @@ router.get("/", function(req, res){
           if(err){
               console.log(err);
           } else {
-              res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult});
+              res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, oneMatch: oneMatch});
           }
         });
     }
