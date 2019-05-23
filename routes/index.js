@@ -86,16 +86,25 @@ router.post("/register", upload.single('avatar'), function(req, res) {
 });
 
 // Show login form
-router.get("/login", function(req, res){
-   res.render("login"); 
-});
+// router.get("/login", function(req, res){
+//    res.render("login"); 
+// });
 
 // handling login logic
-router.post("/login", passport.authenticate("local", 
+// router.post("/login", passport.authenticate("local", 
+//     {
+//         successRedirect: "/campgrounds",
+//         // successFlash: "Welcome to YelpCamp!",
+//         failureRedirect: "/login",
+//         failureFlash: true,
+//     }), function(req, res) {
+// });
+
+router.post("/", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
         // successFlash: "Welcome to YelpCamp!",
-        failureRedirect: "/login",
+        failureRedirect: "/",
         failureFlash: true,
     }), function(req, res) {
 });

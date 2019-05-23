@@ -14,8 +14,7 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand mr-2" href="/"><i class="fab fa-yandex-international"></i>elpCamp</a>
-				<a href="/campgrounds" class="nav-link text-light">Home</a>
+                <a class="navbar-brand mr-2" href="/campgrounds"><i class="fab fa-yandex-international"></i>elpCamp</a>
 				<a href="/campgrounds/new" class="btn btn-outline-success rounded-sm btn-sm mr-auto" title="Creat a new campground">Create</a>
                 <a class="navbar-toggler border-0" role="button" data-toggle="collapse" href="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -47,7 +46,7 @@
                     <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
-                                <a href="/login" class="nav-link text-light">Login</a>
+                                <a href="/" class="nav-link text-light">Login</a>
                             </li>
                             <li class="nav-item mt-1<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
                                 <a href="/register" class="btn btn-outline-success rounded-sm btn-sm" title="Sign up">Join</a>

@@ -5,7 +5,7 @@
 				<!-- <a href="/campgrounds" class="text-light">Posts</a> |  
 				<a href="/" class="text-light">About</a> |   -->
 				<% if(!currentUser){ %>
-					<a href="/login" class="text-light">Login</a> | 
+					<a href="/" class="text-light">Login</a> | 
 					<a href="/register" class="text-light">Join</a>
 				<% } else {%>
 					<a href="/users/<%= currentUser._id %>" class="text-light">Profile</a> | 

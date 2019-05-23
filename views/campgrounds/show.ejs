@@ -158,7 +158,7 @@
                 <% if(!currentUser) { %>
                 <!--If the user is not logged in, direct him to the login page-->
                 <h5>You need to login before you can review. 
-                    <a href="/login" class="badge badge-success shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>
+                    <a href="/" class="badge badge-success shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Login</a>
                 </h5>
                 <% } else {%>
                     <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">

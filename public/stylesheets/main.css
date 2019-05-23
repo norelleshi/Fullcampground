@@ -26,7 +26,7 @@
 }
 
 input, textarea {
-	background-color:black !important; 
+	background-color: rgba(0, 0, 0, 0.6)!important;
 	color: white !important;	
 }
 
@@ -111,7 +111,7 @@ body {
 
 .landingTitle {
 	font-family: 'Lato', sans-serif;
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 hr {
@@ -128,6 +128,12 @@ footer {
   text-align: center;
 	font-family: 'Lato', sans-serif;
 }
+
+/************** Landing page setting *********/
+.transSignin {
+	background-color: rgba(0, 0, 0, 0.7)!important;
+}
+
 
 /************** Index page setting *********/
 .addNewCampgroundButton {
