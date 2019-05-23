@@ -46,7 +46,7 @@
                     <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
-                                <a href="/login" class="nav-link">Login</a>
+                                <a href="/login" class="nav-link text-light">Login</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
                                 <a href="/register" class="btn btn-outline-success rounded-sm" title="Sign up">Join</a>
@@ -56,16 +56,16 @@
 								<a href="/campgrounds/new" class="btn btn-outline-success rounded-sm" title="Add new campground">Create</a>
 							</li> -->
 							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-                                <a href="/users/<%= currentUser._id %>" class="nav-link">Profile</a>
+                                <a href="/users/<%= currentUser._id %>" class="nav-link text-light">Profile</a>
                             </li>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-                                <a href="/logout" class="nav-link">Logout</a>
+                                <a href="/logout" class="nav-link text-light">Logout</a>
                             </li>   
-                            <% } %>
-							
-							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
-								<a href="/" class="nav-link">About</a>
-							</li>
+                        <% } %>	
+
+						<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+							<a href="/" class="nav-link">About</a>
+						</li>
                     </ul>
                 </div>
             </div>

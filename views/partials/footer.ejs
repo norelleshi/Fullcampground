@@ -3,11 +3,11 @@
         <footer class="footer">
             <div class="text-muted mb-0 pt-1">&copy; YelpCamp 2019 | 
 				<a href="/campgrounds" class="text-light">Home</a> |  
+				<a href="/" class="text-light">About</a> |  
 				<% if(!currentUser){ %>
 					<a href="/login" class="text-light">Login</a> | 
 					<a href="/register" class="text-light">Join</a>
 				<% } else {%>
-					<a href="/campgrounds/new" class="text-light">Create</a> |
 					<a href="/users/<%= currentUser._id %>" class="text-light">Profile</a> | 
 					<a href="/logout" class="text-light">Logout</a>
 				<% } %>
