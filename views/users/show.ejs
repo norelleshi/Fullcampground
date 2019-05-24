@@ -73,10 +73,10 @@
         
         <div class="col-md-6 col-lg-7 p-0">
             <hr class="d-block d-md-none my-1">
-            <h3 class="pl-2 py-1 text-success"><%= user.username %>'s campgrounds:</h3>
+            <h3 class="pl-2 py-1 pinkText"><%= user.username %>'s campgrounds:</h3>
             <!--<hr class="mt-0">-->
             <% if(campgrounds.length < 1){ %>
-                <p class="pl-2">No campgrounds yet.</p>
+                <p class="pl-2"><em>No campgrounds yet.</em></p>
             <% } %>
             <ul class="pb-2">
                 <% campgrounds.forEach(function(campground){ %>
