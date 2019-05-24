@@ -92,6 +92,22 @@ body {
   left: 0;
 }
 
+hr {
+  background-color: gray;
+}
+
+footer {
+  /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
+  position: absolute;
+  bottom: 0;               
+  width: 100%;
+  height: 4rem;            /* Footer height */
+  background-color: #2e3035;
+  text-align: center;
+	font-family: 'Lato', sans-serif;
+}
+
+/************** Landing page setting *********/
 .landingHeader {
   /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
   background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
@@ -111,25 +127,10 @@ body {
 
 .landingTitle {
 	font-family: 'Lato', sans-serif;
-	font-size: 1.8em;
+	font-weight: bold;
+	font-size: 1em;
 }
 
-hr {
-  background-color: gray;
-}
-
-footer {
-  /*The footer is set to absolute, sticking to the bottom: 0 of the page-container it is within.*/
-  position: absolute;
-  bottom: 0;               
-  width: 100%;
-  height: 4rem;            /* Footer height */
-  background-color: #2e3035;
-  text-align: center;
-	font-family: 'Lato', sans-serif;
-}
-
-/************** Landing page setting *********/
 .transSignin {
 	background-color: rgba(0, 0, 0, 0.7)!important;
 }
@@ -231,7 +232,7 @@ footer {
   max-width: 330px;
   margin: auto;
   width: 100%;
-  padding: 15px;
+  padding: 5px;
 }
 
 .form-signin .form-control {
