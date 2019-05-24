@@ -33,7 +33,7 @@
   * Review summary (display ratings' average score and voting number)
   * Add & edit the post and review on the same page
   
-* User Profile Page
+* For User Profile Page
   * Email is set to private
   * Display the owner's campgrounds list
   
