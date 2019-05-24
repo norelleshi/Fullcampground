@@ -141,7 +141,7 @@
                 <a class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
                     (function (review) {
                     return review.author.id.equals(currentUser._id)})) { %>
-                    disabled <% } %>" 
+                    disabled text-muted <% } %>" 
                     role="button" data-toggle="collapse" 
                     href="#collapseReview" aria-expanded="false" 
                     aria-controls="collapseReview"
