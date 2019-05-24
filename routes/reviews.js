@@ -19,17 +19,17 @@ router.get("/", function (req, res) {
 });
 
 // Reviews New
-router.get("/new", middleware.isLoggedIn, middleware.checkReviewExistence, function (req, res) {
-    // middleware.checkReviewExistence checks if a user already reviewed the campground, only one review per user is allowed
-    Campground.findById(req.params.id, function (err, campground) {
-        if (err) {
-            req.flash("error", err.message);
-            return res.redirect("back");
-        }
-        res.render("reviews/new", {campground: campground});
+// router.get("/new", middleware.isLoggedIn, middleware.checkReviewExistence, function (req, res) {
+//     // middleware.checkReviewExistence checks if a user already reviewed the campground, only one review per user is allowed
+//     Campground.findById(req.params.id, function (err, campground) {
+//         if (err) {
+//             req.flash("error", err.message);
+//             return res.redirect("back");
+//         }
+//         res.render("reviews/new", {campground: campground});
 
-    });
-});
+//     });
+// });
 
 // Reviews Create
 router.post("/", middleware.isLoggedIn, middleware.checkReviewExistence, function (req, res) {
@@ -62,21 +62,21 @@ router.post("/", middleware.isLoggedIn, middleware.checkReviewExistence, functio
 });
 
 // Reviews Edit
-router.get("/:review_id/edit", middleware.checkReviewOwnership, function(req, res){
-    Campground.findById(req.params.id, function(err, foundCampground) {
-        if(err || !foundCampground){
-          req.flash("error", "Campground not found");
-          return res.redirect("back");
-        } 
-        Review.findById(req.params.review_id, function (err, foundReview) {
-            if (err) {
-                req.flash("error", err.message);
-                return res.redirect("back");
-            }
-            res.render("reviews/edit", {campground_id: req.params.id, review: foundReview});
-        });
-    });
-});
+// router.get("/:review_id/edit", middleware.checkReviewOwnership, function(req, res){
+//     Campground.findById(req.params.id, function(err, foundCampground) {
+//         if(err || !foundCampground){
+//           req.flash("error", "Campground not found");
+//           return res.redirect("back");
+//         } 
+//         Review.findById(req.params.review_id, function (err, foundReview) {
+//             if (err) {
+//                 req.flash("error", err.message);
+//                 return res.redirect("back");
+//             }
+//             res.render("reviews/edit", {campground_id: req.params.id, review: foundReview});
+//         });
+//     });
+// });
 
 // Reviews Update
 router.put("/:review_id", middleware.checkReviewOwnership, function (req, res) {

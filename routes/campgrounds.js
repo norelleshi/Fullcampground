@@ -75,6 +75,11 @@ router.get("/", function(req, res){
     }
 });
 
+//NEW - show form to create new campground
+router.get("/new", middleware.isLoggedIn, function(req, res){
+  res.render("campgrounds/new"); 
+});
+
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, res){
     geocoder.geocode(req.body.location, function (err, data) {
@@ -113,11 +118,6 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
     });    
 });
 
-//NEW - show form to create new campground
-router.get("/new", middleware.isLoggedIn, function(req, res){
-  res.render("campgrounds/new"); 
-});
-
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the campground with provided ID
@@ -137,15 +137,15 @@ router.get("/:id", function(req, res){
 });
 
 //EDIT CAMPGROUND ROUTE
-router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
-    Campground.findById(req.params.id, function(err, foundCampground){
-        if(err){
-            console.log(err);
-        } else {
-            res.render("campgrounds/edit", {campground: foundCampground});
-        }    
-    });        
-});
+// router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
+//     Campground.findById(req.params.id, function(err, foundCampground){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             res.render("campgrounds/edit", {campground: foundCampground});
+//         }    
+//     });        
+// });
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), function (req, res) {

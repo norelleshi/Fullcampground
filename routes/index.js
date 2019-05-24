@@ -113,7 +113,7 @@ router.post("/", passport.authenticate("local",
 router.get("/logout", function(req, res) {
    req.logout();
    req.flash("success", "See you later!");
-   res.redirect("/campgrounds");
+   res.redirect("/");
 });
 
 //User profile show route
@@ -135,16 +135,16 @@ router.get("/users/:id", function(req, res) {
 });
 
 //User profile edit route
-router.get("/users/:id/edit", middleware.isLoggedIn, function(req, res) {
-    User.findById(req.params.id, function(err, foundUser){
-        if(err || !foundUser){
-            req.flash("error", "User not found.");
-            console.log(err);
-        } else {
-            res.render("users/edit", {user: foundUser});
-        }    
-    });        
-});
+// router.get("/users/:id/edit", middleware.isLoggedIn, function(req, res) {
+//     User.findById(req.params.id, function(err, foundUser){
+//         if(err || !foundUser){
+//             req.flash("error", "User not found.");
+//             console.log(err);
+//         } else {
+//             res.render("users/edit", {user: foundUser});
+//         }    
+//     });        
+// });
 
 // User profile update route
 router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), function (req, res) {

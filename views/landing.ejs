@@ -4,8 +4,7 @@
     <div class="container lead">
         <h1 class="landingTitle mb-0">Welcome to YelpCamp</h1>
         <p class="mb-0">YelpCamp is a responsive web app for camping lovers to exchange their campground information. 
-			<span><a href="/campgrounds" class="badge badge-light shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a></span>
-			Or login to share your campgrounds with people from all over the world!</p>
+			Login to share your campgrounds with people from all over the world!</p>
         <!-- <hr class="my-4 border-white"> -->
 		<div class="row justify-content-center">
             <div class="col-md-12 text-center">
@@ -18,9 +17,10 @@
 				</form>
 				<div class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
 					<span>Need an account?</span>
-					<a href="/register" class="badge badge-light shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Join free</a>
+					<a href="/register" class="text-light">Join free</a>
 				</div>
 			</div>
+			<a href="/campgrounds" class="badge badge-pill badge-light shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a>
 		</div>
 		
         <!-- <div class="addNewCampgroundButton rounded-pill">
