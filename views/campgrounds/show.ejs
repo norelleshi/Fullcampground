@@ -123,9 +123,6 @@
 							</div>
 						  </div>
 						</div>
-		
-					
-                        
                         <!--Collapse edit a campground form START-->
                         
                         <!--Collapse edit a campground END-->
@@ -164,7 +161,7 @@
         <div class="d-flex justify-content-between mx-0 mt-4">
             <div class="pinkText"><h4>Reviews</h4></div>
             <div>
-                <a class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
+                <!-- <a class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
                     (function (review) {
                     return review.author.id.equals(currentUser._id)})) { %>
                     disabled text-muted <% } %>" 
@@ -173,68 +170,87 @@
                     aria-controls="collapseReview"
                     title="Write a review">
                     <i class="fas fa-plus"></i>
-                </a>
+                </a> -->
+				
+				<a role="button" class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
+                    (function (review) {
+                    	return review.author.id.equals(currentUser._id)})) { %>
+                    disabled text-muted <% } %>" 
+					data-toggle="modal" data-target="#addReviewModal">
+				  	<i class="fas fa-plus"></i>
+				</a>
                 
             </div>    
         </div>
-            
-        <!--Collapse Add a review form START-->
-        <div class="collapse shadow-lg rounded-lg darkTransparentBg border border-left-0 border-secondary" id="collapseReview">
-            <div class="collapse-review-style px-3 py-1">
-                <% if(!currentUser) { %>
-                <!--If the user is not logged in, direct him to the login page-->
-                <h5>You need to login before you can review. 
-                    <a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a>
-                </h5>
-                <% } else {%>
-                    <form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
-                        <div class="form-group my-1">
-                            <label for="rating">Rate & Review</label>
-                            <fieldset class="starability-basic form-group mb-0" id="rating">
-                                <div>
-                                    <input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
-                                    <label for="first-rate5" title="5 stars - Amazing">
-                                        <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
-                                    </label>
-                                </div>
-                                <div>
-                                    <input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
-                                    <label for="first-rate4" title="4 stars - Very good">
-                                        <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
-                                    </label>
-                                </div>
-                                <div>
-                                    <input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
-                                    <label for="first-rate3" title="3 stars - Average">
-                                        <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
-                                    </label>
-                                </div>
-                                <div>
-                                    <input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
-                                    <label for="first-rate2" title="2 stars - Not good">
-                                        <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
-                                    </label>
-                                </div>
-                                <div>
-                                    <input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
-                                    <label for="first-rate1" title="1 star - Terrible">
-                                        <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="form-group my-1">
-                            <textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="4"></textarea>
-                        </div>
-                        <div class="form-group my-1">
-                            <button class="btn btn-success btn-block">POST</button>
-                        </div>
-                    </form>
-                <% } %>
-            </div>
-        </div>
-        <!--Collapse Add a review form END-->
-                
+		
+		<!-- modal start-->
+			<div class="modal fade" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content dialogBg">
+				  <div class="modal-header">
+					<h5 class="modal-title" id="addReviewModalLabel">Rate & Review</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body">
+						<% if(!currentUser) { %>
+						<!--If the user is not logged in, direct him to the login page-->
+						<h5>You need to login before you can review. 
+							<a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a>
+						</h5>
+						<% } else {%>
+							<form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
+								<div class="form-group my-1">
+									<!-- <label for="rating">Rate & Review</label> -->
+									<fieldset class="starability-basic form-group mb-0" id="rating">
+										<div>
+											<input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
+											<label for="first-rate5" title="5 stars - Amazing">
+												<%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
+											</label>
+										</div>
+										<div>
+											<input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
+											<label for="first-rate4" title="4 stars - Very good">
+												<%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
+											</label>
+										</div>
+										<div>
+											<input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
+											<label for="first-rate3" title="3 stars - Average">
+												<%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
+											</label>
+										</div>
+										<div>
+											<input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
+											<label for="first-rate2" title="2 stars - Not good">
+												<%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
+											</label>
+										</div>
+										<div>
+											<input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
+											<label for="first-rate1" title="1 star - Terrible">
+												<%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+								<div class="form-group my-1">
+									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="4"></textarea>
+								</div>
+								<div class="form-group my-1">
+									<button class="btn btn-success btn-block">POST</button>
+								</div>
+							</form>
+						<% } %>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		
+		<!-- modal end-->
+    
         <hr class="mt-0">
                 
         <% if (campground.rating === 0) { %>
