@@ -21,16 +21,17 @@
                 </a>
                 
 				<div class="collapse navbar-collapse text-center" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
+					<div class="flex-grow-1">	
+                    <!-- <ul class=""> -->
                         <!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                             <a href="#" class="nav-link">About</a>
                         </li> -->
-						<li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">	
+						<div class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">	
 							<form action="/campgrounds" method="GET" class="nav-link">                   
 								<div class="input-group input-group-sm">
 									<input type="text" name="search"  
 											class="form-control rounded-left-sm font-weight-lighter border-secondary" 
-											placeholder="Search campgrounds..." 
+											placeholder="Search campground name, author, location, price or description" 
 											aria-label="Search campgrounds" 
 											aria-describedby="button-addon">
 									<div class="input-group-append">
@@ -41,8 +42,9 @@
 									</div>
 								</div>
 							</form>
-						</li>
-                    </ul>
+						</div>
+                    <!-- </ul> -->
+					</div>
                     <ul class="navbar-nav navbar-right">
                         <% if(!currentUser){ %>
                             <li class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">
