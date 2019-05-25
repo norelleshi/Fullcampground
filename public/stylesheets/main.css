@@ -7,6 +7,10 @@
   background-color: rgba(105, 105, 105, 0.3);
 }
 
+.dialogBg {
+	background-color: rgba(105, 105, 105, 0.9);
+}
+
 .grayText {
   color: #bfbfbf;
 }
