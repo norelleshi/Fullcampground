@@ -61,7 +61,7 @@
 					Login to share your campgrounds with people from all over the world!</p>
 				<div class="row justify-content-center">
 					<% if(currentUser) { %>
-						<h5 class="pinkText">How's going today, <%= currentUser.username %> :) </h5>
+						<h3 class="pinkText">How's it going today, <%= currentUser.username %> :) </h5>
 					<% } else { %>
 						<div class="col-md-12 text-center">
 							<form class="form-signin" action="/" method="POST">
