@@ -127,13 +127,22 @@ footer {
 
 .landingTitle {
 	font-family: 'Lato', sans-serif;
-	font-size: 1.1em;
+	font-size: 1.2em;
+	color: #f8f8f8;
+  	text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+                 0 8px 13px rgba(0,0,0,0.1),
+                 0 18px 23px rgba(0,0,0,0.1);
 }
 
 .transSignin {
 	background-color: rgba(0, 0, 0, 0.7)!important;
 }
 
+.landingHr {
+    width: 300px;
+    border-top: 4px solid #28a428;
+    border-bottom: 0.9px solid rgba(0,0,0,0.2);
+}
 
 /************** Index page setting *********/
 .addNewCampgroundButton {

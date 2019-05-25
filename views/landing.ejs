@@ -1,9 +1,9 @@
 <% include ./partials/header %>
 
 <div class="landingHeader lead m-0 p-3 rounded-0">
-    <h1 class="landingTitle lead mb-0 text-center"><u>Your Campground Collector</u></h1>
+    <h1 class="landingTitle lead mb-0 text-center"><em>Let's go camping!</em></h1>
     <div class="container lead">
-        <!-- <hr class="my-1 border-white"> -->
+        <hr class="my-1 landingHr">
         <p>YelpCamp is a responsive web app for camping lovers to exchange their campground information. 
 			Login to share your campgrounds with people from all over the world!</p>
 		<div class="row justify-content-center">
@@ -17,7 +17,7 @@
 				</form>
 				<div class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
 					<span>Need an account?</span>
-					<a href="/register" class="text-light font-weight-normal">Join free</a>
+					<a href="/register" class="text-light font-weight-normal"><u>Join free</u></a>
 				</div>
 			</div>
 			<div>
