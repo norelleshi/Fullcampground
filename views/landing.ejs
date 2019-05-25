@@ -64,7 +64,7 @@
 					<div class="col-md-12 text-center">
 						<% if(currentUser) { %>
 							<h3 class="pinkText">How's it going today, <%= currentUser.username %></h5>
-							<a href="/logout" class="badge badge-pill badge-light shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> Logout</a>
+							<a href="/logout" class="badge badge-pill badge-light shadow-lg text-nowrap">Logout <i class="fas fa-sign-out-alt text-success"></i></a>
 						<% } else { %>
 								<form class="form-signin" action="/" method="POST">
 								  <label for="inputUsername" class="sr-only">Username</label>
@@ -75,11 +75,11 @@
 								</form>
 								<div class="<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
 									<span>Need an account?</span>
-									<a href="/register" class="text-light font-weight-normal"><u>Join free</u></a>
+									<a href="/register" class="text-light font-weight-normal"><u>Join free</a>
 								</div>
 						<% } %>
 						<div>
-							<a href="/campgrounds" class="badge badge-pill badge-light shadow-lg text-nowrap"> <i class="fas fa-arrow-circle-right"></i> View all campgrounds</a>	
+							<a href="/campgrounds" class="badge badge-pill badge-light shadow-lg text-nowrap">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
 						</div>
 					</div>
 				</div>
