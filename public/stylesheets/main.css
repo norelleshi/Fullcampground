@@ -127,9 +127,10 @@ footer {
 
 .landingTitle {
 	font-family: 'Lato', sans-serif;
-	font-size: 1.3em;
+	font-size: 1.4em;
 	color: #f8f8f8;
-  	text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+	background-color: rgba(219, 219, 219, 0.3);
+  	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
                  0 8px 13px rgba(0,0,0,0.1),
                  0 18px 23px rgba(0,0,0,0.1);
 }
