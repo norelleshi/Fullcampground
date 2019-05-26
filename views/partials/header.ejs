@@ -60,9 +60,9 @@
 							<li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <a href="/users/<%= currentUser._id %>" class="nav-link text-light">Profile</a>
                             </li>
-                            <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
+                            <li class="nav-item mt-1<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">
                                 <!-- <a href="/logout" class="nav-link text-light">Logout</a> -->
-                            	<button class="nav-link bg-transparent btn border-0" data-toggle="modal" data-target="#logoutModal">
+                            	<button class="btn btn-outline-light rounded-sm btn-sm border-0" data-toggle="modal" data-target="#logoutModal">
 								  Logout
 								</button>
 							</li>   
