@@ -356,3 +356,27 @@ footer {
 .campgroundList a{
   text-decoration: none;
 }
+
+/* .avatarStyle:hover {
+	box-shadow: 
+    0 0 2px 2px rgba(20,25,30,0.1), 
+    0 4px 2px 0 rgba(20,25,30,0.1);
+	  -webkit-filter:brightness(0.7);
+	  text-decoration: none;
+} */
+
+.avatarDelete {
+	position : absolute;
+	background-color: transparent;
+	border: 0;
+	top : 0px;
+	right : 5px;
+	color: white;
+	padding: 0.1rem 0.3rem;
+	margin: -0.3rem -0.3rem -0.3rem auto;
+	opacity: 0.8 !important;
+	font-size: 1.2rem;	   
+	text-shadow: 1px 4px 3px rgba(0,0,0,1),
+				1px 8px 13px rgba(0,0,0,0.7),
+				0 18px 23px rgba(0,0,0,0.4);
+}
