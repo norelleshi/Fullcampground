@@ -15,25 +15,37 @@
 					<div class="text-center">									
 						<a href="mailto:<%= user.email %>" class="text-light"><%= user.email %></a>
 						<span>
-							<a class="btn btn-outline-warning border-0 rounded-sm" 
+							<!-- <a class="btn btn-outline-warning border-0 rounded-sm" 
 								role="button" data-toggle="collapse" 
 								href="#collapseEdit" 
 								aria-expanded="false" aria-controls="collapseEdit"
 								title="Edit profile">
 								<i class="fas fa-pen"></i>
-							</a>
+							</a> -->
 							<!--Delete avatar button-->
 							<!--<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">-->
 							<!--    <button class="btn btn-outline-secondary border-0 rounded-sm" title="Delete"><i class="fas fa-trash-alt"></i></button>-->
 							<!--</form>-->
+							
+							<!-- edit profile button -->
+							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#exampleModal">
+							  	<i class="fas fa-pen"></i>
+							</button>
 						</span>
 					</div>	
-                    
-                    <!--Collapse edit user profile form START-->
-                    <div class="collapse shadow-lg border border-left-0 border-secondary rounded-sm" id="collapseEdit">
-                        <div class="collapse-edit-style darkTransparentBg p-2">
-                            <h5 class="mb-2">Edit your profile:</h5>
-                            <form id="edit-campground-form" 
+				
+					<!-- Edit profile modal START -->
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog" role="document">
+						<div class="modal-content dialogBg">
+						  <div class="modal-header py-1">
+							<h5 class="modal-title" id="exampleModalLabel">Edit your profile</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+							</button>
+						  </div>
+						  <div class="modal-body pt-1">
+								<form id="edit-campground-form" 
                                     action="/users/<%= user._id %>?_method=PUT" 
                                     method="POST" enctype="multipart/form-data">
                                 
@@ -63,9 +75,11 @@
                             <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-sm btn-outline-danger btn-block rounded-sm" title="Delete avatar">DELETE AVATAR</button>
                             </form>
-                        </div>
-                    </div>   
-                    <!--Collapse edit user profile form END-->
+						  </div>
+						</div>
+					  </div>
+					</div>
+                	<!-- Edit profile modal END     -->
                 <% } %>
             </div>
             <!--<p>Bio</p>-->
