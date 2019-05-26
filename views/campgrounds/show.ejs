@@ -43,8 +43,8 @@
                     <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser &&  currentUser.isAdmin){ %>
                         <div class="text-right">
 							<!--Edit campground button-->
-							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#exampleModal">
-							  <i class="fas fa-pen"></i>
+							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#addCampModal">
+							  	<i class="fas fa-pen"></i>
 							</button>
                             <!--Delete campground button-->
                             <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
@@ -52,11 +52,11 @@
                             </form>
                         </div> 
 						<!-- Edit campground modal START -->
-						<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal fade bd-example-modal-lg" id="addCampModal" tabindex="-1" role="dialog" aria-labelledby="addCampModalLabel" aria-hidden="true">
 						  	<div class="modal-dialog modal-lg" role="document">
 								<div class="modal-content dialogBg">
 							  		<div class="modal-header py-1">
-										<h5 class="modal-title text-light" id="exampleModalLabel">Edit your campground</h5>
+										<h5 class="modal-title text-light" id="addCampModalLabel">Edit your campground</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										  <span aria-hidden="true">&times;</span>
 										</button>
@@ -117,7 +117,7 @@
     <!-- <div class=" row justify-content-end"> 
     <div class="col-md-9">
         <div class="text-center">
-            <a class="btn btn-outline-success btnOutline-green my-4" 
+            <a class="btn btn-outline-success btnOutlineGreen my-4" 
                 href="/campgrounds"
                 title="Go back to home page">
                 <i class="fas fa-chevron-left"></i> 
@@ -142,97 +142,86 @@
         </div>
                 
         <div class="d-flex justify-content-between mx-0 mt-4">
-            <div class="pinkText"><h4>Reviews</h4></div>
+            <div class="pinkText">
+				<h4>Reviews</h4>
+			</div>
+			<!-- Add review button -->
             <div>
-                <!-- <a class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
-                    (function (review) {
-                    return review.author.id.equals(currentUser._id)})) { %>
-                    disabled text-muted <% } %>" 
-                    role="button" data-toggle="collapse" 
-                    href="#collapseReview" aria-expanded="false" 
-                    aria-controls="collapseReview"
-                    title="Write a review">
-                    <i class="fas fa-plus"></i>
-                </a> -->
-				
 				<button type="button" class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
                     (function (review) {
                     	return review.author.id.equals(currentUser._id)})) { %>
                     disabled text-muted <% } %>" 
 					data-toggle="modal" data-target="#addReviewModal">
 				  	<i class="fas fa-plus"></i>
-				</button>
-                
+				</button>   
             </div>    
         </div>
 		
-		<!-- modal start-->
-			<div class="modal fade bd-example-modal-lg" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="addReviewModalLabel" aria-hidden="true">
-			  <div class="modal-dialog modal-lg" role="document">
+		<!-- Add review modal START-->
+		<div class="modal fade bd-example-modal-lg" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
 				<div class="modal-content dialogBg">
-				  <div class="modal-header py-1">
-					<h5 class="modal-title text-light" id="addReviewModalLabel">Rate & Review</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					  <span aria-hidden="true">&times;</span>
-					</button>
-				  </div>
-				  <div class="modal-body pt-1">
+				  	<div class="modal-header py-1">
+						<h5 class="modal-title text-light" id="addReviewModalLabel">Rate & Review</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				  	</div>
+				  	<div class="modal-body pt-1">
 						<% if(!currentUser) { %>
-						<!--If the user is not logged in, direct him to the login page-->
-						<h5>You need to login before you can review. 
-							<a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a>
-						</h5>
+							<h5>You need to login before you can review. 
+								<a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a>
+							</h5>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
 								<div class="form-group my-1">
 									<!-- <label for="rating">Rate & Review</label> -->
 									<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
-										<div class="form-check form-check-inline">
-											<input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
-											<label for="first-rate1" title="1 star - Terrible">
-												1
-											</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
-											<label for="first-rate2" title="2 stars - Not good">
-												2
-											</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
-											<label for="first-rate3" title="3 stars - Average">
-												3
-											</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
-											<label for="first-rate4" title="4 stars - Very good">
-												4
-											</label>
-										</div>
-										<div class="form-check form-check-inline">
-											<input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
-											<label for="first-rate5" title="5 stars - Amazing">
-												5
-											</label>
-										</div>
+									<div class="form-check form-check-inline">
+										<input form="add-review-form" type="radio" id="first-rate1" name="review[rating]" value="1" />
+										<label for="first-rate1" title="1 star - Terrible">
+											1
+										</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input form="add-review-form" type="radio" id="first-rate2" name="review[rating]" value="2" />
+										<label for="first-rate2" title="2 stars - Not good">
+											2
+										</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input form="add-review-form" type="radio" id="first-rate3" name="review[rating]" value="3" />
+										<label for="first-rate3" title="3 stars - Average">
+											3
+										</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input form="add-review-form" type="radio" id="first-rate4" name="review[rating]" value="4" />
+										<label for="first-rate4" title="4 stars - Very good">
+											4
+										</label>
+									</div>
+									<div class="form-check form-check-inline">
+										<input form="add-review-form" type="radio" id="first-rate5" name="review[rating]" value="5" checked />
+										<label for="first-rate5" title="5 stars - Amazing">
+											5 stars
+										</label>
+									</div>
 									<!-- </fieldset> -->
 								</div>
 								<div class="form-group my-1">
-									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="6"></textarea>
+									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="7"></textarea>
 								</div>
 								<div class="form-group my-1">
 									<button class="btn btn-success btn-block">POST</button>
 								</div>
 							</form>
 						<% } %>
-				  </div>
+				  	</div>
 				</div>
-			  </div>
 			</div>
-		
-		<!-- modal end-->
+		</div>
+		<!-- Add review modal END-->
     
         <hr class="mt-0">
                 
@@ -254,11 +243,13 @@
                     <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
                     <%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
                 </div>
-                <div class="contentFontSize"><%= review.text %></div>
+                <div class="contentFontSize">
+					<%= review.text %>
+				</div>
 
                 <% if(currentUser && review.author.id.equals(currentUser._id) || currentUser &&  currentUser.isAdmin){ %>
                     <div>
-                        <a class="btn btn-outline-warning border-0 rounded-sm"
+                        <!-- <a class="btn btn-outline-warning border-0 rounded-sm"
                             role="button"
                             data-toggle="collapse"
                             href="#collapseEdit<%= review._id %>"
@@ -266,80 +257,94 @@
                             aria-controls="collapseEdit<%= review._id %>"
                             title="Edit">
                             <i class="fas fa-pen"></i>
-                        </a>
+                        </a> -->
+						
+						<!-- Edit review button -->
+						<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#editReviewModal<%= review._id %>">
+						  	<i class="fas fa-pen"></i>
+						</button>
+						
                         <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
                              <button class="btn btn-outline-light border-0 rounded-sm" title="Delete"><i class="far fa-trash-alt"></i></button>
                         </form>
                     </div>
-                    
-                    <!--Collapse edit review form start-->
-                    <div class="collapse shadow-lg border border-left-0 border-secondary rounded-sm" id="collapseEdit<%= review._id %>">
-                        <div class="collapse-edit-style darkTransparentBg px-3 py-1">
-                            <form id="edit-review-form<%= review._id %>"
-                                action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
-                                method="POST">
-                                <h5>Edit your review</h5>
-                                <div class="form-group my-1">
-                                    <fieldset class="starability-basic form-group mb-0" id="rating">
-                                        <div>
-                                            <input form="edit-review-form<%= review._id %>" 
-                                                    type="radio" id="first-rate5"
-                                                    name="review[rating]" value="5" />
-                                            <label for="first-rate5" title="5 stars - Amazing">
-                                                <%- '<span class="fa fa-star checked"></span>'.repeat(5) %>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input form="edit-review-form<%= review._id %>" 
-                                                    type="radio" id="first-rate4"
-                                                    name="review[rating]" value="4" />
-                                            <label for="first-rate4" title="4 stars - Very good">
-                                                <%- '<span class="fa fa-star checked"></span>'.repeat(4) %>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
-                                                    name="review[rating]" value="3" />
-                                            <label for="first-rate3" title="3 stars - Average">
-                                                <%- '<span class="fa fa-star checked"></span>'.repeat(3) %>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
-                                                    name="review[rating]" value="2" />
-                                            <label for="first-rate2" title="2 stars - Not good">
-                                                <%- '<span class="fa fa-star checked"></span>'.repeat(2) %>
-                                            </label>
-                                        </div>
-                                        <div>
-                                            <input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
-                                                    name="review[rating]" value="1" />
-                                            <label for="first-rate1" title="1 star - Terrible">
-                                                <%- '<span class="fa fa-star checked"></span>'.repeat(1) %>
-                                            </label>
-                                        </div>
-                                    </fieldset>
-                                </div>
 
-                                <div class="form-group my-1">
-                                    <textarea class="form-control inputTextBlack" name="review[text]"
-                                            placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="4"><%= review.text %></textarea>
-                                </div>
-                                <div class="form-group my-1">
-                                    <button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <!--Collapse edit review form end-->
-                    
+					<!--Edit review modal START-->
+					<div class="modal fade bd-example-modal-lg" id="editReviewModal<%= review._id %>" tabindex="-1" role="dialog" aria-labelledby="editReviewModallabel<%= review._id %>" aria-hidden="true">
+					  	<div class="modal-dialog modal-lg" role="document">
+							<div class="modal-content dialogBg">
+						  		<div class="modal-header py-1">
+									<h5 class="modal-title text-light" id="editReviewModallabel<%= review._id %>">Edit your review</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>	
+								</div>
+								<div class="modal-body pt-1">
+									<form id="edit-review-form<%= review._id %>"
+										action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=PUT"
+										method="POST">
+										<div class="form-group my-1">
+											<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
+												<div class="form-check form-check-inline">
+													<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
+															name="review[rating]" value="1" />
+													<label for="first-rate1" title="1 star - Terrible">
+														1
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
+															name="review[rating]" value="2" />
+													<label for="first-rate2" title="2 stars - Not good">
+														2
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
+															name="review[rating]" value="3" />
+													<label for="first-rate3" title="3 stars - Average">
+														3
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input form="edit-review-form<%= review._id %>" 
+															type="radio" id="first-rate4"
+															name="review[rating]" value="4" />
+													<label for="first-rate4" title="4 stars - Very good">
+														4
+													</label>
+												</div>
+												<div class="form-check form-check-inline">
+													<input form="edit-review-form<%= review._id %>" 
+															type="radio" id="first-rate5"
+															name="review[rating]" value="5" />
+													<label for="first-rate5" title="5 stars - Amazing">
+														5 stars
+													</label>
+												</div>
+											<!-- </fieldset> -->
+										</div>
+
+										<div class="form-group my-1">
+											<textarea class="form-control inputTextBlack" name="review[text]"
+													placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="7"><%= review.text %></textarea>
+										</div>
+										<div class="form-group my-1">
+											<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
+										</div>
+									</form>
+							  	</div>
+							</div>
+					  	</div>
+					</div>
+					<!--Edit review modal END--> 
                 <% } %>
                 <hr>
             <% }); %>
         <% } %>    
             
         <div class="text-center m-3">
-            <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-success btnOutline-green disabled"> 
+            <a href="/campgrounds/<%= campground._id %>/reviews" class="btn btn-outline-secondary btnOutlineGreen disabled"> 
                 <i class="fas fa-plus"></i>
                 See more reviews
             </a>
