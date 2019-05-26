@@ -47,9 +47,12 @@
 							  	<i class="fas fa-pen"></i>
 							</button>
                             <!--Delete campground button-->
-                            <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                            <!-- <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
                                 <button class="btn btn-outline-light border-0 rounded-sm" title="Delete"><i class="far fa-trash-alt"></i></button>
-                            </form>
+                            </form> -->
+							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#campDeleteModal">
+								 <i class="far fa-trash-alt"></i>
+							</button>
                         </div> 
 						<!-- Edit campground modal START -->
 						<div class="modal fade bd-example-modal-lg" id="addCampModal" tabindex="-1" role="dialog" aria-labelledby="addCampModalLabel" aria-hidden="true">
@@ -109,6 +112,30 @@
 							</div>
 						</div>
                     	<!--Edit campground modal END-->
+					
+						<!-- Delete campground modal START-->
+						<div class="modal fade" id="campDeleteModal" tabindex="-1" role="dialog" aria-labelledby="campDeleteModalLabel" aria-hidden="true">
+						  	<div class="modal-dialog" role="document">
+								<div class="modal-content dialogBg">
+							  		<div class="modal-header py-1">
+										<h5 class="modal-title text-light" id="campDeleteModalLabel">Are you sure?</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										  <span aria-hidden="true">&times;</span>
+										</button>
+							  		</div>
+							  		<div class="modal-body">
+								 		Note the attached reviews, along with this campground, will also be deleted once you click the delete button below!
+							  		</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
+										<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+											<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Delete campground modal END -->
                     <% } %>
                 </div>
             </div>
@@ -210,7 +237,7 @@
 									<!-- </fieldset> -->
 								</div>
 								<div class="form-group my-1">
-									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="7"></textarea>
+									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="8"></textarea>
 								</div>
 								<div class="form-group my-1">
 									<button class="btn btn-success btn-block">POST</button>
@@ -264,9 +291,13 @@
 						  	<i class="fas fa-pen"></i>
 						</button>
 						
-                        <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                        <!-- <form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
                              <button class="btn btn-outline-light border-0 rounded-sm" title="Delete"><i class="far fa-trash-alt"></i></button>
-                        </form>
+                        </form> -->
+						<!-- Delete review button -->
+						<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#reviewDelete">
+							 <i class="far fa-trash-alt"></i>
+						</button>
                     </div>
 
 					<!--Edit review modal START-->
@@ -327,7 +358,7 @@
 
 										<div class="form-group my-1">
 											<textarea class="form-control inputTextBlack" name="review[text]"
-													placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="7"><%= review.text %></textarea>
+													placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="8"><%= review.text %></textarea>
 										</div>
 										<div class="form-group my-1">
 											<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
@@ -338,6 +369,31 @@
 					  	</div>
 					</div>
 					<!--Edit review modal END--> 
+		
+					<!-- Delete review modal START-->
+					<div class="modal fade" id="reviewDelete" tabindex="-1" role="dialog" aria-labelledby="reviewDeleteLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content dialogBg">
+								<div class="modal-header py-1">
+									<h5 class="modal-title text-light" id="reviewDeleteLabel">Are you sure?</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body">
+									This review will be forever deleted once you click the delete button below!
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
+									<form class="delete-form" action="/campgrounds/<%=campground._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Delete review modal END -->			
+		
                 <% } %>
                 <hr>
             <% }); %>
