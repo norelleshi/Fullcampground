@@ -121,7 +121,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
     //find the campground with provided ID
-    Campground.findById(req.params.id).populate("reviews").populate({
+    Campground.findById(req.params.id).populate({
         path: "reviews",
         options: {sort: {createdAt: -1}}
     }).exec(function(err, foundCampground){
