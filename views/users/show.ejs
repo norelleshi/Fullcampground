@@ -7,39 +7,32 @@
             <div class="d-flex justify-content-center">
                 <div class="card darkBg border-0">
 					<div class="avatarImg">
+						<button type="button" class="btn btn-transparent p-0" data-toggle="modal" data-target="#exampleModal">
 						<!-- <a href="<%= user.avatar %>" class="avatarStyle"> -->
 							<img src="<%= user.avatar %>" class="card-img-top avatarCard rounded-sm" alt="user profile image">
-							<% if(currentUser && user._id.equals(currentUser._id)){ %>
-								<button class="avatarDelete" title="Delete avatar" data-toggle="modal" data-target="#deleteAvatarModal"><span aria-hidden="true">&times;</span></button>
-						
-								<!-- Delete avatar modal START-->
-								<div class="modal fade" id="deleteAvatarModal" tabindex="-1" role="dialog" aria-labelledby="deleteAvatarModalLabel" aria-hidden="true">
-								  	<div class="modal-dialog" role="document">
-										<div class="modal-content dialogBg">
-									  		<div class="modal-header py-1">
-												<h5 class="modal-title text-light" id="deleteAvatarModalLabel">Are you sure?</h5>
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												  <span aria-hidden="true">&times;</span>
-												</button>
-									  		</div>
-									  	<div class="modal-body py-1">
-										  	This avatar will be forever deleted once you click the delete button below!
-									  	</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
-											<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-												<button class="btn btn-danger rounded-sm btn-sm" title="Delete avatar">Delete</button>
-											</form>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Delete avatar modal END-->
-							<% } %>
+								<!-- <button class="avatarDelete" title="Delete avatar" data-toggle="modal" data-target="#deleteAvatarModal"><span aria-hidden="true">&times;</span></button> -->
 						<!-- </a> -->
+						</button>
 					</div>
                 </div>
-            </div>      
+            </div> 
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+				<div class="modal-content dialogBg text-light">
+				  <div class="modal-header py-1 border-0">
+					<h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body p-0">
+					<img src="<%= user.avatar %>" style="width: 498px;" alt="user profile image">
+				  </div>
+				</div>
+			  </div>
+			</div>
+			
             <div>
                 <% if(currentUser && user._id.equals(currentUser._id)){ %>
 					<div class="text-center">									
@@ -57,9 +50,13 @@
 							<!--    <button class="btn btn-outline-secondary border-0 rounded-sm" title="Delete"><i class="fas fa-trash-alt"></i></button>-->
 							<!--</form>-->
 							
-							<!-- edit profile button -->
+							<!-- Edit profile button -->
 							<button type="button" class="btn btn-outline-warning border-0 rounded-sm p-2" data-toggle="modal" data-target="#editProfileModal">
 							  	<i class="fas fa-user-edit"></i>
+							</button>
+							<!-- Delete avatar button -->
+							<button type="button" class="btn btn-outline-light border-0 rounded-sm" title="Delete avatar" data-toggle="modal" data-target="#deleteAvatarModal">
+								 <i class="far fa-trash-alt"></i>
 							</button>
 						</span>
 					</div>	
@@ -69,7 +66,7 @@
 					  	<div class="modal-dialog" role="document">
 							<div class="modal-content dialogBg">
 						  		<div class="modal-header py-1">
-									<h5 class="modal-title text-light" id="editProfileModalLabel">Edit your profile</h5>
+									<h5 class="modal-title text-light" id="editProfileModalLabel">Edit profile</h5>
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									  	<span aria-hidden="true">&times;</span>
 									</button>
@@ -89,7 +86,7 @@
 										</div>
 
 										<div class="form-group mb-2">
-											<label for="avatar" class="m-0">Change Avatar:</label>
+											<label for="avatar" class="m-0">Change avatar:</label>
 											<div>
 												<input class="form-control-file bg-transparent" type="file" name="avatar" id="avatar" 
 												form="edit-campground-form" 
@@ -109,6 +106,30 @@
 					  	</div>
 					</div>
                 	<!-- Edit profile modal END     -->
+				
+					<!-- Delete avatar modal START-->
+					<div class="modal fade" id="deleteAvatarModal" tabindex="-1" role="dialog" aria-labelledby="deleteAvatarModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content dialogBg">
+								<div class="modal-header py-1">
+									<h5 class="modal-title text-light" id="deleteAvatarModalLabel">Delete avatar?</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									  <span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body py-1">
+									This avatar will be forever deleted once you click the delete button below!
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
+									<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-danger rounded-sm btn-sm" title="Delete avatar">Delete</button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Delete avatar modal END-->
                 <% } %>
             </div>
             <!--<p>Bio</p>-->
