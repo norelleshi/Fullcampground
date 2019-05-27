@@ -19,15 +19,15 @@
 			<!-- Modal -->
 			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			  <div class="modal-dialog" role="document">
-				<div class="modal-content dialogBg text-light">
+				<div class="modal-content text-light" style="background-color: black;">
 				  <div class="modal-header py-1 border-0">
 					<h5 class="modal-title" id="exampleModalLabel">Avatar</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
 					  <span aria-hidden="true">&times;</span>
 					</button>
 				  </div>
-				  <div class="modal-body p-0">
-					<img src="<%= user.avatar %>" style="width: 498px;" alt="user profile image">
+				  <div class="modal-body text-center">
+						<img src="<%= user.avatar %>" style="width: 400px;" alt="user profile image">  
 				  </div>
 				</div>
 			  </div>
