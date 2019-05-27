@@ -35,7 +35,7 @@
 			<!--View avatar modal END -->
 			
             <div>
-                <% if(currentUser && user._id.equals(currentUser._id)){ %>
+                <% if((currentUser && user._id.equals(currentUser._id)) || (currentUser && currentUser.isAdmin)){ %>
 					<div class="text-center">									
 						<a href="mailto:<%= user.email %>" class="text-light"><%= user.email %></a>
 						<span>
