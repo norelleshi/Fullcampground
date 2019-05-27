@@ -385,3 +385,23 @@ footer {
 				1px 8px 13px rgba(0,0,0,0.5),
 				0 18px 23px rgba(0,0,0,0.3);
 }
+
+.avatarModalSize {
+	position: relative;
+	display: flex;
+    z-index: 1050;
+	width: -webkit-fill-available;
+	margin: 0;
+	padding: 0;
+	border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+	/* word-wrap: break-word; */
+	/* box-sizing: border-box; */
+	/* overflow-x: hidden;
+    overflow-y: auto;
+	outline: 0; */
+	/* top: 0;
+    left: 0; */
+}
+	
+	
