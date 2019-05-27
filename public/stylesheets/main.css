@@ -386,6 +386,24 @@ footer {
 				0 18px 23px rgba(0,0,0,0.3);
 }
 
+.avatarView {
+	position : absolute;
+	background-color: rgba(105, 105, 105, 0.5);
+	border: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	color: white;
+	font-size: 0.8rem;
+}
+
+.avatarView:hover {
+	color: black;
+}
+
 .avatarModalSize {
 	position: relative;
 	display: flex;
