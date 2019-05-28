@@ -66,7 +66,7 @@ body {
   padding-bottom: 0;
   box-shadow: 0 0 2px 1px #000;
   z-index: 50;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
   /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
   /*            0 3px 1px 0 rgba(20,23,28,0.1);*/
   /*border-bottom: 1px solid #e6e6e6;*/
@@ -85,7 +85,7 @@ body {
 
 #main {
   padding-bottom: 4rem;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .alert{
@@ -112,7 +112,7 @@ footer {
   height: 4rem;            /* Footer height */
   background-color: #2e3035;
   text-align: center;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 /************** Landing page setting *********/
@@ -134,7 +134,7 @@ footer {
 }
 
 .landingTitle {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	font-size: 1.4em;
 	color: #f8f8f8;
 	background-color: rgba(219, 219, 219, 0.3);
@@ -156,7 +156,7 @@ footer {
 /************** Index page setting *********/
 .addNewCampgroundButton {
   display: inline-block;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Montserrat', sans-serif;
   box-shadow: 0 0 1px 3px rgba(20,23,28,0.2), 
             0 2px 9px 0 rgba(20,23,28,0.6);
 }
@@ -206,7 +206,7 @@ footer {
 }
 
 .index-camp-card .card-title{
-  font-family: 'Noto Serif TC', serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: large;
   font-weight: lighter;
   display: -webkit-box !important;
@@ -290,9 +290,10 @@ footer {
 }
 
 .showPageCampName {
-  font-family: 'Noto Serif TC', serif;
+  font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
   color: #ac3973;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .showPageImage {
