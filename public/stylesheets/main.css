@@ -29,10 +29,6 @@
   font-size: 1.1rem;
 }
 
-input, textarea {
-	background-color: rgba(0, 0, 0, 0.5)!important;
-	color: white !important;	
-}
 
 .form-control {
 	border-color: gray;
@@ -47,9 +43,23 @@ input, textarea {
 	box-shadow: 0 0 0 0.05rem;
 }
 
+input, textarea {
+	background-color: rgba(0, 0, 0, 0.5)!important;
+	color: white !important;	
+}
+
+.badge {
+	font-family: 'Montserrat', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, span {
+	font-family: 'Montserrat', sans-serif;
+}
+
 /*********** Primary element *******************/
 html {
 	height: 100%;
+	font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -135,12 +145,19 @@ footer {
 
 .landingTitle {
 	font-family: 'Montserrat', sans-serif;
+	font-weight: 300;
 	font-size: 1.4em;
 	color: #f8f8f8;
 	background-color: rgba(219, 219, 219, 0.3);
   	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
                  0 8px 13px rgba(0,0,0,0.1),
                  0 18px 23px rgba(0,0,0,0.1);
+}
+
+.landingP {
+	font-size: 1.15rem;
+    font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .transSignin {
