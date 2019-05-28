@@ -1,4 +1,4 @@
-/************* General setting *****************/
+/************* Muiltple use *****************/
 .darkBg {
   background-color: #2e3035;
 }
@@ -48,12 +48,28 @@ input, textarea {
 	color: white !important;	
 }
 
-.badge {
+.badge, .btn, .alert {
 	font-family: 'Montserrat', sans-serif;
 }
 
 p, h1, h2, h3, h4, h5, span {
 	font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+  background-color: gray;
+}
+
+.alert{
+  margin-bottom: 0;
+  text-align: center;
+  border-radius:0;
+}
+
+.alertTop {
+  position:relative;
+  top: 0;
+  left: 0;
 }
 
 /*********** Primary element *******************/
@@ -96,22 +112,6 @@ body {
 #main {
   padding-bottom: 4rem;
 	font-family: 'Montserrat', sans-serif;
-}
-
-.alert{
-  margin-bottom: 0;
-  text-align: center;
-  border-radius:0;
-}
-
-.alertTop {
-  position:relative;
-  top: 0;
-  left: 0;
-}
-
-hr {
-  background-color: gray;
 }
 
 footer {
