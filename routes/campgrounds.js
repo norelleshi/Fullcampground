@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var Campground = require("../models/campground");
 var Review = require("../models/review");
+var User = require("../models/user");
 // var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
@@ -129,7 +130,7 @@ router.get("/:id", function(req, res){
           req.flash("error", "Campground not found");
           res.redirect("back");
         } else {
-          console.log(foundCampground);
+          	// console.log(foundCampground);
             //render show template with that campground
             res.render("campgrounds/show", {campground: foundCampground});
         }
