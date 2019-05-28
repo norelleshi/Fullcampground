@@ -117,8 +117,8 @@ router.get("/logout", function(req, res) {
 });
 
 //User profile show route
-router.get("/users/:id", function(req, res) {
-   User.findById(req.params.id, function(err, foundUser){
+router.get("/users/:user_id", function(req, res) {
+   User.findById(req.params.user_id, function(err, foundUser){
         if(err || !foundUser){
            req.flash("error", "User not found.");
            res.redirect("back");
@@ -147,8 +147,8 @@ router.get("/users/:id", function(req, res) {
 // });
 
 // User profile update route
-router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), function (req, res) {
-    User.findById(req.params.id, async function(err, user){
+router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), function (req, res) {
+    User.findById(req.params.user_id, async function(err, user){
         if(err || !user){
             req.flash("error", err.message);
             res.redirect("back");
@@ -183,8 +183,8 @@ router.put("/users/:id", middleware.isLoggedIn, upload.single('avatar'), functio
 });    
 
 // User avatar delete route
-router.delete("/users/:id", middleware.isLoggedIn, function(req, res){
-    User.findById(req.params.id, async function(err, user) {
+router.delete("/users/:user_id", middleware.isLoggedIn, function(req, res){
+    User.findById(req.params.user_id, async function(err, user) {
         if(err || !user) {
           req.flash("error", err.message);
           return res.redirect("back");
