@@ -284,7 +284,7 @@
 							</button>
 
 							<!-- Delete review button -->
-							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#reviewDelete">
+							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#deleteReview">
 								 <i class="far fa-trash-alt"></i>
 							</button>
 						</div>
@@ -360,11 +360,11 @@
 						<!--Edit review modal END--> 
 
 						<!-- Delete review modal START-->
-						<div class="modal fade" id="reviewDelete" tabindex="-1" role="dialog" aria-labelledby="reviewDeleteLabel" aria-hidden="true">
+						<div class="modal fade" id="deleteReview" tabindex="-1" role="dialog" aria-labelledby="deleteReviewLabel" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content dialogBg">
 									<div class="modal-header py-1">
-										<h5 class="modal-title text-light" id="reviewDeleteLabel">Delete review?</h5>
+										<h5 class="modal-title text-light" id="deleteReviewLabel">Delete review?</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										  <span aria-hidden="true">&times;</span>
 										</button>
@@ -416,7 +416,7 @@
 							</button>
 
 							<!-- Delete review button -->
-							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#reviewDelete">
+							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#adminDeleteReviewModal<%= review._id %>">
 								 <i class="far fa-trash-alt"></i>
 							</button>
 						</div>
@@ -492,11 +492,11 @@
 						<!--Edit review modal END--> 
 
 						<!-- Delete review modal START-->
-						<div class="modal fade" id="reviewDelete" tabindex="-1" role="dialog" aria-labelledby="reviewDeleteLabel" aria-hidden="true">
+						<div class="modal fade" id="adminDeleteReviewModal<%= review._id %>" tabindex="-1" role="dialog" aria-labelledby="adminDeleteReviewModalLabel<%= review._id %>" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content dialogBg">
 									<div class="modal-header py-1">
-										<h5 class="modal-title text-light" id="reviewDeleteLabel">Delete review?</h5>
+										<h5 class="modal-title text-light" id="adminDeleteReviewModalLabel<%= review._id %>">Delete review?</h5>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 										  <span aria-hidden="true">&times;</span>
 										</button>
@@ -506,7 +506,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
-										<form class="delete-form" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#editReviewPositionAdmin" method="POST">
+										<form class="delete-form" id="delete-review-form-admin<%= review._id %>" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#editReviewPositionAdmin" method="POST">
 											<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
 										</form>
 									</div>
