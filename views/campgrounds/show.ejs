@@ -174,7 +174,7 @@
 				<h4>Reviews</h4>
 			</div>
 			<!-- Add review button -->
-            <div>
+            <div id="addReviewButton">
 				<button type="button" class="btn btn-outline-success border-0 rounded-sm <% if (currentUser && campground.reviews.some
                     (function (review) {
                     	return review.author.id.equals(currentUser._id)})) { %>
@@ -200,7 +200,7 @@
 							<h5>You need to login before you can review. </h5>
 							<h3 class="text-center"><a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a></h3>
 						<% } else {%>
-							<form id="add-review-form" action="/campgrounds/<%= campground._id %>" method="POST">
+							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewButton" method="POST">
 								<div class="form-group my-1">
 									<!-- <label for="rating">Rate & Review</label> -->
 									<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
@@ -250,7 +250,7 @@
 		</div>
 		<!-- Add review modal END-->
     
-        <hr class="mt-0">
+        <hr class="mt-0" id="editReviewButton">
                 
         <% if (campground.rating === 0) { %>
             <p><em class="text-muted">No reviews yet.</em></p>
@@ -312,7 +312,7 @@
 								</div>
 								<div class="modal-body pt-1">
 									<form id="edit-review-form<%= review._id %>"
-										action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT"
+										action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewButton"
 										method="POST">
 										<div class="form-group my-1">
 											<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
@@ -385,7 +385,7 @@
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
-									<form class="delete-form" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE" method="POST">
+									<form class="delete-form" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#editReviewButton" method="POST">
 										<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
 									</form>
 								</div>
