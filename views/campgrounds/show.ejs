@@ -1,5 +1,4 @@
 <% include ../partials/header %>
-<% include ../partials/logoutmodal %>
 <div id="main" class="container">
     <div class="row">
         <div class="col-md-3 order-2 order-md-1 mt-2">
@@ -197,8 +196,11 @@
 				  	</div>
 				  	<div class="modal-body pt-1">
 						<% if(!currentUser) { %>
-							<h5>You need to login before you can review. </h5>
-							<h3 class="text-center"><a href="/" class="badge badge-pill badge-light shadow-lg text-nowrap">Login <i class="fas fa-sign-in-alt text-success"></i></a></h3>
+							<h5>You need to login before you can do that. </h5>
+							<div class="text-right pt-3">
+								<a href="/register" class="btn btn-outline-light">Join free</a>
+								<a href="/" class="btn btn-light">Login <i class="fas fa-sign-in-alt text-success"></i></a>
+							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">
 								<div class="form-group my-1">
