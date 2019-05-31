@@ -33,10 +33,14 @@ router.get("/", function(req, res){
 
 // Show register form
 router.get("/register", function(req, res) {
-   res.render("register"); 
+	if(req.user){
+		res.redirect("back");
+	} else {
+   		res.render("register"); 
+	}
 });
 
-// handle sugn up logic
+// handle sign up logic
 router.post("/register", upload.single('avatar'), function(req, res) {
     if(req.file){
         cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'}, function(err, result) {
