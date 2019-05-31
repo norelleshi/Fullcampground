@@ -111,7 +111,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
                 } else {
                     //redirect back to campgrounds page
                     console.log(newlyCreated);
-                    req.flash("success", "Campground created successfully!");
+                    // req.flash("success", "Campground created successfully!");
                     res.redirect("/campgrounds/" + newlyCreated._id);
                 }
             });
@@ -180,7 +180,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
                 campground.save();
-                req.flash("success","Campground updated successfully!");
+                // req.flash("success","Campground updated successfully!");
                 res.redirect("/campgrounds/" + campground._id);
             }
         });

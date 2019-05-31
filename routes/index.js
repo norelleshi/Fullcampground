@@ -176,7 +176,7 @@ router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), fu
             }
             user.email = req.body.email;
             user.save();
-            req.flash("success","Profile updated successfully!");
+            // req.flash("success","Profile updated successfully!");
             res.redirect("/users/" + user._id);
         }
     });
@@ -193,7 +193,7 @@ router.delete("/users/:user_id", middleware.isLoggedIn, function(req, res){
             await cloudinary.v2.uploader.destroy(user.avatarId);
             user.avatarId = null;
             user.avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-            req.flash('success', 'Avatar deleted successfully!');
+            // req.flash('success', 'Avatar deleted successfully!');
             res.redirect("/users/" + user._id);
         } catch(err) {
             if(err) {
