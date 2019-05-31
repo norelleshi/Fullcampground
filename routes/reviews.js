@@ -103,6 +103,7 @@ router.put("/:review_id", middleware.checkReviewOwnership, function (req, res) {
 // Reviews Delete
 router.delete("/:review_id", middleware.checkReviewOwnership, function (req, res) {
     Review.findByIdAndRemove(req.params.review_id, function (err) {
+		// eval(require('locus'));
         if (err) {
             req.flash("error", err.message);
             return res.redirect("back");
