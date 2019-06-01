@@ -15,12 +15,19 @@
     <body>
         <nav class="navbar navbar-expand-md navbar-dark sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand mr-2" href="/campgrounds"><i class="fab fa-yandex-international text-success"></i>elpCamp</a>
+                <!-- <a class="navbar-brand mr-2" href="/campgrounds"><i class="fab fa-yandex-international text-success"></i>elpCamp</a> -->
+				<a class="navbar-brand mr-2" href="/"><i class="fab fa-yandex-international text-success headerBrand"></i></a>
                 <!-- <a class="navbar-brand headerBrand mr-2 py-0 border-success text-success font-weight-bold btn btn-sm rounded-0" href="/campgrounds"><i class="fab fa-yandex-international text-success"></i></a> -->
+				<a href="/campgrounds" class="nav-link text-light pl-0 pr-2">Campgrounds</a>
+				<!-- <span> | </span> -->
 				<% if(currentUser) { %>
+					<!-- <a href="/campgrounds/new" class="btn btn-outline-success rounded-sm btn-sm mr-auto" title="Creat a new campground">Create</a> -->
 					<a href="/campgrounds/new" class="btn btn-outline-success rounded-sm btn-sm mr-auto" title="Creat a new campground">Create</a>
                 <% } else { %>
-					<button class="btn btn-outline-success rounded-sm btn-sm mr-auto" data-toggle="modal" data-target="#createModal">
+					<!-- <button class="btn btn-outline-success rounded-sm btn-sm mr-auto" data-toggle="modal" data-target="#createModal">
+						Create
+					</button> -->
+					<button class="btn btn-outline-light rounded-sm btn-sm border-0 px-1 ml-1 mr-0 mr-auto" data-toggle="modal" data-target="#createModal">
 						Create
 					</button>
 				<% } %>
