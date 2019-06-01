@@ -210,6 +210,10 @@ footer {
 	border-color: #00e600 !important;
 }
 
+.searchResult {
+	border-left: 5px solid green;
+}
+
 @media (min-width:992px){
   .card-columns{
     column-count: 4;
@@ -370,6 +374,7 @@ footer {
 .checked {
     color: orange !important;
 }
+
 
 /*.new_camp {*/
 /*  border-radius: 0.25rem;*/

@@ -42,16 +42,16 @@
 
     <div class="darkBg pt-3">
         <div class="container px-1">
-            <div>
+            <div class="searchResult darkTransparentBg">
                 <% if(noMatch !== null){ %>
-                    <h5><%= noMatch %> <em><%= searchInput %></em></h5>
+                    <h5 class="mb-3 pl-1"><%= noMatch %> <em><%= searchInput %></em></h5>
                     <!-- <p>Or <a href="/campgrounds"> click here</a> to view all campgrounds.</p> -->
                 <% } %>
 				<% if(oneMatch !== null){ %>
-					<h5 class="mb-3"><%= oneMatch %> <em><%= searchInput %></em></h5>
+					<h5 class="mb-3 pl-1"><%= oneMatch %> <em><%= searchInput %></em></h5>
 				<% } %>
 				<% if(matchResult !== null){ %>
-					<h5 class="mb-3"><%= matchResult %> <em><%= searchInput %></em></h5>
+					<h5 class="mb-3 pl-1"><%= matchResult %> <em><%= searchInput %></em></h5>
 				<% } %>
             </div>
             <div class="card-columns">
