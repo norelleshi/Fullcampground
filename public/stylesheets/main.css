@@ -72,6 +72,10 @@ hr {
   left: 0;
 }
 
+.btnFontSizeChange {
+	font-size: 1rem;
+}
+
 /*********** Primary element *******************/
 html {
 	height: 100%;
