@@ -332,7 +332,11 @@ footer {
 }
 
 .showPageImage {
-  max-width: 430px;
+  max-width: 100%;
+    width: auto;
+    max-height: 450px;
+    vertical-align: middle;
+    object-fit: cover;
 }
 
 .delete-form {
