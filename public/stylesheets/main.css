@@ -8,7 +8,7 @@
 }
 
 .dialogBg {
-	background-color: rgba(105, 105, 105, 0.92);
+	background-color: rgba(89, 89, 89, 0.92);
 }
 
 .grayText {
@@ -91,7 +91,7 @@ body {
 }
 
 .navbar {
-	/* background-color: #2e3035; */
+	background-color: #2e3035;
   padding-top:0;
   padding-bottom: 0;
   box-shadow: 0 0 2px 1px #000;
