@@ -1,110 +1,221 @@
-body {
-  background-color: #000;
-  font-family: 'Lato', sans-serif;
+/************* Muiltple use *****************/
+.darkBg {
+  background-color: #2e3035;
 }
 
-/*#landing-header h1 {*/
-/*  color: #fff;*/
-/*  font-weight: bold;*/
-/*  padding-bottom: 35px;*/
-/*  font-size: 70px;*/
-/*}*/
+.darkTransparentBg {
+  background-color: rgba(105, 105, 105, 0.3);
+}
 
-/*#landing-header{*/
-/*	padding-top: 20%;*/
-/*	text-align: center;*/
-/*}*/
+.dialogBg {
+	background-color: rgba(89, 89, 89, 0.92);
+}
+
+.grayText {
+  color: #bfbfbf;
+}
+
+.pinkText {
+  color: #ac3973;
+}
+
+.btnOutlineGreen {
+    border-radius: 2px;
+    border: 1.5px solid #28a745;
+    font-weight: 600;
+}
+
+.contentFontSize {
+  font-size: 1.1rem;
+}
+
+
+.form-control {
+	border-color: gray;
+}
+
+.form-control:focus {
+	border-color: #00e600;
+	box-shadow: none;	
+}
+
+.btn:focus {
+	box-shadow: 0 0 0 0.05rem;
+}
+
+input, textarea {
+	background-color: rgba(0, 0, 0, 0.5)!important;
+	color: white !important;	
+}
+
+.badge, .alert {
+	font-family: 'Montserrat', sans-serif;
+}
+
+p, h1, h2, h3, h4, h5, span {
+	font-family: 'Montserrat', sans-serif;
+}
+
+hr {
+  background-color: gray;
+}
+
+.alert{
+  margin-bottom: 0;
+  text-align: center;
+  border-radius:0;
+}
+
+.alertTop {
+  position:relative;
+  top: 0;
+  left: 0;
+}
+
+.btnFontSizeChange {
+	font-size: 1rem;
+}
+
+/************** Landing page setting *********/
+html {
+	height: 100%;
+	font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  /*sets its minimum height to 100% of the viewport height (vh)*/
+  position: relative;
+  background-color: #2e3035;
+  min-height: 100vh;
+  color: #bfbfbf;
+}
+
+.headerBrand {
+	padding-right: 7px;
+    padding-left: 7px;
+    padding-top: 12px;
+	margin-top: -1px;
+    background-color: #bfbfbf;
+    border-bottom-right-radius: 0.12rem;
+	border-bottom-left-radius: 0.12rem;
+	font-size: x-large;
+}
+
+.searchInput {
+	border-top: none;
+    border-left: none;
+    border-right: none;
+	border-color: white;
+}
+
+.searchInput:focus {
+	/* border-color: #00e600; */
+	border-top: none;
+    border-left: none;
+    border-right: none;
+	box-shadow: none;	
+}
+
+
+
+#main {
+  padding-bottom: 4rem;
+	font-family: 'Montserrat', sans-serif;
+}
 
 .landingHeader {
-  z-index: 1;
+  /*background: url("http://i.imgur.com/emvhOnb.jpg");*/
+  background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
   position: relative;
-  text-align: center;
-  padding-top: 35vh;
-  color: #f8f8f8;
-  text-shadow: 0 4px 3px rgba(0,0,0,0.4),
+  top: 0;
+  left: 0;
+  /*-webkit-filter:opacity(.95);*/
+  border-radius:0;
+	min-height: 100vh;
+}
+
+.BgOpacity {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  position: relative;
+  top: 0;
+  left: 0;
+  /*-webkit-filter:opacity(.95);*/
+  border-radius:0;
+	min-height: 100vh;
+}
+
+.landingTitle {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 1.4em;
+	color: #f8f8f8;
+	/* background-color: rgba(219, 219, 219, 0.3); */
+  	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
                  0 8px 13px rgba(0,0,0,0.1),
                  0 18px 23px rgba(0,0,0,0.1);
 }
 
-h2 {
-    font-size: 3em;
-	font-weight: 600;
+.landingP {
+	font-size: 1.15rem;
+    font-weight: 300;
+	font-family: 'Montserrat', sans-serif;
 }
 
-hr {
-    width: 450px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
+.transSignin {
+	background-color: rgba(0, 0, 0, 0.6)!important;
 }
 
-.landingHeader a{
-  font-size: 1.8rem;
+.landingHr {
+    width: 250px;
+    border-top: 4px solid #28a428;
+    border-bottom: 0.9px solid rgba(0,0,0,0.2);
 }
 
-.slideshow { 
-  position: fixed;
+.form-signin {
+  max-width: 330px;
+  margin: auto;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+  padding: 5px;
 }
 
-.slideshow li { 
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  z-index: 0;
-  animation: imageAnimation 50s linear infinite; 
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
 
-.slideshow li:nth-child(1) { 
-  background-image: url(http://i.imgur.com/K3mPv14.jpg); 
-}
-.slideshow li:nth-child(2) { 
-  background-image: url(http://i.imgur.com/SBEmFpv.jpg);
-  animation-delay: 10s; 
-}
-.slideshow li:nth-child(3) { 
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
-  animation-delay: 20s; 
-}
-.slideshow li:nth-child(4) { 
-  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
-  animation-delay: 30s; 
-}
-.slideshow li:nth-child(5) { 
-  background-image: url(http://i.imgur.com/TVGe0Ef.jpg);
-  animation-delay: 40s; 
+.form-signin .form-control:focus {
+  z-index: 2;
 }
 
-@keyframes imageAnimation { 
-  0% { 
-    opacity: 0; 
-    animation-timing-function: ease-in;
-  }
-  10% {
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  20% {
-    opacity: 1
-  }
-  30% {
-    opacity: 0
-  }
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
-/* Older browser support - .no-cssanimations class added by modernizr */
-.no-cssanimations .slideshow li {
-	opacity: 1;
+.form-signin input[type="email"] {
+  margin-bottom: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
