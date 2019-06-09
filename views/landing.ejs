@@ -60,7 +60,12 @@
 				<div class="lead m-0 p-3 rounded-0">
 					<div class="container-fluid lead text-center">
 						<% if(currentUser) { %>
-							<h1 class="pinkText pt-2">How's it going today, <%= currentUser.username %></h1>
+							<h1 class="landingTitle lead mb-0 text-center">
+								<span class="noChangeLine">
+									<i class="fab fa-yandex-international text-success"></i>elpCamp
+								</span>
+							</h1>
+							<h5 class="pinkText pt-2">Signed in as <%= currentUser.username %></h5>
 							<div class="py-3">
 								<a href="/campgrounds/new" class="btn btn-light btn-sm">
 									<i class="fas fa-plus text-success"></i> Create
