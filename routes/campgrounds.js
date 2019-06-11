@@ -39,29 +39,20 @@ var geocoder = NodeGeocoder(options);
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
-    // eval(require('locus'));
-    var noMatch = null; 
+    // eval(require('locus')); 
 	var matchResult = null;
-	var oneMatch = null;
 	var searchInput = null;
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         //Get all campgrounds from DB
         Campground.find({$or:[{name: regex}, {location: regex}, {"author.username":regex}, {price: regex}, {description: regex}]}, function(err, allCampgrounds){
-          if(err){
-              console.log(err);
-          } else {
-                if(allCampgrounds.length < 1) {
-                    noMatch = "Found 0 result for ";
-                } else {
-					if(allCampgrounds.length == 1) {
-                    	oneMatch = "Found 1 result for ";
-					} else {
-						matchResult = "Found " + allCampgrounds.length + " results for ";
-					}
-				}
-					searchInput = req.query.search;
-                res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, searchInput: searchInput, oneMatch: oneMatch});
+          	if(err){
+              	console.log(err);
+          	} else {  
+				let campgroundAmt = allCampgrounds.length;
+				matchResult = `Found ${campgroundAmt} result${campgroundAmt === 1 ? '' : 's'} for `;
+				searchInput = req.query.search;
+                res.render("campgrounds/index", {campgrounds: allCampgrounds, matchResult: matchResult, searchInput: searchInput});
             }
         });
     } else {
@@ -70,7 +61,7 @@ router.get("/", function(req, res){
           if(err){
               console.log(err);
           } else {
-              res.render("campgrounds/index", {campgrounds: allCampgrounds, noMatch: noMatch, matchResult: matchResult, oneMatch: oneMatch});
+              res.render("campgrounds/index", {campgrounds: allCampgrounds, matchResult: matchResult});
           }
         });
     }
@@ -180,7 +171,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 campground.lng = data[0].longitude;
                 campground.location = data[0].formattedAddress;
                 campground.save();
-                // req.flash("success","Campground updated successfully!");
+                req.flash("success","Campground updated successfully!");
                 res.redirect("/campgrounds/" + campground._id);
             }
         });

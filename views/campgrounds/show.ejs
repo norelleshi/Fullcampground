@@ -12,7 +12,7 @@
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div> -->
         </div>
         
-        <div class="col-md-9 order-1 order-md-2 mt-2" id="editCampPosition">
+        <div class="col-md-9 order-1 order-md-2 mt-2">
             <h4 class="m-0 py-0 text-center"><a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a></h4>
             <div class="d-flex justify-content-center rounded-top border border-bottom-0 border-secondary" style="background-color: black;">
                 <div class="p-0">
@@ -66,7 +66,7 @@
 							  		</div>
 							  		<div class="modal-body pt-1">
 										<form id="edit-campground-form" 
-												action="/campgrounds/<%= campground._id %>?_method=PUT#editCampPosition" 
+												action="/campgrounds/<%= campground._id %>?_method=PUT" 
 												method="POST" enctype="multipart/form-data">
 											<div class="row">
 												<div class="col pr-0">

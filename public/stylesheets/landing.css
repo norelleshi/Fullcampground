@@ -94,6 +94,11 @@ body {
   color: #bfbfbf;
 }
 
+#main {
+  padding-bottom: 4rem;
+	font-family: 'Montserrat', sans-serif;
+}
+
 .headerBrand {
 	padding-right: 7px;
     padding-left: 7px;
@@ -108,26 +113,8 @@ body {
                  0px 3px 5px rgba(0,0,0,0.1);
 }
 
-.searchInput {
-	border-top: none;
-    border-left: none;
-    border-right: none;
-	border-color: lightgray;
-}
-
-.searchInput:focus {
-	/* border-color: #00e600; */
-	border-top: none;
-    border-left: none;
-    border-right: none;
-	box-shadow: none;	
-}
-
-
-
-#main {
-  padding-bottom: 4rem;
-	font-family: 'Montserrat', sans-serif;
+.searchForm {
+	border-bottom: 2.5px solid green;
 }
 
 .landingHeader {
