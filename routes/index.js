@@ -49,7 +49,7 @@ router.post("/register", upload.single('avatar'), function(req, res) {
                 return res.redirect('back');
             }
             req.body.avatar = result.secure_url;
-            req.body.avatarId = result.secure_url;
+            req.body.avatarId = result.public_id;
             
             var newUser = new User({
                 username: req.body.username,
@@ -155,34 +155,34 @@ router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), fu
     User.findById(req.params.user_id, async function(err, user){
         if(err || !user){
             req.flash("error", err.message);
-            res.redirect("back");
-        } else {
-            if (req.file) {
-                try {
-                    if(user.avtarId){
-                        try{
-                            await cloudinary.v2.uploader.destroy(user.avatarId);
-                        }  catch(err) {
-                            req.flash("error", err.message);
-                            console.log(err);
-                            return res.redirect("back");
-                        }   
-                    }    
-                    var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
-                    // eval(require('locus'));
-                    user.avatarId = result.public_id;
-                    user.avatar = result.secure_url;
-                } catch(err) {
-                    req.flash("error", err.message);
-                    console.log(err);
-                    return res.redirect("back");
-                }
-            }
-            user.email = req.body.email;
-            user.save();
-            // req.flash("success","Profile updated successfully!");
-            res.redirect("/users/" + user._id);
+            return res.redirect("back");
         }
+		let existAvatar = user.avatarId;
+		if(existAvatar){
+			try{
+				await cloudinary.v2.uploader.destroy(existAvatar);
+			}  catch(err) {
+				req.flash("error", err.message);
+				console.log(err);
+				return res.redirect("back");
+			}   
+		} 
+		if (req.file) {
+			try {
+				var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
+				// eval(require('locus'));
+				user.avatarId = result.public_id;
+				user.avatar = result.secure_url;
+			} catch(err) {
+				req.flash("error", err.message);
+				console.log(err);
+				return res.redirect("back");
+			}
+		}
+		user.email = req.body.email;
+		user.save();
+		// req.flash("success","Profile updated successfully!");
+		res.redirect("/users/" + user._id);
     });
 });    
 
