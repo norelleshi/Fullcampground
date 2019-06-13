@@ -3,6 +3,10 @@
   background-color: #2e3035;
 }
 
+.blackOpacityBg {
+	background-color: rgba(0, 0, 0, .5);
+}
+
 .darkTransparentBg {
   background-color: rgba(105, 105, 105, 0.3);
 }
