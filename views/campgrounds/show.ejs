@@ -1,29 +1,33 @@
 <% include ../partials/header %>
 <div id="main" class="container">
     <div class="row">
-        <div class="col-md-3 order-2 order-md-1 mt-2">
+        <div class="col-md-3 order-2 order-md-1 py-2 px-1">
             <!--<div class="list-group mb-2">-->
             <!--    <li class="list-group-item active">Info 1</li>-->
             <!--    <li class="list-group-item">Info 2</li>-->
             <!--    <li class="list-group-item">Info 3</li>   -->
             <!--</div>-->
-            <div><p class="mb-0"><i class="fas fa-arrow-circle-down"></i> <%= campground.location %></p></div>
+            <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-down"></i> <%= campground.location %></p></div> -->
             <div id="map" style="color: black;"></div>
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div> -->
         </div>
         
-        <div class="col-md-9 order-1 order-md-2 mt-2">
-            <h4 class="m-0 py-0 text-center"><a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a></h4>
-            <div class="d-flex justify-content-center rounded-top border border-bottom-0 border-secondary" style="background-color: black;">
+        <div class="col-md-9 order-1 order-md-2 mt-2 px-0">
+            <!-- <h4 class="m-0 py-0 text-center"><a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a></h4> -->
+            <div class="d-flex justify-content-center rounded-0 border border-bottom-0 border-secondary" style="background-color: black;">
                 <div class="p-0">
-                    <div class="card darkBg">
+                    <div class="card darkBg rounded-0">
                         <img src="<%= campground.image %>" class="card-img rounded-0 showPageImage" alt="<%= campground.name %>">
                     </div>
                 </div>
             </div>
             <div class="card darkBg border border-secondary rounded-0">
-                <div class="card-body p-2 darkTransparentBg">
-                    <div class="d-flex justify-content-between text-muted pb-1">   
+                <div class="darkTransparentBg">
+					<div class="p-1">
+						<a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a>
+					</div>
+					<hr class="my-0">
+                    <div class="d-flex justify-content-between text-muted p-1">   
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
                         <em>Submitted By <a href="/users/<%= campground.author.id %>" class="text-light"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
                         <% if(campground.price != 0){ %>
@@ -35,8 +39,14 @@
                     </div>
                     
                     <hr class="my-0">
-                    
-                    <div class="card-text contentFontSize">
+					
+					<div class="p-1">
+						<%= campground.location %>
+					</div>	
+					
+                    <hr class="my-0">
+					
+                    <div class="card-text contentFontSize p-1">
 						<%= campground.description %>
 					</div>
                     
@@ -156,7 +166,7 @@
     </div>     -->
         
     <div class="row justify-content-end"> 
-    <div class="col-md-9">
+    <div class="col-md-9 px-0">
         <div class="darkTransparentBg text-center py-3 border border-secondary">
             <h5>Review summary</h5>
                 <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
@@ -168,7 +178,7 @@
                 <span>(<%= campground.reviews.length %> ratings)</span>
         </div>
                 
-        <div class="d-flex justify-content-between mx-0 mt-4" id="editReviewPosition">
+        <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition">
             <div class="pinkText">
 				<h4>Reviews</h4>
 			</div>
@@ -259,13 +269,10 @@
         <% } else {%>
 			<% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-					<div>
+					<div class="px-1">
 						<span class="darkTransparentBg">Your review</span>
 						<div>
-							<!-- <i class="fas fa-user"></i> -->
-							<!--<div class="card darkBg border-0">-->
-							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
-							<!--</div>-->
+							
 							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
@@ -308,39 +315,39 @@
 											<div class="form-group my-1">
 												<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-first-rate1"
 																name="review[rating]" value="1" />
-														<label for="first-rate1" title="1 star - Terrible">
+														<label for="author-edit-first-rate1" title="1 star - Terrible" class="author-edit-first-rate1">
 															1
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-first-rate2"
 																name="review[rating]" value="2" />
-														<label for="first-rate2" title="2 stars - Not good">
+														<label for="author-edit-first-rate2" title="2 stars - Not good">
 															2
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-first-rate3"
 																name="review[rating]" value="3" />
-														<label for="first-rate3" title="3 stars - Average">
+														<label for="author-edit-first-rate3" title="3 stars - Average">
 															3
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
 														<input form="edit-review-form<%= review._id %>" 
-																type="radio" id="first-rate4"
+																type="radio" id="author-edit-first-rate4"
 																name="review[rating]" value="4" />
-														<label for="first-rate4" title="4 stars - Very good">
+														<label for="author-edit-first-rate4" title="4 stars - Very good">
 															4
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
 														<input form="edit-review-form<%= review._id %>" 
-																type="radio" id="first-rate5"
+																type="radio" id="author-edit-first-rate5"
 																name="review[rating]" value="5" />
-														<label for="first-rate5" title="5 stars - Amazing">
+														<label for="author-edit-first-rate5" title="5 stars - Amazing">
 															5 stars
 														</label>
 													</div>
@@ -392,24 +399,25 @@
 			
             <% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && (!(review.author.id.equals(currentUser._id)))){ %>
-					<div id="editReviewPositionAdmin">
-						<!-- <i class="fas fa-user"></i> -->
-						<!--<div class="card darkBg border-0">-->
-						<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
-						<!--</div>-->
-						<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
-						<em class="text-muted review-date pl-1 d-inline">
-							<%= moment(review.updatedAt).fromNow() %>
-						</em>
+					<div class="px-1">
+						<div id="editReviewPositionAdmin">
+							<!-- <i class="fas fa-user"></i> -->
+							<!--<div class="card darkBg border-0">-->
+							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
+							<!--</div>-->
+							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
+							<em class="text-muted review-date pl-1 d-inline">
+								<%= moment(review.updatedAt).fromNow() %>
+							</em>
+						</div>
+						<div>
+							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+						</div>
+						<div class="contentFontSize">
+							<%= review.text %>
+						</div>
 					</div>
-					<div>
-						<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-						<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-					</div>
-					<div class="contentFontSize">
-						<%= review.text %>
-					</div>
-					
 					<% if(currentUser &&  currentUser.isAdmin){ %>
 						<div>						
 							<!-- Edit review button -->
@@ -423,7 +431,7 @@
 							</button>
 						</div>
 		
-						<!--Edit review modal START-->
+						<!--Admin edit review modal START-->
 						<div class="modal fade bd-example-modal-lg" id="editReviewModal<%= review._id %>" tabindex="-1" role="dialog" aria-labelledby="editReviewModallabel<%= review._id %>" aria-hidden="true">
 							<div class="modal-dialog modal-lg" role="document">
 								<div class="modal-content dialogBg">
@@ -440,39 +448,39 @@
 											<div class="form-group my-1">
 												<!-- <fieldset class="starability-basic form-group mb-0" id="rating"> -->
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate1"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="admin-edit-first-rate1"
 																name="review[rating]" value="1" />
-														<label for="first-rate1" title="1 star - Terrible">
+														<label for="admin-edit-first-rate1" title="1 star - Terrible">
 															1
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate2"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="admin-edit-first-rate2"
 																name="review[rating]" value="2" />
-														<label for="first-rate2" title="2 stars - Not good">
+														<label for="admin-edit-first-rate2" title="2 stars - Not good">
 															2
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
-														<input form="edit-review-form<%= review._id %>" type="radio" id="first-rate3"
+														<input form="edit-review-form<%= review._id %>" type="radio" id="admin-edit-first-rate3"
 																name="review[rating]" value="3" />
-														<label for="first-rate3" title="3 stars - Average">
+														<label for="admin-edit-first-rate3" title="3 stars - Average">
 															3
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
 														<input form="edit-review-form<%= review._id %>" 
-																type="radio" id="first-rate4"
+																type="radio" id="admin-edit-first-rate4"
 																name="review[rating]" value="4" />
-														<label for="first-rate4" title="4 stars - Very good">
+														<label for="admin-edit-first-rate4" title="4 stars - Very good">
 															4
 														</label>
 													</div>
 													<div class="form-check form-check-inline">
 														<input form="edit-review-form<%= review._id %>" 
-																type="radio" id="first-rate5"
+																type="radio" id="admin-edit-first-rate5"
 																name="review[rating]" value="5" />
-														<label for="first-rate5" title="5 stars - Amazing">
+														<label for="admin-edit-first-rate5" title="5 stars - Amazing">
 															5 stars
 														</label>
 													</div>
@@ -491,9 +499,9 @@
 								</div>
 							</div>
 						</div>
-						<!--Edit review modal END--> 
+						<!--Admin edit review modal END--> 
 
-						<!-- Delete review modal START-->
+						<!-- Admin delete review modal START-->
 						<div class="modal fade" id="adminDeleteReviewModal<%= review._id %>" tabindex="-1" role="dialog" aria-labelledby="adminDeleteReviewModalLabel<%= review._id %>" aria-hidden="true">
 							<div class="modal-dialog" role="document">
 								<div class="modal-content dialogBg">
@@ -515,7 +523,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- Delete review modal END -->
+						<!-- Admin delete review modal END -->
 					<% } %>
                 <hr>
 				<% } %>		
@@ -580,6 +588,15 @@
                 infowindow.open(map, marker);
             });
         }
+		
+		//Edit form star effect
+		
+		// $('.author-edit-first-rate1').on('click', function(){
+		// 	 $(this).toggleClass("checked");
+		// });
+
+		
+		
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK-J-9L3iNEdjxQ7pVxoe-MKdOxXhlZjo&callback=initMap"></script>
     
