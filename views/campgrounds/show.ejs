@@ -10,16 +10,20 @@
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-down"></i> <%= campground.location %></p></div> -->
             <div class="mb-1 blackOpacityBg" id="map"></div>
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div> -->
-        	<div class="darkTransparentBg text-center py-2 border border-secondary">
-            	<h5>Review summary</h5>
-                <h2 class="display-4"><strong><%= campground.rating.toFixed(1) %></strong></h2>
-                <span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-                <span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-                <span>(<%= campground.reviews.length %> ratings)</span>
-        	</div>
+        	<div class="darkTransparentBg text-center py-1 border border-secondary">
+            	<!-- <h5>Review summary</h5> -->
+                <h1 class=""><%= campground.rating.toFixed(1) %></h1>
+				<div>
+					<span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
+					<span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+					<span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+					<span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+					<span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+				</div>
+				<div>
+					<span>(<%= campground.reviews.length %> ratings)</span>
+				</div>
+			</div>
 		</div>
         
         <div class="col-md-9 order-1 order-md-2 mt-2 px-0">
