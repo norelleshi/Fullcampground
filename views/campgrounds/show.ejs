@@ -531,6 +531,7 @@
 		
 			<% if(!currentUser){ %>
 				<% campground.reviews.forEach(function(review){ %>
+				<div class="px-1">
 					<div>
 						<!-- <i class="fas fa-user"></i> -->
 						<!--<div class="card darkBg border-0">-->
@@ -548,6 +549,7 @@
 					<div class="contentFontSize">
 						<%= review.text %>
 					</div>
+				</div>
                 <hr>
             	<% }); %>	
 			<% } %>		
