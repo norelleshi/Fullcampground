@@ -331,6 +331,12 @@ footer {
     color: orange !important;
 }
 
+.clear-rating {
+	white-space: nowrap;
+	background-color: #f0fff0;
+	border-radius: 0.25rem;
+}
+
 /*.new_camp {*/
 /*  border-radius: 0.25rem;*/
 /*  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),*/

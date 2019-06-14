@@ -216,8 +216,8 @@
 							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
-								<fieldset class="starability-basic">
-									<button class="clear-rating d-block border-0" type="button">Clear Rating</button>
+								<fieldset class="starability-basic mb-1">
+									<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
 								  <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
@@ -296,8 +296,8 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPosition"
 											method="POST">
 											
-											<fieldset class="starability-basic">
-													<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
+											<fieldset class="starability-basic mb-1">
+													<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate1" name="review[rating]" value="1" />
 												  <label for="author-edit-rate1" title="Terrible">1 star</label>
@@ -408,8 +408,8 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPositionAdmin"
 											method="POST">
 											
-											<fieldset class="starability-basic">
-													<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
+											<fieldset class="starability-basic mb-1">
+													<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate1" name="review[rating]" value="1" />
 												  <label for="admin-edit-rate1" title="Terrible">1 star</label>
