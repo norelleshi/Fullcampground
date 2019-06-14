@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div id="main" class="container">
     <div class="row">
-        <div class="col-md-3 order-2 order-md-1 py-2 px-1">
+        <div class="col-md-3 order-2 order-md-1 p-1">
             <!--<div class="list-group mb-2">-->
             <!--    <li class="list-group-item active">Info 1</li>-->
             <!--    <li class="list-group-item">Info 2</li>-->
@@ -26,7 +26,7 @@
 			</div>
 		</div>
         
-        <div class="col-md-9 order-1 order-md-2 mt-2 px-0">
+        <div class="col-md-9 order-1 order-md-2 pt-1 pb-0 px-0">
             <!-- <h4 class="m-0 py-0 text-center"><a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a></h4> -->
             <div class="d-flex justify-content-center rounded-0 border border-bottom-0 border-secondary blackOpacityBg">
                 <div class="p-0">
@@ -45,7 +45,7 @@
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
                         <em>Submitted By <a href="/users/<%= campground.author.id %>" class="text-light"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
                         <% if(campground.price != 0){ %>
-							<div>$<%= campground.price %> USD/night</div>
+							<div>$ <%= campground.price %> USD/night</div>
 						<% } %>
 						<% if(campground.price == 0){ %>
 							<div>free</div>
@@ -55,7 +55,7 @@
                     <hr class="my-0">
 					
 					<div class="p-1">
-						<i class="fas fa-map-marker-alt"></i> <%= campground.location %>
+						<i class="fas fa-map-marker-alt"></i>&nbsp; <%= campground.location %>
 					</div>	
 					
                     <hr class="my-0">
