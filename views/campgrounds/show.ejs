@@ -217,7 +217,7 @@
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
 								<fieldset class="starability-basic">
-									<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
+									<button class="clear-rating badge badge-pill badge-light border-0 d-block mb-2" type="button">Clear Rating</button>
 								  <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
