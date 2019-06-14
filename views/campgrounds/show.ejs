@@ -264,6 +264,9 @@
 						<div>
 							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
 							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+							<% if(review.rating === 0){ %>
+								<span>(0 star)</span>
+							<% } %>
 						</div>
 						<div class="contentFontSize">
 							<%= review.text %>
@@ -375,6 +378,9 @@
 						<div>
 							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
 							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+							<% if(review.rating === 0){ %>
+								<span>(0 star)</span>
+							<% } %>
 						</div>
 						<div class="contentFontSize">
 							<%= review.text %>
@@ -535,7 +541,11 @@
 	<script>
 		$('.clear-rating').click(function(){
 			$(this).siblings('.input-no-rate').click();
-		});		
+		});
+		
+		// $('#btn-rate1').click(function(){
+		// 	$(this).siblings('#add-review-form1').toggle();
+		// });	
 		
 	</script>
 	
