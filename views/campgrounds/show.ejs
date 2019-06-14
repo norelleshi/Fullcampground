@@ -216,7 +216,8 @@
 							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
-								<fieldset class="starability-basic pt-1 m-auto">
+								<fieldset class="starability-basic">
+									<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
 								  <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
@@ -229,7 +230,7 @@
 								  <input type="radio" id="rate5" name="review[rating]" value="5" />
 								  <label for="rate5" title="Amazing">5 stars</label>
 								</fieldset>
-								
+
 								<div class="form-group mb-1">
 									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="6"></textarea>
 								</div>
@@ -295,7 +296,8 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPosition"
 											method="POST">
 											
-											<fieldset class="starability-basic pt-1 m-auto">
+											<fieldset class="starability-basic">
+													<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate1" name="review[rating]" value="1" />
 												  <label for="author-edit-rate1" title="Terrible">1 star</label>
@@ -406,7 +408,8 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPositionAdmin"
 											method="POST">
 											
-											<fieldset class="starability-basic pt-1 m-auto">
+											<fieldset class="starability-basic">
+													<button class="clear-rating badge badge-pill badge-light mb-2 border-0" type="button">Clear Rating</button>
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate1" name="review[rating]" value="1" />
 												  <label for="admin-edit-rate1" title="Terrible">1 star</label>
@@ -422,7 +425,7 @@
 
 											<div class="form-group my-1">
 												<textarea class="form-control inputTextBlack" name="review[text]"
-														placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="8"><%= review.text %></textarea>
+														placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
 												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
@@ -529,6 +532,14 @@
         }		
 	</script>
 	
+	<script>
+		$('.clear-rating').click(function(){
+			$(this).siblings('.input-no-rate').click();
+		});		
+		
+	</script>
+	
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK-J-9L3iNEdjxQ7pVxoe-MKdOxXhlZjo&callback=initMap"></script>
     
 </div>    
