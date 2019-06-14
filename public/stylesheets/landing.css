@@ -115,7 +115,11 @@ body {
 }
 
 .searchForm {
-	background-color: rgba(255, 255, 255, .95);
+	background-color: rgba(255, 255, 255, .8);
+}
+
+.searchFormAddOn {
+	border: 1px solid gray;
 }
 
 .landingHeader {
