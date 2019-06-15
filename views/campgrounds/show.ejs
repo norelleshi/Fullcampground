@@ -284,18 +284,15 @@
 					<div class="px-1">
 						<span class="darkTransparentBg"><em>Your review</em></span>
 						<div>
+							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+						</div>
+						<div>
 							
 							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
 							</em>
-						</div>
-						<div>
-							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-							<% if(review.rating === 0){ %>
-								<span>(0 star)</span>
-							<% } %>
 						</div>
 						<div class="contentFontSize">
 							<%= review.text %>
@@ -397,6 +394,10 @@
 					<hr class="my-1">
 					<div class="px-1">
 						<div>
+							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+						</div>
+						<div>
 							<!-- <i class="fas fa-user"></i> -->
 							<!--<div class="card darkBg border-0">-->
 							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
@@ -405,13 +406,6 @@
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
 							</em>
-						</div>
-						<div>
-							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-							<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-							<% if(review.rating === 0){ %>
-								<span>(0 star)</span>
-							<% } %>
 						</div>
 						<div class="contentFontSize">
 							<%= review.text %>
@@ -511,6 +505,10 @@
 				<hr class="my-1">
 				<div class="px-1">
 					<div>
+						<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
+						<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+					</div>
+					<div>
 						<!-- <i class="fas fa-user"></i> -->
 						<!--<div class="card darkBg border-0">-->
 						<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
@@ -519,10 +517,6 @@
 						<em class="text-muted review-date pl-1 d-inline">
 							<%= moment(review.updatedAt).fromNow() %>
 						</em>
-					</div>
-					<div>
-						<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-						<%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
 					</div>
 					<div class="contentFontSize">
 						<%= review.text %>
