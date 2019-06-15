@@ -10,20 +10,6 @@
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-down"></i> <%= campground.location %></p></div> -->
             <div class="mb-1 blackOpacityBg" id="map"></div>
             <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div> -->
-        	<div class="darkTransparentBg text-center py-1 border border-secondary">
-            	<!-- <h5>Review summary</h5> -->
-                <h1 class=""><%= campground.rating.toFixed(1) %></h1>
-				<div>
-					<span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
-					<span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
-					<span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
-					<span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
-					<span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
-				</div>
-				<div>
-					<span>(<%= campground.reviews.length %> ratings)</span>
-				</div>
-			</div>
 		</div>
         
         <div class="col-md-9 order-1 order-md-2 pt-1 pb-0 px-0">
@@ -39,6 +25,15 @@
                 <div class="darkTransparentBg">
 					<div class="p-1">
 						<a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a>
+						<div>
+							<span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
+							<span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
+							<span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
+							<span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } %>"></span>
+							<span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } %>"></span>
+							<span><strong><%= campground.rating.toFixed(1) %></strong></span>
+							<span>(<%= campground.reviews.length %> ratings)</span>
+						</div>
 					</div>
 					<hr class="my-0">
                     <div class="d-flex justify-content-between text-muted p-1">   
@@ -188,36 +183,39 @@
 					return review.author.id.equals(currentUser._id)})) { %>
 					 style="display: none;" <% } %>>
 
-				<h5>Rate & Review</h5>
-				<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="bg-transparent border-0">
-					<!-- <i class="fas fa-plus"></i> -->
-					<i class="far fa-star starBtnSize"></i>
-				</button>
-				<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="bg-transparent border-0">
-					<!-- <i class="fas fa-plus"></i> -->
-					<i class="far fa-star starBtnSize"></i>
-				</button>
-				<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="bg-transparent border-0">
-					<!-- <i class="fas fa-plus"></i> -->
-					<i class="far fa-star starBtnSize"></i>
-				</button>
-				<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="bg-transparent border-0">
-					<!-- <i class="fas fa-plus"></i> -->
-					<i class="far fa-star starBtnSize"></i>
-				</button>
-				<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="bg-transparent border-0">
-					<!-- <i class="fas fa-plus"></i> -->
-					<i class="far fa-star starBtnSize"></i>
-				</button>
+				<h5 class="mb-0">Rate & Review</h5>
+				<p class="text-muted">Share your experience</p>
+				<div>
+					<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
+						class="bg-transparent border-0">
+						<!-- <i class="fas fa-plus"></i> -->
+						<i class="far fa-star starBtnSize"></i>
+					</button>
+					<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
+						class="bg-transparent border-0">
+						<!-- <i class="fas fa-plus"></i> -->
+						<i class="far fa-star starBtnSize"></i>
+					</button>
+					<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
+						class="bg-transparent border-0">
+						<!-- <i class="fas fa-plus"></i> -->
+						<i class="far fa-star starBtnSize"></i>
+					</button>
+					<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
+						class="bg-transparent border-0">
+						<!-- <i class="fas fa-plus"></i> -->
+						<i class="far fa-star starBtnSize"></i>
+					</button>
+					<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
+						class="bg-transparent border-0">
+						<!-- <i class="fas fa-plus"></i> -->
+						<i class="far fa-star starBtnSize"></i>
+					</button>
+				</div>
 			</div>
 		</div>
         <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
-		<div class="pinkText">
+		<div class="pinkText mt-1">
 			<h4>Reviews</h4>
 		</div>
 			<!-- Add review button -->
@@ -262,7 +260,7 @@
 								</fieldset>
 
 								<div class="form-group mb-1">
-									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share your experience..." rows="6"></textarea>
+									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share details of your own experience at this place" rows="6"></textarea>
 								</div>
 								<div class="form-group my-1">
 									<button class="btn btn-success btn-block reviewPostButton">POST</button>
@@ -283,7 +281,7 @@
 			<% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && review.author.id.equals(currentUser._id)){ %>
 					<div class="px-1">
-						<span class="darkTransparentBg">Your review</span>
+						<span class="darkTransparentBg"><em>Your review</em></span>
 						<div>
 							
 							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
@@ -347,7 +345,7 @@
 
 											<div class="form-group my-1">
 												<textarea class="form-control inputTextBlack" name="review[text]"
-														placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
+														placeholder="Share details of your own experience at this place" form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
 												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
@@ -462,7 +460,7 @@
 
 											<div class="form-group my-1">
 												<textarea class="form-control inputTextBlack" name="review[text]"
-														placeholder="Share your experience..." form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
+														placeholder="Share details of your own experience at this place" form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
 												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
