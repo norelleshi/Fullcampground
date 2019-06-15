@@ -178,24 +178,52 @@
         </div>
     </div>
     </div>     -->
-        
+
     <div class="row justify-content-end"> 
     <div class="col-md-9 px-0">
-        <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition">
-            <div class="pinkText">
-				<h4>Reviews</h4>
-			</div>
+		<div id="addReviewPosition" class="text-center py-3"
+			 	<% if (currentUser && campground.reviews.some
+				(function (review) {
+				return review.author.id.equals(currentUser._id)})) { %>
+				 style="display: none;" <% } %>>
+			
+			<!-- <img src="<%= currentUser.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user image"> -->
+			<h5>Rate & Review</h5>
+			<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
+				class="bg-transparent border-0">
+				<!-- <i class="fas fa-plus"></i> -->
+				<i class="far fa-star"></i>
+			</button>
+			<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
+				class="bg-transparent border-0">
+				<!-- <i class="fas fa-plus"></i> -->
+				<i class="far fa-star"></i>
+			</button>
+			<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
+				class="bg-transparent border-0">
+				<!-- <i class="fas fa-plus"></i> -->
+				<i class="far fa-star"></i>
+			</button>
+			<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
+				class="bg-transparent border-0">
+				<!-- <i class="fas fa-plus"></i> -->
+				<i class="far fa-star"></i>
+			</button>
+			<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
+				class="bg-transparent border-0">
+				<!-- <i class="fas fa-plus"></i> -->
+				<i class="far fa-star"></i>
+			</button>
+		</div>
+        <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
+		<div class="pinkText">
+			<h4>Reviews</h4>
+		</div>
 			<!-- Add review button -->
-            <div id="addReviewPosition">
-				<button type="button" data-toggle="modal" data-target="#addReviewModal"
-					class="btn btn-outline-success border-0 rounded-sm" <% if (currentUser && campground.reviews.some
-                    (function (review) {
-                    	return review.author.id.equals(currentUser._id)})) { %>
-                     style="color: transparent;" disabled<% } %>>
-				  	<i class="fas fa-plus"></i>
-				</button>
-            </div>    
-        </div>
+            <!-- <div id="addReviewPosition"> -->
+			
+            <!-- </div>     -->
+        <!-- </div> -->
 		
 		<!-- Add review modal START-->
 		<div class="modal fade bd-example-modal-lg" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="addReviewModalLabel" aria-hidden="true">
@@ -216,7 +244,7 @@
 							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
-								<fieldset class="starability-basic mb-0">
+								<fieldset class="starability-basic mb-0 d-none">
 								  <!-- <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
@@ -226,9 +254,9 @@
 								  <label for="rate3" title="Average">3 stars</label>
 								  <input type="radio" id="rate4" name="review[rating]" value="4" />
 								  <label for="rate4" title="Very good">4 stars</label>
-								  <input type="radio" id="rate5" name="review[rating]" value="5" checked/>
+								  <input type="radio" id="rate5" name="review[rating]" value="5" />
 								  <label for="rate5" title="Amazing">5 stars</label>
-									<div id="rateMessage">5 stars - Amazing</div>
+									<div id="rateMessage"></div>
 									<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
 								</fieldset>
 
@@ -248,9 +276,9 @@
 			
         <hr class="mt-0">
                 
-        <% if (!campground.reviews) { %>
+        <% if (!(campground.reviews)) { %>
             <p><em class="text-muted">No reviews yet.</em></p>
-        <% } else {%>
+        <% } else { %>
 			<% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && review.author.id.equals(currentUser._id)){ %>
 					<div class="px-1">
@@ -297,7 +325,7 @@
 									</div>
 									<div class="modal-body pt-1">
 										<form id="edit-review-form<%= review._id %>"
-											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPosition"
+											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#addReviewPosition"
 											method="POST">
 											
 											<fieldset class="starability-basic mb-0">
@@ -350,7 +378,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
-										<form class="delete-form" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#editReviewPosition" method="POST">
+										<form class="delete-form" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#addReviewPosition" method="POST">
 											<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
 										</form>
 									</div>
@@ -367,7 +395,7 @@
             <% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && (!(review.author.id.equals(currentUser._id)))){ %>
 					<div class="px-1">
-						<div id="editReviewPositionAdmin">
+						<div>
 							<!-- <i class="fas fa-user"></i> -->
 							<!--<div class="card darkBg border-0">-->
 							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
@@ -413,7 +441,7 @@
 									</div>
 									<div class="modal-body pt-1">
 										<form id="admin-edit-review-form<%= review._id %>"
-											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPositionAdmin"
+											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#addReviewPosition"
 											method="POST">
 											
 											<fieldset class="starability-basic mb-0">
@@ -464,7 +492,7 @@
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-outline-light btn-sm rounded-sm" data-dismiss="modal">Cancel</button>
-										<form class="delete-form" id="delete-review-form-admin<%= review._id %>" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#editReviewPositionAdmin" method="POST">
+										<form class="delete-form" id="delete-review-form-admin<%= review._id %>" action="/campgrounds/<%=campground._id %>/<%=review._id %>?_method=DELETE#addReviewPosition" method="POST">
 											<button class="btn btn-danger rounded-sm btn-sm" title="Delete">Delete</button>
 										</form>
 									</div>
@@ -546,25 +574,122 @@
 		// 	$(this).siblings('#rateMessage').text('0 star');;
 		// });
 		
-		$('#rate1').click(function(){
-			$(this).siblings('#rateMessage').text('1 star - Terrible');;
+		//star btn color
+		$('#starBtn1').css('color', '#6c757d');
+		$('#starBtn2').css('color', '#6c757d');
+		$('#starBtn3').css('color', '#6c757d');
+		$('#starBtn4').css('color', '#6c757d');
+		$('#starBtn5').css('color', '#6c757d');
+		
+		//star btn hover effect mouse enter
+		$('#starBtn1').mouseenter(function(){
+			 $(this).css('color', 'orange'); 
+		});
+		 
+		$('#starBtn2').mouseenter(function(){
+			 $(this).css('color', 'orange'); 
+			$('#starBtn1').css('color', 'orange');
 		});
 		
-		$('#rate2').click(function(){
-			$(this).siblings('#rateMessage').text('2 stars - Not good'); 
+		$('#starBtn3').mouseenter(function(){
+			 $(this).css('color', 'orange'); 
+			$('#starBtn1').css('color', 'orange');
+			$('#starBtn2').css('color', 'orange');
 		});
 		
-		$('#rate3').click(function(){
-			$(this).siblings('#rateMessage').text('3 stars - Average'); 
+		$('#starBtn4').mouseenter(function(){
+			 $(this).css('color', 'orange'); 
+			$('#starBtn1').css('color', 'orange');
+			$('#starBtn2').css('color', 'orange');
+			$('#starBtn3').css('color', 'orange');
 		});
 		
-		$('#rate4').click(function(){
-			$(this).siblings('#rateMessage').text('4 stars - Very good'); 
+		$('#starBtn5').mouseenter(function(){
+			 $(this).css('color', 'orange'); 
+			$('#starBtn1').css('color', 'orange');
+			$('#starBtn2').css('color', 'orange');
+			$('#starBtn3').css('color', 'orange');
+			$('#starBtn4').css('color', 'orange');
 		});
 		
-		$('#rate5').click(function(){
-			$(this).siblings('#rateMessage').text('5 stars - Amazing'); 
+		
+		///star btn hover effect mouse leave
+		$('#starBtn1').mouseleave(function(){
+			 $(this).css('color', '#6c757d'); 
 		});
+		
+		$('#starBtn2').mouseleave(function(){
+			 $(this).css('color', '#6c757d');
+			$('#starBtn1').css('color', '#6c757d');
+		});
+		
+		$('#starBtn3').mouseleave(function(){
+			 $(this).css('color', '#6c757d');
+			$('#starBtn1').css('color', '#6c757d');
+			$('#starBtn2').css('color', '#6c757d');
+		});
+		
+		$('#starBtn4').mouseleave(function(){
+			 $(this).css('color', '#6c757d');
+			$('#starBtn1').css('color', '#6c757d');
+			$('#starBtn2').css('color', '#6c757d');
+			$('#starBtn3').css('color', '#6c757d');
+		});
+		
+		$('#starBtn5').mouseleave(function(){
+			 $(this).css('color', '#6c757d');
+			$('#starBtn1').css('color', '#6c757d');
+			$('#starBtn2').css('color', '#6c757d');
+			$('#starBtn3').css('color', '#6c757d');
+			$('#starBtn4').css('color', '#6c757d');
+		});
+		
+		
+		//star btn click event
+		$('#starBtn1').click(function(){
+			$('#rate1').prop('checked', true);
+			$('#rate1').siblings('#rateMessage').text('1 star - Terrible');
+		});
+		
+		$('#starBtn2').click(function(){
+			$('#rate2').prop('checked', true);
+			$('#rate2').siblings('#rateMessage').text('2 stars - Not good');
+		});
+		
+		$('#starBtn3').click(function(){
+			$('#rate3').prop('checked', true);
+			$('#rate3').siblings('#rateMessage').text('3 stars - Average');
+		});
+		
+		$('#starBtn4').click(function(){
+			$('#rate4').prop('checked', true);
+			$('#rate4').siblings('#rateMessage').text('4 stars - Very good');
+		});
+		
+		$('#starBtn5').click(function(){
+			$('#rate5').prop('checked', true);
+			$('#rate5').siblings('#rateMessage').text('5 stars - Amazing');
+		});
+		
+		// $('#rate1').click(function(){
+		// 	$(this).siblings('#rateMessage').text('1 star - Terrible');
+		// });
+		
+		// $('#rate2').click(function(){
+		// 	$(this).siblings('#rateMessage').text('2 stars - Not good'); 
+		// });
+		
+		// $('#rate3').click(function(){
+		// 	$(this).siblings('#rateMessage').text('3 stars - Average'); 
+		// });
+		
+		// $('#rate4').click(function(){
+		// 	$(this).siblings('#rateMessage').text('4 stars - Very good'); 
+		// });
+		
+		// $('#rate5').click(function(){
+		// 	$(this).siblings('#rateMessage').text('5 stars - Amazing'); 
+		// });
 		
 		// $('#btn-rate1').click(function(){
 		// 	$(this).siblings('#add-review-form1').toggle();

@@ -323,9 +323,17 @@ footer {
   border-right: 0;
 }
 
-.fa-star {
-  color: #6c757d;
+#addReviewPosition {
+	font-size: 2rem;
 }
+
+#addReviewPosition #starBtn1, #starBtn2, #starBtn3, #starBtn4, #starBtn5{
+	outline: none;
+}
+
+/* .fa-star {
+  color: #6c757d;
+} */
 
 .checked {
     color: orange !important;
