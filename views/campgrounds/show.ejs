@@ -215,8 +215,8 @@
 			</div>
 		</div>
         <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
-		<div class="pinkText mt-1">
-			<h4>Reviews</h4>
+		<div class="pinkText mt-3 pl-1">
+			<h5>Reviews</h5>
 		</div>
 			<!-- Add review button -->
             <!-- <div id="addReviewPosition"> -->
@@ -273,13 +273,14 @@
 		</div>
 		<!-- Add review modal END-->
 			
-        <hr class="mt-0">
+        <!-- <hr class="mt-0 mb-1"> -->
                 
         <% if (!(campground.reviews)) { %>
             <p><em class="text-muted">No reviews yet.</em></p>
         <% } else { %>
 			<% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+					<hr class="mt-1 mb-0">
 					<div class="px-1">
 						<span class="darkTransparentBg"><em>Your review</em></span>
 						<div>
@@ -385,7 +386,7 @@
 							</div>
 						</div>
 						<!-- Delete review modal END -->
-						<hr>
+						<!-- <hr class="my-1"> -->
 					</div>
 		
 				<% } %>
@@ -393,6 +394,7 @@
 			
             <% campground.reviews.forEach(function(review){ %>
 				<% if(currentUser && (!(review.author.id.equals(currentUser._id)))){ %>
+					<hr class="my-1">
 					<div class="px-1">
 						<div>
 							<!-- <i class="fas fa-user"></i> -->
@@ -460,7 +462,7 @@
 
 											<div class="form-group my-1">
 												<textarea class="form-control inputTextBlack" name="review[text]"
-														placeholder="Share details of your own experience at this place" form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
+														placeholder="Share details of your own experience at this place" form="admin-edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
 												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
@@ -500,7 +502,7 @@
 						</div>
 						<!-- Admin delete review modal END -->
 					<% } %>
-                <hr>
+                <!-- <hr class="my-1"> -->
 				<% } %>		
             <% }); %>
 		
@@ -525,7 +527,7 @@
 						<%= review.text %>
 					</div>
 				</div>
-                <hr>
+                <!-- <hr> -->
             	<% }); %>	
 			<% } %>		
 		
