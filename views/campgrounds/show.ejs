@@ -181,38 +181,40 @@
 
     <div class="row justify-content-end"> 
     <div class="col-md-9 px-0">
-		<div id="addReviewPosition" class="text-center py-3"
-			 	<% if (currentUser && campground.reviews.some
-				(function (review) {
-				return review.author.id.equals(currentUser._id)})) { %>
-				 style="display: none;" <% } %>>
-			
-			<h5>Rate & Review</h5>
-			<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
-				class="bg-transparent border-0">
-				<!-- <i class="fas fa-plus"></i> -->
-				<i class="far fa-star starBtnSize"></i>
-			</button>
-			<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
-				class="bg-transparent border-0">
-				<!-- <i class="fas fa-plus"></i> -->
-				<i class="far fa-star starBtnSize"></i>
-			</button>
-			<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
-				class="bg-transparent border-0">
-				<!-- <i class="fas fa-plus"></i> -->
-				<i class="far fa-star starBtnSize"></i>
-			</button>
-			<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
-				class="bg-transparent border-0">
-				<!-- <i class="fas fa-plus"></i> -->
-				<i class="far fa-star starBtnSize"></i>
-			</button>
-			<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
-				class="bg-transparent border-0">
-				<!-- <i class="fas fa-plus"></i> -->
-				<i class="far fa-star starBtnSize"></i>
-			</button>
+		<div id="addReviewPosition">
+			<div class="text-center py-3"
+					<% if (currentUser && campground.reviews.some
+					(function (review) {
+					return review.author.id.equals(currentUser._id)})) { %>
+					 style="display: none;" <% } %>>
+
+				<h5>Rate & Review</h5>
+				<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
+					class="bg-transparent border-0">
+					<!-- <i class="fas fa-plus"></i> -->
+					<i class="far fa-star starBtnSize"></i>
+				</button>
+				<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
+					class="bg-transparent border-0">
+					<!-- <i class="fas fa-plus"></i> -->
+					<i class="far fa-star starBtnSize"></i>
+				</button>
+				<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
+					class="bg-transparent border-0">
+					<!-- <i class="fas fa-plus"></i> -->
+					<i class="far fa-star starBtnSize"></i>
+				</button>
+				<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
+					class="bg-transparent border-0">
+					<!-- <i class="fas fa-plus"></i> -->
+					<i class="far fa-star starBtnSize"></i>
+				</button>
+				<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
+					class="bg-transparent border-0">
+					<!-- <i class="fas fa-plus"></i> -->
+					<i class="far fa-star starBtnSize"></i>
+				</button>
+			</div>
 		</div>
         <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
 		<div class="pinkText">
