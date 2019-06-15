@@ -216,9 +216,8 @@
 							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
-								<fieldset class="starability-basic mb-1">
-									<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
-								  <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+								<fieldset class="starability-basic mb-0">
+								  <!-- <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
 								  <input type="radio" id="rate2" name="review[rating]" value="2" />
@@ -227,8 +226,10 @@
 								  <label for="rate3" title="Average">3 stars</label>
 								  <input type="radio" id="rate4" name="review[rating]" value="4" />
 								  <label for="rate4" title="Very good">4 stars</label>
-								  <input type="radio" id="rate5" name="review[rating]" value="5" />
+								  <input type="radio" id="rate5" name="review[rating]" value="5" checked/>
 								  <label for="rate5" title="Amazing">5 stars</label>
+									<div id="rateMessage">5 stars - Amazing</div>
+									<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
 								</fieldset>
 
 								<div class="form-group mb-1">
@@ -299,9 +300,9 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPosition"
 											method="POST">
 											
-											<fieldset class="starability-basic mb-1">
-													<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
-												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+											<fieldset class="starability-basic mb-0">
+													<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating (0 star)</button> -->
+												  <!-- <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate1" name="review[rating]" value="1" />
 												  <label for="author-edit-rate1" title="Terrible">1 star</label>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate2" name="review[rating]" value="2" />
@@ -312,6 +313,7 @@
 												  <label for="author-edit-rate4" title="Very good">4 stars</label>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate5" name="review[rating]" value="5" />
 												  <label for="author-edit-rate5" title="Amazing">5 stars</label>
+	
 											</fieldset>
 
 											<div class="form-group my-1">
@@ -414,9 +416,9 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#editReviewPositionAdmin"
 											method="POST">
 											
-											<fieldset class="starability-basic mb-1">
-													<button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button>
-												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate0<%= review._id %>" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." />
+											<fieldset class="starability-basic mb-0">
+													<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
+												  <!-- <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate0<%= review._id %>" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate1<%= review._id %>" name="review[rating]" value="1" />
 												  <label for="admin-edit-rate1<%= review._id %>" title="Terrible">1 star</label>
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate2<%= review._id %>" name="review[rating]" value="2" />
@@ -539,8 +541,29 @@
 	</script>
 	
 	<script>
-		$('.clear-rating').click(function(){
-			$(this).siblings('.input-no-rate').click();
+		// $('.clear-rating').click(function(){
+		// 	$(this).siblings('.input-no-rate').click();
+		// 	$(this).siblings('#rateMessage').text('0 star');;
+		// });
+		
+		$('#rate1').click(function(){
+			$(this).siblings('#rateMessage').text('1 star - Terrible');;
+		});
+		
+		$('#rate2').click(function(){
+			$(this).siblings('#rateMessage').text('2 stars - Not good'); 
+		});
+		
+		$('#rate3').click(function(){
+			$(this).siblings('#rateMessage').text('3 stars - Average'); 
+		});
+		
+		$('#rate4').click(function(){
+			$(this).siblings('#rateMessage').text('4 stars - Very good'); 
+		});
+		
+		$('#rate5').click(function(){
+			$(this).siblings('#rateMessage').text('5 stars - Amazing'); 
 		});
 		
 		// $('#btn-rate1').click(function(){

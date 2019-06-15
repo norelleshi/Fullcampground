@@ -331,11 +331,15 @@ footer {
     color: orange !important;
 }
 
-.clear-rating {
+#rateMessage {
+	white-space: nowrap;
+}
+
+/* .clear-rating {
 	white-space: nowrap;
 	background-color: #f0fff0;
 	border-radius: 0.25rem;
-}
+} */
 
 /*.new_camp {*/
 /*  border-radius: 0.25rem;*/
