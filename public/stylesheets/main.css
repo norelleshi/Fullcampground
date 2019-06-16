@@ -331,9 +331,9 @@ footer {
 	outline: none;
 }
 
-/* .fa-star {
+.uncheckedStar {
   color: #6c757d;
-} */
+}
 
 .checked {
     color: orange !important;

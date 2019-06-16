@@ -1,0 +1,49 @@
+<!-- Add review modal START-->
+		<div class="modal fade bd-example-modal-lg" id="addReviewModal" tabindex="-1" role="dialog" aria-labelledby="addReviewModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content dialogBg">
+				  	<div class="modal-header py-1">
+						<h5 class="modal-title text-light" id="addReviewModalLabel">Rate & Review</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+				  	</div>
+				  	<div class="modal-body pt-1">
+						<% if(!currentUser) { %>
+							<h5 class="font-weight-normal">You need to login before you can do that.</h5>
+							<div class="text-right pt-3">
+								<a href="/register" class="btn btn-outline-light">Join free</a>
+								<a href="/" class="btn btn-light">Login <i class="fas fa-sign-in-alt text-success"></i></a>
+							</div>
+						<% } else {%>
+							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
+								<fieldset class="starability-basic mb-0 d-none">
+								  <!-- <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
+								  <input type="radio" id="rate1" name="review[rating]" value="1" />
+								  <label for="rate1" title="Terrible">1 star</label>
+								  <input type="radio" id="rate2" name="review[rating]" value="2" />
+								  <label for="rate2" title="Not good">2 stars</label>
+								  <input type="radio" id="rate3" name="review[rating]" value="3" />
+								  <label for="rate3" title="Average">3 stars</label>
+								  <input type="radio" id="rate4" name="review[rating]" value="4" />
+								  <label for="rate4" title="Very good">4 stars</label>
+								  <input type="radio" id="rate5" name="review[rating]" value="5" />
+								  <label for="rate5" title="Amazing">5 stars</label>
+									<div id="rateMessage"></div>
+									<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
+								</fieldset>
+
+								<div class="form-group mb-1">
+									<textarea form="add-review-form" class="form-control" type="text" name="review[text]" placeholder="Share details of your own experience at this place" rows="6" autofocus></textarea>
+								</div>
+								<div class="form-group my-1">
+									<button class="btn btn-success btn-block reviewPostButton">POST</button>
+								</div>
+							</form>
+						
+						<% } %>
+				  	</div>
+				</div>
+			</div>
+		</div>
+		<!-- Add review modal END-->
