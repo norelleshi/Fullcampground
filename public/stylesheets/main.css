@@ -373,8 +373,8 @@ footer {
     max-width: 100%;
     border: 3px solid #fff;
     vertical-align: middle;
-    height: 160px;
-    width: 160px;
+    height: 145px;
+    width: 145px;
     border-radius: 100%;
     box-sizing: border-box;
     display: block;
@@ -425,7 +425,7 @@ footer {
     margin-bottom: 0;
     color: transparent;
     font-size: 0.8rem;
-    width: 160px;
+    width: 140px;
     margin-left: auto;
     margin-right: auto;
     border-bottom-left-radius: 80px;
