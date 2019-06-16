@@ -112,6 +112,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
 
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
+	var publicMapKey = process.env.MAP_PUBLIC_KEY;
     //find the campground with provided ID
     Campground.findById(req.params.id).populate({
         path: "reviews",
@@ -123,7 +124,7 @@ router.get("/:id", function(req, res){
         } else {
           	// console.log(foundCampground);
             //render show template with that campground
-            res.render("campgrounds/show", {campground: foundCampground});
+            res.render("campgrounds/show", {campground: foundCampground, publicMapKey: publicMapKey});
         }
     });
 });
