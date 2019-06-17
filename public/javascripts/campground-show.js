@@ -1,3 +1,15 @@
+		//Layout mode	
+		$('#uniform').click(function(){
+			$('img').css('height', '170px');
+			$('.card-body').css('height', '275px');
+			$('img').css('object-fit', 'cover');
+			$('.card-body').css('object-fit', 'cover');
+		});
+
+		$('#waterfall').click(function(){
+			$('img').css('height', 'auto');
+			$('.card-body').css('height', 'auto');
+		});
 
 		//  $('.clear-rating').click(function(){
 		// 	$(this).siblings('.input-no-rate').click();
@@ -100,6 +112,7 @@
 			$('#rate5').prop('checked', true);
 			$('#rate5').siblings('#rateMessage').text('5 stars - Amazing');
 		});
+
 		
 		// $('#rate1').click(function(){
 		// 	$(this).siblings('#rateMessage').text('1 star - Terrible');
