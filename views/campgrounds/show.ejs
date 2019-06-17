@@ -24,7 +24,7 @@
             <div class="card darkBg border border-secondary rounded-0">
                 <div class="darkTransparentBg">
 					<div class="p-1">
-						<a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a>
+						<a href="<%= campground.image %>" class="showPageCampName text-danger"><%= campground.name %></a>
 						<div>
 							<span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
 							<span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
@@ -36,33 +36,36 @@
 						</div>
 					</div>
 					<hr class="my-0">
-                    <div class="d-flex justify-content-between text-muted p-1">   
+                    <div class="p-1">   
                         <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
-                        <em>Submitted By <a href="/users/<%= campground.author.id %>" class="text-light"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
+                        
                         <% if(campground.price != 0){ %>
 							<div>$ <%= campground.price %> USD/night</div>
 						<% } %>
 						<% if(campground.price == 0){ %>
-							<div>free</div>
+							<div class="text-success">free</div>
 						<% } %>
                     </div>
                     
                     <hr class="my-0">
 					
 					<div class="p-1">
-						<i class="fas fa-map-marker-alt"></i>&nbsp; <%= campground.location %>
+						<i class="fas fa-map-marker-alt text-info"></i>&nbsp; <%= campground.location %>
 					</div>	
 					
                     <hr class="my-0">
 					
-                    <div class="card-text contentFontSize p-1">
+					<div class="text-muted pb-1">
+						<em>Submitted By <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>, <span class="d-inline-block"><%= moment(campground.createdAt).fromNow() %></span></em>
+					</div>
+					<div class="card-text contentFontSize p-1">
 						<%= campground.description %>
 					</div>
                     
                     <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser &&  currentUser.isAdmin){ %>
 						<div class="text-right">
 							<!--Edit campground button-->
-							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#addCampModal">
+							<button type="button" class="btn btn-outline-success border-0 rounded-sm" data-toggle="modal" data-target="#addCampModal">
 							  	<i class="fas fa-pen"></i>
 							</button>
                             <!--Delete campground button-->
@@ -96,7 +99,7 @@
     <div class="row justify-content-end"> 
     <div class="col-md-9 px-0">
 		<div id="addReviewPosition">
-			<div class="text-center py-3"
+			<div class="text-center py-2"
 					<% if (currentUser && campground.reviews.some
 					(function (review) {
 					return review.author.id.equals(currentUser._id)})) { %>
@@ -134,8 +137,8 @@
 			</div>
 		</div>
         <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
-		<div class="pinkText mt-3 pl-1">
-			<h5>Reviews</h5>
+		<div class="pinkText mt-2 pl-1">
+			<h5 class="text-danger">Reviews</h5>
 		</div>
 			<!-- Add review button -->
             <!-- <div id="addReviewPosition"> -->
@@ -162,7 +165,7 @@
 						</div>
 						<div>
 							
-							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
+							<span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
 							</em>
@@ -173,7 +176,7 @@
 
 						<div>						
 							<!-- Edit review button -->
-							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#editReviewModal<%= review._id %>">
+							<button type="button" class="btn btn-outline-success border-0 rounded-sm" data-toggle="modal" data-target="#editReviewModal<%= review._id %>">
 								<i class="fas fa-pen"></i>
 							</button>
 
@@ -219,7 +222,7 @@
 														placeholder="Share details of your own experience at this place" form="edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
-												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
+												<button class="btn btn-success rounded-sm btn-block">UPDATE</button>
 											</div>
 										</form>
 										
@@ -275,7 +278,7 @@
 							<!--<div class="card darkBg border-0">-->
 							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
 							<!--</div>-->
-							<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
+							<span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
 							</em>
@@ -287,7 +290,7 @@
 					<% if(currentUser &&  currentUser.isAdmin){ %>
 						<div>						
 							<!-- Edit review button -->
-							<button type="button" class="btn btn-outline-warning border-0 rounded-sm" data-toggle="modal" data-target="#editReviewModal<%= review._id %>">
+							<button type="button" class="btn btn-outline-success border-0 rounded-sm" data-toggle="modal" data-target="#editReviewModal<%= review._id %>">
 								<i class="fas fa-pen"></i>
 							</button>
 
@@ -332,7 +335,7 @@
 														placeholder="Share details of your own experience at this place" form="admin-edit-review-form<%= review._id %>" rows="6"><%= review.text %></textarea>
 											</div>
 											<div class="form-group my-1">
-												<button class="btn btn-warning rounded-sm btn-block">UPDATE</button>
+												<button class="btn btn-success rounded-sm btn-block">UPDATE</button>
 											</div>
 										</form>
 										
@@ -386,7 +389,7 @@
 						<!--<div class="card darkBg border-0">-->
 						<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
 						<!--</div>-->
-						<span><a href="/users/<%= review.author.id %>" class="text-light"><%= review.author.username %></a>,</span>
+						<span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
 						<em class="text-muted review-date pl-1 d-inline">
 							<%= moment(review.updatedAt).fromNow() %>
 						</em>
