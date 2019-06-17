@@ -80,6 +80,14 @@ hr {
 	font-size: 1rem;
 }
 
+.oneLineHiden {
+	-webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box !important;
+    text-overflow: ellipsis;
+}
+
 /*********** Primary element *******************/
 html {
 	height: 100%;
@@ -108,6 +116,7 @@ body {
 
 .navbar-brand .fab{
   font-size: larger;
+	outline: none;
   /* color:  #00cc66 !important; */
 }
 
@@ -217,6 +226,7 @@ footer {
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+	line-height: 1.2;
 }
 
 .index-camp-card .card {

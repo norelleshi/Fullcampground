@@ -1,7 +1,7 @@
 		//Layout mode	
 		$('#uniform').click(function(){
 			$('img').css('height', '8rem');
-			$('.card-title').css('height', '4rem');
+			$('.card-title').css('height', '3rem');
 			$('.starLineHeight').css('height', '3rem');
 			$('img').css('object-fit', 'cover');
 			// $('.card-body').css('object-fit', 'cover');
