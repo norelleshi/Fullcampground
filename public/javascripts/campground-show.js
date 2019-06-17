@@ -1,14 +1,16 @@
 		//Layout mode	
 		$('#uniform').click(function(){
 			$('img').css('height', '165px');
-			// $('.card-body').css('height', '275px');
+			$('.card-title').css('height', '80px');
+			$('.starLineHeight').css('height', '80px');
 			$('img').css('object-fit', 'cover');
 			// $('.card-body').css('object-fit', 'cover');
 		});
 
 		$('#waterfall').click(function(){
 			$('img').css('height', 'auto');
-			// $('.card-body').css('height', 'auto');
+			$('.card-title').css('height', 'auto');
+			$('.starLineHeight').css('height', 'auto');
 		});
 
 		//  $('.clear-rating').click(function(){
