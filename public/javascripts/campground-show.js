@@ -1,8 +1,8 @@
 		//Layout mode	
 		$('#uniform').click(function(){
-			$('img').css('height', '165px');
-			$('.card-title').css('height', '80px');
-			$('.starLineHeight').css('height', '80px');
+			$('img').css('height', '8rem');
+			$('.card-title').css('height', '4rem');
+			$('.starLineHeight').css('height', '4rem');
 			$('img').css('object-fit', 'cover');
 			// $('.card-body').css('object-fit', 'cover');
 		});
