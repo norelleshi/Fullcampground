@@ -60,10 +60,10 @@
                     <a href="/campgrounds/<%= campground._id %>" title="<%= campground.name %>" class="index-camp-card">
                         <div class="card IndexCardBg mb-2">
                             <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
-                            <div class="card-body py-1">
+                            <div class="card-body py-0">
                                 <div class="card-title text-white text-left m-0"><%= campground.name %></div>    
-                                <div class="py-2 text-white-50 text-left"><em><%= campground.author.username %></em></div>    
-                                <div class="starLineHeight text-center pb-2 text-white">    
+                                <div class="py-0 text-white-50 text-left"><em><%= campground.author.username %></em></div>    
+                                <div class="starLineHeight text-center pb-0 text-white">    
                                     <span class="fa fa-star text-muted <% if (campground.rating > 0.5) { %> checked <% } %>"></span>
                                     <span class="fa fa-star text-muted <% if (campground.rating > 1.5) { %> checked <% } %>"></span>
                                     <span class="fa fa-star text-muted <% if (campground.rating > 2.5) { %> checked <% } %>"></span>
