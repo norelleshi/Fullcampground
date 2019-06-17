@@ -4,6 +4,8 @@
 			$('.card-body').css('height', '275px');
 			$('img').css('object-fit', 'cover');
 			$('.card-body').css('object-fit', 'cover');
+			$('img').addClass('.uniformToggle');
+			$('.card-body').addClass('.cardBodyToggle');
 		});
 
 		$('#waterfall').click(function(){

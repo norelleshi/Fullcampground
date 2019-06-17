@@ -170,6 +170,14 @@ footer {
 	border-color: #00e600 !important;
 }
 
+.displayMode {
+	color: #404040;
+    text-decoration: none !important;
+	font-size: 0.7rem;
+	background-color: #e6e6e6;
+	border:1px solid gray;
+}
+
 @media (min-width:992px){
   .card-columns{
     column-count: 4;
@@ -469,5 +477,3 @@ footer {
 	/* top: 0;
     left: 0; */
 }
-	
-	
