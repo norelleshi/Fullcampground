@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 <div id="main" class="container">
     <div class="row">
-        <div class="col-md-3 order-2 order-md-1 p-1">
+        <div class="col-md-3 order-2 order-md-1 py-1 pl-0 pr-1">
             <!--<div class="list-group mb-2">-->
             <!--    <li class="list-group-item active">Info 1</li>-->
             <!--    <li class="list-group-item">Info 2</li>-->
@@ -26,11 +26,11 @@
 					<div class="p-1">
 						<a href="<%= campground.image %>" class="showPageCampName text-danger"><%= campground.name %></a>
 						<div>
-							<span class="fa fa-star <% if (campground.rating > 0.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
-							<span class="fa fa-star <% if (campground.rating > 1.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
-							<span class="fa fa-star <% if (campground.rating > 2.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
-							<span class="fa fa-star <% if (campground.rating > 3.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
-							<span class="fa fa-star <% if (campground.rating > 4.5) { %> checked <% } else { %> uncheckedStar <% } %>"></span>
+							<span class="<% if (campground.rating > 0.5) { %> fas fa-star checked <% } else { %> far fa-star uncheckedStar <% } %>"></span>
+							<span class="<% if (campground.rating > 1.5) { %> fas fa-star checked <% } else { %> far fa-star uncheckedStar <% } %>"></span>
+							<span class="<% if (campground.rating > 2.5) { %> fas fa-star checked <% } else { %> far fa-star uncheckedStar <% } %>"></span>
+							<span class="<% if (campground.rating > 3.5) { %> fas fa-star checked <% } else { %> far fa-star uncheckedStar <% } %>"></span>
+							<span class="<% if (campground.rating > 4.5) { %> fas fa-star checked <% } else { %> far fa-star uncheckedStar <% } %>"></span>
 							<span><strong><%= campground.rating.toFixed(1) %></strong></span>
 							<span>(<%= campground.reviews.length %> ratings)</span>
 						</div>
@@ -160,8 +160,8 @@
 					<div class="px-1">
 						<span class="darkTransparentBg"><em>Your review</em></span>
 						<div>
-							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-							<%- '<span class="fa fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
+							<%- '<span class="fas fa-star checked"></span>'.repeat(review.rating) %>
+							<%- '<span class="far fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
 						</div>
 						<div>
 							
@@ -270,8 +270,8 @@
 					<hr class="my-1">
 					<div class="px-1">
 						<div>
-							<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-							<%- '<span class="fa fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
+							<%- '<span class="fas fa-star checked"></span>'.repeat(review.rating) %>
+							<%- '<span class="far fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
 						</div>
 						<div>
 							<!-- <i class="fas fa-user"></i> -->
@@ -381,8 +381,8 @@
 				<hr class="my-1">
 				<div class="px-1">
 					<div>
-						<%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %>
-						<%- '<span class="fa fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
+						<%- '<span class="fas fa-star checked"></span>'.repeat(review.rating) %>
+						<%- '<span class="far fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
 					</div>
 					<div>
 						<!-- <i class="fas fa-user"></i> -->
