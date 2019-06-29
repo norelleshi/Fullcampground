@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express     = require("express"),
     app         = express(),
-    bodyParser  = require("body-parser"),
+    // bodyParser  = require("body-parser"),
     mongoose    = require("mongoose"),
     flash       = require("connect-flash"),
     passport    = require("passport"),
@@ -29,7 +29,7 @@ mongoose.connect(url, {
 	console.log('ERROR:', err.message);
 });
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));

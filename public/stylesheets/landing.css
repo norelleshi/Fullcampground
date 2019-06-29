@@ -82,7 +82,7 @@ hr {
 
 /************** Landing page setting *********/
 html {
-	height: 100%;
+	height: 100vh;
 	font-family: 'Montserrat', sans-serif;
 }
 
@@ -123,23 +123,17 @@ body {
 }
 
 .landingHeader {
-  background: url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://i.imgur.com/SBEmFpv.jpg);
   /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   background-size: cover;
-  background-position: 50% 30%;
+  background-position: top;
   background-repeat: no-repeat;
   color: white;
   position: relative;
-  top: 0;
-  left: 0;
-  /*-webkit-filter:opacity(.95);*/
-  border-radius:0;
-	min-height: 100vh;
 }
 
-.BgOpacity {
+/* .BgOpacity {
 	background-color: rgba(0, 0, 0, 0.4);
 	width: 100%;
   height: 100%;
@@ -150,10 +144,9 @@ body {
   position: relative;
   top: 0;
   left: 0;
-  /*-webkit-filter:opacity(.95);*/
   border-radius:0;
 	min-height: 100vh;
-}
+} */
 
 .landingTitle {
 	font-family: 'Montserrat', sans-serif;
