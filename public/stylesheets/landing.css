@@ -123,7 +123,7 @@ body {
 }
 
 .landingHeader {
-  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(http://i.imgur.com/SBEmFpv.jpg);
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
   /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
   height: 100%;
   background-size: cover;
@@ -178,7 +178,7 @@ body {
     letter-spacing: 10px;
 	margin-bottom: 10px;
     animation-name: moveInLeft;
-    animation-duration: 1s;
+    animation-duration: 1.3s;
     animation-timing-function: ease-out;
 	white-space:nowrap;
 	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
@@ -194,17 +194,22 @@ body {
     display: block;
     font-size: 1.15rem;
     font-weight: 200;
-    animation: moveInRight 1s ease-out;
+    animation: moveInRight 1.3s ease-out;
 	letter-spacing: 0.1rem;
+}
+
+.login-animated {
+	animation: moveInBottom .5s ease-out .4s;
+    animation-fill-mode: backwards;
 }
 
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-30px);
     }
 
-    80% {
+    70% {
         transform: translateX(10px);
     }
 
@@ -217,10 +222,10 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(30px);
     }
 
-    80% {
+    70% {
         transform: translateX(-10px);
     }
 
@@ -229,6 +234,62 @@ body {
         transform: translate(0);
     }
 }
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn-up:link, .btn-up:visited {
+	background-color: #fff;
+    color: #212529;
+	font-weight: 600;
+	font-size: .9rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 20px;
+    display: inline-block;
+    border-radius: .2rem;
+    transition: all .2s;
+	margin-top: 12px;
+	position: relative;
+}
+
+.btn-up:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.btn-up:active {
+    transform: translateY(-1px);
+}
+
+.btn-boom::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+	background-color: #fff;
+    border-radius: .2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-boom:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
 
 .transSignin {
 	background-color: rgba(0, 0, 0, 0.6)!important;
@@ -277,28 +338,9 @@ body {
   border-top-right-radius: 0;
 }
 
-.trans-btn:link,
-.trans-btn:visited {
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 7px 20px;
-    display: inline-block;
-    border-radius: .2rem;
-    transition: all .2s;
-}
-
-.trans-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,.4);
-}
-
-.trans-btn:active {
-    transform: translateY(-1px);
-}
-
-.trans-btn {
+/* .trans-btn {
     background-color: #fff;
     color: #212529;
 	font-weight: 600;
 	font-size: .9rem;
-}
+} */

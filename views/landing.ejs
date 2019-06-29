@@ -74,18 +74,24 @@
 									<i class="fab fa-yandex-international text-success"></i>elpCamp
 								</span>
 							</h1> -->
-							<h5 class="text-danger pt-2">Signed in as <%= currentUser.username %></h5>
-							<div class="py-3">
-								<a href="/campgrounds/new" class="btn btn-light btn-sm">
-									<i class="fas fa-plus text-success"></i> Create
-								</a>
-								<a href="/users/<%= currentUser._id %>" class="btn btn-light btn-sm">
-									<i class="fas fa-portrait text-success"></i> Profile
-								</a>
-								<button class="btn btn-light btn-sm" data-toggle="modal" data-target="#logoutModal">
-									Logout <i class="fas fa-sign-out-alt text-success"></i>
-								</button>
-							</div>
+							<!-- <h5 class="text-danger pt-2">Signed in as <%= currentUser.username %></h5> -->
+							<div class="login-animated">
+								<div>
+									<a href="/campgrounds/new" class="btn-up">
+										<i class="fas fa-plus text-success"></i> Create
+									</a>
+									<a href="/users/<%= currentUser._id %>" class="btn-up">
+										<i class="fas fa-portrait text-success"></i> Profile
+									</a>
+									<button class="btn-up rounded-sm btn-sm" data-toggle="modal" data-target="#logoutModal">
+										LOGOUT <i class="fas fa-sign-out-alt text-success"></i>
+									</button>
+								</div>
+								<div>
+									<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+								</div>
+							</div>	
+						
 							<!-- Logout modal START -->
 							<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
 								<div class="modal-dialog" role="document">
@@ -105,9 +111,7 @@
 								</div>
 							</div>
 							<!-- Logout modal END -->
-							<div>
-								<a href="/campgrounds" class="trans-btn">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
-							</div>
+							
 						<% } else { %>
 							<!-- <h1 class="landingTitle lead mb-0 text-center">Hi, 
 								<span class="noChangeLine">
@@ -117,7 +121,7 @@
 							<p class="landingP pt-2">The free responsive web app for travellers to exchange campground information. 
 									Login to share your campgrounds with people from all over the world!</p> -->
 							
-							<div class="row justify-content-center">
+							<div class="row justify-content-center login-animated">
 								<div class="col-md-12 text-center">
 									<form class="form-signin" action="/" method="POST">
 										<label for="inputUsername" class="sr-only">Username</label>
@@ -131,7 +135,7 @@
 										<a href="/register" class="text-light font-weight-normal"><u>Join Free</a>
 									</div>
 									<div>
-										<a href="/campgrounds" class="trans-btn">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+										<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
 									</div>
 								</div>
 							</div>

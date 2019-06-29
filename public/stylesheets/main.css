@@ -140,8 +140,10 @@ body {
                  0px 3px 5px rgba(0,0,0,0.1);
 }
 
-.trans-btn:link,
-.trans-btn:visited {
+.trans-btn:link, .trans-btn:visited {
+	background-color: #28a745;;
+    color: #fff;
+	font-size: .7rem;
     text-transform: uppercase;
     text-decoration: none;
     padding: 6px 13px;
@@ -160,11 +162,11 @@ body {
     transform: translateY(-1px);
 }
 
-.trans-btn {
+/* .trans-btn {
     background-color: #28a745;;
     color: #fff;
 	font-size: .7rem;
-}
+} */
 
 #main {
   padding-bottom: 4rem;
