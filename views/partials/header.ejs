@@ -45,7 +45,7 @@
 				<a href="/campgrounds" class="nav-link text-light pl-0 pr-2">Campgrounds</a>
 				<% if(currentUser) { %>
 					<!-- <a href="/campgrounds/new" class="btn btn-outline-success rounded-sm btn-sm mr-auto" title="Creat a new campground">Create</a> -->
-					<a href="/campgrounds/new" class="btn btn-success rounded-sm btn-sm mr-auto" title="Creat a new campground">Create</a>
+					<a href="/campgrounds/new" class="trans-btn" title="Creat a new campground">Create</a>
                 <% } else { %>
 					<!-- <button class="btn btn-outline-success rounded-sm btn-sm mr-auto" data-toggle="modal" data-target="#createModal">
 						Create
@@ -90,7 +90,7 @@
                                 <a href="/" class="nav-link text-light">Login</a>
                             </li>
                             <li class="nav-item mt-1<%= typeof page !== 'undefined' && page === 'register' ? 'active' : '' %>">
-                                <a href="/register" class="btn btn-success rounded-sm btn-sm" title="Sign up">Join</a>
+                                <a href="/register" class="trans-btn" title="Sign up">Join</a>
                             </li>
                         <% } else { %>
 							<!-- <li class="nav-item <%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">

@@ -76,9 +76,9 @@ hr {
   left: 0;
 }
 
-.btnFontSizeChange {
+/* .btnFontSizeChange {
 	font-size: 1rem;
-}
+} */
 
 .oneLineHiden {
 	-webkit-line-clamp: 1;
@@ -138,6 +138,30 @@ body {
   text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
                  0px 2px 4px rgba(0,0,0,0.1),
                  0px 3px 5px rgba(0,0,0,0.1);
+}
+
+.trans-btn:link,
+.trans-btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 6px 13px;
+    display: inline-block;
+    border-radius: .2rem;
+}
+
+.trans-btn:hover {
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.trans-btn:active {
+    transform: translateY(-1px);
+}
+
+.trans-btn {
+    background-color: #28a745;;
+    color: #fff;
+	font-size: .7rem;
 }
 
 #main {
