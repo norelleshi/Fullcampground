@@ -276,3 +276,29 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.trans-btn:link,
+.trans-btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 7px 20px;
+    display: inline-block;
+    border-radius: .2rem;
+    transition: all .2s;
+}
+
+.trans-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.4);
+}
+
+.trans-btn:active {
+    transform: translateY(-1px);
+}
+
+.trans-btn {
+    background-color: #fff;
+    color: #212529;
+	font-weight: 600;
+	font-size: .9rem;
+}
