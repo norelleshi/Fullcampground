@@ -62,12 +62,18 @@
 
 				<div class="lead m-0 p-3 rounded-0">
 					<div class="container-fluid lead text-center">
+						<h1 class="heading-primary">
+							<span class="heading-primary-main"><i class="fab fa-yandex-international text-success"></i>elpCamp</span>
+							<span class="heading-primary-sub">The free responsive web app for travellers to exchange information about campground. 
+								Login to share your campgrounds with people from all over the world!</span>
+						</h1>
+						
 						<% if(currentUser) { %>
-							<h1 class="landingTitle lead mb-0 text-center">
+							<!-- <h1 class="landingTitle lead mb-0 text-center">
 								<span class="noChangeLine">
 									<i class="fab fa-yandex-international text-success"></i>elpCamp
 								</span>
-							</h1>
+							</h1> -->
 							<h5 class="text-danger pt-2">Signed in as <%= currentUser.username %></h5>
 							<div class="py-3">
 								<a href="/campgrounds/new" class="btn btn-light btn-sm">
@@ -111,11 +117,6 @@
 							<p class="landingP pt-2">The free responsive web app for travellers to exchange campground information. 
 									Login to share your campgrounds with people from all over the world!</p> -->
 							
-							<h1 class="heading-primary">
-								<span class="heading-primary-main"><i class="fab fa-yandex-international text-success"></i>elpCamp</span>
-								<span class="heading-primary-sub">The free responsive web app for travellers to exchange campground information. 
-									Login to share your campgrounds with people from all over the world!</span>
-							</h1>
 							<div class="row justify-content-center">
 								<div class="col-md-12 text-center">
 									<form class="form-signin" action="/" method="POST">
