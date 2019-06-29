@@ -75,7 +75,7 @@
 								</span>
 							</h1> -->
 							<!-- <h5 class="text-danger pt-2">Signed in as <%= currentUser.username %></h5> -->
-							<div class="login-animated">
+							<div class="form-animated">
 								<div>
 									<a href="/campgrounds/new" class="btn-up">
 										<i class="fas fa-plus text-success"></i> Create
@@ -83,7 +83,7 @@
 									<a href="/users/<%= currentUser._id %>" class="btn-up">
 										<i class="fas fa-portrait text-success"></i> Profile
 									</a>
-									<button class="btn-up rounded-sm btn-sm" data-toggle="modal" data-target="#logoutModal">
+									<button class="btn-up rounded-sm btn-sm bg-light border-0" data-toggle="modal" data-target="#logoutModal">
 										LOGOUT <i class="fas fa-sign-out-alt text-success"></i>
 									</button>
 								</div>
@@ -121,14 +121,14 @@
 							<p class="landingP pt-2">The free responsive web app for travellers to exchange campground information. 
 									Login to share your campgrounds with people from all over the world!</p> -->
 							
-							<div class="row justify-content-center login-animated">
+							<div class="row justify-content-center form-animated">
 								<div class="col-md-12 text-center">
 									<form class="form-signin" action="/" method="POST">
 										<label for="inputUsername" class="sr-only">Username</label>
 										<input type="text" id="inputUsername" class="form-control transSignin" name="username" placeholder="Username" required autofocus>
 										<label for="inputPassword" class="sr-only">Password</label>
 										<input type="password" id="inputPassword" class="form-control transSignin" name="password" placeholder="Password" required>
-										<button class="btn btn-md btn-success btn-block mt-2" type="submit">Login</button>
+										<button class="btn-up btn-success btn-block mt-2 rounded-sm border-0" type="submit">Login</button>
 									</form>
 									<div class="pb-2">
 										<span>Need an account?</span>
