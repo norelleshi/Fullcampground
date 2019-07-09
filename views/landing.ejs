@@ -65,18 +65,18 @@
 				<% if(currentUser) { %>
 					<div class="heading-secondary">
 						<div>
-							<a href="/campgrounds/new" class="btn-up">
+							<a href="/campgrounds/new" class="btn-up btn-up--white">
 								<i class="fas fa-plus text-success"></i> Create
 							</a>
-							<a href="/users/<%= currentUser._id %>" class="btn-up">
+							<a href="/users/<%= currentUser._id %>" class="btn-up btn-up--white">
 								<i class="fas fa-portrait text-success"></i> Profile
 							</a>
-							<button class="btn-up" data-toggle="modal" data-target="#logoutModal">
+							<button class="btn-up btn-up--white" data-toggle="modal" data-target="#logoutModal">
 								LOGOUT <i class="fas fa-sign-out-alt text-success"></i>
 							</button>
 						</div>
 						<div>
-							<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+							<a href="/campgrounds" class="btn-up btn-up--white btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
 						</div>
 					</div>	
 
@@ -91,9 +91,7 @@
 									</button>
 								</div>
 								<div class="modal-body text-center">
-									<h3>
-										<a href="/logout" class="btn btn-light">Logout <i class="fas fa-sign-out-alt text-success"></i></a>
-									</h3>
+									<a href="/logout" class="btn-up btn-up--white">Logout <i class="fas fa-sign-out-alt text-success"></i></a>
 								</div>
 							</div>
 						</div>
@@ -108,14 +106,14 @@
 								<input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
 								<label for="inputPassword" class="sr-only">Password</label>
 								<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-								<button class="btn btn-md btn-success btn-block mt-2" type="submit">Login</button>
+								<button class="btn-up btn-up--green btn-block mt-2" type="submit">Login</button>
 							</form>
 							<div>
 								<span>Need an account?</span>
 								<a href="/register" class="text-light font-weight-normal"><u>Join Free</a>
 							</div>
 							<div>
-								<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+								<a href="/campgrounds" class="btn-up btn-up--white btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
 							</div>
 						</div>
 					</div>
