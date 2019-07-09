@@ -1,7 +1,7 @@
 /************** Landing page setting *********/
-$col-bg-transparent: rgba(0, 0, 0, 0.6);
-
 $col-white: #fff;
+$col-black: #000;
+$col-black-transparent: rgba(0, 0, 0, 0.6);
 
 *,
 *::before,
@@ -24,77 +24,100 @@ body {
 	 color: #bfbfbf;
     line-height: 1.7;
     padding: 0;
-  background-color: #2e3035;
-  position: relative;
-  min-height: 100vh;
+  	background-color: #2e3035;
+  	position: relative;
+  	min-height: 100vh;
 	
 	box-sizing: border-box;
 }
 
-.landing-header {
-  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
-  /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
-  height: 100%;
-  background-size: cover;
-  background-position: 20% 20%;
-  background-repeat: no-repeat;
-  color: white;
-  position: relative;
+.header {
+  	background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
+  	/* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
+  	height: 100%;
+  	background-size: cover;
+  	background-position: 20% 20%;
+  	background-repeat: no-repeat;
+  	color: white;
+  	position: relative;
 	min-height: 100vh;
-}
+	
+	& .alert{
+	  	margin-bottom: 0;
+	  	text-align: center;
+	  	border-radius:0;
+		padding: .3rem;
+		position:relative;
+	  	top: 0;
+	  	left: 0;
+	}
+	
+	& .navbar {
+		background-color: #2e3035;
+		padding-top:0;
+		padding-bottom: 0;
+		box-shadow: 0 0 .2rem .1rem #000;
+		z-index: 50;
+		font-family: 'Montserrat', sans-serif;
 
-.alert{
-  margin-bottom: 0;
-  text-align: center;
-  border-radius:0;
-	padding: .3rem;
-	position:relative;
-  top: 0;
-  left: 0;
-}
+		&__logo {
+			padding-bottom: 0;
+			padding-top: .4rem;
+			padding-left: .4rem;
+			padding-right: .4rem;
+			border-radius: 0.12rem;
+			 font-size: larger;
+			outline: none;
+			text-shadow: 0 .4rem .3rem rgba(0,0,0,0.1),
+						 0 .2rem .4rem rgba(0,0,0,0.1),
+						 0 .3rem .5rem rgba(0,0,0,0.1);
+		}
 
-.navbar {
-	background-color: #2e3035;
-  padding-top:0;
-  padding-bottom: 0;
-  box-shadow: 0 0 .2rem .1rem #000;
-  z-index: 50;
-	font-family: 'Montserrat', sans-serif;
-}
+		& .form-control {
+			font-size: 1.1rem;	
+			border-color: #2e3035;;
+			background-color: #f2f2f2;
+			color: black;
 
-.header__logo {
-	padding-bottom: 0;
-	padding-top: .4rem;
-	padding-left: .4rem;
-	padding-right: .4rem;
-    background-color: #bfbfbf;
-    border-radius: 0.12rem;
-	 font-size: larger;
-	outline: none;
-	text-shadow: 0 .4rem .3rem rgba(0,0,0,0.1),
-                 0 .2rem .4rem rgba(0,0,0,0.1),
-                 0 .3rem .5rem rgba(0,0,0,0.1);
+			&:focus {
+				font-size: 1.1rem;
+				border-color: #00e600;
+				box-shadow: none;
+				background-color: #f2f2f2;
+				color: black;
+			}
+		}
+	}
+	
+	&__text-box {
+		width: 100%;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-right: auto;
+		margin-left: auto;
+		text-align: center;
+	}
 }
 
 .heading-primary {
-    color: $col-white;
     backface-visibility: hidden;
     margin-bottom: 4rem;
 	
 	&--main {
 		display: block;
-		font-size: 5rem;
+		font-size: 3.9rem;
 		font-weight: 500;
 		letter-spacing: .5rem;
+		margin-top: 1rem;
 		margin-bottom: 1rem;
 		animation-name: moveInLeft;
 		animation-duration: 1.3s;
 		animation-timing-function: ease-out;
 		white-space:nowrap;
-		/* 
-		animation-delay: 3s;
-		animation-iteration-count: 3; 
-		*/
+		
+		& .fab {
+			font-size: 4.3rem;
+		}
 	}
 
 	&--sub {
@@ -106,12 +129,6 @@ body {
 		max-width: 70rem;
 		margin: 0 auto;
 	}
-}
-
-
-.form-animated {
-	animation: moveInBottom .5s ease-out .4s;
-    animation-fill-mode: backwards;
 }
 
 @keyframes moveInLeft {
@@ -158,123 +175,133 @@ body {
     }
 }
 
-.btn:focus {
-	box-shadow: 0 0 0 0.05rem;
-}
-
-.btn-up:link, 
-.btn-up:visited {
-	background-color: $col-white;
-    color: #212529;
-	font-weight: 600;
-	font-size: .9rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: .6rem 1rem;
-    display: inline-block;
-    border-radius: .2rem;
-    transition: all .2s;
-	margin-top: 1.2rem;
-	position: relative;
-}
-
-.form-animated button.btn-up {
-	    background-color: $col-white;
-    color: #212529;
-    font-weight: 600;
-    font-size: .9rem;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: .6rem 1rem;
-    display: inline-block;
-    border-radius: .2rem;
-    transition: all .2s;
-    margin-top: 1.2rem;
-    position: relative;
-	border: 0;
-}
-
-.btn-up:hover {
-    transform: translateY(-.3rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.4);
-}
-
-.btn-up:active {
-    transform: translateY(-.1rem);
-}
-
-.btn-boom::after {
-    content: "";
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-	background-color: $col-white;
-    border-radius: .2rem;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: all .4s;
-}
-
-.btn-boom:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.form-control {
-	border-color: #2e3035;;
-	color: $col-white;
-	background-color: $col-bg-transparent;
-}
-
-.form-control:focus {
-	border-color: #00e600;
-	box-shadow: none;
-	color: $col-white;
-	background-color: $col-bg-transparent;
-}
-
-.form-signin {
-  max-width: 30rem;
-  margin: auto;
-  width: 100%;
-}
-
-.form-signin input[type="text"] {
-  margin-bottom: -0.1rem;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-	background-color: $col-bg-transparent;
+.heading-secondary {
+	animation: moveInBottom .5s ease-out .4s;
+    animation-fill-mode: backwards;
 	
-	position: relative;
-  box-sizing: border-box;
-  height: auto;
-  // padding: .3rem;
-  font-size: 1.6rem;
-}
+	& .btn-up {
+		&:link, 
+		&:visited {
+			background-color: $col-white;
+			color: #212529;
+			font-weight: 600;
+			font-size: .9rem;
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: .6rem 1rem;
+			display: inline-block;
+			border-radius: .2rem;
+			transition: all .2s;
+			margin-top: 1.2rem;
+			position: relative;
+		}
 
-.form-signin input[type="text"]:focus {
-	z-index: 2;
-}
+		&:hover {
+			transform: translateY(-.3rem);
+			box-shadow: 0 1rem 2rem rgba(0,0,0,.4);
+		}
 
-.form-signin input[type="password"] {
-  margin-bottom: -0.1rem;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-	background-color: $col-bg-transparent;
+		&:active {
+			transform: translateY(-.1rem);
+		}
+	}
 	
-	position: relative;
-  box-sizing: border-box;
-  height: auto;
-  // padding: .3rem;
-  font-size: 1.6rem;
-}
+	& button.btn-up {
+		background-color: $col-white;
+		color: #212529;
+		font-weight: 600;
+		font-size: .9rem;
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: .6rem 1rem;
+		display: inline-block;
+		border-radius: .2rem;
+		transition: all .2s;
+		margin-top: 1.2rem;
+		position: relative;
+		border: 0;
+		outline: none;
+	}
+	
+	& .btn-boom {
+		&::after {
+			content: "";
+			display: inline-block;
+			height: 100%;
+			width: 100%;
+			background-color: $col-white;
+			border-radius: .2rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			transition: all .4s;
+		}
+	
+		&:hover::after {
+			transform: scaleX(1.4) scaleY(1.6);
+			opacity: 0;
+		}
+	}
+	
+	& .form-control {
+		border-color: #2e3035;
+		color: $col-white;
+		background-color: $col-black-transparent;
+		
+		&:focus {
+			border-color: #00e600;
+			box-shadow: none;
+			color: $col-white;
+			background-color: $col-black-transparent;
+		}
+	}
+	
+	& .form-signin {
+	  	max-width: 30rem;
+	  	margin: auto;
+	  	width: 100%;
+		
+		& input[type="text"] {
+		  	margin-bottom: -0.1rem;
+		  	border-bottom-right-radius: 0;
+		  	border-bottom-left-radius: 0;
+			background-color: $col-black-transparent;
 
-.form-signin input[type="password"]:focus {
-	z-index: 2;
+			position: relative;
+		  	box-sizing: border-box;
+		  	height: auto;
+		  	// padding: .3rem;
+		  	font-size: 1.6rem;
+
+			&:focus {
+				z-index: 2;
+			}
+		}
+
+		& input[type="password"] {
+		  	margin-bottom: -0.1rem;
+		  	border-top-left-radius: 0;
+		  	border-top-right-radius: 0;
+			background-color: $col-black-transparent;
+
+			position: relative;
+		  	box-sizing: border-box;
+		  	height: auto;
+		  	// padding: .3rem;
+		  	font-size: 1.6rem;
+
+			&:focus {
+				z-index: 2;
+			}	
+		}
+	}
 }
 
 .modal-content {
 	background-color: rgba(89, 89, 89, 0.92);
+	
+	& .modal-title {
+		font-size: 2rem;
+	}
 }

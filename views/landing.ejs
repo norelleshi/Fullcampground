@@ -12,137 +12,115 @@
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i&display=swap" rel="stylesheet">
     </head>
     <body>  
-		<header class="landing-header">
-					<% if(error && error.length > 0){ %>
-						<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							<%= error %>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>  
-					<% } %>
-					<% if(success && success.length > 0){ %>
-						<div class="alert alert-success alert-dismissible fade show" role="alert">
-							<%= success %>
-							<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>  
-					<% } %>
+		<header class="header">
+			<% if(error && error.length > 0){ %>
+				<div class="alert alert-danger alert-dismissible fade show" role="alert">
+					<%= error %>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>  
+			<% } %>
+			<% if(success && success.length > 0){ %>
+				<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<%= success %>
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>  
+			<% } %>
 
-				<nav class="navbar navbar-expand-md navbar-dark sticky-top">
-					<a class="navbar-brand mr-2" href="/"><i class="fab fa-yandex-international text-success bg-light header__logo"></i></a>
-					<div class="flex-grow-1">
-						<div class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">	
-							<form action="/campgrounds" method="GET" class="nav-link">                   
-								<div class="input-group input-group-sm">
-									<input type="text" name="search"  
-											class="form-control rounded-left-sm font-weight-lighter" 
-											placeholder="Search campground name, author, location, price, etc." 
-											aria-label="Search campgrounds" 
-											aria-describedby="button-addon">
-									<div class="input-group-append">
-										<button type="sumbit" class="btn btn-success btn-sm rounded-right-sm border-left-0" 
-											 id="button-addon" title="Search campgrounds">
-											<i class="fas fa-search"></i>
-										</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</nav>
-
-				<div class="lead m-0 p-3 rounded-0">
-					<div class="container-fluid lead text-center">
-						<h1 class="heading-primary">
-							<span class="heading-primary--main"><i class="fab fa-yandex-international text-success"></i>elpCamp</span>
-							<span class="heading-primary--sub">The free responsive web app for travellers to exchange information about campground. 
-								Login to share your campgrounds with people from all over the world!</span>
-						</h1>
-						
-						<% if(currentUser) { %>
-							<!-- <h1 class="landingTitle lead mb-0 text-center">
-								<span class="noChangeLine">
-									<i class="fab fa-yandex-international text-success"></i>elpCamp
-								</span>
-							</h1> -->
-							<!-- <h5 class="text-danger pt-2">Signed in as <%= currentUser.username %></h5> -->
-							<div class="form-animated">
-								<div>
-									<a href="/campgrounds/new" class="btn-up">
-										<i class="fas fa-plus text-success"></i> Create
-									</a>
-									<a href="/users/<%= currentUser._id %>" class="btn-up">
-										<i class="fas fa-portrait text-success"></i> Profile
-									</a>
-									<button class="btn-up" data-toggle="modal" data-target="#logoutModal">
-										LOGOUT <i class="fas fa-sign-out-alt text-success"></i>
+			<nav class="navbar navbar-expand-md navbar-dark sticky-top">
+				<a class="navbar-brand mr-2" href="/">
+					<i class="fab fa-yandex-international text-success bg-light navbar__logo"></i>
+				</a>
+				<div class="flex-grow-1">
+					<div class="nav-item <%= typeof page !== 'undefined' && page === 'login' ? 'active' : '' %>">	
+						<form action="/campgrounds" method="GET" class="nav-link">                   
+							<div class="input-group input-group-sm">
+								<input type="text" name="search"  
+										class="form-control rounded-left-sm font-weight-lighter" 
+										placeholder="Search campground name, author, location, price, etc." 
+										aria-label="Search campgrounds" 
+										aria-describedby="button-addon">
+								<div class="input-group-append">
+									<button type="sumbit" class="btn btn-success btn-sm rounded-right-sm border-left-0" 
+										 id="button-addon" title="Search campgrounds">
+										<i class="fas fa-search"></i>
 									</button>
 								</div>
-								<div>
-									<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
-								</div>
-							</div>	
-						
-							<!-- Logout modal START -->
-							<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
-								<div class="modal-dialog" role="document">
-									<div class="modal-content dialogBg">
-										<div class="modal-header py-1">
-											<h5 class="modal-title text-light" id="logoutModalLabel">Are you sure?</h5>
-											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-										</div>
-										<div class="modal-body text-center">
-											<h3>
-												<a href="/logout" class="badge badge-pill badge-light shadow-lg text-nowrap">Logout <i class="fas fa-sign-out-alt text-success"></i></a>
-											</h3>
-										</div>
-									</div>
-								</div>
 							</div>
-							<!-- Logout modal END -->
-							
-						<% } else { %>
-							<!-- <h1 class="landingTitle lead mb-0 text-center">Hi, 
-								<span class="noChangeLine">
-									<i class="fab fa-yandex-international text-success"></i>elpCamp!
-								</span>
-							</h1>
-							<p class="landingP pt-2">The free responsive web app for travellers to exchange campground information. 
-									Login to share your campgrounds with people from all over the world!</p> -->
-							
-							<div class="row justify-content-center form-animated">
-								<div class="col-md-12 text-center">
-									<form class="form-signin" action="/" method="POST">
-										<label for="inputUsername" class="sr-only">Username</label>
-										<input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
-										<label for="inputPassword" class="sr-only">Password</label>
-										<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-										<button class="btn btn-md btn-success btn-block mt-2" type="submit">Login</button>
-									</form>
-									<div>
-										<span>Need an account?</span>
-										<a href="/register" class="text-light font-weight-normal"><u>Join Free</a>
-									</div>
-									<div>
-										<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
-									</div>
-								</div>
-							</div>
-						<% } %>
-
-						<!-- <div class="addNewCampgroundButton rounded-pill">
-							<a class="btn btn-success btn-lg rounded-pill font-weight-bold" 
-								href="/campgrounds">View all posts 
-								<i class="fas fa-angle-right"></i>
-							</a>
-						</div> -->
+						</form>
 					</div>
 				</div>
-			<!-- </div> -->
+			</nav>
+
+			<div class="header__text-box">
+				<h1 class="heading-primary">
+					<span class="heading-primary--main"><i class="fab fa-yandex-international text-success"></i>elpCamp</span>
+					<span class="heading-primary--sub">The free responsive web app for travellers to exchange information about campground. 
+						Login to share your campgrounds with people from all over the world!</span>
+				</h1>
+
+				<% if(currentUser) { %>
+					<div class="heading-secondary">
+						<div>
+							<a href="/campgrounds/new" class="btn-up">
+								<i class="fas fa-plus text-success"></i> Create
+							</a>
+							<a href="/users/<%= currentUser._id %>" class="btn-up">
+								<i class="fas fa-portrait text-success"></i> Profile
+							</a>
+							<button class="btn-up" data-toggle="modal" data-target="#logoutModal">
+								LOGOUT <i class="fas fa-sign-out-alt text-success"></i>
+							</button>
+						</div>
+						<div>
+							<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+						</div>
+					</div>	
+
+					<!-- Logout modal START -->
+					<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header py-1">
+									<h5 class="modal-title text-light" id="logoutModalLabel">Are you sure?</h5>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body text-center">
+									<h3>
+										<a href="/logout" class="btn btn-light">Logout <i class="fas fa-sign-out-alt text-success"></i></a>
+									</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Logout modal END -->
+
+				<% } else { %>
+					<div class="row justify-content-center heading-secondary">
+						<div class="col-md-12 text-center">
+							<form class="form-signin" action="/" method="POST">
+								<label for="inputUsername" class="sr-only">Username</label>
+								<input type="text" id="inputUsername" class="form-control" name="username" placeholder="Username" required autofocus>
+								<label for="inputPassword" class="sr-only">Password</label>
+								<input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
+								<button class="btn btn-md btn-success btn-block mt-2" type="submit">Login</button>
+							</form>
+							<div>
+								<span>Need an account?</span>
+								<a href="/register" class="text-light font-weight-normal"><u>Join Free</a>
+							</div>
+							<div>
+								<a href="/campgrounds" class="btn-up btn-boom">View all campgrounds &nbsp;<i class="fas fa-angle-right text-success"></i></a>	
+							</div>
+						</div>
+					</div>
+				<% } %>
+			</div>
 		</header>
 
   		<!-- Bootstrap and its dependencies -->
