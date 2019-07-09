@@ -1,0 +1,52 @@
+.form-control {
+	border-color: #2e3035;
+	color: $col-white;
+	background-color: $col-black-transparent;
+
+	&:focus {
+		border-color: #00e600;
+		box-shadow: none;
+		color: $col-white;
+		background-color: $col-black-transparent;
+	}
+}
+
+.form-signin {
+	max-width: 30rem;
+	margin: auto;
+	width: 100%;
+
+	& input[type="text"] {
+		margin-bottom: -0.1rem;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		background-color: $col-black-transparent;
+
+		position: relative;
+		box-sizing: border-box;
+		height: auto;
+		// padding: .3rem;
+		font-size: 1.6rem;
+
+		&:focus {
+			z-index: 2;
+		}
+	}
+
+	& input[type="password"] {
+		margin-bottom: -0.1rem;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		background-color: $col-black-transparent;
+
+		position: relative;
+		box-sizing: border-box;
+		height: auto;
+		// padding: .3rem;
+		font-size: 1.6rem;
+
+		&:focus {
+			z-index: 2;
+		}	
+	}
+}
