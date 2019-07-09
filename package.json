@@ -4,7 +4,7 @@
   "description": "YelpCamp v1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "node-sass public/stylesheets/sass/main.scss public/stylesheets/css/style.css -w",
     "start": "node app.js"
   },
   "author": "Norelle",
@@ -28,5 +28,8 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1",
     "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0"
   }
 }
