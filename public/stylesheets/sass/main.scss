@@ -1,4 +1,8 @@
 /************** Landing page setting *********/
+$col-bg-transparent: rgba(0, 0, 0, 0.6);
+
+$col-white: #fff;
+
 *,
 *::before,
 *::after {
@@ -27,7 +31,7 @@ body {
 	box-sizing: border-box;
 }
 
-.landingHeader {
+.landing-header {
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
   /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
   height: 100%;
@@ -44,10 +48,7 @@ body {
   text-align: center;
   border-radius:0;
 	padding: .3rem;
-}
-
-.alertTop {
-  position:relative;
+	position:relative;
   top: 0;
   left: 0;
 }
@@ -76,36 +77,37 @@ body {
 }
 
 .heading-primary {
-    color: #fff;
+    color: $col-white;
     backface-visibility: hidden;
     margin-bottom: 4rem;
+	
+	&--main {
+		display: block;
+		font-size: 5rem;
+		font-weight: 500;
+		letter-spacing: .5rem;
+		margin-bottom: 1rem;
+		animation-name: moveInLeft;
+		animation-duration: 1.3s;
+		animation-timing-function: ease-out;
+		white-space:nowrap;
+		/* 
+		animation-delay: 3s;
+		animation-iteration-count: 3; 
+		*/
+	}
+
+	&--sub {
+		display: block;
+		font-size: 2rem;
+		font-weight: 200;
+		animation: moveInRight 1.3s ease-out;
+		letter-spacing: 0.16rem;
+		max-width: 70rem;
+		margin: 0 auto;
+	}
 }
 
-.heading-primary-main {
-    display: block;
-    font-size: 5rem;
-    font-weight: 500;
-    letter-spacing: .5rem;
-	margin-bottom: 1rem;
-    animation-name: moveInLeft;
-    animation-duration: 1.3s;
-    animation-timing-function: ease-out;
-	white-space:nowrap;
-    /* 
-    animation-delay: 3s;
-    animation-iteration-count: 3; 
-    */
-}
-
-.heading-primary-sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 200;
-    animation: moveInRight 1.3s ease-out;
-	letter-spacing: 0.16rem;
-	max-width: 70rem;
-	margin: 0 auto;
-}
 
 .form-animated {
 	animation: moveInBottom .5s ease-out .4s;
@@ -162,7 +164,7 @@ body {
 
 .btn-up:link, 
 .btn-up:visited {
-	background-color: #fff;
+	background-color: $col-white;
     color: #212529;
 	font-weight: 600;
 	font-size: .9rem;
@@ -177,7 +179,7 @@ body {
 }
 
 .form-animated button.btn-up {
-	    background-color: #fff;
+	    background-color: $col-white;
     color: #212529;
     font-weight: 600;
     font-size: .9rem;
@@ -206,7 +208,7 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-	background-color: #fff;
+	background-color: $col-white;
     border-radius: .2rem;
     position: absolute;
     top: 0;
@@ -222,15 +224,15 @@ body {
 
 .form-control {
 	border-color: #2e3035;;
-	color: #fff;
-	background-color: rgba(0, 0, 0, 0.6);
+	color: $col-white;
+	background-color: $col-bg-transparent;
 }
 
 .form-control:focus {
 	border-color: #00e600;
 	box-shadow: none;
-	color: #fff;
-	background-color: rgba(0, 0, 0, 0.6);
+	color: $col-white;
+	background-color: $col-bg-transparent;
 }
 
 .form-signin {
@@ -243,7 +245,7 @@ body {
   margin-bottom: -0.1rem;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: $col-bg-transparent;
 	
 	position: relative;
   box-sizing: border-box;
@@ -260,7 +262,7 @@ body {
   margin-bottom: -0.1rem;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: $col-bg-transparent;
 	
 	position: relative;
   box-sizing: border-box;

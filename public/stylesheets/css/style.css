@@ -23,7 +23,7 @@ body {
   min-height: 100vh;
   box-sizing: border-box; }
 
-.landingHeader {
+.landing-header {
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
   /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
   height: 100%;
@@ -38,9 +38,7 @@ body {
   margin-bottom: 0;
   text-align: center;
   border-radius: 0;
-  padding: .3rem; }
-
-.alertTop {
+  padding: .3rem;
   position: relative;
   top: 0;
   left: 0; }
@@ -68,30 +66,28 @@ body {
   color: #fff;
   backface-visibility: hidden;
   margin-bottom: 4rem; }
-
-.heading-primary-main {
-  display: block;
-  font-size: 5rem;
-  font-weight: 500;
-  letter-spacing: .5rem;
-  margin-bottom: 1rem;
-  animation-name: moveInLeft;
-  animation-duration: 1.3s;
-  animation-timing-function: ease-out;
-  white-space: nowrap;
-  /* 
-    animation-delay: 3s;
-    animation-iteration-count: 3; 
-    */ }
-
-.heading-primary-sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 200;
-  animation: moveInRight 1.3s ease-out;
-  letter-spacing: 0.16rem;
-  max-width: 70rem;
-  margin: 0 auto; }
+  .heading-primary--main {
+    display: block;
+    font-size: 5rem;
+    font-weight: 500;
+    letter-spacing: .5rem;
+    margin-bottom: 1rem;
+    animation-name: moveInLeft;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-out;
+    white-space: nowrap;
+    /* 
+		animation-delay: 3s;
+		animation-iteration-count: 3; 
+		*/ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 200;
+    animation: moveInRight 1.3s ease-out;
+    letter-spacing: 0.16rem;
+    max-width: 70rem;
+    margin: 0 auto; }
 
 .form-animated {
   animation: moveInBottom .5s ease-out .4s;
