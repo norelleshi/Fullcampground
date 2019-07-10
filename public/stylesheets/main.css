@@ -1,6 +1,6 @@
 /************* Muiltple use *****************/
 .darkBg {
-  background-color: #2e3035;
+  background-color: rgb(20, 20,25);
 }
 
 .blackOpacityBg {
@@ -35,7 +35,7 @@
 
 
 .form-control {
-	border-color: gray;
+	border-color: transparent;
 }
 
 .form-control:focus {
@@ -48,8 +48,16 @@
 }
 
 input, textarea {
-	background-color: rgba(0, 0, 0, 0.5)!important;
+	background-color: rgb(38, 38 ,42) !important;
 	color: white !important;	
+}
+
+.input-group {
+	background-color: rgb(38, 38 ,42) 
+}
+
+.input-group-text {
+	background-color: rgb(20, 20 ,25);
 }
 
 .badge, .alert {
@@ -97,16 +105,16 @@ html {
 body {
   /*sets its minimum height to 100% of the viewport height (vh)*/
   position: relative;
-  background-color: #2e3035;
+  background-color: rgb(20, 20,25);
   min-height: 100vh;
   color: #bfbfbf;
 }
 
 .navbar {
-	background-color: #2e3035;
+	background-color: rgb(20, 20,25);
   padding-top:0;
   padding-bottom: 0;
-  box-shadow: 0 0 2px 1px #000;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, .5);
   z-index: 50;
 	font-family: 'Montserrat', sans-serif;
   /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
@@ -179,7 +187,7 @@ footer {
   bottom: 0;               
   width: 100%;
   height: 4rem;            /* Footer height */
-  background-color: #2e3035;
+  background-color: rgb(20, 20,25);
   text-align: center;
 	font-family: 'Montserrat', sans-serif;
 }
@@ -276,7 +284,7 @@ footer {
 .index-camp-card .card-body {
   padding-left: 4px;
   padding-right: 4px;
-  background-color: #404040;
+  background-color: rgb(38, 38, 42);
 	border-bottom-left-radius: .2rem;
 	border-bottom-right-radius: .2rem;
   /* opacity: 0.85; */
