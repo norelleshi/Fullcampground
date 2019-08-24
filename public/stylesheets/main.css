@@ -84,10 +84,6 @@ hr {
   left: 0;
 }
 
-/* .btnFontSizeChange {
-	font-size: 1rem;
-} */
-
 .oneLineHiden {
 	-webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -117,15 +113,11 @@ body {
   box-shadow: 0 4px 3px rgba(0, 0, 0, .5);
   z-index: 50;
 	font-family: 'Montserrat', sans-serif;
-  /*box-shadow: 0 0 1px 1px rgba(20,23,28,0.1), */
-  /*            0 3px 1px 0 rgba(20,23,28,0.1);*/
-  /*border-bottom: 1px solid #e6e6e6;*/
 }
 
 .navbar-brand .fab{
   font-size: larger;
 	outline: none;
-  /* color:  #00cc66 !important; */
 }
 
 .headerBrand {
@@ -135,12 +127,6 @@ body {
     background-color: #bfbfbf;
     border-radius: 0.12rem;
 }
-
-/* .navbar-brand {
-	background-color: rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(0, 0, 0, 0.5);
-    border-radius: .25rem !important;
-} */
 
 .navbar-brand {
   text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
@@ -169,12 +155,6 @@ body {
 .trans-btn:active {
     transform: translateY(-1px);
 }
-
-/* .trans-btn {
-    background-color: #28a745;;
-    color: #fff;
-	font-size: .7rem;
-} */
 
 #main {
   padding-bottom: 4rem;
@@ -272,11 +252,9 @@ footer {
 }
 
 .index-camp-card .card:hover {
-  /*-webkit-filter:drop-shadow(1px 1px 1px #333);*/
   box-shadow: 
     0 0 2px 2px rgba(20,25,30,0.1), 
     0 4px 2px 0 rgba(20,25,30,0.1);
-  /* -webkit-filter:brightness(0.8); */
 	opacity: 0.7;
   text-decoration: none;
 }
@@ -287,7 +265,6 @@ footer {
   background-color: rgb(38, 38, 42);
 	border-bottom-left-radius: .2rem;
 	border-bottom-right-radius: .2rem;
-  /* opacity: 0.85; */
 }
 
 .IndexCardBg {
@@ -400,31 +377,8 @@ footer {
 	white-space: nowrap;
 }
 
-/* .clear-rating {
-	white-space: nowrap;
-	background-color: #f0fff0;
-	border-radius: 0.25rem;
-} */
-
-/*.new_camp {*/
-/*  border-radius: 0.25rem;*/
-/*  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),*/
-/*                 0px 8px 13px rgba(0,0,0,0.1),*/
-/*                 0px 18px 23px rgba(0,0,0,0.1);*/
-/*}*/
-
-/*.lightGray {*/
-/*  background-color: #f5f5f5;*/
-/*}*/
-
-/*.searchBorder {*/
-/*  border-bottom: 1px dotted #555 !important; */
-/*  border-radius: 0 !important;*/
-/*}*/
-
 /**************Profile show page*******************/
 .avatarCard {
-  /* max-width: 120px; */
     object-fit: cover;
     position: relative;
     max-width: 100%;
@@ -441,19 +395,6 @@ footer {
   text-decoration: none;
 }
 
-/* .avatarStyle:hover {
-	box-shadow: 
-    0 0 2px 2px rgba(20,25,30,0.1), 
-    0 4px 2px 0 rgba(20,25,30,0.1);
-	  -webkit-filter:brightness(0.7);
-	  text-decoration: none;
-} */
-
-/* .avatarImg {
-	display: inline-block; 
-	position: relative;
-} */
-
 .avatarDelete {
 	position : absolute;
 	background-color: transparent;
@@ -462,8 +403,6 @@ footer {
 	top : -1rem;
 	right : -0.4rem;
 	color: white;
-	/* padding: 0.2rem 0.5rem;
-	margin: -0.6rem -0.3rem -0.3rem auto; */
 	opacity: 0.8 !important;
 	text-shadow: 1px 4px 3px rgba(0,0,0,1),
 				1px 8px 13px rgba(0,0,0,0.5),
@@ -518,11 +457,4 @@ footer {
 	padding: 0;
 	border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
-	/* word-wrap: break-word; */
-	/* box-sizing: border-box; */
-	/* overflow-x: hidden;
-    overflow-y: auto;
-	outline: 0; */
-	/* top: 0;
-    left: 0; */
 }

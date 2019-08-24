@@ -3,8 +3,7 @@
 			$('img').css('height', '8rem');
 			$('.card-title').css('height', '3rem');
 			$('.starLineHeight').css('height', '3rem');
-			$('img').css('object-fit', 'cover');
-			// $('.card-body').css('object-fit', 'cover');
+			$('img').css('object-fit', 'cover');			
 		});
 
 		$('#waterfall').click(function(){
@@ -12,11 +11,6 @@
 			$('.card-title').css('height', 'auto');
 			$('.starLineHeight').css('height', 'auto');
 		});
-
-		//  $('.clear-rating').click(function(){
-		// 	$(this).siblings('.input-no-rate').click();
-		// 	$(this).siblings('#rateMessage').text('0 star');;
-		// });
 		
 		//star btn color
 		$('#starBtn1').css('color', '#6c757d');
@@ -54,8 +48,7 @@
 			$('#starBtn2').css('color', 'orange');
 			$('#starBtn3').css('color', 'orange');
 			$('#starBtn4').css('color', 'orange');
-		});
-		
+		});	
 		
 		///star btn hover effect mouse leave
 		$('#starBtn1').mouseleave(function(){
@@ -114,40 +107,6 @@
 			$('#rate5').prop('checked', true);
 			$('#rate5').siblings('#rateMessage').text('5 stars - Amazing');
 		});
-
-		
-		// $('#rate1').click(function(){
-		// 	$(this).siblings('#rateMessage').text('1 star - Terrible');
-		// });
-		
-		// $('#rate2').click(function(){
-		// 	$(this).siblings('#rateMessage').text('2 stars - Not good'); 
-		// });
-		
-		// $('#rate3').click(function(){
-		// 	$(this).siblings('#rateMessage').text('3 stars - Average'); 
-		// });
-		
-		// $('#rate4').click(function(){
-		// 	$(this).siblings('#rateMessage').text('4 stars - Very good'); 
-		// });
-		
-		// $('#rate5').click(function(){
-		// 	$(this).siblings('#rateMessage').text('5 stars - Amazing'); 
-		// });
-		
-		// $('#btn-rate1').click(function(){
-		// 	$(this).siblings('#add-review-form1').toggle();
-		// });	
-		
-	
-
-		// $(document).ready(function(){
-			//$('#addCampModal').on('shown.bs.modal', function() {
-				//$(this).find('#textFocus').focus();
-			//});
-		//});
-
 	
 
     

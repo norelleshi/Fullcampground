@@ -57,7 +57,7 @@ router.post("/register", upload.single('avatar'), function(req, res) {
                 avatar: req.body.avatar,
                 avatarId: req.body.avatarId
             });
-            // eval(require('locus')); 
+            
             if(req.body.adminCode === process.env.ADMIN_KEY){
                 req.body.isAdmin = true;
             }
@@ -89,25 +89,9 @@ router.post("/register", upload.single('avatar'), function(req, res) {
     }
 });
 
-// Show login form
-// router.get("/login", function(req, res){
-//    res.render("login"); 
-// });
-
-// handling login logic
-// router.post("/login", passport.authenticate("local", 
-//     {
-//         successRedirect: "/campgrounds",
-//         // successFlash: "Welcome to YelpCamp!",
-//         failureRedirect: "/login",
-//         failureFlash: true,
-//     }), function(req, res) {
-// });
-
 router.post("/", passport.authenticate("local", 
     {
         successRedirect: "/campgrounds",
-        // successFlash: "Welcome to YelpCamp!",
         failureRedirect: "/",
         failureFlash: true,
     }), function(req, res) {
@@ -137,18 +121,6 @@ router.get("/users/:user_id", function(req, res) {
         }    
    }) ;
 });
-
-//User profile edit route
-// router.get("/users/:id/edit", middleware.isLoggedIn, function(req, res) {
-//     User.findById(req.params.id, function(err, foundUser){
-//         if(err || !foundUser){
-//             req.flash("error", "User not found.");
-//             console.log(err);
-//         } else {
-//             res.render("users/edit", {user: foundUser});
-//         }    
-//     });        
-// });
 
 // User profile update route
 router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), function (req, res) {
@@ -181,7 +153,6 @@ router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), fu
 		}
 		user.email = req.body.email;
 		user.save();
-		// req.flash("success","Profile updated successfully!");
 		res.redirect("/users/" + user._id);
     });
 });    
@@ -196,8 +167,7 @@ router.delete("/users/:user_id", middleware.isLoggedIn, function(req, res){
         try {
             await cloudinary.v2.uploader.destroy(user.avatarId);
             user.avatarId = null;
-            user.avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";
-            // req.flash('success', 'Avatar deleted successfully!');
+            user.avatar = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png";            
             res.redirect("/users/" + user._id);
         } catch(err) {
             if(err) {

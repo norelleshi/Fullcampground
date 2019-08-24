@@ -3,7 +3,6 @@ var router  = express.Router();
 var Campground = require("../models/campground");
 var Review = require("../models/review");
 var User = require("../models/user");
-// var Comment = require("../models/comment");
 var middleware = require("../middleware");
 var NodeGeocoder = require('node-geocoder');
 var multer = require('multer');
@@ -89,7 +88,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
             req.body.campground.location = data[0].formattedAddress;
             req.body.campground.image = result.secure_url;
             req.body.campground.imageId = result.public_id;
-              // add author to campground
+            // add author to campground
             req.body.campground.author = {
                 id: req.user._id,
                 username: req.user.username
@@ -101,8 +100,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
                     console.log(err);
                 } else {
                     //redirect back to campgrounds page
-                    console.log(newlyCreated);
-                    // req.flash("success", "Campground created successfully!");
+                    console.log(newlyCreated);                    
                     res.redirect("/campgrounds/" + newlyCreated._id);
                 }
             });
@@ -128,17 +126,6 @@ router.get("/:id", function(req, res){
         }
     });
 });
-
-//EDIT CAMPGROUND ROUTE
-// router.get("/:id/edit", middleware.checkCampgroundOwnership, function(req, res) {
-//     Campground.findById(req.params.id, function(err, foundCampground){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.render("campgrounds/edit", {campground: foundCampground});
-//         }    
-//     });        
-// });
 
 // UPDATE CAMPGROUND ROUTE
 router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), function (req, res) {

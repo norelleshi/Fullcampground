@@ -5,7 +5,6 @@ var campgroundSchema = new mongoose.Schema({
     price: String,
     image: String,
     imageId: String,
-	// facilities: String,
     description: String,
     location: String,
     lat: Number,
@@ -19,12 +18,6 @@ var campgroundSchema = new mongoose.Schema({
         },
         username: String
     },
-    // comments: [
-    //   {
-    //      type: mongoose.Schema.Types.ObjectId,
-    //      ref: "Comment"
-    //   }
-    // ],
     reviews: [
         {
             type: mongoose.Schema.Types.ObjectId,

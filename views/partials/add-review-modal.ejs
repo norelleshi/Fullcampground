@@ -17,8 +17,7 @@
 							</div>
 						<% } else {%>
 							<form id="add-review-form" action="/campgrounds/<%= campground._id %>#addReviewPosition" method="POST">							
-								<fieldset class="starability-basic mb-0 d-none">
-								  <!-- <input type="radio" id="rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
+								<fieldset class="starability-basic mb-0 d-none">							
 								  <input type="radio" id="rate1" name="review[rating]" value="1" />
 								  <label for="rate1" title="Terrible">1 star</label>
 								  <input type="radio" id="rate2" name="review[rating]" value="2" />
@@ -29,8 +28,7 @@
 								  <label for="rate4" title="Very good">4 stars</label>
 								  <input type="radio" id="rate5" name="review[rating]" value="5" />
 								  <label for="rate5" title="Amazing">5 stars</label>
-									<div id="rateMessage"></div>
-									<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
+									<div id="rateMessage"></div>									
 								</fieldset>
 
 								<div class="form-group mb-1">

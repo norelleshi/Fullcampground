@@ -1,45 +1,5 @@
 <% include ../partials/header %>
-<!-- <div class="indexHeader jumbotron m-0 p-3 rounded-0">
-    <div class="container-fluid lead">
-        <h1 class="display-4">Welcome to YelpCamp</h1>
-        <p class="d-none d-md-block">YelpCamp is a web app for camping lovers to exchange their campground information. Login to share your campgrounds with people from all over the world!</p>
-        <hr class="my-4 border-white d-none d-md-block">
-        <p>View the campgrounds people recommended 
-			<a href="#divide" class="badge badge-success shadow-lg text-nowrap">below <i class="fas fa-arrow-circle-down"></i></a>
-		</p>
-		<p>Create new campgrounds 
-			<a href="/login" class="badge badge-success shadow-lg text-nowrap" id="divide"> <i class="fas fa-arrow-circle-right"></i> Login</a>			
-		</p> -->
-		
-        <!-- <div class="addNewCampgroundButton rounded-pill">
-            <a class="btn btn-success btn-lg rounded-pill font-weight-bold" 
-                href="/campgrounds/new">Add New Campground 
-                <i class="fas fa-angle-right"></i>
-            </a>
-        </div> -->
-    <!-- </div>
-</div> -->
-
-
 <div id="main"> 
-	<!-- <div class="searchBar d-block">
-		<form action="/campgrounds#main" method="GET">                   
-			<div class="input-group input-group-sm">
-				<input type="text" name="search"  
-						class="form-control rounded-0 font-weight-lighter border-secondary searchBarInput" 
-						placeholder="Names, locations, prices, authors, descriptions..." 
-						aria-label="Search campgrounds" 
-						aria-describedby="button-addon">
-				<div class="input-group-append">
-					<button type="sumbit" class="btn btn-outline-success btn-sm rounded-0 border-0" 
-						 id="button-addon" title="Search campgrounds">
-						<i class="fas fa-search"></i>
-					</button>
-				</div>
-			</div>
-		</form>          
-	</div>        -->
-
     <div class="darkBg pt-1">
         <div class="container px-1">
             <div class="darkTransparentBg">
@@ -47,16 +7,12 @@
 					<h5 class="mb-3 pl-1"><%= matchResult %> <em><%= searchInput %></em></h5>
 				<% } %>
             </div>
-			<!-- <button id="uniform" class="badge badge-dark">Uniform mode</button>
-			<button id="waterfall" class="mb-1 badge badge-dark">Waterfall mode</button> -->
             <div class="mb-1 d-flex justify-content-end">
 				<a id="uniform" href="#" class="displayMode m-0 px-1 py-0">Uniform mode</a>
 				<a id="waterfall" href="#" class="displayMode m-0 px-1 py-0">Waterfall mode</a>
 			</div>
 			<div class="card-columns">
-            <!--<div class="row text-center pb-4" id="campground-grid">-->
                 <% campgrounds.reverse().forEach(function(campground){ %>
-                <!--<div class="col-6 col-md-4 col-xl-3 mb-2 p-1">-->
                     <a href="/campgrounds/<%= campground._id %>" title="<%= campground.name %>" class="index-camp-card">
                         <div class="card IndexCardBg mb-2">
                             <img src="<%= campground.image %>" class="card-img-top" alt="<%= campground.name %>">
@@ -81,19 +37,10 @@
 							</div>
                         </div>
                     </a>
-                <!--</div>-->
                 <% }); %>
-            <!--</div>-->
             </div>
         </div>
     </div>
-    
-    <!-- <div class="bg-success m-0 p-4">
-        <div class="container-fluid">
-            <a href="#" class="font-weight-lighter text-white">More from YC News<i class="fas fa-angle-right text-white pl-2"></i></a>
-        </div>    
-    </div> -->
-    
 </div>
 
 <% include ../partials/footer %>

@@ -6,14 +6,11 @@
             <div class="d-flex justify-content-center">
                 <div class="card darkBg border-0">
 					<div class="avatarImg">
-						<button type="button" class="btn btn-transparent p-0" data-toggle="modal" data-target="#exampleModal">
-						<!-- <a href="<%= user.avatar %>" class="avatarStyle"> -->
-							<img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">
-							<!-- <button class="avatarDelete" title="Delete avatar" data-toggle="modal" data-target="#deleteAvatarModal"><span aria-hidden="true">&times;</span></button> -->
+						<button type="button" class="btn btn-transparent p-0" data-toggle="modal" data-target="#exampleModal">						
+							<img src="<%= user.avatar %>" class="card-img-top avatarCard" alt="user profile image">							
 							<div class="avatarViewBlock">
 								<p class="avatarView">View</p>
-							</div>
-						<!-- </a> -->
+							</div>						
 						</button>
 					</div>
                 </div>
@@ -40,19 +37,7 @@
                 <% if((currentUser && user._id.equals(currentUser._id)) || (currentUser && currentUser.isAdmin)){ %>
 					<div class="text-center">									
 						<a href="mailto:<%= user.email %>" class="text-light"><%= user.email %></a>
-						<span>
-							<!-- <a class="btn btn-outline-warning border-0 rounded-sm" 
-								role="button" data-toggle="collapse" 
-								href="#collapseEdit" 
-								aria-expanded="false" aria-controls="collapseEdit"
-								title="Edit profile">
-								<i class="fas fa-pen"></i>
-							</a> -->
-							<!--Delete avatar button-->
-							<!--<form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">-->
-							<!--    <button class="btn btn-outline-secondary border-0 rounded-sm" title="Delete"><i class="fas fa-trash-alt"></i></button>-->
-							<!--</form>-->
-							
+						<span>							
 							<!-- Edit profile button -->
 							<button type="button" class="btn btn-outline-success border-0 rounded-sm px-2 py-1" data-toggle="modal" data-target="#editProfileModal">
 							  	<i class="fas fa-user-edit"></i>
@@ -99,11 +84,7 @@
 										<div class="form-group text-right">
 											<button class="btn btn-sm btn-success btn-block">UPDATE</button>
 										</div>
-									</form>
-									<!--Delete avatar button-->
-									<!-- <form class="delete-form" action="/users/<%= user._id %>?_method=DELETE" method="POST">
-										<button class="btn btn-sm btn-danger btn-block rounded-sm" title="Delete avatar">DELETE AVATAR</button>
-									</form> -->
+									</form>									
 						  		</div>
 							</div>
 					  	</div>
@@ -135,13 +116,11 @@
 					<!-- Delete avatar modal END-->
                 <% } %>
             </div>
-            <!--<p>Bio</p>-->
         </div>
         
         <div class="col-md-6 col-lg-7 p-0">
             <hr class="d-block d-md-none my-1">
             <h4 class="pl-2 py-1 text-danger"><%= user.username %>'s campgrounds:</h4>
-            <!--<hr class="mt-0">-->
             <% if(campgrounds.length < 1){ %>
                 <p class="pl-2"><em>No campgrounds yet.</em></p>
             <% } %>

@@ -2,18 +2,9 @@
 <div id="main" class="container">
     <div class="row">
         <div class="col-md-3 order-2 order-md-1 py-1 pl-0 pr-1">
-            <!--<div class="list-group mb-2">-->
-            <!--    <li class="list-group-item active">Info 1</li>-->
-            <!--    <li class="list-group-item">Info 2</li>-->
-            <!--    <li class="list-group-item">Info 3</li>   -->
-            <!--</div>-->
-            <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-down"></i> <%= campground.location %></p></div> -->
             <div class="mb-1 blackOpacityBg" id="map"></div>
-            <!-- <div><p class="mb-0"><i class="fas fa-arrow-circle-up"></i> Click the red marker to view the address.</p></div> -->
-		</div>
-        
+		</div>      
         <div class="col-md-9 order-1 order-md-2 pt-1 pb-0 px-0">
-            <!-- <h4 class="m-0 py-0 text-center"><a href="<%= campground.image %>" class="showPageCampName"><%= campground.name %></a></h4> -->
             <div class="d-flex justify-content-center rounded-0 border border-bottom-0 border-secondary blackOpacityBg">
                 <div class="p-0">
                     <div class="card darkBg rounded-0">
@@ -37,8 +28,6 @@
 					</div>
 					<hr class="my-0">
                     <div class="p-1">   
-                        <!--<h5 class="card-title font-weight-bold camp_name_show"><%= campground.name %></h5>-->
-                        
                         <% if(campground.price != 0){ %>
 						<div>US $ <%= campground.price %> /night</div>
 						<% } %>
@@ -69,9 +58,6 @@
 							  	<i class="fas fa-pen"></i>
 							</button>
                             <!--Delete campground button-->
-                            <!-- <form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-                                <button class="btn btn-outline-light border-0 rounded-sm" title="Delete"><i class="far fa-trash-alt"></i></button>
-                            </form> -->
 							<button type="button" class="btn btn-outline-light border-0 rounded-sm" data-toggle="modal" data-target="#campDeleteModal">
 								 <i class="far fa-trash-alt"></i>
 							</button>
@@ -82,20 +68,6 @@
             </div>
         </div>
     </div>    
-    <!-- <div class=" row justify-content-end"> 
-    <div class="col-md-9">
-        <div class="text-center">
-            <a class="btn btn-outline-success btnOutlineGreen my-4" 
-                href="/campgrounds"
-                title="Go back to home page">
-                <i class="fas fa-chevron-left"></i> 
-                Go back
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </div>
-    </div>     -->
-
     <div class="row justify-content-end"> 
     <div class="col-md-9 px-0">
 		<div id="addReviewPosition">
@@ -110,46 +82,30 @@
 				<div>
 					<button id="starBtn1" type="button" data-toggle="modal" data-target="#addReviewModal"
 						class="bg-transparent border-0">
-						<!-- <i class="fas fa-plus"></i> -->
 						<i class="far fa-star starBtnSize"></i>
 					</button>
 					<button id="starBtn2" type="button" data-toggle="modal" data-target="#addReviewModal"
 						class="bg-transparent border-0">
-						<!-- <i class="fas fa-plus"></i> -->
 						<i class="far fa-star starBtnSize"></i>
 					</button>
 					<button id="starBtn3" type="button" data-toggle="modal" data-target="#addReviewModal"
 						class="bg-transparent border-0">
-						<!-- <i class="fas fa-plus"></i> -->
 						<i class="far fa-star starBtnSize"></i>
 					</button>
 					<button id="starBtn4" type="button" data-toggle="modal" data-target="#addReviewModal"
 						class="bg-transparent border-0">
-						<!-- <i class="fas fa-plus"></i> -->
 						<i class="far fa-star starBtnSize"></i>
 					</button>
 					<button id="starBtn5" type="button" data-toggle="modal" data-target="#addReviewModal"
 						class="bg-transparent border-0">
-						<!-- <i class="fas fa-plus"></i> -->
 						<i class="far fa-star starBtnSize"></i>
 					</button>
 				</div>
 			</div>
 		</div>
-        <!-- <div class="d-flex justify-content-between mx-0 mt-4 px-1" id="editReviewPosition"> -->
 		<div class="mt-2 pl-1">
 			<h5>Reviews</h5>
 		</div>
-			<!-- Add review button -->
-            <!-- <div id="addReviewPosition"> -->
-			
-            <!-- </div>     -->
-        <!-- </div> -->
-		
-		
-			
-        <!-- <hr class="mt-0 mb-1"> -->
-        
         	<% if(!(campground.reviews.length)) { %>
             	<p><em class="text-muted">No reviews yet.</em></p>
 			<% } %>
@@ -202,8 +158,6 @@
 											method="POST">
 											
 											<fieldset class="starability-basic mb-0">
-													<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating (0 star)</button> -->
-												  <!-- <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate0" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate1" name="review[rating]" value="1" />
 												  <label for="author-edit-rate1" title="Terrible">1 star</label>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate2" name="review[rating]" value="2" />
@@ -214,7 +168,6 @@
 												  <label for="author-edit-rate4" title="Very good">4 stars</label>
 												  <input form="edit-review-form<%= review._id %>" type="radio" id="author-edit-rate5" name="review[rating]" value="5" />
 												  <label for="author-edit-rate5" title="Amazing">5 stars</label>
-	
 											</fieldset>
 
 											<div class="form-group my-1">
@@ -259,7 +212,6 @@
 							</div>
 						</div>
 						<!-- Delete review modal END -->
-						<!-- <hr class="my-1"> -->
 					</div>
 		
 				<% } %>
@@ -274,10 +226,6 @@
 							<%- '<span class="far fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
 						</div>
 						<div>
-							<!-- <i class="fas fa-user"></i> -->
-							<!--<div class="card darkBg border-0">-->
-							<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
-							<!--</div>-->
 							<span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
 							<em class="text-muted review-date pl-1 d-inline">
 								<%= moment(review.updatedAt).fromNow() %>
@@ -315,9 +263,7 @@
 											action="/campgrounds/<%= campground._id %>/<%= review._id %>?_method=PUT#addReviewPosition"
 											method="POST">
 											
-											<fieldset class="starability-basic mb-0">
-													<!-- <button class="clear-rating d-block border-0 mb-2" type="button">Clear Rating</button> -->
-												  <!-- <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate0<%= review._id %>" class="input-no-rate" name="review[rating]" value="0" checked aria-label="No rating." /> -->
+											<fieldset class="starability-basic mb-0">											
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate1<%= review._id %>" name="review[rating]" value="1" />
 												  <label for="admin-edit-rate1<%= review._id %>" title="Terrible">1 star</label>
 												  <input form="admin-edit-review-form<%= review._id %>" type="radio" id="admin-edit-rate2<%= review._id %>" name="review[rating]" value="2" />
@@ -372,7 +318,6 @@
 						</div>
 						<!-- Admin delete review modal END -->
 					<% } %>
-                <!-- <hr class="my-1"> -->
 				<% } %>		
             <% }); %>
 		
@@ -385,10 +330,6 @@
 						<%- '<span class="far fa-star uncheckedStar"></span>'.repeat(5 - review.rating) %>
 					</div>
 					<div>
-						<!-- <i class="fas fa-user"></i> -->
-						<!--<div class="card darkBg border-0">-->
-						<!--    <img src="<%= review.author.avatar %>" class="card-img-top rounded-sm" style="max-width:60px;" alt="user profile image">-->
-						<!--</div>-->
 						<span><a href="/users/<%= review.author.id %>"><%= review.author.username %></a>,</span>
 						<em class="text-muted review-date pl-1 d-inline">
 							<%= moment(review.updatedAt).fromNow() %>
@@ -398,7 +339,6 @@
 						<%= review.text %>
 					</div>
 				</div>
-                <!-- <hr> -->
             	<% }); %>	
 			<% } %>		   
             

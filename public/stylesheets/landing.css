@@ -76,10 +76,6 @@ hr {
 	font-size: 1rem;
 }
 
-/* .noChangeLine {
-	white-space:nowrap;
-} */
-
 /************** Landing page setting *********/
 html {
 	height: 100%;
@@ -100,14 +96,8 @@ body {
 }
 
 .headerBrand {
-	/* padding-right: 7px;
-    padding-left: 7px;
-    padding-top: 12px; */
-	/* margin-top: -1px; */
 	text-decoration: none;
     background-color: #bfbfbf;
-    /* border-bottom-right-radius: 0.12rem;
-	border-bottom-left-radius: 0.12rem; */
 	font-size: large;
 	text-shadow: 0px 4px 3px rgba(0,0,0,0.1),
                  0px 2px 4px rgba(0,0,0,0.1),
@@ -124,7 +114,6 @@ body {
 
 .landingHeader {
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(http://i.imgur.com/SBEmFpv.jpg);
-  /* background-image: url(https://res.cloudinary.com/norelleshi/image/upload/v1555681561/tml5ovzrg9kf1ft8cwfj.jpg); */
   height: 100%;
   background-size: cover;
   background-position: 20% 20%;
@@ -133,37 +122,6 @@ body {
   position: relative;
 	min-height: 100vh;
 }
-
-/* .BgOpacity {
-	background-color: rgba(0, 0, 0, 0.4);
-	width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  position: relative;
-  top: 0;
-  left: 0;
-  border-radius:0;
-	min-height: 100vh;
-} */
-
-/* .landingTitle {
-	font-family: 'Montserrat', sans-serif;
-	font-weight: 700;
-	font-size: 1.4em;
-	color: #f8f8f8;
-  	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
-                 0 8px 13px rgba(0,0,0,0.1),
-                 0 18px 23px rgba(0,0,0,0.1);
-}
-
-.landingP {
-	font-size: 1.15rem;
-    font-weight: 300;
-	font-family: 'Montserrat', sans-serif;
-} */
 
 .heading-primary {
     color: #fff;
@@ -184,10 +142,6 @@ body {
 	text-shadow: 0 4px 3px rgba(0,0,0,0.5),
                  0 8px 13px rgba(0,0,0,0.1),
                  0 18px 23px rgba(0,0,0,0.1);
-    /* 
-    animation-delay: 3s;
-    animation-iteration-count: 3; 
-    */
 }
 
 .heading-primary-sub {
@@ -337,10 +291,3 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
-/* .trans-btn {
-    background-color: #fff;
-    color: #212529;
-	font-weight: 600;
-	font-size: .9rem;
-} */
