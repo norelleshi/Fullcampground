@@ -156,6 +156,14 @@ body {
     transform: translateY(-1px);
 }
 
+.cre-btn {
+	font-size: 24px;
+}
+
+.logout-btn{
+	font-size: 24px;
+}
+
 #main {
   padding-bottom: 4rem;
 	font-family: 'Montserrat', sans-serif;
@@ -174,25 +182,10 @@ footer {
 
 
 /************** Index page setting *********/
-.addNewCampgroundButton {
-  display: inline-block;
-	font-family: 'Montserrat', sans-serif;
-  box-shadow: 0 0 1px 3px rgba(20,23,28,0.2), 
-            0 2px 9px 0 rgba(20,23,28,0.6);
-}
 
-.searchBar {
-	background-color: black;
-}
-
-.searchBarInput {
-	background-color: black !important; 
-	color: white !important;
-	margin: -1px;
-}
-
-.searchBarInput:focus {
-	border-color: #00e600 !important;
+.navbar__logo {
+	outline: none;
+    width: 3rem;
 }
 
 .displayMode {

@@ -1,5 +1,5 @@
-# YelpCamp Introductions 
-  YelpCamp is a responsive web application project based on the Udemy course - [The Web Developer Bootcamp by Colt Steele](https://www.udemy.com/the-web-developer-bootcamp/), additional tutorials and my own refactor.
+# Fullcampground Introductions 
+  Fullcampground is a responsive web application project refactored from that of the Udemy course - [The Web Developer Bootcamp by Colt Steele](https://www.udemy.com/the-web-developer-bootcamp/) and additional tutorials.
 
 ### Features
 * For All Pages
@@ -68,7 +68,7 @@
  
 ### Deployment
 * Heroku
-* [Click here to view the live demo](https://agile-falls-54679.herokuapp.com/) <br>
+* [Click here to view the live demo](https://fullcampground.herokuapp.com/) <br>
   Login username: Guest <br>
   Login password: Guest123
  

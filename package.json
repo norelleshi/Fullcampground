@@ -1,7 +1,7 @@
 {
   "name": "v1",
   "version": "1.0.0",
-  "description": "YelpCamp v1",
+  "description": "Fullcampground v1",
   "main": "app.js",
   "scripts": {
     "compile:sass": "node-sass public/stylesheets/sass/main.scss public/stylesheets/css/style.css -w",
