@@ -208,6 +208,8 @@ button.btn-up {
   color: white;
   position: relative;
   min-height: 100vh; }
+  .header__logo {
+    width: 10rem; }
   .header .navbar {
     background-color: #2e3035;
     padding-top: 0;
@@ -216,6 +218,7 @@ button.btn-up {
     z-index: 50;
     font-family: 'Montserrat', sans-serif; }
     .header .navbar__logo {
+      outline: none;
       width: 3rem; }
     .header .navbar .form-control {
       font-size: 1.1rem;
