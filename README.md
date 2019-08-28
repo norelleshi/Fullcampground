@@ -1,5 +1,5 @@
 # Fullcampground Introductions 
-  Fullcampground is a responsive web application project refactored from that of the Udemy course - [The Web Developer Bootcamp by Colt Steele](https://www.udemy.com/the-web-developer-bootcamp/) and additional tutorials.
+  Fullcampground is a responsive web application built with NodeJS.
 
 ### Features
 * For All Pages
