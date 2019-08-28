@@ -45,7 +45,7 @@
 					<a href="/campgrounds/new" class="trans-btn" title="Creat a new campground">Create</a>
                 <% } else { %>					
 				<span> | </span>
-					<button class="btn btn-outline-light rounded-sm btn-sm border-0 px-1 ml-1 mr-0 mr-auto cre-btn" data-toggle="modal" data-target="#createModal">
+					<button class="btn btn-outline-light rounded-sm btn-sm border-0 px-1 ml-1 mr-0 mr-auto" data-toggle="modal" data-target="#createModal">
 						Create
 					</button>
 				<% } %>
@@ -86,7 +86,7 @@
                                 <a href="/users/<%= currentUser._id %>" class="nav-link text-light">Profile</a>
                             </li>
                             <li class="nav-item mt-1<%= typeof page !== 'undefined' && page === 'campgrounds' ? 'active' : '' %>">                                
-                            	<button class="btn btn-outline-light rounded-sm btn-sm border-0 logout-btn" data-toggle="modal" data-target="#logoutModal">
+                            	<button class="btn btn-outline-light rounded-sm btn-sm border-0" data-toggle="modal" data-target="#logoutModal">
 								  Logout
 								</button>
 							</li>   
