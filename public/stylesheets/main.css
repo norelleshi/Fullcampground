@@ -296,6 +296,10 @@ footer {
   border-top-right-radius: 0;
 }
 
+.form-signin__logo {
+	width: 7.5rem;
+}
+ 
 
 /******************* Campground show page setting ****************/
 #map {
