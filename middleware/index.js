@@ -1,8 +1,8 @@
-var Campground =require("../models/campground");
-var Review = require("../models/review");
+const Campground =require("../models/campground");
+const Review = require("../models/review");
 
 //all the middleware goes here
-var middlewareObj = {};
+let middlewareObj = {};
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
     // is user logged in
     if(req.isAuthenticated()){
@@ -63,7 +63,7 @@ middlewareObj.checkReviewExistence = function (req, res, next) {
                 res.redirect("back");
             } else {
                 // check if req.user._id exists in foundCampground.reviews
-                var foundUserReview = foundCampground.reviews.some(function (review) {
+                const foundUserReview = foundCampground.reviews.some(function (review) {
                     return review.author.id.equals(req.user._id);
                 });
                 if (foundUserReview) {

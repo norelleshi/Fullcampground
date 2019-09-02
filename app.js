@@ -17,7 +17,7 @@ const express     = require("express"),
     const campgroundRoutes    = require("./routes/campgrounds");
     const indexRoutes         = require("./routes/index");
 
-let url = process.env.DATABASEURL || "mongodb://localhost:27017/yc13";
+const url = process.env.DATABASEURL || "mongodb://localhost:27017/yc13";
 mongoose.connect(url, { 
 	useNewUrlParser: true,
 	useCreateIndex: true

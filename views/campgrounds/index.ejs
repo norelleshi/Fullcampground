@@ -7,10 +7,10 @@
 					<h5 class="mb-3 pl-1"><%= matchResult %> <em><%= searchInput %></em></h5>
 				<% } %>
             </div>
-            <div class="mb-1 d-flex justify-content-end">
+            <!-- <div class="mb-1 d-flex justify-content-end">
 				<a id="uniform" href="#" class="displayMode m-0 px-1 py-0">Uniform mode</a>
 				<a id="waterfall" href="#" class="displayMode m-0 px-1 py-0">Waterfall mode</a>
-			</div>
+			</div> -->
 			<div class="card-columns">
                 <% campgrounds.reverse().forEach(function(campground){ %>
                     <a href="/campgrounds/<%= campground._id %>" title="<%= campground.name %>" class="index-camp-card">

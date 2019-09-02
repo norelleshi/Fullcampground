@@ -1,25 +1,19 @@
 		//Layout mode	
-		$('#uniform').click(function(){
-			$('img').css('height', '8rem');
-			$('.card-title').css('height', '3rem');
-			$('.starLineHeight').css('height', '3rem');
-			$('img').css('object-fit', 'cover');			
-		});
+		// $('#uniform').click(function(){
+		// 	$('img').css('height', '8rem');
+		// 	$('.card-title').css('height', '3rem');
+		// 	$('.starLineHeight').css('height', '3rem');
+		// 	$('img').css('object-fit', 'cover');			
+		// });
 
-		$('#waterfall').click(function(){
-			$('img').css('height', 'auto');
-			$('.card-title').css('height', 'auto');
-			$('.starLineHeight').css('height', 'auto');
-		});
-		
-		//star btn color
-		$('#starBtn1').css('color', '#6c757d');
-		$('#starBtn2').css('color', '#6c757d');
-		$('#starBtn3').css('color', '#6c757d');
-		$('#starBtn4').css('color', '#6c757d');
-		$('#starBtn5').css('color', '#6c757d');
+		// $('#waterfall').click(function(){
+		// 	$('img').css('height', 'auto');
+		// 	$('.card-title').css('height', 'auto');
+		// 	$('.starLineHeight').css('height', 'auto');
+		// });
 		
 		//star btn hover effect mouse enter
+
 		$('#starBtn1').mouseenter(function(){
 			 $(this).css('color', 'orange'); 
 		});

@@ -1,46 +1,46 @@
-var express = require("express");
-var router  = express.Router();
-var Campground = require("../models/campground");
-var Review = require("../models/review");
-var User = require("../models/user");
-var middleware = require("../middleware");
-var NodeGeocoder = require('node-geocoder');
-var multer = require('multer');
-var storage = multer.diskStorage({
+const express = require("express");
+const router  = express.Router();
+const Campground = require("../models/campground");
+const Review = require("../models/review");
+const User = require("../models/user");
+const middleware = require("../middleware");
+const NodeGeocoder = require('node-geocoder');
+const multer = require('multer');
+const storage = multer.diskStorage({
   filename: function(req, file, callback) {
     callback(null, Date.now() + file.originalname);
   }
 });
-var imageFilter = function (req, file, cb) {
+const imageFilter = function (req, file, cb) {
     // accept image files only
     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
         return cb(new Error('Only image files are allowed!'), false);
     }
     cb(null, true);
 };
-var upload = multer({ storage: storage, fileFilter: imageFilter});
+const upload = multer({ storage: storage, fileFilter: imageFilter});
 
-var cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
 cloudinary.config({ 
   cloud_name: process.env.Cloud_Name, 
   api_key: process.env.CLOUDINARY_API_KEY, 
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
  
-var options = {
+const options = {
   provider: 'google',
   httpAdapter: 'https',
   apiKey: process.env.GEOCODER_API_KEY,
   formatter: null
 };
  
-var geocoder = NodeGeocoder(options);
+const geocoder = NodeGeocoder(options);
 
 //INDEX - show all campgrounds
 router.get("/", function(req, res){
     // eval(require('locus')); 
-	var matchResult = null;
-	var searchInput = null;
+	let matchResult = null;
+	let searchInput = null;
     if(req.query.search){
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         //Get all campgrounds from DB
@@ -110,7 +110,7 @@ router.post("/", middleware.isLoggedIn, upload.single('image'), function(req, re
 
 //SHOW - shows more info about one campground
 router.get("/:id", function(req, res){
-	var publicMapKey = process.env.MAP_PUBLIC_KEY;
+	const publicMapKey = process.env.MAP_PUBLIC_KEY;
     //find the campground with provided ID
     Campground.findById(req.params.id).populate({
         path: "reviews",
@@ -143,7 +143,7 @@ router.put("/:id", middleware.checkCampgroundOwnership, upload.single("image"), 
                 if (req.file) {
                     try {
                         await cloudinary.v2.uploader.destroy(campground.imageId);
-                        var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
+                        const result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
                         campground.imageId = result.public_id;
                         campground.image = result.secure_url;
                     } catch(err) {

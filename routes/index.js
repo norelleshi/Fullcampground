@@ -1,25 +1,25 @@
-var express = require("express");
-var router  = express.Router();
-var passport = require("passport");
-var User = require("../models/user");
-var Campground = require("../models/campground");
-var middleware = require("../middleware");
-var multer = require('multer');
-var storage = multer.diskStorage({
+const express = require("express");
+const router  = express.Router();
+const passport = require("passport");
+const User = require("../models/user");
+const Campground = require("../models/campground");
+const middleware = require("../middleware");
+const multer = require('multer');
+const storage = multer.diskStorage({
   filename: function(req, file, callback) {
     callback(null, Date.now() + file.originalname);
   }
 });
-var imageFilter = function (req, file, cb) {
+const imageFilter = function (req, file, cb) {
     // accept image files only
     if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
         return cb(new Error('Only image files are allowed!'), false);
     }
     cb(null, true);
 };
-var upload = multer({ storage: storage, fileFilter: imageFilter});
+const upload = multer({ storage: storage, fileFilter: imageFilter});
 
-var cloudinary = require('cloudinary');
+const cloudinary = require('cloudinary');
 cloudinary.config({ 
   cloud_name: process.env.Cloud_Name, 
   api_key: process.env.CLOUDINARY_API_KEY, 
@@ -51,7 +51,7 @@ router.post("/register", upload.single('avatar'), function(req, res) {
             req.body.avatar = result.secure_url;
             req.body.avatarId = result.public_id;
             
-            var newUser = new User({
+            const newUser = new User({
                 username: req.body.username,
                 email: req.body.email,
                 avatar: req.body.avatar,
@@ -129,7 +129,7 @@ router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), fu
             req.flash("error", err.message);
             return res.redirect("back");
         }
-		let existAvatar = user.avatarId;
+		const existAvatar = user.avatarId;
 		if(existAvatar){
 			try{
 				await cloudinary.v2.uploader.destroy(existAvatar);
@@ -141,7 +141,7 @@ router.put("/users/:user_id", middleware.isLoggedIn, upload.single('avatar'), fu
 		} 
 		if (req.file) {
 			try {
-				var result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
+				const result = await cloudinary.v2.uploader.upload(req.file.path, {angle: 'exif'});
 				// eval(require('locus'));
 				user.avatarId = result.public_id;
 				user.avatar = result.secure_url;
