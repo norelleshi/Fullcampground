@@ -2,7 +2,7 @@ const Campground =require("../models/campground");
 const Review = require("../models/review");
 
 //all the middleware goes here
-let middlewareObj = {};
+const middlewareObj = {};
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
     // is user logged in
     if(req.isAuthenticated()){
