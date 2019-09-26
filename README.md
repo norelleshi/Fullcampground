@@ -1,4 +1,4 @@
-# Fullcampground Introductions 
+# Fullcampground Introduction
   Campground information exchange platform built with Node.js
 
 ### Features
