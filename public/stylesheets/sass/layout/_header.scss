@@ -9,9 +9,12 @@
   	position: relative;
 	min-height: 100vh;
 	
-	&__logo {
-		width: 11rem;
-	} 
+	// &__logo {
+	// 	background-size: cover;
+	// 	width: 70px;
+	// 	height: 70px;
+	// 	background-image: url(../img/fullcampground.png);
+	// } 
 	
 	& .navbar {
 		background-color: #2e3035;
@@ -22,8 +25,10 @@
 		font-family: 'Montserrat', sans-serif;
 
 		&__logo {
-			outline: none;
-    		width: 3rem;
+			background-size: cover;
+			width: 40px;
+			height: 40px;
+			background-image: url(../img/fullcampground.png);
 		}
 
 		& .form-control {
@@ -49,5 +54,13 @@
 		margin-right: auto;
 		margin-left: auto;
 		text-align: center;
+		
+		&--logo {
+			margin: auto;
+			background-size: cover;
+			width: 190px;
+			height: 190px;
+			background-image: url(../img/fullcampground.png);
+		}
 	}
 }

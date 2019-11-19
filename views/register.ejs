@@ -1,12 +1,12 @@
 <% include ./partials/header %>
 <div id=main>
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <form class="form-signin" action="/register" method="POST" enctype="multipart/form-data">					
-					<div class="text-center pb-3">
-						<img src="https://res.cloudinary.com/norelleshi/image/upload/v1566964664/logo/fullcampground_2.png" alt="Logo" class="form-signin__logo">						
-					</div>
+    <div class="container register pt-3 pb-4">
+		<div class="register__logo">
+			<!-- <img src="https://res.cloudinary.com/norelleshi/image/upload/v1566964664/logo/fullcampground_2.png" alt="Logo" class="form-signin__logo">						 -->
+		</div>
+        <div class="row justify-content-center">		
+            <div class="col-md-8 col-lg-6">			
+                <form class="form-signin" action="/register" method="POST" enctype="multipart/form-data">									
                         <label for="inputUsername" class="sr-only">Username</label>
                         <input type="text" id="inputUsername" class="form-control" 
                             name="username" placeholder="Username*" required autofocus>                   

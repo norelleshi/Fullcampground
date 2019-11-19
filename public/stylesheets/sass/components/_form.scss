@@ -15,6 +15,13 @@
 	max-width: 30rem;
 	margin: auto;
 	width: 100%;
+	
+	&__logo {
+		background-size: cover;
+		width: 190px;
+		height: 190px;
+		background-image: url(../img/fullcampground.png);
+	}
 
 	& input[type="text"] {
 		margin-bottom: -0.1rem;

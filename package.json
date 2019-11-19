@@ -4,7 +4,7 @@
   "description": "Fullcampground v1",
   "main": "app.js",
   "scripts": {
-    "compile:sass": "node-sass public/stylesheets/sass/main.scss public/stylesheets/css/style.css -w",
+    "sass": "node-sass public/stylesheets/sass/main.scss public/stylesheets/css/style.css -w",
     "start": "node app"
   },
   "author": "Norelle",

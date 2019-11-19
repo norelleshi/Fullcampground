@@ -176,8 +176,10 @@ footer {
 /************** Index page setting *********/
 
 .navbar__logo {
-	outline: none;
-    width: 3rem;
+	background-size: cover;
+	width: 40px;
+	height: 40px;
+	background-image: url(../img/fullcampground.png);
 }
 
 .displayMode {
@@ -296,8 +298,12 @@ footer {
   border-top-right-radius: 0;
 }
 
-.form-signin__logo {
-	width: 7.5rem;
+.register__logo {
+	margin: auto;
+	background-size: cover;
+	width: 190px;
+	height: 190px;
+	background-image: url(../img/fullcampground.png);
 }
  
 
